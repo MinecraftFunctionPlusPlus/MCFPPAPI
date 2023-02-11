@@ -5,7 +5,7 @@ hero:
   description: 全新的数据包开发体验
   actions:
     - text: 快速开始
-      link: /part1
+      link: /quickstart
     - text: Github
       link: https://github.com/Alumopper/mcfppcper
 features:
