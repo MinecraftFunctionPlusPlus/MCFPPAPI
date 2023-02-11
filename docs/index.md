@@ -1,23 +1,21 @@
 ---
-title: A static site based on dumi
+title: MCFPP
 hero:
-  title: Site
-  description: A simple guide for languange mcfpp
+  title: MCFPP
+  description: 全新的数据包开发体验
   actions:
-    - text: Hello
-      link: /
-    - text: World
-      link: /
+    - text: 快速开始
+      link: /part1
+    - text: Github
+      link: https://github.com/Alumopper/mcfppcper
 features:
-  - title: Hello
-    emoji: 💎
-    description: Put hello description here
-  - title: World
-    emoji: 🌈
-    description: Put world description here
-  - title: '!'
-    emoji: 🚀
-    description: Put ! description here
+  - title: 简洁的语法
+    emoji: ☕
+    description: 和java接近的语法，让mcfpp简单易上手
+  - title: 跨版本
+    emoji: 🌉
+    description: 让你的mcfpp工程编译成能支持不同版本Minecraft的数据包
+  - title: 面向对象和过程
+    emoji: 🍋
+    description: 前所未有的数据包开发体验
 ---
-
-MCFPP Guide
