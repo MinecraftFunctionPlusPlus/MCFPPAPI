@@ -5,11 +5,11 @@ nav:
   title: 快速开始
   order: -1
 ---
-# 语法概要
+# 通用语法
 
 如果你有编程基础，那就直接看看 mcfpp 语法概要吧！
 如果没有编程基础，那还是乖乖看后面的[详细教材](/perface)吧~
-注意mcfpp语句是以分号结尾的
+注意mcfpp语句是以分号结尾的。
 
 ## 变量
 
@@ -60,10 +60,12 @@ for(forinit;bool;forupdate){
 **break和continue语句是可用的。**
 ## 函数
 ```cpp
-func functionname(type param...){
+tag func namespace:functionname(type param...){
     statement...
 }
 ```
+namespace是可以省略的。如果省略，则默认按照当前文件的命名空间。
+tag为函数的标签，是一个命名空间id。命名空间若省略，对于tick和load标签默认为minecraft命名空间，而其他则和文件命名空间一致。
 :::warning{title=Note!}
 mcfpp中的函数必须只能包含小写字母和下划线，和mcfunction中的函数命名法则一样。
 :::
@@ -89,6 +91,7 @@ class ClassName{
     classMember...
 }
 ```
+mcfpp中的类可以分开定义，也就是说，如果定义了两个相同的类，它们将会被看作一个类对待。<Badge type="warning">可能被移除的特性</Badge>
 :::warning{title=Note!}
 mcfpp中的类必须以大写字母开头。
 :::
@@ -132,5 +135,39 @@ class Student{
     public getscore(static int score){
         score = this.score;
     }
+}
+```
+## 特殊语法
+### native函数
+native可以被声明在类或者函数中，用于在**编译**阶段调用运行指定的一个java函数。
+它的声明是这样的：
+```cpp
+native func test(params...) -> packagename.classname.funcname;  
+```
+前面是一个普通的函数声明，箭头所指的则是java中的一个方法的完整路径，包括包，类和方法名。
+相应的java函数的声明有一个要求，即函数的参数必须为`(Var[] xxx, Class cls)`。`Var[] xxx`是调用这个函数时传入的参数的信息，`Class cls`是这个函数所在的类。如果这个函数不是一个类的成员，则`cls`参数将会是`null`
+这是一个例子：
+NativeTest1.java
+```js
+package top.alumopper.mcfpp.test;
+
+import top.alumopper.mcfpp.lang.*;
+
+public class NativeTest1{
+    public static void test(Var[] vars, Class cls){
+        System.out.println("MNI > Hello Minecraft!");
+        for (Var v : vars) {
+            System.out.println("MNI > Get argument " + v.identifier);
+        }
+    }
+}
+```
+test.mcfpp
+```cpp
+native func test(int i) -> top.alumopper.mcfpp.test.NativeTest1.test;
+
+func main(){
+    int i = 0;
+    test(i);
 }
 ```
