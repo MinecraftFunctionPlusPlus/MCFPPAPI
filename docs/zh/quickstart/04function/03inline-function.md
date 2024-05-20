@@ -25,7 +25,7 @@ inline func add(int a, int b) -> int{
     return a + b;
 }
 
-void main(){
+func main(){
     print(add(1, 2));
 }
 ```
@@ -33,7 +33,7 @@ void main(){
 编译的时候，上述代码会相当于：
 
 ```mcfpp
-void main(){
+func main(){
     int a = 1;
     int b = 2;
     int ret = a + b;
