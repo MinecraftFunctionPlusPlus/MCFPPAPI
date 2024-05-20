@@ -111,7 +111,7 @@ returnType identifier(type param...){
 ```
 函数的命名空间由文件的命名空间决定。若文件没有单独声明命名空间，则为工程配置文件设置的命名空间。
 :::warning{title=Note!}
-mcfpp中的函数名只能包含字母和下划线。
+mcfpp中的函数名只能包含字母、下划线及数字。
 :::
 return是可用的。
 
