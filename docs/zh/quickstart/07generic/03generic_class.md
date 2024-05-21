@@ -33,7 +33,7 @@ class ClassName<type T>{
 }
 
 func main(){
-    ClassName<int> c = ClassName(5);
+    ClassName<int> c = ClassName(5);    //创建泛型类的对象
     print(c.getValue()); //输出5
 }
 ```

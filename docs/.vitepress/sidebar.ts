@@ -68,12 +68,12 @@ export const sidebar : DefaultTheme.Sidebar = {
                 { text: "库的导出", link: "/zh/quickstart/09library/02export-library" }
             ]
         },
-        {
+        {   
             text: "MNI框架",
             items: [
                 { text: "介绍", link: "/zh/quickstart/10mni/01mni-framework" },
-                { text: "使用MNI框架", link: "/zh/quickstart/10mni/02use-mni-framework" },
-                { text: "MNI框架的实现", link: "/zh/quickstart/10mni/03mni-framework-implementation" }
+                { text: "MNI框架的实现", link: "/zh/quickstart/10mni/02mni-framework-implementation" }
+                { text: "直接使用java变量和函数", link: "/zh/quickstart/10mni/03javavar" },
             ]
         },
         {
