@@ -199,10 +199,15 @@ mcfpp中的类必须以大写字母开头。
 `子类 : 父类/父接口`。允许继承多个类或接口。
 使用`override`关键字，从而实现对父类或者父接口中方法的重写。
 ### super和this
+
 调用父类构造方法：`super()`
+
 调用自己的构造方法：`this()`
+
 访问自身及父类的字段：`this.xxx`
+
 访问静态成员：`ClassName.xxx`或`ClassName.function()`
+
 :::warning{title=Note!}
 在mcfpp中，要访问一个类的成员，必须使用this关键字或者使用类名进行访问。
 :::
