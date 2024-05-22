@@ -1,9 +1,8 @@
-
 ---
-title: Quick start 
+title: Quick start
 order: -1
 nav:
-  title: Quick start 
+  title: Quick start
   order: -1
 ---
 
