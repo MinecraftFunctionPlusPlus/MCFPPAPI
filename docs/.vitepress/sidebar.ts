@@ -7,8 +7,8 @@ export const sidebar : DefaultTheme.Sidebar = {
         {
             text: "工程配置",
             items: [
-                { text: "创建工程", link: "/zh/quickstart/project/01create-project" },
-                { text: "配置文件", link: "/zh/quickstart/project/02config-file" }
+                { text: "创建工程", link: "/zh/quickstart/01project/01create-project" },
+                { text: "配置文件", link: "/zh/quickstart/01project/02config-file" }
             ]
         },
         {

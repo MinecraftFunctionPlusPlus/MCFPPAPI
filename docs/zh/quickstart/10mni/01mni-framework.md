@@ -9,7 +9,7 @@ MNI框架（Minecraft Native Implement Framework）是MCFPP提供的一个在编
 在MCFPP中，有大量的函数都是通过MNI实现的，例如`print`函数。下面是一个例子，展示`print`函数利用MNI的实现过程。
 
 ```mcfpp
-//定义print函数以及它的重载
+#定义print函数以及它的重载
 func print(int i) = top.mcfpp.lang.System.print;
 func print(any a) = top.mcfpp.lang.System.print;
 ```
