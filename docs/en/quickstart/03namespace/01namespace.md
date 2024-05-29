@@ -16,9 +16,9 @@ func test(){    # test:test function
 }
 ```
 
-You can only declare namespace once in a file.
+You can only define namespace once in a file.
 
-The same, you can also declare this namespace in the project configuration file.
+The same, you can also define this namespace in the project configuration file.
 
 ```json
 {
