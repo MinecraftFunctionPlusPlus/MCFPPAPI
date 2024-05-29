@@ -2,9 +2,9 @@
 lastUpdated: true
 ---
 
-# 顶层语句
+# Top statement 
 
-在MCFPP中，允许在文件的开始直接编写语句而无需额外定义函数，即顶层语句。顶层语句处于一个隐式的函数中，这个函数每个文件有且只有一个，且不能被外部调用。它的返回值类型为`void`。
+In MCFPP, allows programming statements in the start of the file and don’t need to declare extra function, that’s the top statement. Top statement places in a hidden function, each file have one and only one of this function, and it cannot be called externally. Its returned value’s type is `void`.
 
 ```mcfpp
 print("Top statement");
@@ -14,9 +14,9 @@ func main(){
 }
 ```
 
-在编译后，会生成两个函数——分别对应main函数以及顶层语句对应的默认函数。
+After compiling, it’ll form two functions —— corresponding to main function and the default functions of top statement respectively.
 
-顶层语句只能在文件的开始编写，即在函数定义或类定义之前。顶层语句可以调用文件中声明的其他函数和类
+Top statement only can program in the start of the file, which is before the declaration of any functions or classes. Top statement can call the other functions and classes that’s declared in the file.
 
 ```mcfpp
 main();
