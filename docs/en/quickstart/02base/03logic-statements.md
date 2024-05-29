@@ -2,15 +2,15 @@
 lastUpdated: true
 ---
 
-# 逻辑语句
+# Logic statements 
 
 ::: tip
-MCFPP中的逻辑语句和C/Java中的逻辑语句完全一致。如果你对其他语言足够熟悉，你可以跳过这一节。
+The logic statement of MCFPP is totally the same as in C/Java. You can skip this chapter if you already know it.
 :::
 
-## if语句
+## if statement
 
-`if`语句是一种条件语句，它用来判断一个条件是否成立。如果条件成立，那么`if`语句中的代码块将会被执行。`if`语句的语法如下：
+`if` statement is a condition statement, it can used to determine a condition is true or false. If true, then the code in the `if` statement block will be execute. The grammar of `if` is:
 
 ```mcfpp
 if (condition){
@@ -18,9 +18,9 @@ if (condition){
 }
 ```
 
-`condition`是一个布尔表达式，它的值为`true`或`false`。如果`condition`的值为`true`，那么`#code`中的代码块将会被执行。
+`condition` is a boolean expression, it’s value is `true` or `false`. If the value of `condition` is `true`, then `#code` will be execute.
 
-`if`语句还可以和`else`语句一起使用，`else`语句用来在`if`语句的条件不成立时执行代码块。`if-else`语句的语法如下：
+`if` statement can be used together with `else` statement, `else` statement used to execute the code when the condition in `if`is false. The grammar of `if-else` is shown:
 
 ```mcfpp
 if (condition){
@@ -30,9 +30,9 @@ if (condition){
 }
 ```
 
-`condition`是一个布尔表达式，它的值为`true`或`false`。如果`condition`的值为`true`，那么`#code1`中的代码块将会被执行；否则，`#code2`中的代码块将会被执行。
+`condition` is a boolean expression, it’s value is `true` or `false`. If the value of `condition` is `true`, then `#code1‘ will be execute; Else, ’#code2‘ will be execute.
 
-可以使用`else if`语句用来在`if`语句的条件不成立时判断另一个条件。`if-else if-else`语句的语法如下：
+We can use `else if` to add another condition when `if` is false. The grammar of `if-else if-else` is shown below:
 
 ```mcfpp
 if (condition1){
@@ -44,9 +44,9 @@ if (condition1){
 }
 ```
 
-## while语句和do-while语句
+## while statement and do-while statement
 
-`while`语句是一种循环语句，它用来重复执行一个代码块，直到条件不成立。`while`语句的语法如下：
+`while` is a loop statement, it can execute a code block repeatedly, until the condition is false. The grammar of `while` statement is:
 
 ```mcfpp
 while (condition){
@@ -54,9 +54,9 @@ while (condition){
 }
 ```
 
-`condition`是一个布尔表达式。如果`condition`的值为`true`，那么则执行`#code`代表的代码块。此后，再次判断`condition`的值，如果`condition`的值为`true`，那么`#code`代表代码块将会被执行；如此循环，直到`condition`的值为`false`。
+`condition` is an boolean expression, when `condition` is `true`, it’ll execute the code block in `#code`. Then, determine the value of `condition` again. If value of `condition` is `true`, then `#code` will be execute; loop again and again, until the value of `condition` is `false`.
 
-`do-while`语句和`while`类似，但是无论条件是否成立，它都会先执行因此循环体中的语句，而后再判断条件来决定是否继续进行。`do-while`语句的语法如下：
+`do-while` statement is similar with `while` statement, but no matter the condition is true or false, it’ll execute the statement in the loop once, and then determine the condition to see continue execution or not. The grammar of `do-while` is shown below:
 
 ```mcfpp
 do{
@@ -64,9 +64,9 @@ do{
 }while (condition);
 ```
 
-## for语句
+## for statement 
 
-`for`语句是循环的一种稍复杂的版本，它的语法如下：
+`for` statement is a more complex version of loop, it’s grammar is:
 
 ```mcfpp
 for (forinit; condition; forupdate){
@@ -74,17 +74,17 @@ for (forinit; condition; forupdate){
 }
 ```
 
-`forinit`是一个初始化表达式，它用来初始化循环变量。`condition`是一个布尔表达式，它用来判断循环是否继续。`forupdate`是一个更新表达式，它用来更新循环变量。`#code`代表了循环体，即循环体中的代码。在运行的时候，`for`语句的执行过程如下：
+`forinit` is an initialization expression, used to initialize loop variable. `condition` is a boolean expression, used to determine if the loop keeps going on. `forupdate` is a update expression, used to update the variable of the loop. `#code` represents the loop body, which is the code in the loop. The execute process of `for` is shown below:
 
-1. 执行`forinit`，初始化循环变量。
-2. 判断`condition`的值，如果`condition`的值为`true`，则执行`#code`代表的代码块，然后执行`forupdate`，更新循环变量，再次判断`condition`的值。
-3. 如果`condition`的值为`false`，则退出循环。
+1. Execute `forinit`, initialize the loop variable.
+2. Determine the value of `condition`, if the value of `condition` is `true`, execute `#code`, then execute `forupdate`, to update the loop variable, and determine the value of `condition` again.
+3. If the value of `condition` is `false`, exit the loop.
 
-`for`循环中，`forinit`声明的变量只在`for`循环中有效。
+In `for` loop, the declaration of variable `forinit` only valid in the `for` loop.
 
-## break和continue语句
+## break and continue statement
 
-`break`语句用来跳出整个循环，`continue`语句用来跳过本次循环。例如：
+`break` statement used to jump out the whole loop, `continue` statement used to skip the current loop. For example:
 
 ```mcfpp
 for (int i = 0; i < 10; i++){
@@ -98,6 +98,6 @@ for (int i = 0; i < 10; i++){
 }
 ```
 
-在上面的例子中，当`i`的值为`5`时，`break`语句会跳出整个循环；当`i`的值为`3`时，`continue`语句会跳过本次循环，直接进行下一次循环。因此，i在每次循环中的变化为：`0`，`1`，`2`，`4`，`5`，最后跳出循环。
+In this example, when the value of `i` is `5`, `break`will jump out of the loop; when the value of `i` is `3`, `continue` will jump this loop, go to the next loop directly. So, the change of I in each loop are:`0`，`1`，`2`，`4`，`5`, and finally jump out.
 
-`break`和`continue`语句只能在循环中使用。
+`break` and `continue` statement only can be used in the loop
