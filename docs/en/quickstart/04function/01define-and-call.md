@@ -16,7 +16,7 @@ func functionName(parameter1, parameter2, ...) -> returnType{
 }
 ```
 
-`func` is the key word of function `functionName` is the identifier or name of the function, the following `parameter1, parameter2, ...` is the parameter list of the function,`returnType`is optional, which is the returned type of the function. Function body is a series of sentences surrounded by `{}`. Here’s a example below:
+`func` is the key word of function `functionName` is the identifier or name of the function, the following `parameter1, parameter2, ...` is the parameter list of the function,`returnType`is optional, which is the returned type of the function. Function body is a series of statements surrounded by `{}`. Here’s a example below:
 
 ```mcfpp
 func add(int a, int b) -> int{
@@ -30,7 +30,7 @@ The name of the function is `add`, it have two integer-type parameters `a` and `
 
 `return` is same as the `return` command in Minecraft, both used to return the returned value of the function. It’s grammar is `return expression;`, `expression` is an expression, it’s value is the returned value of the function.
 
-If a function defined the type of the returned value, then each branch of it must have `return` sentence, so the function must would return a value. And the value that `return` sentence returned must have the same type as the type of return value of the function, or the subtype of the returned value’s type.
+If a function defined the type of the returned value, then each branch of it must have `return` statement, so the function must would return a value. And the value that `return` statement returned must have the same type as the type of return value of the function, or the subtype of the returned value’s type.
 
 If a function haven’t defined the return value’s type, then the default is `void`, which won’t return any value. Now, `return` statement is still available, but its grammar becomes `return;`, without any expression. Its function is stop the function immediately.
 
@@ -47,7 +47,7 @@ func test(){
 
 In this example, `test` function called `add` function, and sent two parameters `1` and `2`. `add` function returns `3`, so the `test` function will print `3`.
 
-## The parameter passing of function 
+## The argument of function 
 
 In the function, the change to the parameter won’t affect the variables out of the function. For example:
 
@@ -63,4 +63,4 @@ void main(){
 }
 ```
 
-In this case, `test` function modified the passing parameter `a`, but the `a` in `main` function haven’t been affected.
+In this case, `test` function modified the passed in parameter `a`, but the `a` in `main` function haven’t been affected.
