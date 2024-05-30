@@ -2,23 +2,23 @@
 lastUpdate: true
 ---
 
-# 命名空间
+# Namespace 
 
-MCFPP中的命名空间和MC中的命名空间是同一种东西。这也意味着，命名空间只能是小写字母、数字，点和下划线的组合。
+The namespace in MCFPP is same as the namespace in Minecraft. That means, namespace only can be the combination of lowercase letters, numbers, dots and underlines.
 
-你可以在文件中声明一个命名空间，这样文件中的所有函数和变量都会被放置在这个命名空间中。例如：
+You can declare a namespace in a file, so all functions and variables in the file will be placed in the namespace. For example:
 
 ```mcfpp
 namespace test;
 
-func test(){    # test:test函数
+func test(){    # test:test function 
     print(i);
 }
 ```
 
-一个文件中只能声明一次命名空间。
+You can only define namespace once in a file.
 
-同样的，你也可以在项目配置文件中声明这个命名空间。
+The same, you can also define this namespace in the project configuration file.
 
 ```json
 {
@@ -31,7 +31,7 @@ func test(){    # test:test函数
         "D:/workspace/mcfpp/another_project.json"
     ],
     "targetPath":"./out",
-    //工程的默认命名空间。可选，默认为default // [!code focus]
+    //The default namespace of the project. Optional, default is ‘default’ // [!code focus]
     "namespace":"mcfpp" // [!code focus]
 }
 ```

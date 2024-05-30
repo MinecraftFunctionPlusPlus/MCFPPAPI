@@ -8,7 +8,7 @@ nav:
 
 # MCFPP Overview
 
-Before the start: sentences of mcfpp is end up with semicolon.
+Before the start: statements of mcfpp is end up with semicolon.
 
 ## Project information file in JSON format<Badge type="tip">WIP</Badge>
 
@@ -43,7 +43,7 @@ Project information file is situated on root of engineering catalogue, As an ent
 
 ### Variables
 
-Declare : `type identifier (= expr)?;`
+Defination : `type identifier (= expr)?;`
 
 Such as : `int i = 5 + p;`，`int x,y,z;`
 
@@ -76,11 +76,11 @@ During Compiling, If any variable has been defined as literal, like `int i = 5;`
 
 - const
 
-`const` means a variable is always constant. That is, its value is given during compilation, and never changes. Such as `const int i = 5;`, `i` will be seem as constant during compiling. Constant is always static during compiling, and its value must be clear when we declare it, can't assign after declaring.
+`const` means a variable is always constant. That is, its value is given during compilation, and never changes. Such as `const int i = 5;`, `i` will be seem as constant during compiling. Constant is always static during compiling, and its value must be clear when we define it, can't assign after declaring.
 
 - import <Badge type="warning">Deprecated</Badge>
 
-`import` means a variable is import variable, it's value is imported from other place. Such as `import int i;`, `i` will be seen as import variable after compile. Often, variable only can be used after assignment, but if we use `import` modifier, Then variable can be used after declaration without assignment.
+`import` means a variable is import variable, it's value is imported from other place. Such as `import int i;`, `i` will be seen as import variable after compile. Often, variable only can be used after assignment, but if we use `import` modifier, Then variable can be used after defination without assignment.
 
 ### Comment
 
@@ -134,13 +134,13 @@ for(forinit;bool;forupdate){
 
 ## Namespace 
 
-Each file's namespace can be declared independently 
+Each file's namespace can be defined independently 
 
 ```cpp
 namespace xxx;
 ```
 
-If the file haven't declared a separate namespace, the namespace defaults to the namespace set in the project configuration file.
+If the file haven't define a separate namespace, the namespace defaults to the namespace set in the project configuration file.
 
 ## Function 
 
@@ -156,7 +156,7 @@ func test(int i) -> int{
 
 ```
 
-Function's namespace is decided by the file's namespace. If the file haven't declared a separate namespace, the namespace defaults to the namespace set in the project configuration file.
+Function's namespace is decided by the file's namespace. If the file haven't defined a separate namespace, the namespace defaults to the namespace set in the project configuration file.
 
 :::tip Tip
 In mcfpp, function name can contains most utf-8 characters, but the compiled mcfunction's name will only contains characters, underline and numbers. The illegal characters will be replaced by `_uxxxx`.
@@ -291,15 +291,15 @@ class Student{
 
 ### Abstract
 
-Add `abstract` keyword before class can declare the class as abstract class. Abstract function can't be instantiate.
+Add `abstract` keyword before class can define the class as abstract class. Abstract function can't be instantiate.
 
-Add `abstract` keyword before function can declare the function as abstract function. Abstract function can't include function body.
+Add `abstract` keyword before function can define the function as abstract function. Abstract function can't include function body.
 
 ### Extension Function
 
-Extension Function makes you can "add" function to current types. And don't need to create new derived type, recompile or change original data type by other methods. Extension function declares out of the class, but it also can be called, as other functions in the class.
+Extension Function makes you can "add" function to current types. And don't need to create new derived type, recompile or change original data type by other methods. Extension function defined out of the class, but it also can be called, as other functions in the class.
 
-Declares extension function in the form of `Class name.Function name`, for example:
+Define extension function in the form of `Class name.Function name`, for example:
 
 ```cpp
 namespace test;
@@ -341,13 +341,13 @@ interface InterfaceName{
 }
 ```
 
-You can declare abstract function in the interface. Interface can inherit from other interfaces.
+You can define abstract function in the interface. Interface can inherit from other interfaces.
 
 ## Template <Badge type="tip">WIP</Badge>
 
 Structure is a datatype that totally makes up by score board. So structure only can contain score board, that's `int` type variables as members.
 
-When declaring field, we can ignore type ‘int'. Except this, structure is almost the same as class.
+During the defination of field, we can ignore type ‘int'. Except this, structure is almost the same as class.
 
 Here's an example of structure:
 
@@ -387,9 +387,9 @@ MNI is similar with the JNI in Java, is a kind of programming framework, makes t
 
 ### native function
 
-native can be declared in classes or functions, Used to run a specific Java function when **compiling**.
+native can be defined in classes or functions, Used to run a specific Java function when **compiling**.
 
-It's declaration is like this:
+It's defination is like this:
 
 ```cpp
 func test(params...) -> returnType = packagename.classname.funcname;  

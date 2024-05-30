@@ -2,21 +2,21 @@
 lastUpdate: true
 ---
 
-# 定义和调用
+# Define and call
 
-MCFPP函数的定义方式和C/Java有较大的区别，而更加接近于Python的语法。
+The way of define function in MCFPP has some differences with C/Java, and more similar to the grammar of Python.
 
-## 函数定义
+## Function definition 
 
-MCFPP中，函数的定义语法如下：
+In MCFPP, the grammar of define a function is shown below:
 
 ```mcfpp
 func functionName(parameter1, parameter2, ...) -> returnType{
-    #函数体
+    #Function body
 }
 ```
 
-`func`是函数的关键字，`functionName`是函数的标识符或者说名字，而紧随其后的`parameter1, parameter2, ...`则是函数的参数列表，`returnType`是可选的，即函数的返回类型。函数体则是由`{}`包裹的一系列语句。下面是一个实际的例子：
+`func` is the key word of function `functionName` is the identifier or name of the function, the following `parameter1, parameter2, ...` is the parameter list of the function,`returnType`is optional, which is the returned type of the function. Function body is a series of statements surrounded by `{}`. Here’s a example below:
 
 ```mcfpp
 func add(int a, int b) -> int{
@@ -24,31 +24,32 @@ func add(int a, int b) -> int{
 }
 ```
 
-这个函数的名字是`add`，它有两个整数类型的参数`a`和`b`，返回值也是一个整数类型。这个函数的作用是把两个参数相加并返回结果。
+The name of the function is `add`, it have two integer-type parameters `a` and `b`, return value is also integer type. Its function is add the two parameters and return them.
 
 ## return
 
-`return`和Minecraft中的`return`命令作用相同，都是用于返回函数的返回值。它的语法即为`return expression;`，其中`expression`是一个表达式，它的值就是函数的返回值。
+`return` is same as the `return` command in Minecraft, both used to return the returned value of the function. It’s grammar is `return expression;`, `expression` is an expression, it’s value is the returned value of the function.
 
-如果一个函数定义了返回值类型，那么它的每一个分支都必须有`return`语句，即函数必定返回一个值。且`return`语句返回的值必须和函数的返回值类型相同，或者是返回值类型的子类型。
+If a function defined the type of the returned value, then each branch of it must have `return` statement, so the function must would return a value. And the value that `return` statement returned must have the same type as the type of return value of the function, or the subtype of the returned value’s type.
 
-如果一个函数没有定义返回值类型，那么默认为`void`，即不会返回任何值。这个时候，`return`语句仍然是可用的，但是它的语法变为`return;`，即不带任何表达式。它将会起到立刻终止函数运行的作用。
+If a function haven’t defined the return value’s type, then the default is `void`, which won’t return any value. Now, `return` statement is still available, but its grammar becomes `return;`, without any expression. Its function is stop the function immediately.
 
-## 函数的调用
+## Call of function 
 
-MCFPP中，函数的调用语法和C/Java一样，即`functionName(parameter1, parameter2, ...);`。其中，`functionName`是函数的名字，`parameter1, parameter2, ...`是要传递给函数的参数。下面是一个实际的例子：
+In MCFPP, grammar of call function is the same as in C/Java 
+, that’s `functionName(parameter1, parameter2, ...);`. In it, the `functionName` is the name of function,`parameter1, parameter2, ...` are the parameters to the function, here’s the example:
 
 ```mcfpp
 func test(){
-    print(add(1, 2));  #上面定义的add函数
+    print(add(1, 2));  #the add function defined before 
 }
 ```
 
-这个例子中，`test`函数调用了`add`函数，并传递了两个参数`1`和`2`。`add`函数返回了`3`，因此`test`函数将会打印出`3`。
+In this example, `test` function called `add` function, and sent two parameters `1` and `2`. `add` function returns `3`, so the `test` function will print `3`.
 
-## 函数的传参
+## The argument of function 
 
-函数中，对参数的修改不会影响到函数外部的变量。例如：
+In the function, the change to the parameter won’t affect the variables out of the function. For example:
 
 ```mcfpp
 func test(int a){
@@ -58,8 +59,8 @@ func test(int a){
 void main(){
     int a = 0;
     test(a);
-    print(a);   #输出0
+    print(a);   #output 0
 }
 ```
 
-在这个例子中，`test`函数对传入的参数`a`进行了修改，但是`main`函数中的`a`并没有受到影响。
+In this case, `test` function modified the passed in parameter `a`, but the `a` in `main` function haven’t been affected.
