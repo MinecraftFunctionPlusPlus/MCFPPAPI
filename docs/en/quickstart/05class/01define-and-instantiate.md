@@ -2,7 +2,7 @@
 lastUpdate: true
 ---
 
-# 类的定义和实例化
+# The instantiate and define of class
 
 ```mcfpp
 class Person{
@@ -26,33 +26,33 @@ class Person{
 ```
 
 
-## 类的定义
+## Define of class
 
-作为一个面向对象的编程语言，MCFPP有完善的面向对象的语法和功能。它的语法和Java/C#的语法非常相似，所以，如果你有相关的基础的话，你应该可以很轻松地上手。
+As a OOP(object oriented programming) language, MCFPP have complete OOP grammar and function. Its grammar is really similar with Java/C#. So, if you have the basic knowledge, you can learn it very easily.
 
-在MCFPP中，可以使用`class`关键字来声明一个类：
+In MCFPP, you can use keyword `class` to define a class:
 
 ```mcfpp
 class ClassName{
-    #类体
+    # Class body
     #...
 }
 ```
 
-其中，`ClassName`是类的名字。在MCFPP中，类的名字必须以大写字母开头。而紧随其后的花括号中的内容则是类体，包含了类的成员变量和成员函数，以及它的构造方法等等。是吧，和Java/C#是一样的。
+In it, `ClassName` is the name of the class. In MCFPP, the name of a class must start with an upper letter. The big parentheses followed that is the class body, including the member variable and member function, also the constructor and so on. Yes, the same as Java/C#.
 
-## 类的实例化
+## Instantiate of class 
 
-一般情况下，你可以使用`ClassName(参数列表)`来创建一个对象的实例。比如本篇开头的示例`Person`类可以用`Person p = Person("Alumopper",16)`来创建。在MCFPP中，你并不需要`new`关键字。它被省略掉了。
+Often, you can use `ClassName(parameter list )` to create a instantiation of an object. Such as the example `Person` class in the start of this article, you can create by `Person p = Person("Alumopper",16)`. In MCFPP, you don’t need keyword `new`. It’s ignored.
 
-## 类的初始化器<Badge type="tip" text="未来特性" />
+## Object Initializer <Badge type="tip" text="Future feature" />
 
-在创建类的时候，你可以使用类初始化器来对类的某些成员变量初始化，例如对于上文中的`Person`，有：
+When you create a class, you can use object Initializer to Instantiate some members of the class, such as the person shows before `Person`, you have:
 
 ```mcfpp
 Person p = Person("Alumopper",16){
-    sex = "女"
+    sex = "F"
 };
 ```
 
-这样，`p`的`sex`成员变量就被初始化为`"女"`了。
+So the`sex` of member variable `p` will be instantiate as `"F"`.
