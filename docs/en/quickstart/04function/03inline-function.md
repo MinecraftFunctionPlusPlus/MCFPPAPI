@@ -2,23 +2,23 @@
 lastUpdate: true
 ---
 
-# 内联函数
+# Inline function 
 
-MCFPP中，可以使用`inline`关键字来声明一个内联函数。编译器会在调用内联函数的地方直接将函数的代码插入，而不是通过函数调用的方式来执行。这样可以减少函数调用的开销，提高程序的运行效率。
+In MCFPP, we can use keyword `inline` to declare an inline function. When call this function, compiler will insert the code into the code directly, but not call the function. So it can reduce the cost of calling functions, make the program more efficient. 
 
-## 内联函数的声明
+## Declare of inline function 
 
-内联函数的声明语法如下：
+The grammar of declare a inline function is:
 
 ```mcfpp
 inline func functionName(parameter1, parameter2, ...) -> returnType{
-    #函数体
+    #Function body
 }
 ```
 
-## 内联函数的调用过程
+## Call of inline function 
 
-在调用内联函数的地方，编译器会直接将内联函数的代码插入，而不是通过函数调用的方式来执行。例如下面的例子：
+In the place of calling inline function, compiler will insert the inline function directly, but not call the function. Such as the example below:
 
 ```mcfpp
 inline func add(int a, int b) -> int{
@@ -30,7 +30,7 @@ func main(){
 }
 ```
 
-编译的时候，上述代码会相当于：
+During compilation, the code is same as:
 
 ```mcfpp
 func main(){
@@ -41,4 +41,4 @@ func main(){
 }
 ```
 
-这同时意味着，在内联函数中，对变量的修改会影响到函数外部的变量。
+This means that, in the inline function, the change to variable will effect the variable out of the function.
