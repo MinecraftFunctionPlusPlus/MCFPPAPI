@@ -2,13 +2,13 @@
 lastUpdate: true
 ---
 
-# 继承和抽象
+# Inheritance and abstraction
 
-MCFPP中，类支持继承和抽象。继承是指一个类可以派生出一个或多个子类，子类可以继承父类的属性和方法。抽象是指一个类可以定义抽象方法，子类必须实现这些抽象方法。
+In MCFPP, class support supports Inheritance and abstraction. Inheritance means a class can derive one or many subclasses, subclasses can inherit parent class’s attributes and methods. Abstraction means a class can define abstract function, subclasses must achieve those abstract functions.
 
-## 继承
+## Inheritance 
 
-继承是指一个类可以派生出一个或多个子类，子类可以继承父类的属性和方法。继承的语法如下：
+Inheritance means a class can derive one or many subclasses, subclasses can inherit parent class’s attributes and methods. The grammar of inheritance is shown below:
 
 ```mcfpp
 class Parent{
@@ -28,11 +28,11 @@ class Child: Parent{
 }
 ```
 
-使用`:`关键字可以声明一个类继承自另一个类。利用`super`关键字，子类可以访问父类的属性和方法。使用`protected`关键字可以声明受保护的属性，子类可以访问父类的受保护属性。使用`override`关键字可以重写父类的方法。
+Use keyword `:` can declare a class is inherited from another class. Use keyword `super`, subclasses can visit parent class’s attributes and methods. Keyword `protected` can declare the protected attributes, subclasses can visit the protected attributes of parent class. Use keyword `override` can rewrite parent class’s method.
 
-## 抽象
+## Abstraction 
 
-一个类可以定义抽象方法，子类必须实现这些抽象方法。抽象方法没有方法体，只有方法签名。抽象方法的定义语法如下：
+A class can define abstract methods, subclasses must achieve those abstract methods. Abstract methods have no method body,only have method abstraction. The grammar to define a abstract method is shown below:
 
 ```mcfpp
 abstract class A{
@@ -46,4 +46,4 @@ class B: A{
 }
 ```
 
-使用`abstract`关键字可以声明一个抽象类或一个抽象方法。抽象类的子类必须实现抽象方法，否则会编译错误。
+Use keyword `abstract`can define an abstract class or an abstract method. The subclass of abstract class must achieve the abstract method, else there’ll be compilation error.
