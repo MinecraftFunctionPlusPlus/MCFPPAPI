@@ -2,13 +2,13 @@
 lastUpdate: true
 ---
 
-# 类的成员
+# Member of class 
 
-和Java类似，在MCFPP中，类的成员包括属性和方法。属性是类的数据成员，用来存储对象的数据；方法是类的函数成员，用来操作对象的数据。类的成员可以通过`.`操作符来访问。
+Similar to Java, in MCFPP, members of class include attributes and methods. Attributes are the data members, used to store the data of the object; methods are the function of class member, used to operate the data of the object. Member of class can access by `.` operator.
 
-## 属性
+## Attributes 
 
-属性是类的数据成员，用来存储对象的数据。属性的定义语法如下：
+Attributes are the data member of class, used to store the data of a object. The grammar to define attributes is shown below:
 
 ```mcfpp
 class A{
@@ -17,11 +17,11 @@ class A{
 }
 ```
 
-上述代码定义了一个类`A`，它有两个属性`a`和`b`。`a`是一个整数类型的属性，没有初始化；`b`是一个整数类型的属性，初始化为`5`。
+The code before defined a class `A`, it has two attributes `a` and `b`. `a` is a integer attribute, not initialized; `b` is a integer attribute, initialized as `5`.
 
-## 方法
+## Method 
 
-方法是类的函数成员，用来操作对象的数据。方法的定义语法如下：
+Methods are the function member of class, used to operate the data of the object. The grammar to define a method is shown below:
 
 ```mcfpp
 class A{
@@ -31,7 +31,7 @@ class A{
 }
 ```
 
-在方法中使用`this`关键字可以访问对象的属性。例如：
+Use keyword `this` can access the attributes of the object,such as:
 
 ```mcfpp
 class A{
@@ -42,13 +42,13 @@ class A{
 }
 ```
 
-## 访问控制
+## Access control 
 
-MCFPP中，类的成员可以使用`public`、`protected`、`private`关键字来控制访问权限。默认情况下，类的成员是`private`的。
+In MCFPP, members of class can use keywords `public`, `protected` and `private` to control the access rights. Default, members of class are `private`.
 
-- `public`：公有的，可以被外部访问。
-- `protected`：受保护的，可以被子类访问。
-- `private`：私有的，只能在类的内部访问。
+- `public`：public, accessible to outside.
+- `protected`：protected, accessible to subclasses.
+- `private`：private, only can access in the class.
 
 ```mcfpp
 class A{
@@ -59,16 +59,16 @@ class A{
 
 class B: A{
     void test(){
-        a = 1;  #合法
-        b = 2;  #合法
-        c = 3;  #编译错误
+        a = 1;  # Allowed 
+        b = 2;  # Allowed 
+        c = 3;  # Error 
     }
 }
 
 func test(){
     A obj = new A();
-    obj.a = 1;  #合法
-    obj.b = 2;  #编译错误
-    obj.c = 3;  #编译错误
+    obj.a = 1;  # Allowed 
+    obj.b = 2;  # Error 
+    obj.c = 3;  # Error 
 }
 ```

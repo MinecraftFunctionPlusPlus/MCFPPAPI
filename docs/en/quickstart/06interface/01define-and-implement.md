@@ -2,13 +2,13 @@
 lastUpdate: true
 ---
 
-# 定义和实现接口
+# Define and implement 
 
-MCFPP中，可以使用`interface`关键字来声明一个接口。接口是一种抽象的数据类型，它定义了一组方法的签名，但没有具体的实现。类可以实现一个或多个接口，从而保证类具有接口中定义的方法。
+In MCFPP, can use keyword `interface` to declare an interface, interface is an abstract data type, it defines a group of function’s declaration, but have not achieved it. Class can achieve one or many interfaces, and make sure that class have the function defined in the interface.
 
-## 接口的声明
+## Define of interface 
 
-接口的声明语法如下：
+The grammar to define a interface is shown below:
 
 ```mcfpp
 interface InterfaceName{
@@ -18,27 +18,27 @@ interface InterfaceName{
 }
 ```
 
-接口中的方法只有方法签名，没有方法体。接口中的方法可以有多个，每个方法之间使用分号`;`分隔。接口中的方法一定都是抽象方法，但是不需要额外使用`abstract`关键字来声明
+There’s only declaration in the function of the interface, no function body. A interface can have many functions, each function separate by `;`. Functions in interface must be abstract function, don’t need to use keyword `abstract` to declare.
 
-## 接口的实现
+## Achieve of interface 
 
-接口不能被实例化，但可以被类实现。
+Interface can’t be instancing, but can achieve by class.
 
-类可以实现一个或多个接口。实现接口的类必须实现接口中定义的所有方法。实现接口的语法如下：
+Class can achieve one or many interfaces, the class that achieves interface must achieve all functions declared in the interface. The grammar of achieves a interface is shown below:
 
 ```mcfpp
 class ClassName: Interface1, Interface2, ...{
-    #类的属性和方法
+    # Attributes and functions of class 
     ...
     override func methodName(parameterList) -> returnType{
-        #方法体
+        # Function body 
     }
 }
 ```
 
-## 接口的继承
+## Inherit of interface 
 
-接口也可以继承自其他接口。继承接口的语法如下：
+Interface also can inherit from other interfaces. The grammar of inherit a interface is shown:
 
 ```mcfpp
 interface Interface1{
@@ -50,4 +50,4 @@ interface Interface2: Interface1{
 }
 ```
 
-如果一个类实现了一个继承了其他接口的接口，那么这个类必须实现接口以及其继承接口中定义的全部方法。
+If a class achieve an interface that inherits from other interface, then the class must achieve all functions of the interface and its inherited interface.
