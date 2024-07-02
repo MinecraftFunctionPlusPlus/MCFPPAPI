@@ -2,9 +2,9 @@
 lastUpdated: true
 ---
 
-# Variable 
+# Variable
 
-## Declaration of variables 
+## Declaration of variables
 
 Same as other languages, you can declare some variables in MCFPP for store, transfer and process data.
 
