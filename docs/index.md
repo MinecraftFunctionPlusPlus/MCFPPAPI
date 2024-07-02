@@ -14,7 +14,7 @@ hero:
       text: 语法总览
       link: /zh/overview
 
-features:
+features: 
   - title: 极致体验
     details: 通过精心设计的语法，让数据包的开发体验更加流畅
   - title: 跨版本编译
