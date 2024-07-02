@@ -395,7 +395,7 @@ It's defination is like this:
 func test(params...) -> returnType = packagename.classname.funcname;  
 ```
 
-Here's an example, also a part of mcfpp basic library, that is the implementation of print function. If you want to know more about MNI, you can check [here](/zh/quickstart/10mni/01mni-framework).
+Here's an example, also a part of mcfpp basic library, that is the implementation of print function. If you want to know more about MNI, you can check [here](/zh/quickstart/11mni/01mni-framework).
 
 **System.java**
 
