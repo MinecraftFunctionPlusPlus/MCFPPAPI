@@ -4,7 +4,7 @@ export const sidebar: DefaultTheme.Sidebar = {
     "/zh/quickstart/": [
         {
             text: "工程配置",
-            "items": [
+            items: [
                 {
                     text: "创建工程",
                     link: "/zh/quickstart/01project/01create-project",
@@ -17,7 +17,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "基本语法",
-            "items": [
+            items: [
                 {
                     text: "变量",
                     link: "/zh/quickstart/02base/01variables",
@@ -38,7 +38,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "命名空间",
-            "items": [
+            items: [
                 {
                     text: "命名空间",
                     link: "/zh/quickstart/03namespace/01namespace",
@@ -47,7 +47,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "函数",
-            "items": [
+            items: [
                 {
                     text: "定义和调用",
                     link: "/zh/quickstart/04function/01define-and-call",
@@ -64,7 +64,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "类",
-            "items": [
+            items: [
                 {
                     text: "类的定义和实例化",
                     link: "/zh/quickstart/05class/01define-and-instantiate",
@@ -81,7 +81,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "接口",
-            "items": [
+            items: [
                 {
                     text: "定义和实现接口",
                     link: "/zh/quickstart/06interface/01define-and-implement",
@@ -90,7 +90,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "泛型",
-            "items": [
+            items: [
                 {
                     text: "编译确定量",
                     link: "/zh/quickstart/07generic/01concrete_var",
@@ -107,7 +107,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "NBT数据",
-            "items": [
+            items: [
                 {
                     text: "NBT",
                     link: "/zh/quickstart/08nbt/01nbt",
@@ -128,7 +128,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "模板",
-            "items": [
+            items: [
                 {
                     text: "数据模板",
                     link: "/zh/quickstart/09template/01define-and-instantiate",
@@ -141,7 +141,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "库",
-            "items": [
+            items: [
                 {
                     text: "库的导入和使用",
                     link: "/zh/quickstart/10library/01import-and-use",
@@ -154,7 +154,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "MNI框架",
-            "items": [
+            items: [
                 {
                     text: "MNI框架",
                     link: "/zh/quickstart/11mni/01mni-framework",
@@ -171,7 +171,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Gradle构建",
-            "items": [
+            items: [
                 {
                     text: "Gradle的配置",
                     link: "/zh/quickstart/12gradle/01gradle-configuration",
@@ -182,7 +182,7 @@ export const sidebar: DefaultTheme.Sidebar = {
     "/en/quickstart/": [
         {
             text: "Basic Syntax",
-            "items": [
+            items: [
                 {
                     text: "Variable",
                     link: "/en/quickstart/02base/01variables",
@@ -203,7 +203,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Namespace",
-            "items": [
+            items: [
                 {
                     text: "Namespace ",
                     link: "/en/quickstart/03namespace/01namespace",
@@ -212,7 +212,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Function",
-            "items": [
+            items: [
                 {
                     text: "Define and call",
                     link: "/en/quickstart/04function/01define-and-call",
@@ -229,7 +229,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Class",
-            "items": [
+            items: [
                 {
                     text: "The instantiate and define of class",
                     link: "/en/quickstart/05class/01define-and-instantiate",
@@ -246,7 +246,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Interface",
-            "items": [
+            items: [
                 {
                     text: "定义和实现接口",
                     link: "/en/quickstart/06interface/01define-and-implement",
@@ -255,7 +255,7 @@ export const sidebar: DefaultTheme.Sidebar = {
         },
         {
             text: "Generic",
-            "items": [
+            items: [
                 {
                     text: "编译确定量",
                     link: "/en/quickstart/07generic/01concrete_var",
@@ -271,29 +271,8 @@ export const sidebar: DefaultTheme.Sidebar = {
             ],
         },
         {
-            text: "NBT Data",
-            "items": [
-                {
-                    text: "NBT",
-                    link: "/en/quickstart/08nbt/01nbt",
-                },
-                {
-                    text: "列表",
-                    link: "/en/quickstart/08nbt/02list",
-                },
-                {
-                    text: "字典",
-                    link: "/en/quickstart/08nbt/03dict",
-                },
-                {
-                    text: "MAP",
-                    link: "/en/quickstart/08nbt/04map",
-                }
-            ],
-        },
-        {
             text: "MNI Framework",
-            "items": [
+            items: [
                 {
                     text: "MNI框架",
                     link: "/en/quickstart/11mni/01mni-framework",
