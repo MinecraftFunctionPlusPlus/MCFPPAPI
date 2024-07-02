@@ -4,11 +4,11 @@ lastUpdated: true
 
 # Variable
 
-## Declaration of variables
+## Defination of variables 
 
-Same as other languages, you can declare some variables in MCFPP for store, transfer and process data.
+Same as other languages, you can define some variables in MCFPP for store, transfer and process data.
 
-The declaration of data is like this:
+The defination of data is like this:
 
 ```mcfpp
 #Type of data Identifier of data (optional: = expression or value )
@@ -16,7 +16,7 @@ int i = 5;
 int b = i * 6;
 ```
 
-The identifier of variable can be the combination of any characters and numbers. In one scope, a name of variable only can declared once.
+The identifier of variable can be the combination of any characters and numbers. In one scope, a name of variable only can defined once.
 
 ## Type of variable 
 
