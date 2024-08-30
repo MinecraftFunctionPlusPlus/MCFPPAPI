@@ -33,6 +33,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "顶层语句",
                     link: "/zh/quickstart/02base/04top-statements",
+                },
+                {
+                    text: "原生命令",
+                    link: "/zh/quickstart/02base/05original-command",
                 }
             ],
         },
@@ -59,6 +63,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "内联函数",
                     link: "/zh/quickstart/04function/03inline-function",
+                },
+                {
+                    text: "编译期函数",
+                    link: "/zh/quickstart/04function/04compiletime-function",
                 }
             ],
         },
@@ -74,8 +82,12 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/05class/02member",
                 },
                 {
+                    text: "单例",
+                    link: "/zh/quickstart/05class/03object",
+                },
+                {
                     text: "继承和抽象",
-                    link: "/zh/quickstart/05class/03inheritance-abstract",
+                    link: "/zh/quickstart/05class/04inheritance-abstract",
                 }
             ],
         },
@@ -166,6 +178,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "JavaVar",
                     link: "/zh/quickstart/11mni/03javavar",
+                },
+                {
+                    text: "注解",
+                    link: "/zh/quickstart/11mni/04annotation",
                 }
             ],
         },
@@ -235,11 +251,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/05class/01define-and-instantiate",
                 },
                 {
-                    text: "类的成员",
+                    text: "Member of class ",
                     link: "/en/quickstart/05class/02member",
                 },
                 {
-                    text: "继承和抽象",
+                    text: "Inheritance and abstraction",
                     link: "/en/quickstart/05class/03inheritance-abstract",
                 }
             ],
@@ -248,7 +264,7 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "Interface",
             "items": [
                 {
-                    text: "定义和实现接口",
+                    text: "Define and implement ",
                     link: "/en/quickstart/06interface/01define-and-implement",
                 }
             ],

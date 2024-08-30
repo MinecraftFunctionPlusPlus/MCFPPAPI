@@ -18,43 +18,33 @@ func print(any a) = top.mcfpp.lang.System.print;
 //print函数在java中的具体实现
 package top.mcfpp.lang;
 
-//略去import函数
+import org.jetbrains.annotations.NotNull;
+import top.mcfpp.annotations.InsertCommand;
+import top.mcfpp.annotations.MNIRegister;
+import top.mcfpp.command.Command;
+import top.mcfpp.core.lang.*;
+import top.mcfpp.lib.ScoreChatComponent;
+import top.mcfpp.model.function.Function;
+import top.mcfpp.util.NBTUtil;
+import top.mcfpp.util.ValueWrapper;
 
 public class System extends MNIMethodContainer {
-
-    @NotNull
-    @Override
-    public Function4<Var<?>[], Var<?>[], CanSelectMember, ValueWrapper<Var<?>>, java.lang.Void> getMNIMethod(@NotNull String name) {
-        return methods.get(name);
-    }
-
-    static HashMap<String, Function4<Var<?>[], Var<?>[], CanSelectMember, ValueWrapper<Var<?>>, java.lang.Void>> methods;
-
-    static {
-        methods = new HashMap<>();
-        //实现print函数
-        methods.put("print", (vars, vars2, canSelectMember, varValueWrapper) -> {
-            //只会有一个参数哦
-            var value = vars2[0];
-            if (value instanceof MCInt) print((MCInt) value);
-            else print(value);
-            return null;
-        });
+    
+    @InsertCommand
+    @MNIRegister(normalParams = {"any a"})
+    public static void print(@NotNull Var<?> value){
+        Function.Companion.addCommand("tellraw @a " + "\"" + value + "\"");
     }
 
     @InsertCommand
+    @MNIRegister(normalParams = {"int i"})
     public static void print(@NotNull MCInt var) {
         if (var instanceof MCIntConcrete varC) {
             //是确定的，直接输出数值
             Function.Companion.addCommand("tellraw @a " + varC.getValue());
         }else {
-            Function.Companion.addCommand("tellraw @a " + new JsonTextNumber(var).toJson());
+            Function.Companion.addCommand("tellraw @a " + new ScoreChatComponent(var).toCommandPart());
         }
-    }
-
-    @InsertCommand
-    public static void print(@NotNull Var<?> var){
-        Function.Companion.addCommand("tellraw @a " + "\"" +var + "\"");
     }
 }
 ```

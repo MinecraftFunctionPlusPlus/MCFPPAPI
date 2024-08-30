@@ -42,11 +42,11 @@ class ClassName: Interface1, Interface2, ...{
 
 ```mcfpp
 interface Interface1{
-    func method1() -> void;
+    func method1();
 }
 
 interface Interface2: Interface1{
-    func method2() -> void;
+    func method2();
 }
 ```
 

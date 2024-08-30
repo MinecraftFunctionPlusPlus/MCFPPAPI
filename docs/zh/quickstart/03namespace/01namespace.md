@@ -18,20 +18,4 @@ func test(){    # test:test函数
 
 一个文件中只能声明一次命名空间。
 
-同样的，你也可以在项目配置文件中声明这个命名空间。
-
-```json
-{
-    "file":[
-        "*"
-        "D:/workspace/mcfpp/project/*"
-    ],
-    "version":"1.19.4",
-    "include":[
-        "D:/workspace/mcfpp/another_project.json"
-    ],
-    "targetPath":"./out",
-    //工程的默认命名空间。可选，默认为default // [!code focus]
-    "namespace":"mcfpp" // [!code focus]
-}
-```
+若没有声明命名空间，文件的命名空间将会由文件路径相对于源代码路径的相对路径决定。例如，假设源代码目录为`src/main/mcfpp`，那么文件`src/main/mcfpp/test/test.mcfpp`的命名空间将会是`test.test`。源代码路径通过工程配置文件中的`sourcePath`决定。

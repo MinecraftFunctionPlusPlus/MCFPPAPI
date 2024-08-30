@@ -11,8 +11,8 @@ hero:
       text: QuickStart
       link: /en/quickstart/index
     - theme: alt
-      text: Overview
-      link: /en/overview
+      text: GitHub
+      link: https://github.com/MinecraftFunctionPlusPlus/MCFPP
 
 features:
   - title: Ultimate Experience

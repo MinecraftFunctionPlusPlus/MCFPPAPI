@@ -22,101 +22,137 @@ func print(int i) = top.mcfpp.lang.System.print;
 
 ## 实现
 
-`System`类被称为**MNI实现类**，`print`函数的具体逻辑就是在这个类中实现的。MNI的实现类必须继承`MNIMethodContainer`类：
-
-```kotlin
-package top.mcfpp.model.function
-
-typealias MNIMethod = (Array<Var<*>?>, Array<Var<*>?>, CanSelectMember?, ValueWrapper<Var<*>>) -> Void
-
-abstract class MNIMethodContainer{
-
-    abstract fun getMNIMethod(name: String): MNIMethod
-
-}
-```
-
-其中，定义了一个名为`getMNIMethod`的抽象方法，它的参数是一个函数名，即在之前声明native方法的时候，在等号后面的部分，类名.函数名中的函数名。方法需要根据传入的函数名，返回一个`MNIMethod`函数。
-
-而`MNIMethod`是一个lambda函数类型，它接受四个参数：
-
-* `Array<Var<*>?> readonlyArgs`：传入函数的泛型参数数组。参数的顺序和定义一致。
-
-* `Array<Var<*>?> normalArgs`：传入函数的普通参数数组。参数的顺序和定义一致。
-
-* `CanSelectMember? caller`：这个函数的调用者。比如对于`a.test()`，变量`a`就是调用者。如果调用者不存在，比如对于全局函数，那么这个参数就是`null`
-
-* `ValueWrapper<Var<*>> returnVar`：这个参数即为函数的返回值。它的成员变量`value`即为函数的返回值对应的变量，可以通过修改value达到返回某个值的目的。如果函数没有返回值，可以不用管这个参数。
-
-在MNI调用执行Native函数的过程中，将会自动调用`getMNIMethod`方法，根据函数名获取到对应的函数，传入上述四个参数，然后执行这个函数。
-
-一般来说，我们会在MNI实现类中定义一个静态的`HashMap`，用于存储所有的MNI函数。这个`HashMap`的key是函数名，value是对应的`MNIMethod`函数。在`getMNIMethod`方法中，我们只需要根据传入的函数名，从`HashMap`中获取到对应的函数即可，例如对于`System`类，我们的实现是这样的：
+`System`类被称为**MNI实现类**，`print`函数的具体逻辑就是在这个类中实现的。通过使用`@MNIRegister`注解，我们可以将一个Java函数注册为MNI实现函数。这个注解的源码如下，它的参数在注释中已经有详细的解释。
 
 ```java
-package top.mcfpp.lang;
+package top.mcfpp.annotations;
 
-//略去import函数
+//import ...
 
-public class System extends MNIMethodContainer {
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MNIRegister {
 
-    @NotNull
-    @Override
-    public Function4<Var<?>[], Var<?>[], CanSelectMember, ValueWrapper<Var<?>>, java.lang.Void> getMNIMethod(@NotNull String name) {
-        return methods.get(name);
-    }
+    /**
+     * 只读参数。格式是类型+空格+参数名
+     */
+    String[] readOnlyParams() default {};
 
-    static HashMap<String, Function4<Var<?>[], Var<?>[], CanSelectMember, ValueWrapper<Var<?>>, java.lang.Void>> methods;
+    /**
+     * 普通参数。格式是类型+空格+参数名
+     */
+    String[] normalParams() default {};
 
-    static {
-        methods = new HashMap<>();
-        //实现print函数
-        methods.put("print", (vars, vars2, canSelectMember, varValueWrapper) -> {
-            //具体逻辑在这里实现
-        });
-    }
+    /**
+     * 调用者类型。默认为void
+     */
+    String caller() default "void";
+
+    /**
+     * 函数的返回类型。默认为void
+     */
+    String returnType() default "void";
+
+    /**
+     * 是否重写了父类中的函数。默认为false
+     */
+    boolean override() default false;
+
 }
 ```
 
-其中，我们在`System`类中定义了一个`HashMap`，并在静态代码块中初始化了`print`函数的实现。现在，我们来具体实现这个函数。
+而具体实现用的这个Java函数的参数顺序，遵循：`只读参数 + 普通参数 + 调用者 + ValueWrapper<返回值类型>`的原则。
+
+我们回到刚刚的例子：
+
+```mcfpp
+func print(any a) = top.mcfpp.lang.System.print;
+```
 
 ```java
     //...
 
-    static {
-        //...
-        //实现print函数
-        methods.put("print", (vars, vars2, canSelectMember, varValueWrapper) -> {
-            //只会有一个参数哦
-            var value = vars2[0];
-            if (value instanceof MCInt) print((MCInt) value);
-            else print(value);
-            return null;
-        });
+    @MNIRegister(normalParams = {"any a"})
+    public static void print(@NotNull Var<?> value){
+        Function.Companion.addCommand("tellraw @a " + "\"" + value + "\"");
     }
 
-    @InsertCommand
-    public static void print(@NotNull MCInt var) {
-        if (var instanceof MCIntConcrete varC) {
-            //是确定的，直接输出数值
-            Function.Companion.addCommand("tellraw @a " + varC.getValue());
+    //...
+```
+
+`print`函数有一个`any`类型的变量，因此注解中，我们使用`normalParams = {"any a"}`来声明这个参数。而在具体实现中，我们需要接受一个普通参数。在这里，我们用所有变量类的基类`Var`类，来表示任意类型的变量都可以被接收。
+
+我们看一个稍微复杂一些的例子：
+
+```java
+
+    @MNIRegister(caller = "DataObject", returnType = "text", override = true)
+    public static void toText(DataTemplateObject caller, ValueWrapper<JsonTextConcrete> returnValue) throws IOException {
+        var l = new ListChatComponent();
+        if(caller instanceof DataTemplateObjectConcrete callerC){
+            l.getComponents().add(new PlainChatComponent(SNBTUtil.toSNBT(callerC.getValue())));
         }else {
-            Function.Companion.addCommand("tellraw @a " + new JsonTextNumber(var).toJson());
+            l.getComponents().add(new NBTChatComponent(caller.toNBTVar(), false, null));
         }
+        returnValue.setValue(new JsonTextConcrete(l, "re"));
     }
 
-    @InsertCommand
-    public static void print(@NotNull Var<?> var){
-        Function.Companion.addCommand("tellraw @a " + "\"" +var + "\"");
-    }
-
-    //...
 ```
 
-首先，我们获取到了传入`print`的参数。由于`print`函数只有一个普通参数，因此我们直接使用`var2[0]`就可以获取到这个传入的参数了。此后，我们使用`instanceof`关键字判断这个参数的类型，如果是`MCInt`类型，那么我们就调用`print(MCInt var)`函数。在不同类型对应的函数中，我们再进行具体的实现。
+这是`toText`函数，类似于java中的`toString`方法，旨在将任意类型转换为可以打印在聊天栏的原始Json文本。这个函数没有参数，调用者是`DataObject`，返回值是`text`类型。因此在Java方法的参数中，我们先写一个`DataTemplateObject caller`用于接收调用者，然后再写一个`ValueWrapper<JsonTextConcrete> returnValue`用于处理返回值。
 
 :::tip
 `Function.addCommand`函数用于向当前正在编译的mcf函数的末尾添加一条命令
+
+`ValueWrapper`是一个包装类，用于包装返回值。
+
+```kotlin
+package top.mcfpp.util
+
+class ValueWrapper<T>(var value: T)
+```
+
+使用`getValue`和`setValue`来修改其中的值。
+
+`xxxConcrete`这种命名的类表示是xxx类型变量的编译器可追踪版本，就是编译器知道这个变量里面的值是什么。在标准库的实现中随处可见这种分类处理，为的是尽可能地优化性能。
 :::
+
+## 注入
+
+`CompoundData`类拥有成员方法`getNativeFromClass(cls: Class<*>)`，用于向当前类型中注入来自类`cls`中的所有方法。
+
+```kotlin
+open class MCInt : MCNumber<Int> {
+    
+    //...
+
+    companion object {
+        val data = CompoundData("int","mcfpp")
+
+        init {
+            data.initialize()
+            data.extends(MCAny.data)
+            data.getNativeFromClass(MCIntData::class.java)
+        }
+    }
+
+    //...
+
+}
+
+此外，你也可以在mcfpp代码中使用注解`@From<类的完全限定名>`，来向这个类或者数据模板中注入方法。
+
+```mcfpp
+@From<top.mcfpp.mni.minecraft.AreaData>
+data Area{
+    int startX;
+    int startY;
+    int startZ;
+    int endX;
+    int endY;
+    int endZ;
+}
+```
 
 ## 调用
 
