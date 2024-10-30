@@ -182,6 +182,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "注解",
                     link: "/zh/quickstart/11mni/04annotation",
+                },
+                {
+                    text: "JVM访问符",
+                    link: "/zh/quickstart/11mni/05access",
                 }
             ],
         },
