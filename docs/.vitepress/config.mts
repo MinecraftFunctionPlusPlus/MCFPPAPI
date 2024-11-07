@@ -24,18 +24,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/MinecraftFunctionPlusPlus/MCFPP' }
     ]
   },
-
-  vite: {
-    build: {
-      rollupOptions: {
-        input: {
-          main: 'index.html',
-          dokka: '/mcfppdocs/index.html'
-        }
-      }
-    }
-  },
-
+  
   locales: {
     root: {
       label: '简体中文',
