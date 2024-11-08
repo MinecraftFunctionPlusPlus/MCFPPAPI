@@ -15,8 +15,8 @@ func test<int i>{
 }
 
 func main(){
-    test<5>();
-    test<6>();
+    test<5>;
+    test<6>;
 }
 
 ```
@@ -43,6 +43,7 @@ func test<type T>(T i){
 }
 
 func main(){
-    test<int>(1);
+    type t = int;
+    test<t>(1);
 }
 ```

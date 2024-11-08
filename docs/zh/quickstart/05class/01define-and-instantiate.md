@@ -16,8 +16,7 @@ class SuperCreeper{
         this.name = name;
     }
 
-    @Tick
-    func tick(){
+    override func tick(){
         effect(@a[distance=..5], Effects.Poison);
         title(@a[distance=..5], this.name);
     }

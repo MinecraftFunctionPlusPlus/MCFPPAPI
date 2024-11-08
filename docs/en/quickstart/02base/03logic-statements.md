@@ -2,7 +2,7 @@
 lastUpdated: true
 ---
 
-# Logic statements 
+# Logic statements
 
 ::: tip
 The logic statement of MCFPP is totally the same as in C/Java. You can skip this chapter if you already know it.

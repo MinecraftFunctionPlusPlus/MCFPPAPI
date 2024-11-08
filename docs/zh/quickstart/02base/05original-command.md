@@ -16,7 +16,7 @@ func test(){
 }
 ```
 
-将会直接在test函数中插入一个summon命令。
+将会直接在`test`函数中插入一个summon命令。
 
 ## 使用`insert`函数
 

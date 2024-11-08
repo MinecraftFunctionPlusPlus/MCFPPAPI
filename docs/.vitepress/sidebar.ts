@@ -31,7 +31,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/02base/03logic-statements",
                 },
                 {
-                    text: "顶层语句",
+                    text: "顶层语句*",
                     link: "/zh/quickstart/02base/04top-statements",
                 },
                 {
@@ -57,7 +57,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/04function/01define-and-call",
                 },
                 {
-                    text: "static关键字",
+                    text: "static关键字*",
                     link: "/zh/quickstart/04function/02static-params",
                 },
                 {
@@ -74,11 +74,11 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "类",
             "items": [
                 {
-                    text: "类的定义和实例化",
+                    text: "实体模板",
                     link: "/zh/quickstart/05class/01define-and-instantiate",
                 },
                 {
-                    text: "类的成员",
+                    text: "实体模板的成员",
                     link: "/zh/quickstart/05class/02member",
                 },
                 {
@@ -88,6 +88,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "继承和抽象",
                     link: "/zh/quickstart/05class/04inheritance-abstract",
+                },
+                {
+                    text: "杂项",
+                    link: "/zh/quickstart/05class/05miscellaneous",
                 }
             ],
         },
@@ -148,6 +152,10 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "数据模板的嵌套",
                     link: "/zh/quickstart/09template/02template-nest",
+                },
+                {
+                    text: "特殊类型",
+                    link: "/zh/quickstart/09template/03mort-type",
                 }
             ],
         },
@@ -180,7 +188,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/11mni/03javavar",
                 },
                 {
-                    text: "注解",
+                    text: "注解*",
                     link: "/zh/quickstart/11mni/04annotation",
                 },
                 {
@@ -201,6 +209,19 @@ export const sidebar: DefaultTheme.Sidebar = {
     ],
     "/en/quickstart/": [
         {
+            text: "Project Configuration",
+            "items": [
+                {
+                    text: "Create a Project",
+                    link: "/en/quickstart/01project/01create-project",
+                },
+                {
+                    text: "Configuration File",
+                    link: "/en/quickstart/01project/02config-file",
+                }
+            ],
+        },
+        {
             text: "Basic Syntax",
             "items": [
                 {
@@ -212,12 +233,16 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/02base/02comments",
                 },
                 {
-                    text: "Logic statements ",
+                    text: "Logic statements",
                     link: "/en/quickstart/02base/03logic-statements",
                 },
                 {
-                    text: "Top statement ",
+                    text: "Top statement*",
                     link: "/en/quickstart/02base/04top-statements",
+                },
+                {
+                    text: "Native Commands",
+                    link: "/en/quickstart/02base/05original-command",
                 }
             ],
         },
@@ -225,7 +250,7 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "Namespace",
             "items": [
                 {
-                    text: "Namespace ",
+                    text: "Namespace",
                     link: "/en/quickstart/03namespace/01namespace",
                 }
             ],
@@ -238,12 +263,16 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/04function/01define-and-call",
                 },
                 {
-                    text: "static keyword ",
+                    text: "static keyword*",
                     link: "/en/quickstart/04function/02static-params",
                 },
                 {
-                    text: "Inline function ",
+                    text: "Inline function",
                     link: "/en/quickstart/04function/03inline-function",
+                },
+                {
+                    text: "Compile-time Function",
+                    link: "/en/quickstart/04function/04compiletime-function",
                 }
             ],
         },
@@ -251,16 +280,20 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "Class",
             "items": [
                 {
-                    text: "The instantiate and define of class",
+                    text: "Entity Template",
                     link: "/en/quickstart/05class/01define-and-instantiate",
                 },
                 {
-                    text: "Member of class ",
+                    text: "Member of entity template",
                     link: "/en/quickstart/05class/02member",
                 },
                 {
+                    text: "Singleton",
+                    link: "/en/quickstart/05class/03object",
+                },
+                {
                     text: "Inheritance and abstraction",
-                    link: "/en/quickstart/05class/03inheritance-abstract",
+                    link: "/en/quickstart/05class/04inheritance-abstract",
                 }
             ],
         },
@@ -268,7 +301,7 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "Interface",
             "items": [
                 {
-                    text: "Define and implement ",
+                    text: "Define and implement",
                     link: "/en/quickstart/06interface/01define-and-implement",
                 }
             ],
@@ -277,15 +310,15 @@ export const sidebar: DefaultTheme.Sidebar = {
             text: "Generic",
             "items": [
                 {
-                    text: "编译确定量",
+                    text: "Compile-time Constants",
                     link: "/en/quickstart/07generic/01concrete_var",
                 },
                 {
-                    text: "泛型函数",
+                    text: "Generic Functions",
                     link: "/en/quickstart/07generic/02generic_function",
                 },
                 {
-                    text: "泛型类",
+                    text: "Generic Classes",
                     link: "/en/quickstart/07generic/03generic_class",
                 }
             ],
@@ -298,11 +331,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/08nbt/01nbt",
                 },
                 {
-                    text: "列表",
+                    text: "Lists",
                     link: "/en/quickstart/08nbt/02list",
                 },
                 {
-                    text: "字典",
+                    text: "Dictionary",
                     link: "/en/quickstart/08nbt/03dict",
                 },
                 {
@@ -312,19 +345,66 @@ export const sidebar: DefaultTheme.Sidebar = {
             ],
         },
         {
+            text: "Data Template",
+            "items": [
+                {
+                    text: "Data Template",
+                    link: "/en/quickstart/09template/01define-and-instantiate",
+                },
+                {
+                    text: "Nested Data Templates",
+                    link: "/en/quickstart/09template/02template-nest",
+                },
+                {
+                    text: "Special Types in Data Templates",
+                    link: "/en/quickstart/09template/03mort-type",
+                }
+            ],
+        },
+        {
+            text: "Library",
+            "items": [
+                {
+                    text: "Import and Use",
+                    link: "/en/quickstart/10library/01import-and-use",
+                },
+                {
+                    text: "Export Library",
+                    link: "/en/quickstart/10library/02export-library",
+                }
+            ],
+        },
+        {
             text: "MNI Framework",
             "items": [
                 {
-                    text: "MNI框架",
+                    text: "MNI Framework",
                     link: "/en/quickstart/11mni/01mni-framework",
                 },
                 {
-                    text: "MNI函数",
+                    text: "MNI Functions",
                     link: "/en/quickstart/11mni/02mni-framework-implementation",
                 },
                 {
                     text: "JavaVar",
                     link: "/en/quickstart/11mni/03javavar",
+                },
+                {
+                    text: "Annotations*",
+                    link: "/en/quickstart/11mni/04annotation",
+                },
+                {
+                    text: "JVM Access Operator",
+                    link: "/en/quickstart/11mni/05access",
+                }
+            ],
+        },
+        {
+            text: "Gradle Build",
+            "items": [
+                {
+                    text: "Gradle Configuration",
+                    link: "/en/quickstart/12gradle/01gradle-configuration",
                 }
             ],
         }

@@ -2,9 +2,9 @@
 lastUpdated: true
 ---
 
-# Top statement 
+# Top statement<Badge type="warning">May Change</Badge>
 
-In MCFPP, allows programming statements in the start of the file and don’t need to define extra function, that’s the top statement. Top statement places in a hidden function, each file have one and only one of this function, and it cannot be called externally. Its returned value’s type is `void`.
+MCFPP allows programming statements at the start of the file and don't need to define any function, that's the top statement. Top statement places in a hidden function, each file have one and only one of this function, and it cannot be called externally. Its returned value’s type is `void`.
 
 ```mcfpp
 print("Top statement");

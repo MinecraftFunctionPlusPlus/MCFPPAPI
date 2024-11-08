@@ -2,9 +2,9 @@
 lastUpdate: true
 ---
 
-# 编译确定量
+# Compile-time Constants
 
-在编译过程中，编译器会对一些编译器可以确定的变量进行优化，例如
+During the compilation process, the compiler will optimize certain variables whose values it can determine, for example:
 
 ```mcfpp
 int i = 5;
@@ -13,9 +13,9 @@ int j = 5;
 print(i + j);
 ```
 
-这个时候，编译器就会知道`i`和`j`的值，因此可以直接计算出`i+j`的值为10，而且在print函数中，也可以直接输出10，而不用再转换为记分板的原始JSON文本了。
+In this case, the compiler knows the values of `i` and `j`, so it can directly compute `i + j` as 10. The `print` function can directly output 10 without needing to convert it into the raw JSON text for a scoreboard.
 
-这种变量，在MCFPP中叫做编译确定量（`Concrete Var`）。编译确定量和普通变量是可以相互转换的，例如：
+These kinds of variables are called compile-time constants (referred to as `Concrete Var` in MCFPP). Compile-time constants and regular variables can be converted between each other, for example:
 
 ```mcfpp
 int i = 5;
@@ -23,8 +23,8 @@ dynamic j;
 i = j;
 ```
 
-在这个例子中，虽然开始的时候编译器能追踪i的值，但是在后面的代码中，i的值被赋值为j，而j被关键字`dynamic`修饰，表示这个变量在声明的时候是不确定的，因此编译器就会丢失对i的值的追踪。
+In this example, although the compiler can initially track the value of `i`, but later in the code, `i` is assigned the value of `j`, and `j` is marked with the keyword `dynamic`, indicating that its value is indeterminate at the time of declaration. As a result, the compiler loses track of the value of `i`.
 
-同理，如果一个普通变量，被赋值为了一个确定的值，或者被赋值为一个编译确定量，那么编译器就能够获取这个变量的值，这个变量也就因此成为了编译确定量。
+Similarly, if a regular variable is assigned a fixed value or a compile-time constant, the compiler will be able to determine the value of that variable, and it will also become a compile-time constant.
 
-值得注意的是，编译器永远不会追踪类的成员变量。即使类的成员变量被赋值为一个确定的值，编译器仍然会将它作为普通变量进行处理。
+It is important to note that the compiler will never track class member variables. Even if a class member variable is assigned a fixed value, the compiler will still treat it as a regular variable.

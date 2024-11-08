@@ -4,20 +4,20 @@ lastUpdate: true
 
 # NBT
 
-在Minecraft中，NBT最重要的数据类型之一。NBT作为一种树状结构的数据类型，可以存储各种各样的数据，例如整数、浮点数、字符串、数组、列表、复合数据等。在MCFPP中，NBT是一种内置的数据类型，可以直接使用。
+In Minecraft, NBT is one of the most important data types. NBT is a tree-structured data format that can store a wide variety of data, such as integers, floating-point numbers, strings, arrays, lists, and compound data. In MCFPP, NBT is a built-in data type that can be used directly.
 
-## NBT数据类型的基本使用
+## Basic Usage of NBT Data Types
 
-在MCFPP中，NBT数据类型的类型标识符为`nbt`。你可以使用一般的SNBT语法来创建NBT数据，例如：
+In MCFPP, the type identifier for NBT is `nbt`. You can create NBT data using the standard SNBT (Stringified NBT) syntax, for example:
 
 ```mcfpp
 nbt value1 = "Hello, World!";
 
 nbt number = 42;
 
-nbt list = [1,2,3];
+nbt list = [1, 2, 3];
 
-nbt uuid = [I;0,0,0,1]
+nbt uuid = [I; 0, 0, 0, 1];
 
 nbt itemStack = {
     "Count": 1,
@@ -30,7 +30,7 @@ nbt itemStack = {
 };
 ```
 
-你可以使用`[]`索引来访问复杂NBT数据中的成员。例如：
+You can use `[]` indexing to access members of complex NBT data, for example:
 
 ```mcfpp
 nbt itemStack = {
@@ -45,25 +45,25 @@ nbt itemStack = {
 
 print(itemStack["tag"]["display"]["Name"]);
 
-nbt list = [1,2,3];
+nbt list = [1, 2, 3];
 
 print(list[0]);
 ```
 
-编译器不会检查索引是否合法。即使索引对应的数据不存在，编译器也将正常拼接NBT路径。在后续的`list`,`dict`,`map`类型中，也是同理的。
+The compiler does not check if the index is valid. Even if the indexed data does not exist, the compiler will still concatenate the NBT path normally. The same principle applies to `list`, `dict`, and `map` types.
 
-除了一种情况，就是编译器知道这个nbt类型的值。此时nbt将会尝试检查数据是否合法，但是并不会报错，而是会给出警告。数据包依然会正常生成。
+There is one exception: when the compiler knows the value of the NBT type. In this case, NBT will attempt to check whether the data is valid. However, it will not throw an error but will issue a warning. The data pack will still be generated as expected.
 
-## NBT数据类型的转换
+## Conversion of NBT Data Types
 
-在MCFPP中，任何数据类型都能被转换为NBT。但是NBT并不能转换为任何数据类型。在编译过程中，编译器会尝试跟踪nbt变量的NBT类型，并由此判断是否能够转换为其他数据类型。
+In MCFPP, any data type can be converted to NBT. However, NBT cannot be converted to any other data type. During compilation, the compiler attempts to track the NBT type of an `nbt` variable and determines whether it can be converted to other data types.
 
 ```mcfpp
 int i = 5;
-nbt n = i;  #合法，隐式转换永远成功
-int p = (int)n; #合法，编译器已知n是一个int类型的NBT数据
+nbt n = i;  # Valid, implicit conversion always succeeds
+int p = (int)n;  # Valid, the compiler knows n is an NBT of int type
 
 func test(nbt n){
-    int i = (int)n; #非法，编译器无法确定作为函数参数传入的n是否为int类型的数据
+    int i = (int)n;  # Invalid, the compiler cannot determine if the n passed as a function argument is of int type
 }
 ```

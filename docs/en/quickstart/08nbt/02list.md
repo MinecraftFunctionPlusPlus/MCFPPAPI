@@ -2,54 +2,53 @@
 lastUpdate: true
 ---
 
-# 列表
+# Lists
 
-NBT支持列表这种基本数据类型，MCFPP将其抽象了出来，作为一种单独的类型提供。
+NBT supports the basic data type of lists, which MCFPP abstracts and provides as a separate type.
 
-## 基本使用
+## Basic Usage
 
-使用`list<type T>`类型标识符定义一个列表。其中类型参数`T`表示这个列表中存储的元素类型。
+Use the `list<type T>` type identifier to define a list, where the type parameter `T` represents the type of elements stored in the list.
 
 ```mcfpp
-list<int> l = []; #创建一个空列表
-l.add(1); #向列表中添加一个元素
+list<int> l = []; # Create an empty list
+l.add(1); # Add an element to the list
 l.add(2); 
 l.add(3); 
-print(l); #输出[1,2,3]
-print(l[0]);    #输出1
+print(l); # Outputs [1,2,3]
+print(l[0]);    # Outputs 1
 
-l.removeAt(1); #从列表中移除索引为1的元素
+l.removeAt(1); # Remove the element at index 1
 ```
 
-列表的传递为值传递，而不是引用传递。事实上，所有基于纯NBT的数据类型都是值传递。
+Passing a list is by value, not by reference. In fact, all NBT-based data types are passed by value.
 
 ```mcfpp
-
 list<int> l = [1,2,3];
 list<int> l2 = l;
 l2.add(4);
-print(l); #输出[1,2,3]
-print(l2); #输出[1,2,3,4]
+print(l); # Outputs [1,2,3]
+print(l2); # Outputs [1,2,3,4]
 ```
 
-## 列表的操作
+## List Operations
 
-MCFPP标准库提供了一系列的列表操作函数。
+The MCFPP standard library provides a series of functions for list operations.
 
-| 函数名 | 参数 | 返回值 | 作用 |
+| Function Name | Parameters | Return Value | Description |
 | --- | --- | --- | --- |
-| `add` | `T element` | `void` | 向列表中添加一个元素 |
-| `addAll` | `list<T> elements` | `void` | 向列表中添加一组元素 |
-| `insert` | `int index, T element` | `void` | 在指定位置插入一个元素 |
-| `removeAt` | `int index` | `void` | 移除指定位置的元素 |
-| `indexOf` | `T element` | `int` | 返回指定元素的索引 |
-| `lastIndexOf` | `T element` | `int` | 返回指定元素的最后一个索引 |
-| `contains` | `T element` | `bool` | 判断列表中是否包含指定元素 |
-| `clear` | `void` | `void` | 清空列表 |
+| `add` | `T element` | `void` | Adds an element to the list |
+| `addAll` | `list<T> elements` | `void` | Adds a group of elements to the list |
+| `insert` | `int index, T element` | `void` | Inserts an element at a specified position |
+| `removeAt` | `int index` | `void` | Removes the element at the specified position |
+| `indexOf` | `T element` | `int` | Returns the index of the specified element |
+| `lastIndexOf` | `T element` | `int` | Returns the last index of the specified element |
+| `contains` | `T element` | `bool` | Checks if the list contains the specified element |
+| `clear` | `void` | `void` | Clears the list |
 
-## 列表的遍历<Badge type="tip" text="未来特性" />
+## Iterating Over Lists <Badge type="tip" text="Future Feature" />
 
-使用`foreach`循环可以简单地遍历列表中的所有元素。
+Use the `foreach` loop to easily iterate over all elements in a list.
 
 ```mcfpp
 list<int> l = [1,2,3];

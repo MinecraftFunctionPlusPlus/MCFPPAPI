@@ -4,14 +4,14 @@ lastUpdated: true
 
 # Variable
 
-## Defination of variables 
+## Defination of variables
 
 Same as other languages, you can define some variables in MCFPP for store, transfer and process data.
 
 The defination of data is like this:
 
 ```mcfpp
-#Type of data Identifier of data (optional: = expression or value )
+#<type> <identifier> [= <expression>]
 int i = 5;
 int b = i * 6;
 ```
@@ -20,7 +20,7 @@ The identifier of variable can be the combination of any characters and numbers.
 
 ## Type of variable 
 
-In MCFPP, variable have basic data type and combined data type. Basic data type is hard-coding and built-in, but combined data types, such as class, template and so on, can be determined by the developer himself. So on, the basic types MCFPP have is shown here:
+In MCFPP, variable have basic data type and combined data type. Basic data type is hard-coding and built-in, but combined data types, such as class, template and so on, can be determined by the developer themselves. So on, the basic types MCFPP have is shown here:
 
 | Type name | Type description | Example |
 |-|-|-|
@@ -32,18 +32,18 @@ In MCFPP, variable have basic data type and combined data type. Basic data type 
 |dict| Represent a dictionary |`{"a":1,"b":2,"c":3}`|
 |map|A high-level implement of dictionary, have much more functions than dictionary | Same as dictionary |
 |string| Represent a string |`"mcfpp"`,`"qwq"`|
-|jtext| Represents the raw json text |`"mcfpp"`,`{"text":"mcfpp","color":"#114514"}`|
+|text| Represents the raw json text |`"mcfpp"`,`{"text":"mcfpp","color":"#114514"}`|
 |entity| Represent an entity. Store the UUID of an entity | omit |
-|selector| Represent a entity selector |`@a`,`@p[limit=6]`|
+|selector| Represent a entity selector |`@a`,`@p`|
 
-There’s a simple introduction for type, You can expand and view them one by one:
+There's a simple introduction for type, You can expand and view them one by one:
 
 ::: details int
 **int**  type is the most basic type in MCFPP, represent a integer. It can be positive, negative, zero. Also can be decimal , binary, octal and hexadecimal. An int type data will be stored as a score board variable, So it’s size is same as the score board.
 :::
 
 ::: details float
-**float** type is  a single-precision floating-point type in MCFPP. It can be positive, negative, zero. And also can be decimal, scientific notation and so on. The float calculation of MCFPP relies on [小豆的数学库完成](https:#github.com/xiaodou8593/math2.0). The calculation of float calculation is purely score board calculation, so the memory usage won’t be so big.
+**float** type is  a single-precision floating-point type in MCFPP. It can be positive, negative, zero. And also can be decimal, scientific notation and so on. The float calculation of MCFPP relies on [XiaoDou's MathLib](https:#github.com/xiaodou8593/math2.0). The calculation of float calculation is purely score board calculation, so the memory usage won’t be so big.
 :::
 
 ::: details bool
@@ -67,31 +67,31 @@ There’s a simple introduction for type, You can expand and view them one by on
 :::
 
 ::: details string
-TODO
+Represent a string, which is a string tag in NBT.
 :::
 
-::: details jtext
-TODO
+::: details text
+Represent a raw JSON text, compared to `string` type, `text` type can contain more format information, such as color, bold and so on. `text` type data will be stored as a combined NBT tag.
 :::
 
 ::: details entity
-TODO
+Reference to a single entity. Stored as a UUID integer NBT array.
 :::
 
 ::: details selector
-TODO
+Represent a entity selector. Stored as a string.
 :::
 
-## var keyword 
+## `var`
 
-`var` keyword is a special keyword in MCFPP, it can used to declare a variable, without specifying variable types. Compiler would infer the type of the variable by the initialization expression.
+Keyword `var` can be used to declare a variable, without specifying variable types. Compiler would infer the type of the variable by the initialization expression.
 
-However, if we use `var`keyword to declare a variable, then the initialization expression is necessary.
+However, if we use `var` to declare a variable, then the initialization expression is necessary.
 
 For example:
 
 ```mcfpp
-var i = 5; # type of I will be inferred as int
+var i = 5; # type of i will be inferred as int
 var j = 5.0; # type of j will be inferred as float
 var i; # [!code error] # Error, there’s no initialization expression 
 ```
@@ -102,7 +102,7 @@ Variable modifiers can used to represent the type of variables, including `dynam
 
 - dynamic
 
-During Compiling, If any variable has been defined as literal, like `int i = 5;`, Compiler will optimize this variable, such as `i += 7` will record `i` as 12 but not compile as scoreboard command. And `dynamic` is used to represent the variable is always dynamic calculating during compilation, though it’s a literal. Such as `dynamic int i = 5;`, `i` will be seen as a dynamic variable during compilation, and won’t be optimized.
+During Compiling, If any variable has been defined as literal, like `int i = 5;`, compiler will optimize this variable, such as `i += 7` will record `i` as 12 but not compile as scoreboard command. And `dynamic` is used to represent the variable is always dynamic calculating during compilation, though it’s a literal. Such as `dynamic int i = 5;`, `i` will be seen as a dynamic variable during compilation, and won’t be optimized.
 
 - const
 

@@ -2,6 +2,6 @@
 lastUpdated: true
 ---
 
-# Gradle Configuration
+# Import and Use
 
 TODO

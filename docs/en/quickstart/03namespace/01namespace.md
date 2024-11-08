@@ -2,7 +2,7 @@
 lastUpdate: true
 ---
 
-# Namespace 
+# Namespace
 
 The namespace in MCFPP is same as the namespace in Minecraft. That means, namespace only can be the combination of lowercase letters, numbers, dots and underlines.
 
@@ -18,20 +18,4 @@ func test(){    # test:test function
 
 You can only define namespace once in a file.
 
-The same, you can also define this namespace in the project configuration file.
-
-```json
-{
-    "file":[
-        "*"
-        "D:/workspace/mcfpp/project/*"
-    ],
-    "version":"1.19.4",
-    "include":[
-        "D:/workspace/mcfpp/another_project.json"
-    ],
-    "targetPath":"./out",
-    //The default namespace of the project. Optional, default is ‘default’ // [!code focus]
-    "namespace":"mcfpp" // [!code focus]
-}
-```
+If no namespace is declared, the namespace of the file will be determined by the relative path of the file to the source code directory. For example, if the source code directory is `src/main/mcfpp`, then the namespace of the file `src/main/mcfpp/test/test.mcfpp` will be `test.test`. The source code path is determined by the `sourcePath` in the project configuration file.

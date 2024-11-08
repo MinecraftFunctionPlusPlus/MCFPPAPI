@@ -12,7 +12,7 @@ lastUpdate: true
 
 ```mcfpp
 class ClassName<type T>{
-    #类的属性和方法
+    # 类的属性和方法
     ...
 }
 ```

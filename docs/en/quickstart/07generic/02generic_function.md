@@ -2,40 +2,38 @@
 lastUpdate: true
 ---
 
-# 泛型函数
+# Generic Functions
 
-## 泛型参数
+## Generic Parameters
 
-我们之前说了编译确定量的概念。在mcfpp中，可以声明一个函数需要一些编译确定量作为参数。需要使用`<>`来包围编译确定量的参数列表，从而和普通的参数区分开。在调用的时候，也要使用`<>`来包围编译确定量的参数。
+Earlier, we discussed the concept of compile-time constants. In MCFPP, you can declare a function that requires some compile-time constants as parameters. These parameters are enclosed in `<>` to distinguish them from regular parameters. When calling the function, you also need to enclose the compile-time constant parameters in `<>`.
 
 ```mcfpp
-
 func test<int i>{
     print(i);
 }
 
 func main(){
-    test<5>();
-    test<6>();
+    test<5>;
+    test<6>;
 }
-
 ```
 
-在上面的例子中，`test`函数接受一个编译确定量`i`作为参数，然后打印出这个参数。在`main`函数中，我们调用了两次`test`函数，分别传递了`5`和`6`作为参数。这样，`test`函数就会打印出`5`和`6`。
+In the above example, the `test` function accepts a compile-time constant `i` as a parameter and prints it. In the `main` function, we call the `test` function twice, passing `5` and `6` as arguments. The `test` function will print `5` and `6` accordingly.
 
-值得注意的是，编译器会在编译的时候，不会立刻将`test`函数编译，而是会等到要调用的时候，再将`test`函数的代码进行编译，并分别替换`i`为`5`和`6`。这样，`test`函数就会有两个版本，分别打印出`5`和`6`。而在编译好的数据包中，也只会包含编译后的`test`函数，不会包含原来的`test`函数。
+It's important to note that the compiler will not immediately compile the `test` function but will wait until it's called. Then, the compiler will compile the `test` function code, replacing `i` with `5` and `6` respectively. This way, the `test` function will have two versions that print `5` and `6`. In the compiled datapack, only the compiled versions of the `test` function will be included, and the original `test` function will not be present.
 
-## 类型参数
+## Type Parameters
 
-有一种特殊的变量，叫做类型变量。类型变量永远只能是编译时确定量，因此永远是编译器已知的。如果尝试让编译器丢失对类型变量的追踪，那么编译器会报错。
+There is a special kind of variable called type variable. Type variables must always be compile-time constants, meaning they are always known to the compiler. If you try to cause the compiler to lose track of a type variable, it will throw an error.
 
-使用`type`关键字对类型变量进行声明。例如：
+You can declare type variables using the `type` keyword. For example:
 
 ```mcfpp
 type t = int;
 ```
 
-此时，t就代表了int变量。但是这个时候，你还不能将t直接用于`t qwq = 1`这种变量声明，因为`t`并没有被注册入编译器的类型缓存中。只有当编译器作为函数的泛型参数被传入时，你才可以在这个函数中，使用这个类型变量进行变量声明。
+At this point, `t` represents the `int` type. However, you cannot yet use `t` in a variable declaration like `t qwq = 1`, because `t` has not been registered in the compiler's type cache. You can only use this type variable in variable declarations when it is passed into the compiler as a generic parameter of a function.
 
 ```mcfpp
 func test<type T>(T i){
@@ -43,6 +41,7 @@ func test<type T>(T i){
 }
 
 func main(){
-    test<int>(1);
+    type t = int;
+    test<t>(1);
 }
 ```

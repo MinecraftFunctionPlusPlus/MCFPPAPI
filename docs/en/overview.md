@@ -6,6 +6,10 @@ nav:
   order: -1
 ---
 
+:::warning
+Some parts of the documentation may be outdated or incomplete.
+:::
+
 # MCFPP Overview
 
 Before the start: statements of mcfpp is end up with semicolon.

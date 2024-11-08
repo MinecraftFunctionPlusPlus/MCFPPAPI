@@ -2,13 +2,13 @@
 lastUpdate: true
 ---
 
-# Member of class 
+# Member of entity template
 
-Similar to Java, in MCFPP, members of class include attributes and methods. Attributes are the data members, used to store the data of the object; methods are the function of class member, used to operate the data of the object. Member of class can access by `.` operator.
+Similar to Java, in MCFPP, members of entity template include attributes and methods. Attributes are the data members, used to store the data of the object; methods are the function of entity template member, used to operate the data of the object. Member of entity template can access by `.` operator.
 
-## Attributes 
+## Attributes
 
-Attributes are the data member of class, used to store the data of a object. The grammar to define attributes is shown below:
+Attributes are the data member of entity template, used to store the data of a object. The grammar to define attributes is shown below:
 
 ```mcfpp
 class A{
@@ -17,11 +17,11 @@ class A{
 }
 ```
 
-The code before defined a class `A`, it has two attributes `a` and `b`. `a` is a integer attribute, not initialized; `b` is a integer attribute, initialized as `5`.
+The code before defined a entity template `A`, it has two attributes `a` and `b`. `a` is a integer attribute, not initialized; `b` is a integer attribute, initialized as `5`.
 
 ## Method 
 
-Methods are the function member of class, used to operate the data of the object. The grammar to define a method is shown below:
+Methods are the function member of entity template, used to operate the data of the object. The grammar to define a method is shown below:
 
 ```mcfpp
 class A{
@@ -44,11 +44,11 @@ class A{
 
 ## Access control 
 
-In MCFPP, members of class can use keywords `public`, `protected` and `private` to control the access rights. Default, members of class are `private`.
+In MCFPP, members of entity template can use keywords `public`, `protected` and `private` to control the access rights. Default, members of entity template are `private`.
 
 - `public`：public, accessible to outside.
 - `protected`：protected, accessible to subclasses.
-- `private`：private, only can access in the class.
+- `private`：private, only can access in the entity template.
 
 ```mcfpp
 class A{

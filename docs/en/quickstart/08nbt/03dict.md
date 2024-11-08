@@ -2,13 +2,13 @@
 lastUpdate: true
 ---
 
-# 字典
+# Dictionary
 
-字典类型对应MCFPP中的复合标签类型。它是一个键值对的集合，键必须为字符串类型，而值可以是任意类型。
+The dictionary type in MCFPP corresponds to the compound tag type. It is a collection of key-value pairs, where the keys must be of string type, and the values can be of any type.
 
-## 基本使用
+## Basic Usage
 
-使用`dict`类型标识符定义字典类型的变量。使用复合标签来为字典进行赋值。
+Use the `dict` type identifier to define a dictionary variable. Use compound tags to assign values to the dictionary.
 
 ```mcfpp
 dict playerData = {
@@ -26,23 +26,22 @@ dict playerData = {
     }
 }
 
-print(playerData["Alumopper"]["level"]); #输出1
+print(playerData["Alumopper"]["level"]); # Outputs 1
 
-print(playerData["CR_017"]);    #非法，但是不报错
+print(playerData["CR_017"]);    # Invalid, but no error is thrown
 
 playerData["CR_017"] = {
     "level" : 4,
     "exp" : 300
-};  # 添加一个新的键值对
-
+};  # Adds a new key-value pair
 ```
 
-## 字典的操作
+## Dictionary Operations
 
-字典不能被遍历，也不能获取关于键值的列表。MCFPP提供了一些基本的字典操作。
+Dictionaries cannot be iterated over, and you cannot retrieve a list of keys or values. MCFPP provides some basic dictionary operations.
 
-| 函数名 | 参数 | 返回值 | 作用 |
+| Function Name | Parameters | Return Value | Description |
 | --- | --- | --- | --- |
-| `containsKey` | `string key` | `bool` | 判断字典中是否包含指定键 |
-| `merge` | `dict dict` | `void` | 合并两个字典 |
-| `remove` | `string key` | `void` | 移除指定键的键值对 |
+| `containsKey` | `string key` | `bool` | Checks if the dictionary contains a specified key |
+| `merge` | `dict dict` | `void` | Merges two dictionaries |
+| `remove` | `string key` | `void` | Removes the key-value pair for the specified key |

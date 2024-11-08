@@ -2,30 +2,30 @@
 lastUpdate: true
 ---
 
-# 单例
+# Singleton
 
-## 定义
+## Definition
 
-使用`object class`声明一个单例的实体模板对象。单例是一种特殊的实体模板，只有一个实例。在其他方面，单例和普通实体模板没有区别。
+Use `object class` to declare a singleton class object. A singleton is a special type of class that only has one instance. In other aspects, a singleton has no different from a regular class.
 
 ```mcfpp
 object class Singleton {
-    # 成员
+    # Member
     int value = 0;
 
-    # 方法
+    # Method
     func setValue(int v) {
         value = v
     }
 }
 
-//使用
+# Usage
 Singleton.setValue(10)
 ```
 
-## 伴随对象
+## Companion Object
 
-如果声明了一个和实体模板同名的单例，那么我们称这个单例为实体模板的伴随对象。
+If a singleton is declared with the same name as a class, we define this singleton as the class's companion object.
 
 ```mcfpp
 class Person {

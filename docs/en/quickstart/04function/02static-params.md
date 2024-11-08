@@ -2,9 +2,9 @@
 lastUpdate: true
 ---
 
-# static keyword 
+# `static`
 
-`static` keyword used to define a static parameter. Static parameter represents, during the process of transferring parameter,  it’ll transfer parameter itself but not it’s value, so the change of parameter in the function would effect the variable out of the function. For example:
+`static` keyword is used to define a static parameter. Static parameter represents, during the process of transferring parameter,  it'll transfer parameter itself but not it's value, so the change of parameter in the function would effect the variable out of the function. For example:
 
 ```mcfpp
 func test(static int a){
