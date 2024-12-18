@@ -21,5 +21,5 @@ features:
     details: 一份代码，多版本支持，无需担心Mojang的一周一改
   - title: 无缝集成
     details: 强大的MNI框架，基于数据包编译期，提供更多的可能
----
 
+---

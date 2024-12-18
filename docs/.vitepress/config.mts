@@ -819,7 +819,11 @@ export default defineConfig({
           { text: '主页', link: '/zh/' },
           { text: '快速开始', link: '/zh/quickstart/index' },
           { text: '文档', link: '/mcfppdocs/index.html' }
-        ]
+        ],
+        footer: {
+          message: "<a href='https://mcicp.com' title='MCICP备2024000011号' target='_blank'>MCICP备2024000011号</a>",
+          copyright: "GPL-3.0 Lisenced | Copyright©2024 ProjectMCFPP"
+        }
       }
     },
     en : {
