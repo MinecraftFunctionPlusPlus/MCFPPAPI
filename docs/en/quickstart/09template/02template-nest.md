@@ -41,3 +41,15 @@ func main(){
 ```
 
 Apparently, using the same type as a member within a Data Template is not allowed.
+
+## Anonymous Definition
+
+In a Data Template, an anonymous Data Template can be defined as a member type:
+
+```mcfpp
+data B{
+    int valueB;
+    data{
+        int valueA;
+    } dataA;
+}

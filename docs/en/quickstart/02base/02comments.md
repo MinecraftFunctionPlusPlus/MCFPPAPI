@@ -38,4 +38,4 @@ This is a document comment
 }#
 ```
 
-Document comment can include some special tags used to tag the content of the comment. Details in the Document chapter (TODO).
+Document comment can include some special tags used to tag the content of the comment. Details in the [Document](../13doc/01doc-comment.md)。

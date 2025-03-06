@@ -12,16 +12,20 @@ lastUpdate: true
 
 基实体带有标签`<命名空间>_class_<类名>_pointer"`，而用于储存数据的实体则带有标签`<命名空间>_class_<类名>_pointer_data"`。
 
+::: info
+在24w10a后，所有的实体都可以通过`minecraft:custom_data`实体组件储存自定义数据。这意味着，在未来的mcfpp版本中，任何类型的基实体构成的类都会把数据统一储存在`minecraft:custom_data`组件中。
+:::
+
 ## 实体模板的生命周期
 
 实体模板的生命周期和基实体的生命周期是一致的。当基实体被移除时，实体模板也会被移除。这个过程由垃圾处理器（GC）自动完成。
 
-当然，你可以可以手动释放内存，使用`delete`函数：
+当然，你可以可以手动释放内存，使用`dispose`函数<Badge type="tip">未来特性</Badge>：
 
 ```mcfpp
 
 SuperCreeper p = SuperCreeper("Super Creeper");
 
-delete(p);
+p.dispose();
 
 ```

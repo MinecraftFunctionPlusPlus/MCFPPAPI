@@ -4,8 +4,6 @@ lastUpdate: true
 
 # 定义和调用
 
-MCFPP函数的定义方式和C/Java有较大的区别，而更加接近于Python的语法。
-
 ## 函数定义
 
 MCFPP中，函数的定义语法如下：

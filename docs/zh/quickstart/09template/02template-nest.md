@@ -41,3 +41,15 @@ func main(){
 ```
 
 当然，使用自身类型作为数据模板的成员是不被允许的。
+
+## 匿名定义
+
+在数据模板中，可以定义匿名数据模板作为成员的类型：
+
+```mcfpp
+data B{
+    int valueB;
+    data{
+        int valueA;
+    } dataA;
+}

@@ -32,11 +32,15 @@ MCFPP标准库提供了一系列的`map`操作函数。
 | `containsKey` | `string key` | `bool` | 判断`map`中是否包含指定键 |
 | `containsValue` | `T value` | `bool` | 判断`map`中是否包含指定值 |
 | `isEmpty` | `void` | `bool` | 判断`map`是否为空 |
-| `getKeys` | `void` | `list<string>` | 获取`map`中所有的键 |
-| `getValues` | `void` | `list<T>` | 获取`map`中所有的值 |
 | `remove` | `string key` | `void` | 移除指定键的键值对 |
 | `merge` | `map<T> map` | `void` | 合并两个`map` |
 | `size` | `void` | `int` | 获取`map`的大小 |
+
+以及一些属性
+
+| 属性名 | 类型 | 描述| 
+| --- | --- | --- |
+| `keys`| `string`| 获取`map`的所有键|
 
 ## map的遍历<Badge type="tip" text="未来特性" />
 
@@ -81,9 +85,8 @@ m["nya"] = "meow";
 namespace.stack_frame:[
     {
         m:{
-            key:["qwq","owo","nya"],        //键列表
-            value:["pwp","uwu","meow"],     //值列表
-            data:{
+            keys:["qwq","owo","nya"],        //键列表
+            keyValueSet:{
                 "qwq":"pwp","owo":"uwu","nya":"meow"    //键值对，相当于一个dict
             }    
         }

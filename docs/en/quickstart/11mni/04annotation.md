@@ -2,7 +2,7 @@
 lastUpdate: true
 ---
 
-# Annotations <Badge type="tip">WIP</Badge>
+# Annotations
 
 You can add annotations to classes, data templates, and method declarations by using the `@` symbol followed by the annotation name and a read-only parameter list. Annotations are part of the MNI framework and only exist during the compilation phase.
 

@@ -32,11 +32,15 @@ The MCFPP standard library provides a series of functions to manipulate `map`.
 | `containsKey` | `string key` | `bool` | Checks if the `map` contains the specified key |
 | `containsValue` | `T value` | `bool` | Checks if the `map` contains the specified value |
 | `isEmpty` | `void` | `bool` | Checks if the `map` is empty |
-| `getKeys` | `void` | `list<string>` | Retrieves all keys in the `map` |
-| `getValues` | `void` | `list<T>` | Retrieves all values in the `map` |
 | `remove` | `string key` | `void` | Removes the key-value pair for the specified key |
 | `merge` | `map<T> map` | `void` | Merges two `maps` |
 | `size` | `void` | `int` | Returns the size of the `map` |
+
+As well as some properties:
+
+| Property Name | Type | Description|
+| --- | --- | --- |
+| `keys`| `string`| Gets all the keys in the `map`|
 
 ## map Traversal <Badge type="tip" text="Future Feature" />
 
@@ -81,9 +85,8 @@ When stored, the structure of the `map` would look like this:
 namespace.stack_frame:[
     {
         m:{
-            key:["qwq","owo","nya"],        // Key list
-            value:["pwp","uwu","meow"],     // Value list
-            data:{
+            keys:["qwq","owo","nya"],        // Key list
+            keyValueSet:{
                 "qwq":"pwp","owo":"uwu","nya":"meow"    // Key-value pairs, similar to a dict
             }    
         }

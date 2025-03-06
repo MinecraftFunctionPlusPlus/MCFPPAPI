@@ -42,6 +42,7 @@ MCFPP标准库提供了一系列的列表操作函数。
 | `addAll` | `list<T> elements` | `void` | 向列表中添加一组元素 |
 | `insert` | `int index, T element` | `void` | 在指定位置插入一个元素 |
 | `removeAt` | `int index` | `void` | 移除指定位置的元素 |
+| `remove` | `T element` | `void` | 移除指定元素 |
 | `indexOf` | `T element` | `int` | 返回指定元素的索引 |
 | `lastIndexOf` | `T element` | `int` | 返回指定元素的最后一个索引 |
 | `contains` | `T element` | `bool` | 判断列表中是否包含指定元素 |

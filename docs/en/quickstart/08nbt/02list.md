@@ -41,6 +41,7 @@ The MCFPP standard library provides a series of functions for list operations.
 | `addAll` | `list<T> elements` | `void` | Adds a group of elements to the list |
 | `insert` | `int index, T element` | `void` | Inserts an element at a specified position |
 | `removeAt` | `int index` | `void` | Removes the element at the specified position |
+| `remove` | `T element` | `void` | Removes the specified element |
 | `indexOf` | `T element` | `int` | Returns the index of the specified element |
 | `lastIndexOf` | `T element` | `int` | Returns the last index of the specified element |
 | `contains` | `T element` | `bool` | Checks if the list contains the specified element |

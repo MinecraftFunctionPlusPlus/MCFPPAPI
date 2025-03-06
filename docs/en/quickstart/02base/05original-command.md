@@ -29,3 +29,7 @@ func test(){
 ```
 
 This will insert the raw text from the `insert` function's parameter into the `test` function. It's important to note that the `insert` function's parameter is a string, so you can insert any content. This also means that the compiler will not perform any checks on the command format.
+
+## Command Interpolation
+
+See [JVM Accessors](../11mni/05access.md) for more information.

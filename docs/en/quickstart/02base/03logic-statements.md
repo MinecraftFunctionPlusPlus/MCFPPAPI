@@ -100,4 +100,4 @@ for (int i = 0; i < 10; i++){
 
 In this example, when the value of `i` is `5`, `break`will jump out of the loop; when the value of `i` is `3`, `continue` will jump this loop, go to the next loop directly. So, the change of I in each loop are:`0`，`1`，`2`，`4`，`5`, and finally jump out.
 
-`break` and `continue` statement only can be used in the loop
+`break` and `continue` only can be used in the loop

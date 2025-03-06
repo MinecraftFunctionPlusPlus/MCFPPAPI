@@ -45,3 +45,4 @@ Dictionaries cannot be iterated over, and you cannot retrieve a list of keys or 
 | `containsKey` | `string key` | `bool` | Checks if the dictionary contains a specified key |
 | `merge` | `dict dict` | `void` | Merges two dictionaries |
 | `remove` | `string key` | `void` | Removes the key-value pair for the specified key |
+| `clear` | `void` | `void` | Clears the dictionary |

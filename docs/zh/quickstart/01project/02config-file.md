@@ -14,17 +14,22 @@ MCFPP的工程配置文件是一个json文件，一般存放在这个工程的�
     "sourcePath": "src/main/mcfpp/**",
     //数据包的描述。是一个原始JSON文本
     "description": "",
-    //数据包的默认命名空间，将会决定数据包中storage等数据的命名空间
-    "rootNamespace": "test",
+    //数据包的默认命名空间
+    "namespace": "test",
+    //调用的jar包装的库
+    "jar": [],
     //数据包的输出路径。数据包、库文件将会输出在此目录下
-    "targetPath": "src/main/resources/lib",
+    "targetPath": "build",
     //是否 *不* 生成数据包。默认为false
     "noDatapack": false,
-    //是否 *忽略* 标准库。默认为false。如果为true，将不会引用mcfpp的标准库。 
-    "ignoreStdLib": false,
-    //是否是库。默认为false。库不需要拥有一个入口函数
-    "isLib": false,
-    //生成注释的级别
-    "commentLevel": "debug"
+    //编译参数
+    "compileArgs": [
+        //以调试模式编译（用于编译器开发）
+        "-debug", 
+        //是否忽略标准库
+        "-ignoreStdLib",
+        //是否是库
+        "-isLib"
+    ]
 }
 ```

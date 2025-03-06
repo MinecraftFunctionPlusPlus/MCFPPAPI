@@ -46,3 +46,4 @@ playerData["CR_017"] = {
 | `containsKey` | `string key` | `bool` | 判断字典中是否包含指定键 |
 | `merge` | `dict dict` | `void` | 合并两个字典 |
 | `remove` | `string key` | `void` | 移除指定键的键值对 |
+| `clear` | `void` | `void` | 清空字典 |

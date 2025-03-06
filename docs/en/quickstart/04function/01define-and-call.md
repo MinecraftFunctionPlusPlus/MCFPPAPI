@@ -4,8 +4,6 @@ lastUpdate: true
 
 # Define and call
 
-The way of define function in MCFPP has some differences with C/Java, and more similar to the grammar of Python.
-
 ## Function definition
 
 In MCFPP, the grammar of define a function is shown below:

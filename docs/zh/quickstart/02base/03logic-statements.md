@@ -64,24 +64,6 @@ do{
 }while (condition);
 ```
 
-## for语句
-
-`for`语句是循环的一种稍复杂的版本，它的语法如下：
-
-```mcfpp
-for (forinit; condition; forupdate){
-    #code
-}
-```
-
-`forinit`是一个初始化表达式，它用来初始化循环变量。`condition`是一个布尔表达式，它用来判断循环是否继续。`forupdate`是一个更新表达式，它用来更新循环变量。`#code`代表了循环体，即循环体中的代码。在运行的时候，`for`语句的执行过程如下：
-
-1. 执行`forinit`，初始化循环变量。
-2. 判断`condition`的值，如果`condition`的值为`true`，则执行`#code`代表的代码块，然后执行`forupdate`，更新循环变量，再次判断`condition`的值。
-3. 如果`condition`的值为`false`，则退出循环。
-
-`for`循环中，`forinit`声明的变量只在`for`循环中有效。
-
 ## break和continue语句
 
 `break`语句用来跳出整个循环，`continue`语句用来跳过本次循环。例如：
