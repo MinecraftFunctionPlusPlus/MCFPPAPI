@@ -10,8 +10,8 @@ MNI框架（Minecraft Native Implement Framework）是MCFPP提供的一个在编
 
 ```mcfpp
 #定义print函数以及它的重载
-func print(int i) = top.mcfpp.lang.System.print;
-func print(any a) = top.mcfpp.lang.System.print;
+func print(i as int) = top.mcfpp.lang.System.print;
+func print(a as any) = top.mcfpp.lang.System.print;
 ```
 
 ```java

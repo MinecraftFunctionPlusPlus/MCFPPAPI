@@ -11,7 +11,7 @@ MCFPP支持Minecraft原生命令的使用。有两种方法可以使用原生命
 以`/`开头的语句将会被认为是一个原生命令。例如：
 
 ```mcfpp
-func test(){
+func test {
     /summon minecraft:armor_stand ~ ~ ~
 }
 ```
@@ -23,7 +23,7 @@ func test(){
 `insert`函数可以将一个字符串插入到当前位置。例如：
 
 ```mcfpp
-func test(){
+func test {
     insert("summon minecraft:armor_stand ~ ~ ~");
 }
 ```

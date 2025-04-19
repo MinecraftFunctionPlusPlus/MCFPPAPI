@@ -69,7 +69,7 @@ do{
 `break`语句用来跳出整个循环，`continue`语句用来跳过本次循环。例如：
 
 ```mcfpp
-for (int i = 0; i < 10; i++){
+for (var i = 0; i < 10; i++){
     if (i == 5){
         break;
     }

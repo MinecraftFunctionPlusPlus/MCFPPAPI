@@ -11,7 +11,7 @@ NBT支持列表这种基本数据类型，MCFPP将其抽象了出来，作为一
 使用`list<type T>`类型标识符定义一个列表。其中类型参数`T`表示这个列表中存储的元素类型。
 
 ```mcfpp
-list<int> l = []; #创建一个空列表
+var l as list<int> = []; #创建一个空列表
 l.add(1); #向列表中添加一个元素
 l.add(2); 
 l.add(3); 
@@ -25,8 +25,8 @@ l.removeAt(1); #从列表中移除索引为1的元素
 
 ```mcfpp
 
-list<int> l = [1,2,3];
-list<int> l2 = l;
+var l as list<int> = [1,2,3];
+var l2 as list<int> = l;
 l2.add(4);
 print(l); #输出[1,2,3]
 print(l2); #输出[1,2,3,4]
@@ -38,22 +38,22 @@ MCFPP标准库提供了一系列的列表操作函数。
 
 | 函数名 | 参数 | 返回值 | 作用 |
 | --- | --- | --- | --- |
-| `add` | `T element` | `void` | 向列表中添加一个元素 |
-| `addAll` | `list<T> elements` | `void` | 向列表中添加一组元素 |
-| `insert` | `int index, T element` | `void` | 在指定位置插入一个元素 |
-| `removeAt` | `int index` | `void` | 移除指定位置的元素 |
-| `remove` | `T element` | `void` | 移除指定元素 |
-| `indexOf` | `T element` | `int` | 返回指定元素的索引 |
-| `lastIndexOf` | `T element` | `int` | 返回指定元素的最后一个索引 |
-| `contains` | `T element` | `bool` | 判断列表中是否包含指定元素 |
-| `clear` | `void` | `void` | 清空列表 |
+| `add` | `T` | `void` | 向列表中添加一个元素 |
+| `addAll` | `list<T>` | `void` | 向列表中添加一组元素 |
+| `insert` | `int, T` | `void` | 在指定位置插入一个元素 |
+| `removeAt` | `int` | `void` | 移除指定位置的元素 |
+| `remove` | `T` | `void` | 移除指定元素 |
+| `indexOf` | `T` | `int` | 返回指定元素的索引 |
+| `lastIndexOf` | `T` | `int` | 返回指定元素的最后一个索引 |
+| `contains` | `T` | `bool` | 判断列表中是否包含指定元素 |
+| `clear` | - | `void` | 清空列表 |
 
 ## 列表的遍历<Badge type="tip" text="未来特性" />
 
 使用`foreach`循环可以简单地遍历列表中的所有元素。
 
 ```mcfpp
-list<int> l = [1,2,3];
+var l = [1,2,3];
 foreach(i in l){
     print(i);
 }

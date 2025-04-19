@@ -12,16 +12,16 @@ MCFPP中，类支持继承和抽象。
 
 ```mcfpp
 class Parent{
-    protect int a;
-    func test(){
+    protect a as int;
+    func test {
         print("Parent");
         print(a);
     }
 }
 
 class Child: Parent{
-    int b;
-    override func test(){
+    b as int;
+    override func test {
         print("Child");
         print(super.a);
     }
@@ -38,7 +38,7 @@ abstract class A{
 }
 
 class B: A{
-    override func test(){
+    override func test {
         print("Hello, World!");
     }
 }

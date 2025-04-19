@@ -12,11 +12,11 @@ class SuperCreeper{
 
     text name;
 
-    constructor(text name){
+    constructor(name as text){
         this.name = name;
     }
 
-    override func tick(){
+    override func tick {
         effect(@a[distance=..5], Effects.Poison);
         title(@a[distance=..5], this.name);
     }
@@ -60,8 +60,8 @@ SuperCreeper p = SuperCreeper("")[
 事实上，实体模板初始化器可以用在任何地方，而不只是在实体模板的初始化的时候。比如
 
 ```mcfpp
-func main(){
-    Test t = Test();
+func main {
+    var t = Test();
     t = t[a = 100];
     print(t.toText());
 }

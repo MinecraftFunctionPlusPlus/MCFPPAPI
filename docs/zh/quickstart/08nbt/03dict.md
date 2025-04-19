@@ -11,7 +11,7 @@ lastUpdate: true
 使用`dict`类型标识符定义字典类型的变量。使用复合标签来为字典进行赋值。
 
 ```mcfpp
-dict playerData = {
+var playerData = {
     "Alumopper" : {
         "level" : 1,
         "exp" : 0
@@ -43,7 +43,7 @@ playerData["CR_017"] = {
 
 | 函数名 | 参数 | 返回值 | 作用 |
 | --- | --- | --- | --- |
-| `containsKey` | `string key` | `bool` | 判断字典中是否包含指定键 |
-| `merge` | `dict dict` | `void` | 合并两个字典 |
-| `remove` | `string key` | `void` | 移除指定键的键值对 |
+| `containsKey` | `string` | `bool` | 判断字典中是否包含指定键 |
+| `merge` | `dict` | `void` | 合并两个字典 |
+| `remove` | `string` | `void` | 移除指定键的键值对 |
 | `clear` | `void` | `void` | 清空字典 |

@@ -29,18 +29,18 @@ class SuperCreeper{
     #{
         苦力怕会给予的效果列表
     }#
-    list effectList = ["wither", "poison", "slowness", "hunger", "blindness", "weakness"];
+    var effectList = ["wither", "poison", "slowness", "hunger", "blindness", "weakness"];
 
     #{
         @return 一个随机效果
 
         获取一个随机效果
     }#
-    func getEffect() -> string {
+    func getEffect -> string {
         return effectList.random();
     }
 
-    override func tick(){
+    override func tick {
         if(@a[distance = 0..5].exist()){
             effect(@a[distance = 0..5], getEffect(), 1, 10);
         }

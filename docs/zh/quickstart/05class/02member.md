@@ -12,12 +12,16 @@ lastUpdate: true
 
 ```mcfpp
 class A{
-    int a;
-    int b = 5;
+    a as int;
+    b as int = 5;
 }
 ```
 
 上述代码定义了一个实体模板`A`，它有两个属性`a`和`b`。`a`是一个整数类型的属性，没有初始化；`b`是一个整数类型的属性，初始化为`5`。
+
+:::tip
+实体模板和数据模板的成员定义都不需要写`var`关键字，直接写成员的类型和名字即可。
+:::
 
 ## 方法
 
@@ -25,7 +29,7 @@ class A{
 
 ```mcfpp
 class A{
-    void test(){
+    func test {
         print("Hello, World!");
     }
 }
@@ -35,8 +39,8 @@ class A{
 
 ```mcfpp
 class A{
-    int a;
-    void setA(int a){
+    a as int;
+    func setA(a as int){
         this.a = a;
     }
 }
@@ -52,21 +56,21 @@ MCFPP中，实体模板的成员可以使用`public`、`protected`、`private`�
 
 ```mcfpp
 class A{
-    public int a;
-    protected int b;
-    private int c;
+    public a as int;
+    protected b as int;
+    private c as int;
 }
 
 class B: A{
-    void test(){
+    func test {
         a = 1;  #合法
         b = 2;  #合法
         c = 3;  #编译错误
     }
 }
 
-func test(){
-    A obj = A();
+func test {
+    var obj = A();
     obj.a = 1;  #合法
     obj.b = 2;  #编译错误
     obj.c = 3;  #编译错误

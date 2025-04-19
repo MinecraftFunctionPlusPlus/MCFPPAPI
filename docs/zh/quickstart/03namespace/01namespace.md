@@ -11,7 +11,7 @@ MCFPP中的命名空间和MC中的命名空间是同一种东西。这也意味�
 ```mcfpp
 namespace test;
 
-func test(){    # test:test函数
+func test {    # test:test函数
     print(i);
 }
 ```

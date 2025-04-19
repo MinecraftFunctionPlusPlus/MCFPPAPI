@@ -11,7 +11,7 @@ lastUpdate: true
 泛型参数在声明类的时候，在类的标识符后面，使用`<>`包裹泛型参数。
 
 ```mcfpp
-class ClassName<type T>{
+class ClassName<T as type>{
     # 类的属性和方法
     ...
 }
@@ -20,20 +20,20 @@ class ClassName<type T>{
 在上面的例子中，`T`是泛型参数。和函数一样，在类的内部，可以使用`T`来声明变量，这样，这个变量的类型就是泛型参数`T`。
 
 ```mcfpp
-class ClassName<type T>{
+class ClassName<T as type>{
     T value;
     
-    public ClassName(T value){
+    constructor(value as T){
         this.value = value;
     }
     
-    func getValue() -> T{
+    func getValue -> T{
         return this.value;
     }
 }
 
 func main(){
-    ClassName<int> c = ClassName(5);    #创建泛型类的对象
+    var c = ClassName<int>(5);    #创建泛型类的对象
     print(c.getValue()); #输出5
 }
 ```
@@ -47,13 +47,13 @@ func main(){
 由于泛型类含有泛型参数，那么当然也能进行重载。根据泛型参数的不同，编译器会将其视作不同的类。
 
 ```mcfpp
-class Test<int i>{
+class Test<i as int>{
     func print(){
         print(this.i);
     }
 }
 
-class Test<int i, int j>{
+class Test<i as int, j as int>{
     func print(){
         print(this.i + this.j);
     }

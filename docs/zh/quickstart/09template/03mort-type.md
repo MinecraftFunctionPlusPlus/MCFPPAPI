@@ -15,12 +15,12 @@ lastUpdate: true
 ```mcfpp
 
 data Test{
-    int a;  
-    int? b; # b是可空的
+    a as int;  
+    b as int?; # b是可空的
 }
 
 func main(){
-    Test test = {
+    var test as Test = {
         "a": 1
     };
     print(test.b); # 编译不报错，但是在游戏中执行命令会出问题
@@ -34,15 +34,15 @@ func main(){
 ```mcfpp
 
 data Test{
-    (int|String) a; # a可以是int或者String
-    (int|String)? b; # b可以是int或者String，也可以是空值
+    a as (int|String); # a可以是int或者String
+    b as (int|String)?; # b可以是int或者String，也可以是空值
 }
 
 func main(){
-    Test test1 = {
+    var test1 as Test = {
         "a": 1
     };
-    Test test2 = {
+    var test2 as Test = {
         "a": "qwq"
     };
 }
@@ -53,6 +53,6 @@ func main(){
 ```mcfpp
 # ...接上文
 print(test1.a); # 退化为any类型
-print((int)test2.a); # 作为int类型
-print((string)test2.a); # 作为string类型
+print(test2.a as int); # 作为int类型
+print(test2.a as string); # 作为string类型
 ```

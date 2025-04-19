@@ -13,20 +13,20 @@ lastUpdate: true
 ```mcfpp
 # 定义
 data Test{
-    int a;  # 一个整数
-    nbt b;  # 任意的NBT值
+    a as int;  # 一个整数
+    b as nbt;  # 任意的NBT值
 }
 
 func main(){
     # 创建对象
-    Test t = Test();
+    var t = Test();
     t.a = 5;
     t.b = {
         "key": "value"
     };
 
     # 或者直接写入值
-    Test t2 = {
+    var t2 as Test = {
         "a": 5,
         "b": {
             "key": "value"
@@ -46,8 +46,8 @@ print(t.b);
 
 ```mcfpp
 data Test{
-    int a;
-    nbt b;
+    a as int;
+    b as nbt;
 
     func print(){
         print(this.a);

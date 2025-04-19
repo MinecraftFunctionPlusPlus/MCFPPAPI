@@ -11,11 +11,11 @@ lastUpdate: true
 ```mcfpp
 object class Singleton {
     # 成员
-    int value = 0;
+    value as int = 0;
 
     # 方法
-    func setValue(int v) {
-        value = v
+    func setValue(value as int) {
+        this.value = value
     }
 }
 
@@ -30,7 +30,7 @@ Singleton.setValue(10)
 ```mcfpp
 class Person {
 
-    int id = 0;
+    id as int = 0;
 
     constructor() {
         this.id = Person.nextId();
@@ -39,9 +39,9 @@ class Person {
 
 object class Person {
     
-    private int id = 0;
+    private id as int = 0;
     
-    int nextId() {
+    func nextId -> int {
         id = id + 1;
         return id;
     }

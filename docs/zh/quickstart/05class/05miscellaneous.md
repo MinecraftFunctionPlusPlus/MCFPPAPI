@@ -24,7 +24,7 @@ lastUpdate: true
 
 ```mcfpp
 
-SuperCreeper p = SuperCreeper("Super Creeper");
+var p = SuperCreeper("Super Creeper");
 
 p.dispose();
 

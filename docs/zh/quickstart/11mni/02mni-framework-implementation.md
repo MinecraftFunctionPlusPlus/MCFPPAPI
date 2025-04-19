@@ -66,7 +66,7 @@ public @interface MNIRegister {
 我们回到刚刚的例子：
 
 ```mcfpp
-func print(any a) = top.mcfpp.lang.System.print;
+func print(a as any) = top.mcfpp.lang.System.print;
 ```
 
 ```java
@@ -145,12 +145,12 @@ open class MCInt : MCNumber<Int> {
 ```mcfpp
 @From<top.mcfpp.mni.minecraft.AreaData>
 data Area{
-    int startX;
-    int startY;
-    int startZ;
-    int endX;
-    int endY;
-    int endZ;
+    startX as int;
+    startY as int;
+    startZ as int;
+    endX as int;
+    endY as int;
+    endZ as int;
 }
 ```
 

@@ -41,11 +41,11 @@ var nextInt = random.nextInt(100);
 同样，在适当的情况下，编译器会完成部分类型的MCFPP变量和Java变量之间的自动转换。
 
 ```mcfpp
-int qwq = 100;  #MCFPP变量
+var qwq = 100;  #MCFPP变量
 
 var nextInt = random.nextInt(qwq);  #MCFPP变量自动转换为Java变量，并传入Java方法中
 
-int nextMCFPPInt = nextInt;    #Java变量自动转换为MCFPP变量
+var nextMCFPPInt as int = nextInt;    #Java变量自动转换为MCFPP变量
 ```
 
 这样的转换有一个前提，也就是，MCFPP变量必须是已知的，才能被自动转换为对应的Java变量，否则将会转换为为`Var`类，即所有MCFPP变量在编译器中的基类。当然，如果Java方法默认需要一个`Var`类型的参数，编译器就不会执行自动转换。

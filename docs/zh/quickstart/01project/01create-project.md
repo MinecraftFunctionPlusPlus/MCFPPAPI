@@ -23,7 +23,7 @@ MCFPP目前提供了两种使用方法：直接使用命令行，或者借助Gra
 随后，我们创建一个简单的mcfpp文件，例如`example.mcfpp`：
 
 ```mcfpp
-func hello(){
+func hello {
     print("Hello World");
 }
 ```

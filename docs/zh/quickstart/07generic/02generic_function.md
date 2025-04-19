@@ -10,7 +10,7 @@ lastUpdate: true
 
 ```mcfpp
 
-func test<int i>{
+func test<i as int>{
     print(i);
 }
 
@@ -29,21 +29,23 @@ func main(){
 
 有一种特殊的变量，叫做类型变量。类型变量永远只能是编译时确定量，因此永远是编译器已知的。如果尝试让编译器丢失对类型变量的追踪，那么编译器会报错。
 
-使用`type`关键字对类型变量进行声明。例如：
+使用`type`类型对类型变量进行声明。例如：
 
 ```mcfpp
-type t = int;
+var t as type = int;
+#或者自动推断类型
+var t = int;
 ```
 
 此时，t就代表了int变量。但是这个时候，你还不能将t直接用于`t qwq = 1`这种变量声明，因为`t`并没有被注册入编译器的类型缓存中。只有当编译器作为函数的泛型参数被传入时，你才可以在这个函数中，使用这个类型变量进行变量声明。
 
 ```mcfpp
-func test<type T>(T i){
+func test<T as type>(i as T){
     print(qwq);
 }
 
-func main(){
-    type t = int;
+func main {
+    var t = int;
     test<t>(1);
 }
 ```

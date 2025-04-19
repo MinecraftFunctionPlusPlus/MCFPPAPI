@@ -17,12 +17,24 @@ func functionName(parameter1, parameter2, ...) -> returnType{
 `func`是函数的关键字，`functionName`是函数的标识符或者说名字，而紧随其后的`parameter1, parameter2, ...`则是函数的参数列表，`returnType`是可选的，即函数的返回类型。函数体则是由`{}`包裹的一系列语句。下面是一个实际的例子：
 
 ```mcfpp
-func add(int a, int b) -> int{
+func add(a as int, b as int) -> int{
     return a + b;
 }
 ```
 
 这个函数的名字是`add`，它有两个整数类型的参数`a`和`b`，返回值也是一个整数类型。这个函数的作用是把两个参数相加并返回结果。
+
+若函数没有参数，你可以省略参数列表
+
+```mcfpp
+func getRandom -> int{
+    return random(0, 100);
+}
+
+func sayHi {
+    print("hi");
+}
+```
 
 ## return
 
@@ -37,7 +49,7 @@ func add(int a, int b) -> int{
 MCFPP中，函数的调用语法和C/Java一样，即`functionName(parameter1, parameter2, ...);`。其中，`functionName`是函数的名字，`parameter1, parameter2, ...`是要传递给函数的参数。下面是一个实际的例子：
 
 ```mcfpp
-func test(){
+func test {
     print(add(1, 2));  #上面定义的add函数
 }
 ```
@@ -49,11 +61,11 @@ func test(){
 函数中，对参数的修改不会影响到函数外部的变量。例如：
 
 ```mcfpp
-func test(int a){
+func test(int a) {
     a = 5;
 }
 
-void main(){
+void main {
     int a = 0;
     test(a);
     print(a);   #输出0

@@ -21,11 +21,11 @@ inline func functionName(parameter1, parameter2, ...) -> returnType{
 在调用内联函数的地方，编译器会直接将内联函数的代码插入，而不是通过函数调用的方式来执行。例如下面的例子：
 
 ```mcfpp
-inline func add(int a, int b) -> int{
+inline func add(a as int, b as int) -> int{
     return a + b;
 }
 
-func main(){
+func main {
     print(add(1, 2));
 }
 ```
@@ -33,10 +33,10 @@ func main(){
 编译的时候，上述代码会相当于：
 
 ```mcfpp
-func main(){
-    int a = 1;
-    int b = 2;
-    int ret = a + b;
+func main {
+    var a = 1;
+    var b = 2;
+    var ret = a + b;
     print(ret);
 }
 ```

@@ -11,7 +11,7 @@ lastUpdate: true
 使用`map<type T>`来声明一个`map`。和`dict`一样，在`map`中，可以使用`[]`来访问键值对。
 
 ```mcfpp
-map<int> m = {
+var m as map<int> = {
     "a": 1,
     "b": 2,
     "c": 3
@@ -28,13 +28,13 @@ MCFPP标准库提供了一系列的`map`操作函数。
 
 | 函数名 | 参数 | 返回值 | 作用 |
 | --- | --- | --- | --- |
-| `clear` | `void` | `void` | 清空`map` |
-| `containsKey` | `string key` | `bool` | 判断`map`中是否包含指定键 |
-| `containsValue` | `T value` | `bool` | 判断`map`中是否包含指定值 |
+| `clear` | - | `void` | 清空`map` |
+| `containsKey` | `string` | `bool` | 判断`map`中是否包含指定键 |
+| `containsValue` | `T` | `bool` | 判断`map`中是否包含指定值 |
 | `isEmpty` | `void` | `bool` | 判断`map`是否为空 |
-| `remove` | `string key` | `void` | 移除指定键的键值对 |
-| `merge` | `map<T> map` | `void` | 合并两个`map` |
-| `size` | `void` | `int` | 获取`map`的大小 |
+| `remove` | `string` | `void` | 移除指定键的键值对 |
+| `merge` | `map<T>` | `void` | 合并两个`map` |
+| `size` | - | `int` | 获取`map`的大小 |
 
 以及一些属性
 
@@ -47,7 +47,7 @@ MCFPP标准库提供了一系列的`map`操作函数。
 使用`foreach`循环可以简单地遍历`map`中的所有键值对。
 
 ```mcfpp
-map<int> m = {
+var m as map<int> = {
     "a": 1,
     "b": 2,
     "c": 3
@@ -72,7 +72,7 @@ foreach(v in m.getValues()){
 具体来说，以下面的代码为例：
 
 ```mcfpp
-map m = {};
+var m as map<string> = {};
 
 m["qwq"] = "pwp";
 m["owo"] = "uwu";

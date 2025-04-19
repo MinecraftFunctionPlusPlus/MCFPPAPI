@@ -7,8 +7,8 @@ lastUpdate: true
 在编译过程中，编译器会对一些编译器可以确定的变量进行优化，例如
 
 ```mcfpp
-int i = 5;
-int j = 5;
+var i = 5;
+var j = 5;
 
 print(i + j);
 ```
@@ -18,8 +18,8 @@ print(i + j);
 这种变量，在MCFPP中叫做编译确定量（`Concrete Var`）。编译确定量和普通变量是可以相互转换的，例如：
 
 ```mcfpp
-int i = 5;
-dynamic j;
+var i = 5;
+dynamic var j as int;
 i = j;
 ```
 
