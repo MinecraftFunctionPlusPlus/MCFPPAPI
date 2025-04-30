@@ -159,7 +159,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                 },
                 {
                     text: "类型委托",
-                    link: "/zh/quickstart/09template/04type-as.",
+                    link: "/zh/quickstart/09template/04type-as",
                 },
             ],
         },
