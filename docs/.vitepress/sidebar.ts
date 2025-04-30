@@ -156,7 +156,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "特殊类型",
                     link: "/zh/quickstart/09template/03mort-type",
-                }
+                },
+                {
+                    text: "类型委托",
+                    link: "/zh/quickstart/09template/04type-as.",
+                },
             ],
         },
         {
