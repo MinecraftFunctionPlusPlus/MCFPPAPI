@@ -843,6 +843,8 @@ export default defineConfig({
   markdown: {
     languages: [mcfpp, mcf],
 
+    lineNumbers: true,
+
     shikiSetup: async (shiki) => {
       await shiki.loadLanguage(mcfpp, mcf)
     }
