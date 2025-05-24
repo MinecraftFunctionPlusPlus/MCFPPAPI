@@ -4,7 +4,7 @@ lastUpdated: true
 
 # Getting Started
 
-MCFPP currently offers two usage methods: directly using the command line or building with Gradle. For simple functionalities, the command line is recommended. Gradle provides more extensive support, such as MNI.
+MCFPP currently offers two usage methods: directly using the command line or building with Gradle. For simple functionalities, the command line is recommended. Gradle provides more extensive support, such as [MNI](../11mni/01mni-framework.md).
 
 ## Compiling with Command Line
 
