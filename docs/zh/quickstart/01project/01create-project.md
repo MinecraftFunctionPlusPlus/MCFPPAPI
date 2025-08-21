@@ -42,6 +42,8 @@ java -jar mcfpp.jar example.json
 
 :::tip
 本例使用IntelliJ Idea，Gradle DSL使用Kotlin
+
+实例项目地址：<https://github.com/MinecraftFunctionPlusPlus/MCFPP_Example>
 :::
 
 要使用Gradle构建MCFPP项目，首先需要创建一个空白的Java项目或Kotlin项目。MCFPP支持Java和Kotlin，但是由于本身由Kotlin编写，使用Kotlin可以获得更好的编写体验。
@@ -119,4 +121,4 @@ mcfpp {
 |noDatapack|Boolean|false|不生成数据包|
 |copyImport|Boolean|true|生成数据包的时候复制导入的库|
 
-你可以在gradle任务的`build`分类下找到名为`mcfppCompile`的任务。
+最后，在gradle任务的`build`分类下找到名为`mcfppCompile`的任务，就把这个项目编译为数据包啦。
