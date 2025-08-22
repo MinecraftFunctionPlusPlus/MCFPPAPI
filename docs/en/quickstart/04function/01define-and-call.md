@@ -17,7 +17,7 @@ func functionName(parameter1, parameter2, ...) -> returnType{
 `func` is the keyword of function, while `functionName` is the identifier of the function. The following `parameter1, parameter2, ...` is the parameter list of the function. `returnType` is optional, which is the returned type of the function. Function body is a series of statements surrounded by `{}`. Here's a example below:
 
 ```mcfpp
-func add(int a, int b) -> int{
+func add(a as int, b as int) -> int{
     return a + b;
 }
 ```
@@ -49,7 +49,7 @@ In this example, `test` function called `add` function, and sent two parameters 
 In the function, the change to the parameter won't affect the variables out of the function. For example:
 
 ```mcfpp
-func test(int a){
+func test(a as int){
     a = 5;
 }
 

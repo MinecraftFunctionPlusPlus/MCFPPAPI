@@ -2,7 +2,7 @@
 lastUpdate: true
 ---
 
-# MAP
+# Map
 
 为了弥补Minecraft原版NBT中复合标签在操作上的不便利，MCFPP封装了一种新的数据结构：`map`。`map`是一种键值对的数据结构，它的键只能是字符串，而值只能是同一种类型。
 

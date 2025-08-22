@@ -11,7 +11,7 @@ Just like functions, classes can also have read-only parameter lists. Such class
 When declaring a class, generic parameters are enclosed in `<>` after the class identifier.
 
 ```mcfpp
-class ClassName<type T>{
+class ClassName<T as type>{
     # Class attributes and methods
     ...
 }
@@ -20,10 +20,10 @@ class ClassName<type T>{
 In the above example, `T` is a generic parameter. As with functions, you can use `T` inside the class to declare variables, making the type of those variables the generic parameter `T`.
 
 ```mcfpp
-class ClassName<type T>{
-    T value;
+class ClassName<T as type>{
+    value as T;
     
-    public ClassName(T value){
+    public ClassName(value as T){
         this.value = value;
     }
     
@@ -33,7 +33,7 @@ class ClassName<type T>{
 }
 
 func main(){
-    ClassName<int> c = ClassName(5);    # Creating an instance of a generic class
+    var c = ClassName<int>(5);    # Creating an instance of a generic class
     print(c.getValue()); # Outputs 5
 }
 ```
@@ -47,13 +47,13 @@ As seen in the example above, if you explicitly declare the generic type when in
 Since generic classes contain generic parameters, they can also be overloaded. The compiler will treat classes with different generic parameters as distinct classes.
 
 ```mcfpp
-class Test<int i>{
+class Test<i as int>{
     func print(){
         print(this.i);
     }
 }
 
-class Test<int i, int j>{
+class Test<i as int, j as int>{
     func print(){
         print(this.i + this.j);
     }

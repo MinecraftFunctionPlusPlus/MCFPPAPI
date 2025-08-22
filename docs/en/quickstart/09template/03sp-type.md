@@ -2,13 +2,11 @@
 lastUpdate: true
 ---
 
-# Special Types in Data Templates
+# Special Types
 
 In data templates, to fit the situation where a key in NBT can be null or can be of multiple types, two special types are provided in data templates: nullable types and union types.
 
 ## Nullable Types
-
-可空类型表示，在数据模板中，这个值是可选的。在给数据模板赋初值的时候，或者数据模板生成默认数据的时候，可以不用包含这个键对应的值。
 
 Nullable types represent that a value is optional in a data template. When assigning an initial value to a data template or when generating default data for a data template, you can omit the value corresponding to this key.
 
@@ -17,12 +15,12 @@ However, the compiler only checks nullable types when assigning values, not when
 ```mcfpp
 
 data Test{
-    int a;  
-    int? b; # b is nullable
+    var a as int;  
+    var b as int?; # b is nullable
 }
 
 func main(){
-    Test test = {
+    var test as Test = {
         "a": 1
     };
     print(test.b); # Compile successfully, but may cause an error in the game
@@ -36,15 +34,15 @@ Union types represent that a key in a data template can be one of multiple types
 ```mcfpp
 
 data Test{
-    (int|String) a; # a can be int or String
-    (int|String)? b; # b can be int, String, or null
+    a as (int|String); # a can be int or String
+    b as (int|String)? ; # b can be int, String, or null
 }
 
 func main(){
-    Test test1 = {
+    var test1 as Test = {
         "a": 1
     };
-    Test test2 = {
+    var test2 as Test = {
         "a": "qwq"
     };
 }

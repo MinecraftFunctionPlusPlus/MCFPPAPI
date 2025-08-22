@@ -10,40 +10,23 @@ MNI框架（Minecraft Native Implement Framework）是MCFPP提供的一个在编
 
 ```mcfpp
 #定义print函数以及它的重载
-func print(i as int) = top.mcfpp.lang.System.print;
-func print(a as any) = top.mcfpp.lang.System.print;
+func print(i as text) = top.mcfpp.mni.System.print;
 ```
 
 ```java
 //print函数在java中的具体实现
-package top.mcfpp.lang;
+package top.mcfpp.mni;
 
-import org.jetbrains.annotations.NotNull;
-import top.mcfpp.annotations.InsertCommand;
-import top.mcfpp.annotations.MNIRegister;
-import top.mcfpp.command.Command;
-import top.mcfpp.core.lang.*;
-import top.mcfpp.lib.ScoreChatComponent;
-import top.mcfpp.model.function.Function;
-import top.mcfpp.util.NBTUtil;
-import top.mcfpp.util.ValueWrapper;
+//import ...
 
-public class System extends MNIMethodContainer {
-    
+public class System {
     @InsertCommand
-    @MNIRegister(normalParams = {"any a"})
-    public static void print(@NotNull Var<?> value){
-        Function.Companion.addCommand("tellraw @a " + "\"" + value + "\"");
-    }
-
-    @InsertCommand
-    @MNIRegister(normalParams = {"int i"})
-    public static void print(@NotNull MCInt var) {
-        if (var instanceof MCIntConcrete varC) {
-            //是确定的，直接输出数值
-            Function.Companion.addCommand("tellraw @a " + varC.getValue());
+    @MNIFunction(normalParams = {"text"})
+    public static void print(@NotNull JsonText text){
+        if(text instanceof JsonTextConcrete textC){
+            Function.addCommand(new Command("tellraw @a").build(textC.getValue().toCommandPart()));
         }else {
-            Function.Companion.addCommand("tellraw @a " + new ScoreChatComponent(var).toCommandPart());
+            Function.addCommand(new Command("tellraw @a").build(text.toCommandPart()));
         }
     }
 }

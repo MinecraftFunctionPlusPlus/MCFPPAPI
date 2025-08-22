@@ -11,11 +11,11 @@ Use `object class` to declare a singleton class object. A singleton is a special
 ```mcfpp
 object class Singleton {
     # Member
-    int value = 0;
+    value as int = 0;
 
     # Method
-    func setValue(int v) {
-        value = v
+    func setValue(v as int) {
+        this.value = v
     }
 }
 
@@ -30,7 +30,7 @@ If a singleton is declared with the same name as a class, we define this singlet
 ```mcfpp
 class Person {
 
-    int id = 0;
+    id as int = 0;
 
     constructor() {
         this.id = Person.nextId();
@@ -39,9 +39,9 @@ class Person {
 
 object class Person {
     
-    private int id = 0;
+    private id as int = 0;
     
-    int nextId() {
+    func nextId() -> int {
         id = id + 1;
         return id;
     }

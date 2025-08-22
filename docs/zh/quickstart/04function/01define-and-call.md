@@ -61,7 +61,7 @@ func test {
 函数中，对参数的修改不会影响到函数外部的变量。例如：
 
 ```mcfpp
-func test(int a) {
+func test(a as int) {
     a = 5;
 }
 

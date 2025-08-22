@@ -42,11 +42,11 @@ Interface also can inherit from other interfaces. The grammar of inherit a inter
 
 ```mcfpp
 interface Interface1{
-    func method1() -> void;
+    func method1();
 }
 
 interface Interface2: Interface1{
-    func method2() -> void;
+    func method2();
 }
 ```
 

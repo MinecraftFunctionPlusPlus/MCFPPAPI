@@ -64,30 +64,12 @@ do{
 }while (condition);
 ```
 
-## for statement 
-
-`for` statement is a more complex version of loop, it’s grammar is:
-
-```mcfpp
-for (forinit; condition; forupdate){
-    #code
-}
-```
-
-`forinit` is an initialization expression, used to initialize loop variable. `condition` is a boolean expression, used to determine if the loop keeps going on. `forupdate` is a update expression, used to update the variable of the loop. `#code` represents the loop body, which is the code in the loop. The execute process of `for` is shown below:
-
-1. Execute `forinit`, initialize the loop variable.
-2. Determine the value of `condition`, if the value of `condition` is `true`, execute `#code`, then execute `forupdate`, to update the loop variable, and determine the value of `condition` again.
-3. If the value of `condition` is `false`, exit the loop.
-
-In `for` loop, the declaration of variable `forinit` only valid in the `for` loop.
-
 ## break and continue statement
 
 `break` statement used to jump out the whole loop, `continue` statement used to skip the current loop. For example:
 
 ```mcfpp
-for (int i = 0; i < 10; i++){
+for (var i = 0; i < 10; i++){
     if (i == 5){
         break;
     }

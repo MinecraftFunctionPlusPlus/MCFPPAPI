@@ -11,7 +11,7 @@ The dictionary type in MCFPP corresponds to the compound tag type. It is a colle
 Use the `dict` type identifier to define a dictionary variable. Use compound tags to assign values to the dictionary.
 
 ```mcfpp
-dict playerData = {
+var playerData = {
     "Alumopper" : {
         "level" : 1,
         "exp" : 0

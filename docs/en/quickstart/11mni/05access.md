@@ -9,11 +9,11 @@ lastUpdate: true
 In MCFPP, you can use the `::` operator to access the Java object of a variable in the compiler.
 
 ```mcfpp
-int i = 0;
+var i = 0;
 i::jvm.toString(); # Call the `toString` method of `i`
 var qwq = i::jvm.type.build("test"); # Call the `build` method of the `type` object of `i`
 # The `build` method returns a variable of type `MCIntConcrete`, so the type of `qwq` is `JavaVar`, and the value is `MCIntConcrete`
-int awa = qwq; # The value of `qwq` is automatically converted to an MCFPP variable
+var awa as int = qwq; # The value of `qwq` is automatically converted to an MCFPP variable
 print(i + qwq);
 ```
 
@@ -30,7 +30,7 @@ Note that you should use the fully qualified name.
 In the previous section, we mentioned that you can insert a vanilla command using `/`. You can use a string template-like syntax to insert members and methods of Java objects into vanilla commands.
 
 ```mcfpp
-int i = 0;
+var i = 0;
 /say ${i}
 /say ${i::jvm.toString()}
 /scoreboard players get ${i::jvm.name} ${i::jvm.sbObject}

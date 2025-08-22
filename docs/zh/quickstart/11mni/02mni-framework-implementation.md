@@ -15,7 +15,7 @@ func 函数名(参数列表) = Java类名.函数名;
 例如我们刚刚例子中提到的`print`函数，它的声明是：
 
 ```mcfpp
-func print(int i) = top.mcfpp.lang.System.print;
+func print(i as text) = top.mcfpp.mni.System.print;
 ```
 
 它表示，print函数拥有一个int类型的参数，同时它的逻辑交给了`top.mcfpp.lang.System`类的`print`函数来实现。注意这里的类名需要是完全限定名，需要包含包名，否则编译器将无法找到这个类。
@@ -119,26 +119,30 @@ class ValueWrapper<T>(var value: T)
 
 ## 注入
 
-`CompoundData`类拥有成员方法`getNativeFromClass(cls: Class<*>)`，用于向当前类型中注入来自类`cls`中的所有方法。
+`CompoundData`类拥有成员方法`injected(cls: Class<*>)`，用于向当前类型中注入来自类`cls`中的所有方法。
 
 ```kotlin
-open class MCInt : MCNumber<Int> {
-    
-    //...
+class MCFPPBaseType {
+    object Int: MCFPPType(arrayListOf(Any)){
 
-    companion object {
-        val data = CompoundData("int","mcfpp")
+        override val instanceData by lazy {
+            CompoundData("int","mcfpp").apply {
+                this.commonType = Int
+                extends(Any.instanceData)
+                injectedBy(MCIntData::class.java)
+            }
+        }
 
-        init {
-            data.initialize()
-            data.extends(MCAny.data)
-            data.getNativeFromClass(MCIntData::class.java)
+        override val concreteInstanceData by lazy {
+            CompoundData("int","mcfpp").apply {
+                this.commonType = Int
+                extends(Any.concreteInstanceData)
+                injectedBy(MCIntConcreteData::class.java)
+            }
         }
     }
-
-    //...
-
 }
+```
 
 此外，你也可以在mcfpp代码中使用注解`@From<类的完全限定名>`，来向这个类或者数据模板中注入方法。
 

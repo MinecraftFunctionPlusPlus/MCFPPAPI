@@ -16,7 +16,7 @@ public class Example extends DataTemplateAnnotation {
     public Example(String className) {
         super("Example", "mcfpp.annotation");
         // RESOVLE_FIELD represents the field resolution phase, after which the annotation will be registered in the compiler
-        Project.INSTANCE.getStageProcessor()[Project.INSTANCE.getRESOVLE_FIELD()].add(() -> {
+        Project.INSTANCE.getStageProcessor()[Project.CompileStage.RESOVLE_FIELD].add(() -> {
             GlobalField.INSTANCE.getLocalNamespaces().get("mcfpp.annotation").getField().addAnnotation("Example", this.getClass(), false);
             return null;
         });

@@ -11,7 +11,7 @@ NBT supports the basic data type of lists, which MCFPP abstracts and provides as
 Use the `list<type T>` type identifier to define a list, where the type parameter `T` represents the type of elements stored in the list.
 
 ```mcfpp
-list<int> l = []; # Create an empty list
+var l as list<int> = []; # Create an empty list
 l.add(1); # Add an element to the list
 l.add(2); 
 l.add(3); 
@@ -24,8 +24,8 @@ l.removeAt(1); # Remove the element at index 1
 Passing a list is by value, not by reference. In fact, all NBT-based data types are passed by value.
 
 ```mcfpp
-list<int> l = [1,2,3];
-list<int> l2 = l;
+var l as list<int> = [1,2,3];
+var l2 = l;
 l2.add(4);
 print(l); # Outputs [1,2,3]
 print(l2); # Outputs [1,2,3,4]
@@ -52,7 +52,7 @@ The MCFPP standard library provides a series of functions for list operations.
 Use the `foreach` loop to easily iterate over all elements in a list.
 
 ```mcfpp
-list<int> l = [1,2,3];
+var l = [1,2,3];
 foreach(i in l){
     print(i);
 }

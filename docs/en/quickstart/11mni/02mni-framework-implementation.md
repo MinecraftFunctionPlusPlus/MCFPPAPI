@@ -15,7 +15,7 @@ func functionName(parameterList) = JavaClassName.methodName;
 For example, as mentioned in the previous example for the `print` function, its declaration is:
 
 ```mcfpp
-func print(int i) = top.mcfpp.lang.System.print;
+func print(i as text) = top.mcfpp.mni.System.print;
 ```
 
 This indicates that the `print` function takes an `int` type parameter, and its logic is implemented by the `print` method of the `top.mcfpp.lang.System` class. Note that the class name needs to be fully qualified, including the package name, otherwise, the compiler won't be able to locate the class.
@@ -66,7 +66,7 @@ The parameter order for the Java function used in the implementation follows the
 Let's go back to the earlier example:
 
 ```mcfpp
-func print(any a) = top.mcfpp.lang.System.print;
+func print(a as any) = top.mcfpp.mni.System.print;
 ```
 
 ```java
@@ -119,26 +119,30 @@ The `xxxConcrete` naming convention refers to compiler-traceable versions of typ
 
 ## Injection
 
-The `CompoundData` class has a member method `getNativeFromClass(cls: Class<*>)`, used to inject all methods from the class `cls` into the current type.
+The `CompoundData` class has a member method `injectedBy(cls: Class<*>)`, used to inject all methods from the class `cls` into the current type.
 
 ```kotlin
-open class MCInt : MCNumber<Int> {
-    
-    //...
+class MCFPPBaseType {
+    object Int: MCFPPType(arrayListOf(Any)){
 
-    companion object {
-        val data = CompoundData("int","mcfpp")
+        override val instanceData by lazy {
+            CompoundData("int","mcfpp").apply {
+                this.commonType = Int
+                extends(Any.instanceData)
+                injectedBy(MCIntData::class.java)
+            }
+        }
 
-        init {
-            data.initialize()
-            data.extends(MCAny.data)
-            data.getNativeFromClass(MCIntData::class.java)
+        override val concreteInstanceData by lazy {
+            CompoundData("int","mcfpp").apply {
+                this.commonType = Int
+                extends(Any.concreteInstanceData)
+                injectedBy(MCIntConcreteData::class.java)
+            }
         }
     }
-
-    //...
-
 }
+```
 
 In addition, you can use the `@From<fully qualified class name>` annotation in MCFPP code to inject methods into a class or data template.
 

@@ -137,7 +137,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/08nbt/03dict",
                 },
                 {
-                    text: "MAP",
+                    text: "Map",
                     link: "/zh/quickstart/08nbt/04map",
                 }
             ],
@@ -155,7 +155,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                 },
                 {
                     text: "特殊类型",
-                    link: "/zh/quickstart/09template/03mort-type",
+                    link: "/zh/quickstart/09template/03sp-type",
                 },
                 {
                     text: "类型委托",
@@ -207,6 +207,15 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Gradle的配置",
                     link: "/zh/quickstart/12gradle/01gradle-configuration",
+                }
+            ],
+        },
+        {
+            text: "文档注释",
+            "items": [
+                {
+                    text: "文档注释",
+                    link: "/zh/quickstart/13doc/01doc-comment",
                 }
             ],
         }
@@ -360,9 +369,13 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/09template/02template-nest",
                 },
                 {
-                    text: "Special Types in Data Templates",
-                    link: "/en/quickstart/09template/03mort-type",
-                }
+                    text: "Special Types",
+                    link: "/en/quickstart/09template/03sp-type",
+                },
+                {
+                    text: "Type Delegate",
+                    link: "/en/quickstart/09template/04type-as",
+                },
             ],
         },
         {
@@ -409,6 +422,15 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Gradle Configuration",
                     link: "/en/quickstart/12gradle/01gradle-configuration",
+                }
+            ],
+        },
+        {
+            text: "Documentation",
+            "items": [
+                {
+                    text: "Doc Comments",
+                    link: "/en/quickstart/13doc/01doc-comment",
                 }
             ],
         }

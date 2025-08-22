@@ -45,7 +45,7 @@ var itemStack = {
 
 print(itemStack["tag"]["display"]["Name"]);
 
-var list = [1,2,3];
+var list as nbt = [1,2,3];
 
 print(list[0]);
 ```

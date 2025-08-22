@@ -10,24 +10,24 @@ If a Data Template contains a variable of another Data Template type as a member
 
 ```mcfpp
 data A {
-    int valueA;
+    valueA as int;
 }
 
 data B {
-    int valueB;
-    A dataA;
+    valueB as int;
+    dataA as A;
 }
 
 func main(){
     // Create objects
-    B b = B();
-    A a = A();
+    var b = B();
+    var a = A();
     a.valueA = 5;
     b.valueB = 5;
     b.dataA = A();
 
     // Or directly assign values
-    B qwq = {
+    var qwq as B = {
         "valueB": 5,
         "dataA": {
             "valueA": 5
@@ -48,8 +48,8 @@ In a Data Template, an anonymous Data Template can be defined as a member type:
 
 ```mcfpp
 data B{
-    int valueB;
-    data{
+    var valueB as int;
+    dataA as data{
         int valueA;
-    } dataA;
+    };
 }

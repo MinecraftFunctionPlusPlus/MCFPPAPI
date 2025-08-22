@@ -10,40 +10,23 @@ Many functions in MCFPP are implemented using MNI, such as the `print` function.
 
 ```mcfpp
 # Define the print function and its overload
-func print(int i) = top.mcfpp.lang.System.print;
-func print(any a) = top.mcfpp.lang.System.print;
+func print(i as text) = top.mcfpp.mni.System.print;
 ```
 
 ```java
 // Java implementation of the print function
-package top.mcfpp.lang;
+package top.mcfpp.mni;
 
-import org.jetbrains.annotations.NotNull;
-import top.mcfpp.annotations.InsertCommand;
-import top.mcfpp.annotations.MNIRegister;
-import top.mcfpp.command.Command;
-import top.mcfpp.core.lang.*;
-import top.mcfpp.lib.ScoreChatComponent;
-import top.mcfpp.model.function.Function;
-import top.mcfpp.util.NBTUtil;
-import top.mcfpp.util.ValueWrapper;
+//import ...
 
-public class System extends MNIMethodContainer {
-    
+public class System {
     @InsertCommand
-    @MNIRegister(normalParams = {"any a"})
-    public static void print(@NotNull Var<?> value){
-        Function.Companion.addCommand("tellraw @a " + "\"" + value + "\"");
-    }
-
-    @InsertCommand
-    @MNIRegister(normalParams = {"int i"})
-    public static void print(@NotNull MCInt var) {
-        if (var instanceof MCIntConcrete varC) {
-            //It's concrete and output the value directly.
-            Function.Companion.addCommand("tellraw @a " + varC.getValue());
+    @MNIFunction(normalParams = {"text"})
+    public static void print(@NotNull JsonText text){
+        if(text instanceof JsonTextConcrete textC){
+            Function.addCommand(new Command("tellraw @a").build(textC.getValue().toCommandPart()));
         }else {
-            Function.Companion.addCommand("tellraw @a " + new ScoreChatComponent(var).toCommandPart());
+            Function.addCommand(new Command("tellraw @a").build(text.toCommandPart()));
         }
     }
 }

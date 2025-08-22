@@ -10,7 +10,7 @@ lastUpdate: true
 @Base<"creeper">
 class SuperCreeper{
 
-    text name;
+    var name as text;
 
     constructor(name as text){
         this.name = name;

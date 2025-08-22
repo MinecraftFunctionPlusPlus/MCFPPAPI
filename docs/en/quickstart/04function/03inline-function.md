@@ -4,7 +4,7 @@ lastUpdate: true
 
 # Inline function
 
-In MCFPP, we can use keyword `inline` to declare an inline function. When call this function, compiler will insert the code into the code directly, but not call the function. So it can reduce the cost of calling functions, make the program more efficient. 
+In MCFPP, we can use keyword `inline` to declare an inline function. When call this function, compiler will insert the code into the code directly, but not call the function. So it can reduce the cost of calling functions, make the program more efficient.
 
 ## Declare of inline function
 
@@ -21,7 +21,7 @@ inline func functionName(parameter1, parameter2, ...) -> returnType{
 In the place of calling inline function, compiler will insert the inline function directly, but not call the function. Such as the example below:
 
 ```mcfpp
-inline func add(int a, int b) -> int{
+inline func add(a as int, b as int) -> int{
     return a + b;
 }
 

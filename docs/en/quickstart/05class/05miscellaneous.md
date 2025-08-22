@@ -24,7 +24,7 @@ Of course, you can manually release memory using the `dispose` function <Badge t
 
 ```mcfpp
 
-SuperCreeper p = SuperCreeper("Super Creeper");
+var p = SuperCreeper("Super Creeper");
 
 p.dispose();
 

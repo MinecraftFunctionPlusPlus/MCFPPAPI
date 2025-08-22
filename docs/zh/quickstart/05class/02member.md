@@ -29,7 +29,7 @@ class A{
 
 ```mcfpp
 class A{
-    func test {
+    func test() {
         print("Hello, World!");
     }
 }

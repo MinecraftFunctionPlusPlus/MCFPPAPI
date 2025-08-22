@@ -16,10 +16,10 @@ func getJavaVar() = top.mcfpp.lang.JavaVar.getJavaVar;
 import java.util.Random;
 
 //...
-method.add("getJavaVar", (readonlyArgs, normalArgs, caller, returnVar) -> {
-    returnVar.value = new JavaVar(new Random());    // Returns a random number generator
-    return null;
-});
+@MNIFunction(returnType = "JavaVar")
+public static void getJavaVar(ValueWrapper<JavaVar> returnVar){
+    returnVar.setValue(new JavaVar(new Random()));    // Returns a random number generator
+};
 //...
 ```
 
@@ -41,11 +41,11 @@ Calling a member method on a `JavaVar` type variable will return another `JavaVa
 Additionally, in appropriate cases, the compiler will automatically convert certain types between MCFPP variables and Java variables.
 
 ```mcfpp
-int qwq = 100;  # MCFPP variable
+var qwq = 100;  # MCFPP variable
 
 var nextInt = random.nextInt(qwq);  # MCFPP variable automatically converts to a Java variable and is passed into the Java method
 
-int nextMCFPPInt = nextInt;    # Java variable automatically converts back to an MCFPP variable
+var nextMCFPPInt = nextInt;    # Java variable automatically converts back to an MCFPP variable
 ```
 
 This kind of conversion has a prerequisite: the MCFPP variable must be a known type in order to be automatically converted into a corresponding Java variable. Otherwise, it will be converted into the `Var` class, which is the base class for all MCFPP variables in the compiler. Naturally, if a Java method expects a `Var` type parameter by default, the compiler will not perform the automatic conversion.

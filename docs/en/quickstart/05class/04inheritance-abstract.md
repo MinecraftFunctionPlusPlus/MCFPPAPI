@@ -12,7 +12,7 @@ Use keyword `:` can declare a class is inherited from another class. Use keyword
 
 ```mcfpp
 class Parent{
-    protect int a;
+    protect a as int;
     func test(){
         print("Parent");
         print(a);
@@ -20,7 +20,7 @@ class Parent{
 }
 
 class Child: Parent{
-    int b;
+    b as int;
     override func test(){
         print("Child");
         print(super.a);

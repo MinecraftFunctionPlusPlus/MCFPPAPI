@@ -13,20 +13,20 @@ Use the `data` keyword to define a Data Template. For example:
 ```mcfpp
 # Definition
 data Test{
-    int a;  # An integer
-    nbt b;  # Any NBT value
+    a as int;  # An integer
+    b as nbt;  # Any NBT value
 }
 
 func main(){
     # Create an object
-    Test t = Test();
+    var t = Test();
     t.a = 5;
     t.b = {
         "key": "value"
     };
 
     # Or directly assign values
-    Test t2 = {
+    var t2 as Test = {
         "a": 5,
         "b": {
             "key": "value"
@@ -46,8 +46,8 @@ Like a class, you can also define methods within a Data Template.
 
 ```mcfpp
 data Test{
-    int a;
-    nbt b;
+    a as int;
+    b as nbt;
 
     func print(){
         print(this.a);

@@ -26,7 +26,7 @@ l.removeAt(1); #从列表中移除索引为1的元素
 ```mcfpp
 
 var l as list<int> = [1,2,3];
-var l2 as list<int> = l;
+var l2 = l;
 l2.add(4);
 print(l); #输出[1,2,3]
 print(l2); #输出[1,2,3,4]

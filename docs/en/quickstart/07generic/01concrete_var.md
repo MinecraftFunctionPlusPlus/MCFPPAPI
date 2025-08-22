@@ -7,8 +7,8 @@ lastUpdate: true
 During the compilation process, the compiler will optimize certain variables whose values it can determine, for example:
 
 ```mcfpp
-int i = 5;
-int j = 5;
+var i = 5;
+var j = 5;
 
 print(i + j);
 ```
@@ -18,8 +18,8 @@ In this case, the compiler knows the values of `i` and `j`, so it can directly c
 These kinds of variables are called compile-time constants (referred to as `Concrete Var` in MCFPP). Compile-time constants and regular variables can be converted between each other, for example:
 
 ```mcfpp
-int i = 5;
-dynamic j;
+var i = 5;
+dynamic var j as int;
 i = j;
 ```
 

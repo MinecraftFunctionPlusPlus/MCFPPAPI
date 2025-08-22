@@ -19,22 +19,22 @@ Here is an example of a documentation comment:
 ```mcfpp
 
 #{
-    @base Creeper
+@base Creeper
 
-    Implementation class for Super Creeper
+Implementation class for Super Creeper
 }#
 @Base<"creeper">
 class SuperCreeper{
 
     #{
-        List of effects the creeper will give
+    List of effects the creeper will give
     }#
-    list effectList = ["wither", "poison", "slowness", "hunger", "blindness", "weakness"];
+    var effectList = ["wither", "poison", "slowness", "hunger", "blindness", "weakness"];
 
     #{
-        @return A random effect
+    @return A random effect
 
-        Get a random effect
+    Get a random effect
     }#
     func getEffect() -> string {
         return effectList.random();

@@ -10,7 +10,7 @@ In MCF, most of the operations are based on entities. The most frequently used c
 @Base<"creeper">
 class SuperCreeper{
 
-    text name;
+    var name as text;
 
     constructor(text name){
         this.name = name;

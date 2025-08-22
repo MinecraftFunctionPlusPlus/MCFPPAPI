@@ -2,126 +2,117 @@
 lastUpdated: true
 ---
 
-# Variable
+# Variables
 
-## Defination of variables
+:::warning
+This content has been translated by AI. We welcome native speakers to help improve the translation.
+:::
 
-Same as other languages, you can define some variables in MCFPP for store, transfer and process data.
+## Declaring variables
 
-The defination of data is like this:
+As in other languages, you can declare variables in MCFPP to store, pass and process data.
+
+Typical declaration:
 
 ```mcfpp
-#<type> <identifier> [= <expression>]
-int i = 5;
-int b = i * 6;
+#var <identifier> [as <type>] [= expression or value]
+var i as int = 5;
+var b as int = i * 6;
+
+#type inferred
+var j = 5; # j is inferred as int
+var k = 5.0; # k is inferred as float
+var i; # [!code error] # error: missing initializer, cannot infer
 ```
 
-The identifier of variable can be the combination of any characters and numbers. In one scope, a name of variable only can defined once.
+Identifiers may contain letters and digits. In the same scope a name can be declared only once.
 
-## Type of variable 
+## Variable types
 
-In MCFPP, variable have basic data type and combined data type. Basic data type is hard-coding and built-in, but combined data types, such as class, template and so on, can be determined by the developer themselves. So on, the basic types MCFPP have is shown here:
+MCFPP has primitive and composite types. Primitives are built-in; composite types (classes, templates, etc.) are user-defined. Current primitives:
 
-| Type name | Type description | Example |
+|Type|Description|Example|
 |-|-|-|
-|int| The most basic data type, represent an integer |`1`,`114514`,`-5`|
-|float| Represent a single-precision floating-point |`2.5`,`1.0`,`9.5e6`|
-|bool| Represent a Boolean data |`true`,`false`|
-|nbt| Represents a NBT data |`"a":{"b":"c"}`,`"a":[1,2,3,4]`|
-|list| Represent a list |`[1,2,3,4]`,`["a","b","c"]`|
-|dict| Represent a dictionary |`{"a":1,"b":2,"c":3}`|
-|map|A high-level implement of dictionary, have much more functions than dictionary | Same as dictionary |
-|string| Represent a string |`"mcfpp"`,`"qwq"`|
-|text| Represents the raw json text |`"mcfpp"`,`{"text":"mcfpp","color":"#114514"}`|
-|entity| Represent an entity. Store the UUID of an entity | omit |
-|selector| Represent a entity selector |`@a`,`@p`|
+|int|integer|`1`,`114514`,`-5`|
+|float|single-precision float|`2.5`,`1.0`,`9.5e6`|
+|bool|boolean|`true`,`false`|
+|nbt|NBT data|`"a":{"b":"c"}`,`"a":[1,2,3,4]`|
+|list|list|`[1,2,3,4]`,`["a","b","c"]`|
+|dict|dictionary|`{"a":1,"b":2,"c":3}`|
+|map|richer map with more features|same as above|
+|string|string (NBT string tag)|`"mcfpp"`,`"qwq"`|
+|text|text components|`"mcfpp"`,`{"text":"mcfpp","color":"#114514"}`|
+|entity|single entity (stores UUID)|—|
+|selector|target selector|`@a`,`@p`|
 
-There's a simple introduction for type, You can expand and view them one by one:
+Brief descriptions (expandable):
 
 ::: details int
-**int**  type is the most basic type in MCFPP, represent a integer. It can be positive, negative, zero. Also can be decimal , binary, octal and hexadecimal. An int type data will be stored as a score board variable, So it’s size is same as the score board.
+int is the basic integer type. It can be positive, negative, or zero, and supports decimal, binary, octal, hex, etc. int values are stored as scoreboard variables, so they have scoreboard size limits.
 :::
 
 ::: details float
-**float** type is  a single-precision floating-point type in MCFPP. It can be positive, negative, zero. And also can be decimal, scientific notation and so on. The float calculation of MCFPP relies on [XiaoDou's MathLib](https:#github.com/xiaodou8593/math2.0). The calculation of float calculation is purely score board calculation, so the memory usage won’t be so big.
+A floating‑point number with single precision. Supports decimal and scientific notation. MCFPP float ops rely on Xiaodou's math library. Float operations are implemented via scoreboard math and have modest overhead.
 :::
 
 ::: details bool
-**bool** type is a type of Boolean data in MCFPP. It only have two values: `true` and `false`. Bool type data would be stored as a score board variable, so it’s size is same as the score board.
+Boolean with values `true` or `false`. Stored as a scoreboard variable.
 :::
 
 ::: details nbt
-**nbt** type represent a NBT data. But in fact, most times NBT type data just stores a NBT path, so in fact it can be called as NBT Pointer. It’s worth mentioning, **nbt** type variables is the basic of most basic types. Like `list`, `map` are both archive by the NBT data operations.
+NBT data, often acting as an NBT pointer (stores an NBT path). Many composite types (list, map, etc.) are based on NBT operations.
 :::
 
 ::: details list
-**list** type represent a list, `list` type achieved most functions of `ArrayList` in Java, more details can read the API of the standard library. `list`would be stored as a NBT list.
+List type. Implements most ArrayList methods from Java; stored as an NBT list.
 :::
 
 ::: details dict
-**dict** type represent to a dictionary, which stored as a combined NBT tag. Because the limit of Minecraft, `dict` type only can insert and delete to basic key values, can’t iterating over an array. You can use `map` to have more operations.
+Dictionary stored as an NBT compound. Due to Minecraft limits, dict supports basic key insert/remove but not iteration. Use map for more operations.
 :::
 
 ::: details map
-**map** type high-level implement of `dict`, have much more functions than `dict`. `map` type achieve most functions of `HashMap` in Java, more details are in the API of the standard library. But it’s worth mentioning that the higher implement of `map` means `map` have more cost than `dict`.
+A richer wrapper over dict with more features (implements most HashMap methods). Provides more functionality at the cost of additional overhead.
 :::
 
 ::: details string
-Represent a string, which is a string tag in NBT.
+String type (NBT string tag).
 :::
 
 ::: details text
-Represent a raw JSON text, compared to `string` type, `text` type can contain more format information, such as color, bold and so on. `text` type data will be stored as a combined NBT tag.
+Raw JSON text. Unlike string, text can include formatting (color, bold, etc.). Stored as an NBT compound.
 :::
 
 ::: details entity
-Reference to a single entity. Stored as a UUID integer NBT array.
+Represents a single entity. Stored as a UUID integer NBT array.
 :::
 
 ::: details selector
-Represent a entity selector. Stored as a string.
+Represents a target selector. Stored as a string.
 :::
-
-## `var`
-
-Keyword `var` can be used to declare a variable, without specifying variable types. Compiler would infer the type of the variable by the initialization expression.
-
-However, if we use `var` to declare a variable, then the initialization expression is necessary.
-
-For example:
-
-```mcfpp
-var i = 5; # type of i will be inferred as int
-var j = 5.0; # type of j will be inferred as float
-var i; # [!code error] # Error, there’s no initialization expression 
-```
 
 ## Variable modifiers
 
-Variable modifiers can used to represent the type of variables, including `dynamic`, `const`, `import`
+Modifiers express variable properties: dynamic, const.
 
 - dynamic
 
-During Compiling, If any variable has been defined as literal, like `int i = 5;`, compiler will optimize this variable, such as `i += 7` will record `i` as 12 but not compile as scoreboard command. And `dynamic` is used to represent the variable is always dynamic calculating during compilation, though it’s a literal. Such as `dynamic int i = 5;`, `i` will be seen as a dynamic variable during compilation, and won’t be optimized.
+If a variable is a literal (e.g. `int i = 5;`), the compiler may optimize it (e.g. `i += 7` becomes 12 at compile time instead of scoreboard commands). `dynamic` forces runtime/dynamic behavior even for literals. Example: `dynamic int i = 5;` will not be optimized away.
 
 - const
 
-`const` means a variable is always constant. That is, its value is given during compilation, and never changes. Such as `const int i = 5;`, `i` will be seem as constant during compiling. Constant is always static during compiling, and its value must be clear when we declare it, can’t assign after declaring.
+`const` marks a compile-time constant whose value is fixed at compile time and cannot change. It must be initialized on declaration.
 
-- import
+## Compile-time optimizations
 
-`import` means a variable is import variable, it’s value is imported from other place. Such as `import int i;`, `i` will be seen as import variable after compile. Often, variable only can be used after assignment, but if we use `import` modifier, Then variable can be used after declaration without assignment.
-
-## Optimization of variables
-
-During compilation , compiler will optimize to some known values. When a variable’s value be set as a literal, compiler would record it’s name, until lose track to this variable.
+The compiler tracks compile-time-known values and optimizes accordingly. When a variable is assigned a literal, the compiler remembers its value until tracking is lost.
 
 ```mcfpp
-int i = 5;  # Compiler record it’s value is 5
-i += 7;     # Compiler set i’s value as 12 directly, won’t output score board command
-int j = i;  # Compiler also knows j’s value now
+var i = 5;  # compiler records i = 5
+i += 7;     # compiler treats i as 12; no scoreboard commands emitted
+var j = i;  # compiler also knows j's value
 
-import int x;
-j = x;      # Compiler lose track to what j’s value actually is 
-j += 1;     # Compiler will output score board command 
+dynamic var x as int;
+j = x;      # compiler loses precise value for j
+j += 1;     # compiler will emit scoreboard commands
 ```

@@ -2,7 +2,7 @@
 lastUpdate: true
 ---
 
-# MAP
+# Map
 
 To address the inconvenience of working with compound tags in vanilla Minecraft NBT, MCFPP introduces a new data structure: `map`. A `map` is a key-value data structure where the keys must be strings, and the values must all be of the same type.
 
@@ -11,7 +11,7 @@ To address the inconvenience of working with compound tags in vanilla Minecraft 
 Use `map<type T>` to declare a `map`. Like with `dict`, you can access key-value pairs in a `map` using `[]`.
 
 ```mcfpp
-map<int> m = {
+var m as map<int> = {
     "a": 1,
     "b": 2,
     "c": 3
@@ -47,7 +47,7 @@ As well as some properties:
 You can use the `foreach` loop to easily traverse all key-value pairs in a `map`.
 
 ```mcfpp
-map<int> m = {
+var m as map<int> = {
     "a": 1,
     "b": 2,
     "c": 3
@@ -72,7 +72,7 @@ Compared to `dict`, which is composed solely of compound tags, `map` has a more 
 For instance, consider the following code:
 
 ```mcfpp
-map m = {};
+var m as map<string> = {};
 
 m["qwq"] = "pwp";
 m["owo"] = "uwu";
