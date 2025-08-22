@@ -119,8 +119,8 @@ commentLevel | top.mcfpp.command.CommandLevel | CommentLevel.DEBUG | Comment out
 root | java.nio.file.Path? | null | Project root. If null, it's the directory of the config JSON or the Gradle project root.
 name | String | "new_mcfpp_project" | Project name.
 description | String | "A new datapack" | Datapack description.
-includes | ArrayList<String> | ArrayList() | All referenced includes.
-jars | ArrayList<String> | ArrayList() | Paths to all jar files.
+includes | ArrayList\<String> | ArrayList() | All referenced includes.
+jars | ArrayList\<String> | ArrayList() | Paths to all jar files.
 sourcePath | java.nio.file.Path? | null | Root of MCFPP source. If null: when using a config file it's `$root`; with Gradle it's `src/main/mcfpp`.
 noDatapack | Boolean | false | Do not generate a datapack.
 copyImport | Boolean | true | Copy imported libraries when generating the datapack.
