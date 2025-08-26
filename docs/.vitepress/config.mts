@@ -793,7 +793,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'QuickStart', link: '/quick-start' }
+      { text: 'QuickStart', link: '/en/quickstart/index' }
     ],
 
     search: {
@@ -810,20 +810,15 @@ export default defineConfig({
   },
   
   locales: {
-    root: {
+    zh: {
       label: '简体中文',
       lang: 'zh',
       link: '/zh/',
       themeConfig: {
         nav: [
           { text: '主页', link: '/zh/' },
-          { text: '快速开始', link: '/zh/quickstart/index' },
-          { text: '文档', link: '/mcfppdocs/index.html' }
-        ],
-        footer: {
-          message: "<a href='https://mcicp.com' title='MCICP备2024000011号' target='_blank'>MCICP备2024000011号</a>",
-          copyright: "GPL-3.0 Lisenced | Copyright©2024 ProjectMCFPP"
-        }
+          { text: '快速开始', link: '/zh/quickstart/index' }
+        ]
       }
     },
     en : {
@@ -833,8 +828,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          { text: 'QuickStart', link: '/en/quickstart/index' },
-          { text: 'Docs', link: '/mcfppdocs/index.html' }
+          { text: 'QuickStart', link: '/en/quickstart/index' }
         ]
       }
     }
