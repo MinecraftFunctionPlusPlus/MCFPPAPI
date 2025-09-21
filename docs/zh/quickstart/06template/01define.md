@@ -15,6 +15,12 @@ lastUpdate: true
 data Test{
     a as int;  # 一个整数
     b as nbt;  # 任意的NBT值
+    
+    # 也可以定义一些方法
+    func print(){
+        print(this.a);
+        print(this.b);
+    }
 }
 
 func main(){
@@ -35,23 +41,9 @@ func main(){
 }
 ```
 
-使用`.`来访问一个数据模板中的成员。
+使用`.`来访问一个数据模板中的成员。如果在数据模板内部，则需要显式使用`this`关键字来访问。
 
 ```mcfpp
 print(t.a);
 print(t.b);
-```
-
-和类一样，你可以在数据模板中定义一些方法。
-
-```mcfpp
-data Test{
-    a as int;
-    b as nbt;
-
-    func print(){
-        print(this.a);
-        print(this.b);
-    }
-}
 ```

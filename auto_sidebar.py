@@ -1,93 +1,204 @@
 import os
 import re
-import json
-import csv
 
-# 从Markdown内容中提取第一个H1标题
-def extract_title(md_content):
-    match = re.search(r'^#\s+(.*)', md_content, re.MULTILINE)
-    if match:
-        return match.group(1)
-    return None
+def escape_quotes(text: str) -> str:
+    """
+    转义字符串中的双引号
+    
+    Args:
+        text: 需要转义的文本
+    
+    Returns:
+        转义后的文本
+    """
+    return text.replace('"', '\\"')
 
-# 生成侧边栏结构
-def generate_sidebar_structure(base_path, title: dict, language='zh'):
-    # 初始化侧边栏结构
-    path = f"/{language}/quickstart/"
-    sidebar = { f"{path}" : []}
-    # 遍历指定目录下的所有文件
-    for root, dirs, files in os.walk(base_path):
-        for file in files:
-            if file.endswith(".md"):  # 筛选Markdown文件
-                file_path = os.path.join(root, file)
-                with open(file_path, 'r', encoding='utf-8') as md_file:
-                    content = md_file.read()
-                    title = extract_title(content)  # 提取标题
-                    if title:
-                        # 生成相对路径链接
-                        relative_path = os.path.relpath(file_path, base_path).replace('\\', '/')
-                        link = f"{path}{relative_path[:-3]}"  # 移除.md扩展名
-                        # 获取分类名称
-                        category = os.path.basename(os.path.dirname(file_path))[2:]
-                        # 查找或创建分类条目
-                        if not title_dict.keys().__contains__(category):
-                            continue
-                        category_entry = next((item for item in sidebar[path] if item["text"] == title_dict[category]), None)
-                        if not category_entry:
-                            category_entry = {"text": title_dict[category], "items": []}
-                            sidebar[path].append(category_entry)
-                        # 添加链接到分类条目
-                        category_entry["items"].append({"text": title, "link": link})
-    return sidebar
+def remove_or_replace_badge_tags(text: str) -> str:
+    """
+    移除或替换标题中的 <Badge> 标签
+    
+    Args:
+        text: 包含 Badge 标签的文本
+    
+    Returns:
+        处理后的文本
+    """
+    # 移除所有的 <Badge> 标签，并在末尾添加一个 *
+    # 使用正则表达式匹配 <Badge> 标签
+    badge_pattern = r'<Badge[^>]*>[^<]*</Badge>'
+    if re.search(badge_pattern, text):
+        # 移除所有 Badge 标签
+        cleaned_text = re.sub(badge_pattern, '', text)
+        # 清理多余的空格
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
+        # 添加星号标记
+        return f"{cleaned_text}*"
+    return text
 
-# 将侧边栏结构写入TypeScript文件，键名不带引号
-def write_sidebar_ts(sidebar, output_file):
-    def dict_to_ts(obj, indent=0):
-        """递归地将字典转换为TypeScript对象字面量字符串，特定键名不带引号"""
-        ts_str = "{\n"
-        indent_str = "    " * (indent + 1)
-        for k, v in obj.items():
-            # 检查键名是否为特定的几个，如果是，则不使用json.dumps
-            if k in ["text", "item", "link"]:
-                key_str = k
-            else:
-                key_str = json.dumps(k, ensure_ascii=False)
+def generate_sidebar(base_path: str, lang: str) -> list:
+    """
+    根据指定语言路径下的文件结构生成侧边栏配置
+    
+    Args:
+        base_path: 文档根路径
+        lang: 语言代码 ('zh' 或 'en')
+    
+    Returns:
+        侧边栏配置列表
+    """
+    sidebar_items = []
+    quickstart_path = os.path.join(base_path, lang, 'quickstart')
+    
+    # 按章节顺序处理文件夹
+    if os.path.exists(quickstart_path):
+        chapters = sorted(os.listdir(quickstart_path))
+        
+        for chapter in chapters:
+            chapter_path = os.path.join(quickstart_path, chapter)
+            if os.path.isdir(chapter_path):
+                # 提取章节信息
+                chapter_info = extract_chapter_info(chapter_path, lang)
+                if chapter_info:
+                    sidebar_items.append(chapter_info)
+    
+    return sidebar_items
+
+def extract_chapter_info(chapter_path: str, lang: str) -> dict:
+    """
+    提取章节信息，包括章节标题和子项
+    
+    Args:
+        chapter_path: 章节路径
+        lang: 语言代码
+    
+    Returns:
+        章节信息字典
+    """
+    # 获取章节编号和名称
+    chapter_name = os.path.basename(chapter_path)
+    chapter_num = chapter_name.split('-')[0] if '-' in chapter_name else chapter_name
+    
+    # 获取章节下的所有文件
+    files = sorted([f for f in os.listdir(chapter_path) 
+                   if f.endswith('.md') and not f.startswith('index')])
+    
+    if not files:
+        return None
+    
+    # 获取章节标题（从第一个文件中提取）
+    first_file = files[0]
+    chapter_title = extract_title_from_file(os.path.join(chapter_path, first_file), lang)
+    
+    # 处理 Badge 标签
+    chapter_title = remove_or_replace_badge_tags(chapter_title)
+    
+    # 构建子项
+    items = []
+    for file in files:
+        file_path = os.path.join(chapter_path, file)
+        title = extract_title_from_file(file_path, lang)
+        link = f"/{lang}/quickstart/{chapter_name}/{file.replace('.md', '')}"
+        
+        # 处理 Badge 标签
+        title = remove_or_replace_badge_tags(title)
+        
+        # 转义标题中的双引号
+        title = escape_quotes(title)
+        
+        items.append({"text": title, "link": link})
+    
+    # 转义章节标题中的双引号
+    chapter_title = escape_quotes(chapter_title)
+    
+    return {
+        "text": chapter_title,
+        "items": items
+    }
+
+def extract_title_from_file(file_path: str, lang: str) -> str:
+    """
+    从Markdown文件中提取标题
+    
+    Args:
+        file_path: 文件路径
+        lang: 语言代码
+    
+    Returns:
+        提取的标题
+    """
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
             
-            if isinstance(v, dict):
-                v_str = dict_to_ts(v, indent + 1)
-            elif isinstance(v, list):
-                v_str = "[\n" + ",\n".join([indent_str + "    " + dict_to_ts(item, indent + 2) for item in v]) + "\n" + indent_str + "]"
-            else:
-                v_str = json.dumps(v, ensure_ascii=False)
-            ts_str += f"{indent_str}{key_str}: {v_str},\n"
-        ts_str += "    " * indent + "}"
-        return ts_str
+        # 查找第一个标题（以#开头的行）
+        title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+        if title_match:
+            return title_match.group(1).strip()
+    except Exception:
+        pass
+    
+    # 如果无法提取标题，则使用文件名
+    filename = os.path.basename(file_path).replace('.md', '')
+    return filename
 
-    sidebar_ts_content = f"""import {{ DefaultTheme }} from 'vitepress';
+def generate_sidebar_ts(base_path: str, output_path: str):
+    """
+    生成完整的sidebar.ts文件
+    
+    Args:
+        base_path: 文档根路径
+        output_path: 输出文件路径
+    """
+    # 生成中英文侧边栏
+    zh_sidebar = generate_sidebar(base_path, 'zh')
+    en_sidebar = generate_sidebar(base_path, 'en')
+    
+    # 构建TypeScript代码
+    ts_code = '''import { DefaultTheme } from 'vitepress';
 
-export const sidebar: DefaultTheme.Sidebar = {dict_to_ts(sidebar, 0)};
-"""
-    with open(output_file, 'w', encoding='utf-8') as ts_file:
-        ts_file.write(sidebar_ts_content)
+export const sidebar: DefaultTheme.Sidebar = {
+    "/zh/quickstart/": [
+'''
+    
+    # 添加中文侧边栏
+    for item in zh_sidebar:
+        ts_code += '        {\n'
+        ts_code += f'            text: "{item["text"]}",\n'
+        ts_code += '            "items": [\n'
+        
+        for sub_item in item["items"]:
+            ts_code += f'                {{\n                    text: "{sub_item["text"]}",\n                    link: "{sub_item["link"]}",\n                }},\n'
+        
+        ts_code += '            ],\n'
+        ts_code += '        },\n'
+    
+    ts_code += '    ],\n'
+    ts_code += '    "/en/quickstart/": [\n'
+    
+    # 添加英文侧边栏
+    for item in en_sidebar:
+        ts_code += '        {\n'
+        ts_code += f'            text: "{item["text"]}",\n'
+        ts_code += '            "items": [\n'
+        
+        for sub_item in item["items"]:
+            ts_code += f'                {{\n                    text: "{sub_item["text"]}",\n                    link: "{sub_item["link"]}",\n                }},\n'
+        
+        ts_code += '            ],\n'
+        ts_code += '        },\n'
+    
+    ts_code += '    ],\n'
+    ts_code += '};\n'
+    
+    # 写入文件
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(ts_code)
 
-# 指定Markdown文件所在目录和输出文件路径
-output_file = 'docs/.vitepress/sidebar.ts'
-# 读取csv文件获取标题。第一行为文件夹名，第二行是中文标题，第三行是英文标题
-with open('titles.csv', 'r', encoding='utf-8') as csvfile:
-    reader = csv.reader(csvfile)
-    title = [row for row in reader]
-    csvfile.close()
-# 生成键值对
-title_dict = {}
-for i in range(len(title[0])):
-    title_dict[title[0][i]] = title[1][i]
-# 生成侧边栏结构并写入文件
-sidebar = generate_sidebar_structure('docs/zh/quickstart', title_dict, 'zh')
-#英文
-for i in range(len(title[0])):
-    title_dict[title[0][i]] = title[2][i]
-en_sidebar = generate_sidebar_structure('docs/en/quickstart', title_dict, 'en')
-#合并
-for key in en_sidebar:
-    sidebar[key] = en_sidebar[key]
-write_sidebar_ts(sidebar, output_file)
+# 使用示例
+if __name__ == "__main__":
+    # 设置文档根目录路径
+    docs_path = "docs"  # 根据实际情况调整路径
+    
+    # 生成sidebar.ts
+    generate_sidebar_ts(docs_path, "docs/.vitepress/sidebar.ts")
+    print("sidebar.ts 文件已生成")

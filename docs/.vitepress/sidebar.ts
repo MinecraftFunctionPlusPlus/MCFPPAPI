@@ -3,20 +3,20 @@ import { DefaultTheme } from 'vitepress';
 export const sidebar: DefaultTheme.Sidebar = {
     "/zh/quickstart/": [
         {
-            text: "工程配置",
+            text: "开始使用",
             "items": [
                 {
-                    text: "创建工程",
+                    text: "开始使用",
                     link: "/zh/quickstart/01project/01create-project",
                 },
                 {
                     text: "配置文件",
                     link: "/zh/quickstart/01project/02config-file",
-                }
+                },
             ],
         },
         {
-            text: "基本语法",
+            text: "变量",
             "items": [
                 {
                     text: "变量",
@@ -31,13 +31,13 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/zh/quickstart/02base/03logic-statements",
                 },
                 {
-                    text: "顶层语句*",
+                    text: "顶层语句",
                     link: "/zh/quickstart/02base/04top-statements",
                 },
                 {
                     text: "原生命令",
                     link: "/zh/quickstart/02base/05original-command",
-                }
+                },
             ],
         },
         {
@@ -46,11 +46,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "命名空间",
                     link: "/zh/quickstart/03namespace/01namespace",
-                }
+                },
             ],
         },
         {
-            text: "函数",
+            text: "定义和调用",
             "items": [
                 {
                     text: "定义和调用",
@@ -67,45 +67,57 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "编译期函数",
                     link: "/zh/quickstart/04function/04compiletime-function",
-                }
+                },
             ],
         },
         {
-            text: "类",
+            text: "NBT",
             "items": [
                 {
-                    text: "实体模板",
-                    link: "/zh/quickstart/05class/01define-and-instantiate",
+                    text: "NBT",
+                    link: "/zh/quickstart/05nbt/01nbt",
                 },
                 {
-                    text: "实体模板的成员",
-                    link: "/zh/quickstart/05class/02member",
+                    text: "列表",
+                    link: "/zh/quickstart/05nbt/02list",
                 },
                 {
-                    text: "单例",
-                    link: "/zh/quickstart/05class/03object",
+                    text: "字典",
+                    link: "/zh/quickstart/05nbt/03dict",
                 },
                 {
-                    text: "继承和抽象",
-                    link: "/zh/quickstart/05class/04inheritance-abstract",
+                    text: "Map",
+                    link: "/zh/quickstart/05nbt/04map",
                 },
-                {
-                    text: "杂项",
-                    link: "/zh/quickstart/05class/05miscellaneous",
-                }
             ],
         },
         {
-            text: "接口",
+            text: "数据模板",
             "items": [
+                {
+                    text: "数据模板",
+                    link: "/zh/quickstart/06template/01define",
+                },
+                {
+                    text: "数据模板的嵌套",
+                    link: "/zh/quickstart/06template/02template-nest",
+                },
                 {
                     text: "定义和实现接口",
-                    link: "/zh/quickstart/06interface/01define-and-implement",
-                }
+                    link: "/zh/quickstart/06template/03interface",
+                },
+                {
+                    text: "特殊类型",
+                    link: "/zh/quickstart/06template/04sp-type",
+                },
+                {
+                    text: "类型委托",
+                    link: "/zh/quickstart/06template/05type-as",
+                },
             ],
         },
         {
-            text: "泛型",
+            text: "编译确定量",
             "items": [
                 {
                     text: "编译确定量",
@@ -118,62 +130,20 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "泛型类",
                     link: "/zh/quickstart/07generic/03generic_class",
-                }
-            ],
-        },
-        {
-            text: "NBT数据",
-            "items": [
-                {
-                    text: "NBT",
-                    link: "/zh/quickstart/08nbt/01nbt",
-                },
-                {
-                    text: "列表",
-                    link: "/zh/quickstart/08nbt/02list",
-                },
-                {
-                    text: "字典",
-                    link: "/zh/quickstart/08nbt/03dict",
-                },
-                {
-                    text: "Map",
-                    link: "/zh/quickstart/08nbt/04map",
-                }
-            ],
-        },
-        {
-            text: "模板",
-            "items": [
-                {
-                    text: "数据模板",
-                    link: "/zh/quickstart/09template/01define-and-instantiate",
-                },
-                {
-                    text: "数据模板的嵌套",
-                    link: "/zh/quickstart/09template/02template-nest",
-                },
-                {
-                    text: "特殊类型",
-                    link: "/zh/quickstart/09template/03sp-type",
-                },
-                {
-                    text: "类型委托",
-                    link: "/zh/quickstart/09template/04type-as",
                 },
             ],
         },
         {
-            text: "库",
+            text: "库的导入和使用",
             "items": [
                 {
                     text: "库的导入和使用",
-                    link: "/zh/quickstart/10library/01import-and-use",
+                    link: "/zh/quickstart/08library/01import-and-use",
                 },
                 {
                     text: "库的导出",
-                    link: "/zh/quickstart/10library/02export-library",
-                }
+                    link: "/zh/quickstart/08library/02export-library",
+                },
             ],
         },
         {
@@ -181,64 +151,64 @@ export const sidebar: DefaultTheme.Sidebar = {
             "items": [
                 {
                     text: "MNI框架",
-                    link: "/zh/quickstart/11mni/01mni-framework",
+                    link: "/zh/quickstart/09mni/01mni-framework",
                 },
                 {
                     text: "MNI函数",
-                    link: "/zh/quickstart/11mni/02mni-framework-implementation",
+                    link: "/zh/quickstart/09mni/02mni-framework-implementation",
                 },
                 {
                     text: "JavaVar",
-                    link: "/zh/quickstart/11mni/03javavar",
+                    link: "/zh/quickstart/09mni/03javavar",
                 },
                 {
-                    text: "注解*",
-                    link: "/zh/quickstart/11mni/04annotation",
+                    text: "注解",
+                    link: "/zh/quickstart/09mni/04annotation",
                 },
                 {
                     text: "JVM访问符",
-                    link: "/zh/quickstart/11mni/05access",
-                }
+                    link: "/zh/quickstart/09mni/05access",
+                },
             ],
         },
         {
-            text: "Gradle构建",
+            text: "Gradle的配置",
             "items": [
                 {
                     text: "Gradle的配置",
-                    link: "/zh/quickstart/12gradle/01gradle-configuration",
-                }
+                    link: "/zh/quickstart/10gradle/01gradle-configuration",
+                },
             ],
         },
         {
-            text: "文档注释",
+            text: "文档注释*",
             "items": [
                 {
-                    text: "文档注释",
-                    link: "/zh/quickstart/13doc/01doc-comment",
-                }
+                    text: "文档注释*",
+                    link: "/zh/quickstart/11doc/01doc-comment",
+                },
             ],
-        }
+        },
     ],
     "/en/quickstart/": [
         {
-            text: "Project Configuration",
+            text: "Getting Started",
             "items": [
                 {
-                    text: "Create a Project",
+                    text: "Getting Started",
                     link: "/en/quickstart/01project/01create-project",
                 },
                 {
                     text: "Configuration File",
                     link: "/en/quickstart/01project/02config-file",
-                }
+                },
             ],
         },
         {
-            text: "Basic Syntax",
+            text: "Variables",
             "items": [
                 {
-                    text: "Variable",
+                    text: "Variables",
                     link: "/en/quickstart/02base/01variables",
                 },
                 {
@@ -250,13 +220,13 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/02base/03logic-statements",
                 },
                 {
-                    text: "Top statement*",
+                    text: "Top-level statements",
                     link: "/en/quickstart/02base/04top-statements",
                 },
                 {
                     text: "Native Commands",
                     link: "/en/quickstart/02base/05original-command",
-                }
+                },
             ],
         },
         {
@@ -265,18 +235,18 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Namespace",
                     link: "/en/quickstart/03namespace/01namespace",
-                }
+                },
             ],
         },
         {
-            text: "Function",
+            text: "Define and call",
             "items": [
                 {
                     text: "Define and call",
                     link: "/en/quickstart/04function/01define-and-call",
                 },
                 {
-                    text: "static keyword*",
+                    text: "`static`*",
                     link: "/en/quickstart/04function/02static-params",
                 },
                 {
@@ -286,11 +256,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Compile-time Function",
                     link: "/en/quickstart/04function/04compiletime-function",
-                }
+                },
             ],
         },
         {
-            text: "Class",
+            text: "Entity Template",
             "items": [
                 {
                     text: "Entity Template",
@@ -307,20 +277,24 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Inheritance and abstraction",
                     link: "/en/quickstart/05class/04inheritance-abstract",
-                }
+                },
+                {
+                    text: "Miscellaneous",
+                    link: "/en/quickstart/05class/05miscellaneous",
+                },
             ],
         },
         {
-            text: "Interface",
+            text: "Define and implement",
             "items": [
                 {
                     text: "Define and implement",
                     link: "/en/quickstart/06interface/01define-and-implement",
-                }
+                },
             ],
         },
         {
-            text: "Generic",
+            text: "Compile-time Constants",
             "items": [
                 {
                     text: "Compile-time Constants",
@@ -333,11 +307,11 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Generic Classes",
                     link: "/en/quickstart/07generic/03generic_class",
-                }
+                },
             ],
         },
         {
-            text: "NBT Data",
+            text: "NBT",
             "items": [
                 {
                     text: "NBT",
@@ -352,9 +326,9 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/08nbt/03dict",
                 },
                 {
-                    text: "MAP",
+                    text: "Map",
                     link: "/en/quickstart/08nbt/04map",
-                }
+                },
             ],
         },
         {
@@ -373,13 +347,13 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/09template/03sp-type",
                 },
                 {
-                    text: "Type Delegate",
+                    text: "Type delegation",
                     link: "/en/quickstart/09template/04type-as",
                 },
             ],
         },
         {
-            text: "Library",
+            text: "Import and Use",
             "items": [
                 {
                     text: "Import and Use",
@@ -388,7 +362,7 @@ export const sidebar: DefaultTheme.Sidebar = {
                 {
                     text: "Export Library",
                     link: "/en/quickstart/10library/02export-library",
-                }
+                },
             ],
         },
         {
@@ -407,32 +381,32 @@ export const sidebar: DefaultTheme.Sidebar = {
                     link: "/en/quickstart/11mni/03javavar",
                 },
                 {
-                    text: "Annotations*",
+                    text: "Annotations",
                     link: "/en/quickstart/11mni/04annotation",
                 },
                 {
                     text: "JVM Access Operator",
                     link: "/en/quickstart/11mni/05access",
-                }
+                },
             ],
         },
         {
-            text: "Gradle Build",
+            text: "Gradle Configuration",
             "items": [
                 {
                     text: "Gradle Configuration",
                     link: "/en/quickstart/12gradle/01gradle-configuration",
-                }
+                },
             ],
         },
         {
-            text: "Documentation",
+            text: "Documentation Comments*",
             "items": [
                 {
-                    text: "Doc Comments",
+                    text: "Documentation Comments*",
                     link: "/en/quickstart/13doc/01doc-comment",
-                }
+                },
             ],
-        }
+        },
     ],
 };
