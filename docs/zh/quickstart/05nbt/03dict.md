@@ -1,49 +1,34 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
 # 字典
 
-字典类型对应MCFPP中的复合标签类型。它是一个键值对的集合，键必须为字符串类型，而值可以是任意类型。
-
-## 基本使用
-
-使用`dict`类型标识符定义字典类型的变量。使用复合标签来为字典进行赋值。
+`dict<T>` 用字符串键查找相同类型的值。它使用 NBT 复合数据保存内容。
 
 ```mcfpp
-var playerData = {
-    "Alumopper" : {
-        "level" : 1,
-        "exp" : 0
-    },
-    "Xiao2" : {
-        "level" : 2,
-        "exp" : 100
-    },
-    "CR_019" : {
-        "level" : 3,
-        "exp" : 200
+func main() {
+    var rewards: dict<int> = {daily: 10, weekly: 50}
+    rewards["bonus"] = 5
+
+    if rewards.containsKey("daily") {
+        print(rewards["daily"])
     }
+
+    rewards.remove("weekly")
+    print(rewards.size())
 }
-
-print(playerData["Alumopper"]["level"]); #输出1
-
-print(playerData["CR_017"]);    #非法，但是不报错
-
-playerData["CR_017"] = {
-    "level" : 4,
-    "exp" : 300
-};  # 添加一个新的键值对
-
 ```
 
-## 字典的操作
+字面量中的键写作标识符。索引和方法接收字符串键。
 
-字典不能被遍历，也不能获取关于键值的列表。MCFPP提供了一些基本的字典操作。
+| 方法 | 作用 |
+| --- | --- |
+| `containsKey(key)` | 判断键是否存在 |
+| `remove(key)` | 删除键值对 |
+| `merge(other)` | 合并另一份字典 |
+| `size()` | 获取键值对数量 |
+| `isEmpty()` | 判断是否为空 |
+| `clear()` | 清空字典 |
 
-| 函数名 | 参数 | 返回值 | 作用 |
-| --- | --- | --- | --- |
-| `containsKey` | `string` | `bool` | 判断字典中是否包含指定键 |
-| `merge` | `dict` | `void` | 合并两个字典 |
-| `remove` | `string` | `void` | 移除指定键的键值对 |
-| `clear` | `void` | `void` | 清空字典 |
+读取前应确保目标键存在。需要遍历键时，使用[Map](./04map)。字段结构固定时，使用[数据模板](../06template/01define)。

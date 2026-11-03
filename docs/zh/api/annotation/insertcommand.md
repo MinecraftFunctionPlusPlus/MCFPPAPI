@@ -1,21 +1,27 @@
-# public @interface InsertCommand<Badge type="tip">已废弃</Badge>
+---
+lastUpdated: true
+---
+
+# InsertCommand：命令生成标记
+
+`@InsertCommand` 标记会生成命令的 Java 方法或构造函数。注解保留到运行时，供编译器开发工具和诊断使用。
 
 ```java
-package top.mcfpp.annotations;
+package example.mni;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import top.mcfpp.annotations.InsertCommand;
+import top.mcfpp.annotations.MNIFunction;
+import top.mcfpp.model.function.Function;
 
-@Target({ElementType.METHOD, ElementType.CONSTRUCTOR})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface InsertCommand {
+public final class Messages {
+    @InsertCommand
+    @MNIFunction
+    public static void ready() {
+        Function.addCommand("say Ready");
+    }
 }
 ```
 
-InsertCommand类用来标记一个JVM方法是否调用了`Function.addCommand`方法，也就是是否往一个函数里面添加了命令。由于Java和Kotlin之间的注解并不互通，因此此注解实际已经废弃。
+MNI 绑定由 `@MNIFunction` 和 MCFPP 原生声明确定。命令由 `Function.addCommand` 添加。`@InsertCommand` 记录方法的用途。
 
-## 函数格式
-
-这个注解对函数格式没有要求。
+完整调用步骤见[从 Java 生成命令](/zh/quickstart/09mni/05access)。组合多个命令片段时，使用 [Command](../class/command)。

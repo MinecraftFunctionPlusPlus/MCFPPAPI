@@ -1,55 +1,40 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# Nested Data Templates
+# Nested data templates
 
-If a Data Template contains a variable of another Data Template type as a member, nested Data Templates can be achieved.
-
-## Basic Usage
+A field can use another data template as its type. This groups related data.
 
 ```mcfpp
-data A {
-    valueA as int;
+data Position {
+    var x: int
+    var z: int
+
+    constructor(x: int, z: int) {
+        this.x = x
+        this.z = z
+    }
 }
 
-data B {
-    valueB as int;
-    dataA as A;
+data Checkpoint {
+    var name: string
+    var position: Position
+
+    constructor(name: string, position: Position) {
+        this.name = name
+        this.position = position
+    }
 }
 
-func main(){
-    // Create objects
-    var b = B();
-    var a = A();
-    a.valueA = 5;
-    b.valueB = 5;
-    b.dataA = A();
-
-    // Or directly assign values
-    var qwq as B = {
-        "valueB": 5,
-        "dataA": {
-            "valueA": 5
-        }
-    };
-
-    // Access values
-    print(b.valueB);
-    print(b.dataA.valueA);
+func main() {
+    var checkpoint = Checkpoint("Spawn", Position(10, 20))
+    print(checkpoint.position.x)
 }
 ```
 
-Apparently, using the same type as a member within a Data Template is not allowed.
+`Checkpoint` combines a name and position. `checkpoint.position.x` accesses `position` and then `x`.
 
-## Anonymous Definition
+Constructors receive typed field values. Declare fields with `var name: Type`. Create nested objects through ordinary constructor calls.
 
-In a Data Template, an anonymous Data Template can be defined as a member type:
-
-```mcfpp
-data B{
-    var valueB as int;
-    dataA as data{
-        int valueA;
-    };
-}
+Name structures that you reuse. Anonymous structures use `data { ... }` as a type with the same field declaration rules.

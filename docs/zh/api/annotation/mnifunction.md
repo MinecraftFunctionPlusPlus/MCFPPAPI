@@ -1,92 +1,44 @@
-# public @interface MNIFunction
+---
+lastUpdated: true
+---
 
-```java
-package top.mcfpp.annotations;
+# MNIFunction
 
-//import ...
+`top.mcfpp.annotations.MNIFunction` 描述普通 Java MNI 入口。首次编写入口时，按 [MNI 入门](/zh/quickstart/09mni/01mni-framework)完成工程和源码绑定。
 
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface MNIFunction {
+## 包装入口签名
 
-    /**
-     * 只读参数。格式是类型+空格+参数名
-     */
-    String[] readOnlyParams() default {};
-
-    /**
-     * 普通参数。格式是类型+空格+参数名
-     */
-    String[] normalParams() default {};
-
-    /**
-     * 调用者类型。默认为void
-     */
-    String caller() default "void";
-
-    /**
-     * 函数的返回类型。默认为void
-     */
-    String returnType() default "void";
-
-    /**
-     * 是否重写了父类中的函数。默认为false
-     */
-    boolean override() default false;
-
-    /**
-     * 是否是单例对象
-     */
-    boolean isObject() default false;
-
-}
+```text
+public static void method(
+    只读参数...,
+    普通参数...,
+    成员调用者,
+    ValueWrapper<返回值类型> result
+)
 ```
 
-这个方法用于标记一个Java方法是否是一个MNINative函数。
+自由函数省略成员调用者。返回类型为 `void` 时省略结果包装。输入使用 `Var` 子类，例如 `MCInt`。有结果时通过 `result.set(value)` 提交返回值。
 
-::: info
-在mcfpp中定义MNINative函数：
+完整参数对应示例见 [MNI 参数与返回值](/zh/quickstart/09mni/02mni-framework-implementation)。
 
-```mcfpp
-func print(text t) = top.mcfpp.mni.System.print;
-```
+## 注解字段
 
-在java中实现MNINative函数：
+| 字段 | 默认值 | 含义 |
+| --- | --- | --- |
+| `readOnlyParams` | `{}` | 按顺序声明只读参数类型 |
+| `normalParams` | `{}` | 按顺序声明普通参数类型 |
+| `caller` | `"void"` | 成员调用者的类型标记 |
+| `returnType` | `"void"` | MCFPP 返回类型 |
+| `override` | `false` | 标记继承方法重写 |
+| `genericType` | `{}` | 泛型调用者所用的类型参数名 |
+| `tag` | `{}` | 额外标记 |
+| `identifier` | `""` | 注册名称，空值使用 Java 方法名 |
+| `returnsConstWhenArgsConst` | `false` | 声明常量输入对应常量结果的属性 |
 
-```java
-package top.mcfpp.mni;
+注解用于 Java 方法，并保留到 JVM 运行时供编译器读取。显式 MCFPP 声明负责源码接口和实际调用者类型，`caller` 提供类型标记。
 
-//import ...
+## NativeCallContext 入口
 
-public class System {
+另一种签名是 `public static void method(NativeCallContext context)`。参数、调用者、已知值和结果发布都通过这个上下文访问。标准库使用它连接编译器的读写操作。
 
-    @InsertCommand
-    @MNIFunction(normalParams = {"text t"})
-    public static void print(@NotNull JsonText text){
-        if(text instanceof JsonTextConcrete textC){
-            Function.Companion.addCommand(new Command("tellraw @a").build(textC.getValue().toCommandPart(), true));
-        }else {
-            Function.Companion.addCommand(new Command("tellraw @a").build(text.toCommandPart(), true));
-        }
-    }
-    
-}
-```
-:::
-
-## 函数格式
-
-### 定义要求
-
-|静态|需要为静态|
-|返回值|无要求|
-|标识符|无要求。使用`getNativeFromClass`方法获取函数时，mcfpp函数的标识符和java标识符相对一致。|
-
-### 参数要求
-
-|参数类型|描述|、
-|-|-|
-|（可选）`T extends Var<?>...`|这个函数的只读参数列表。需要按照定义顺序。|
-|（可选）`T extends Var<?>...`|这个函数的普通参数列表。需要按照定义顺序。|
-|（可选）`T extends Var<?>`|这个函数的调用者。|
-|（可选）`ValueWrapper<T>`|这个函数的返回值。|
+属性入口采用该形式，见 [MNIAccessor](./mniaccessor) 和 [MNIMutator](./mnimutator)。

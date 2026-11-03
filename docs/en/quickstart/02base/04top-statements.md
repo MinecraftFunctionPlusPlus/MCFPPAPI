@@ -2,36 +2,31 @@
 lastUpdated: true
 ---
 
-# Top-level statements
+# Top-level statements and initialization
 
-:::warning
-This content has been translated by AI. We welcome native speakers to help improve the translation.
-:::
-
-MCFPP allows writing statements at the start of a file without defining a function — these are top-level statements. Top-level statements live in an implicit function (one per file), which cannot be called externally and has return type `void`.
+Write top-level statements before function and template declarations. The compiler places them in a generated function registered in `minecraft:load`.
 
 ```mcfpp
-print("Top statement");
+var message = "Datapack loaded"
+print(message)
 
-func main(){
-    print("Function");
+func main() {
+    print(message)
 }
 ```
 
-After compilation two functions are generated: the explicit main and the implicit top-level function.
+Loading the datapack or running `/reload` prints the top-level message once. Calling `main` reads the same file's top-level variable again.
 
-Top-level statements must appear at the beginning of a file, before any function or class definitions. They may call other functions and use classes declared in the same file; variables declared in the top-level are available to other functions in that file.
+File order is namespace, imports, type aliases, top-level statements, then function and template declarations. Top-level statements can call functions declared later in the file.
+
+Use top-level statements to initialize a scoreboard objective:
 
 ```mcfpp
-var qwq = "qwq";
+/scoreboard objectives add rewards dummy
 
-main();
-
-func main(){
-    print(qwq);
+func main() {
+    /scoreboard players add @s rewards 1
 }
 ```
 
-Top-level statements always receive a `minecraft:load` tag and therefore run once when the datapack is loaded. They are suitable for initialization.
-
-Tip: the top-level function is named `<namespace>:<filename>__top__` and is placed in the corresponding namespace at compile time. Although you can call it like any function, doing so is discouraged because invoking an implicitly declared function makes code harder to read and is not the intended use of top-level statements.
+Named functions run through explicit calls. To schedule work every tick, add its function to the `minecraft:tick` [tag resource](../01project/04build-and-ir).

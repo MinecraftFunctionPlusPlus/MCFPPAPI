@@ -1,7 +1,14 @@
 ---
-lastUpdate: true
+search: false
+head:
+  - - meta
+    - http-equiv: refresh
+      content: "0;url=/en/quickstart/07generic/01concrete_var.html"
+  - - link
+    - rel: canonical
+      href: /en/quickstart/07generic/01concrete_var.html
 ---
 
-# Compile-time Function
+# Compilation parameters and known values
 
-TODO
+[Compilation parameters and known values](/en/quickstart/07generic/01concrete_var)

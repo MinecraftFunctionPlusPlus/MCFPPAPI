@@ -1,40 +1,366 @@
 {
-    "name": "MCFPP",
-    "scopeName": "source.mcfpp",
-    "fileTypes": ["mcfpp"],
-    "patterns": [
+  "name": "mcfpp",
+  "scopeName": "source.mcfpp",
+  "displayName": "MCFPP",
+  "fileTypes": ["mcfpp"],
+  "patterns": [
+    { "include": "#version-directives" },
+    { "include": "#command-messages" },
+    { "include": "#commands" },
+    { "include": "#code" }
+  ],
+  "repository": {
+    "code": {
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#selectors" },
+        { "include": "#annotations" },
+        { "include": "#declarations" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#literals" },
+        { "include": "#calls" },
+        { "include": "#identifiers" },
+        { "include": "#braces" },
+        { "include": "#operators" },
+        { "include": "#punctuation" }
+      ]
+    },
+    "version-directives": {
+      "name": "meta.preprocessor.mcfpp",
+      "begin": "^[ \\t]*(#(?:if|elif|else|endif))\\b",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.directive.mcfpp" }
+      },
+      "end": "$",
+      "patterns": [
+        { "include": "#comments" },
+        { "name": "variable.language.version.mcfpp", "match": "\\bMC\\b" },
+        { "name": "constant.numeric.version.mcfpp", "match": "\\b[0-9]+(?:\\.[0-9]+)+\\b" },
+        { "name": "keyword.operator.comparison.mcfpp", "match": "==|!=|<=|>=|<|>" }
+      ]
+    },
+    "comments": {
+      "patterns": [
         {
-            "name": "comment.block.documentation.mcfpp",
-            "match": "#\\{.*?\\}#"
+          "name": "comment.line.documentation.mcfpp",
+          "match": "(///).*$",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.mcfpp" }
+          }
         },
         {
-            "name": "comment.block.mcfpp",
-            "match": "##.*?##"
-        },
-        {
-            "name": "comment.line.mcfpp",
-            "match": "#.*"
-        },
-        {
-            "name": "keyword.control.mcfpp",
-            "match": "\\b(this|super|if|else|while|for|do|try|store|as|from|execute|break|continue|return|static|extends|native|concrete|final|public|protected|private|override|abstract|impl|const|dynamic|import|inline|class|object|interface|data|func|enum|constructor|global|var|get|set|namespace|vec|int|entity|bool|float|double|selector|string|text|nbt|any|type|void|list|map|dict)\\b"
-        },
-        {
-            "name": "constant.numeric.mcfpp",
-            "match": "\\b\\d+(\\.\\d+)?\\b"
-        },
-        {
-            "name": "string.quoted.double.mcfpp",
-            "begin": "\"",
-            "end": "\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.mcfpp",
-                    "match": "\\\\."
-                }
-            ]
+          "name": "comment.line.double-slash.mcfpp",
+          "match": "(//).*$",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.mcfpp" }
+          }
         }
-    ],
-    "repository": {},
-    "uuid": "b12f0f30-1234-5678-9abc-ddef12345678"
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.mcfpp",
+          "begin": "\"\"\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.mcfpp" }
+          },
+          "end": "\"{3,}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.mcfpp" }
+          },
+          "patterns": [{ "include": "#interpolation" }]
+        },
+        {
+          "name": "string.quoted.double.mcfpp",
+          "begin": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.mcfpp" }
+          },
+          "end": "\"|$",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.mcfpp" }
+          },
+          "patterns": [
+            { "name": "constant.character.escape.mcfpp", "match": "\\\\[\"\\\\]" }
+          ]
+        },
+        {
+          "name": "string.quoted.single.mcfpp",
+          "begin": "'",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.mcfpp" }
+          },
+          "end": "'|$",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.mcfpp" }
+          },
+          "patterns": [
+            { "name": "constant.character.escape.mcfpp", "match": "\\\\['\\\\]" }
+          ]
+        }
+      ]
+    },
+    "interpolation": {
+      "name": "meta.embedded.expression.mcfpp",
+      "contentName": "source.mcfpp",
+      "begin": "\\$\\{",
+      "beginCaptures": {
+        "0": { "name": "punctuation.section.interpolation.begin.mcfpp" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.section.interpolation.end.mcfpp" }
+      },
+      "patterns": [{ "include": "#code" }]
+    },
+    "braces": {
+      "begin": "\\{",
+      "beginCaptures": {
+        "0": { "name": "punctuation.section.block.begin.mcfpp" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.section.block.end.mcfpp" }
+      },
+      "patterns": [{ "include": "#version-directives" }, { "include": "#command-messages" }, { "include": "#commands" }, { "include": "#code" }]
+    },
+    "selectors": {
+      "name": "variable.language.selector.mcfpp",
+      "match": "@[arpse](?![\\p{L}\\p{Nd}_])"
+    },
+    "annotations": {
+      "match": "(@)([\\p{L}_][\\p{L}\\p{Nd}_]*)",
+      "captures": {
+        "1": { "name": "punctuation.definition.annotation.mcfpp" },
+        "2": { "name": "entity.name.function.annotation.mcfpp" }
+      }
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(namespace)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*(?:\\.[\\p{L}_][\\p{L}\\p{Nd}_]*)*)",
+          "captures": {
+            "1": { "name": "keyword.declaration.namespace.mcfpp" },
+            "3": { "name": "entity.name.namespace.mcfpp" }
+          }
+        },
+        {
+          "match": "\\b(import)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*(?:\\.[\\p{L}_][\\p{L}\\p{Nd}_]*)*)(:)([\\p{L}_][\\p{L}\\p{Nd}_]*|\\*)",
+          "captures": {
+            "1": { "name": "keyword.control.import.mcfpp" },
+            "3": { "name": "entity.name.namespace.mcfpp" },
+            "4": { "name": "punctuation.separator.namespace.mcfpp" },
+            "5": { "name": "entity.name.type.mcfpp" }
+          }
+        },
+        {
+          "begin": "\\b(?:(abstract)([ \\t]+))?(data|enum)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*)(?=[ \\t]*<)",
+          "beginCaptures": {
+            "1": { "name": "storage.modifier.mcfpp" },
+            "3": { "name": "keyword.declaration.type.mcfpp" },
+            "5": { "name": "entity.name.type.mcfpp" }
+          },
+          "end": "(?<=>)|$",
+          "patterns": [{ "include": "#readonly-parameters" }]
+        },
+        {
+          "match": "\\b(?:(abstract)([ \\t]+))?(data|enum)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*)",
+          "captures": {
+            "1": { "name": "storage.modifier.mcfpp" },
+            "3": { "name": "keyword.declaration.type.mcfpp" },
+            "5": { "name": "entity.name.type.mcfpp" }
+          }
+        },
+        {
+          "begin": "\\b(func)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*)(?=[ \\t]*(?:<[^<>\\r\\n]*(?:<[^<>\\r\\n]*>[^<>\\r\\n]*)*>[ \\t]*)?\\()",
+          "beginCaptures": {
+            "1": { "name": "keyword.declaration.function.mcfpp" },
+            "3": { "name": "entity.name.function.mcfpp" }
+          },
+          "end": "(?=\\(|$)",
+          "patterns": [{ "include": "#readonly-parameters" }]
+        },
+        {
+          "match": "\\b(const|external)([ \\t]+)(var)([ \\t]+)([\\p{L}_][\\p{L}\\p{Nd}_]*)",
+          "captures": {
+            "1": { "name": "storage.modifier.mcfpp" },
+            "3": { "name": "keyword.declaration.mcfpp" },
+            "5": { "name": "variable.other.readwrite.mcfpp" }
+          }
+        },
+        {
+          "match": "\\b(var|const|external)([ \\t]+)(?!var\\b)([\\p{L}_][\\p{L}\\p{Nd}_]*)(?![\\p{L}\\p{Nd}_])(?=[ \\t]*(?::(?!:)|=|[,;}]|$))(?:[ \\t]*(:)(?!:))?",
+          "captures": {
+            "1": { "name": "storage.type.variable.mcfpp" },
+            "3": { "name": "variable.other.definition.mcfpp" },
+            "4": { "name": "punctuation.separator.annotation.mcfpp" }
+          }
+        },
+        { "include": "#named-parameters" },
+        {
+          "match": "^([ \\t]*(?:(?:public|protected|private|final|override)[ \\t]+)*)([\\p{L}_][\\p{L}\\p{Nd}_]*)([ \\t]*)(:)(?!:)",
+          "captures": {
+            "2": { "name": "variable.other.definition.mcfpp" },
+            "4": { "name": "punctuation.separator.annotation.mcfpp" }
+          }
+        }
+      ]
+    },
+    "named-parameters": {
+      "match": "([,(][ \\t]*)([\\p{L}_][\\p{L}\\p{Nd}_]*)([ \\t]*)(:)(?!:)",
+      "captures": {
+        "2": { "name": "variable.parameter.mcfpp" },
+        "4": { "name": "punctuation.separator.annotation.mcfpp" }
+      }
+    },
+    "readonly-parameters": {
+      "begin": "<",
+      "beginCaptures": { "0": { "name": "punctuation.definition.parameters.begin.mcfpp" } },
+      "end": ">",
+      "endCaptures": { "0": { "name": "punctuation.definition.parameters.end.mcfpp" } },
+      "patterns": [
+        { "include": "#comments" },
+        {
+          "begin": "([\\p{L}_][\\p{L}\\p{Nd}_]*)([ \\t]*)(:)(?!:)",
+          "beginCaptures": {
+            "1": { "name": "variable.parameter.readonly.mcfpp" },
+            "3": { "name": "punctuation.separator.annotation.mcfpp" }
+          },
+          "end": "(?=[,>])",
+          "patterns": [{ "include": "#type-arguments" }, { "include": "#types" }, { "include": "#literals" }, { "include": "#operators" }, { "include": "#punctuation" }]
+        },
+        { "include": "#builtin-types" },
+        { "name": "entity.name.type.parameter.mcfpp", "match": "[\\p{L}_][\\p{L}\\p{Nd}_]*(?=[ \\t]*(?:,|>))" },
+        { "include": "#types" },
+        { "include": "#punctuation" }
+      ]
+    },
+    "type-arguments": {
+      "begin": "<",
+      "end": ">",
+      "patterns": [{ "include": "#type-arguments" }, { "include": "#types" }, { "include": "#punctuation" }]
+    },
+    "keywords": {
+      "patterns": [
+        { "name": "keyword.control.mcfpp", "match": "\\b(?:if|else|while|for|do|try|store|execute|break|continue|return)\\b" },
+        { "name": "keyword.declaration.mcfpp", "match": "\\b(?:namespace|import|typealias|data|object|enum|func|constructor|var|get|set|operator)\\b" },
+        { "name": "storage.modifier.mcfpp", "match": "\\b(?:extends|native|concrete|final|public|protected|private|override|abstract|impl|const|external|inline|global|in|out)\\b" },
+        { "name": "keyword.operator.word.mcfpp", "match": "\\b(?:as|from)\\b" },
+        { "name": "variable.language.mcfpp", "match": "\\b(?:this|super)\\b" }
+      ]
+    },
+    "types": {
+      "patterns": [
+        { "include": "#builtin-types" },
+        { "name": "entity.name.type.mcfpp", "match": "\\b[\\p{Lu}][\\p{L}\\p{Nd}_]*\\b" }
+      ]
+    },
+    "builtin-types": {
+      "name": "support.type.builtin.mcfpp",
+      "match": "\\b(?:vec[0-9]*|int|entity|bool|byte|short|long|float|double|selector|string|text|nbt|any|type|Type|void|list|ImmutableList|map|dict|ByteArray|IntArray|LongArray|ScoreRef|NBTRef)\\b"
+    },
+    "literals": {
+      "patterns": [
+        { "name": "constant.language.mcfpp", "match": "\\b(?:true|false|null)\\b" },
+        {
+          "match": "(\\[)([BIL])(;)",
+          "captures": {
+            "1": { "name": "punctuation.section.brackets.begin.mcfpp" },
+            "2": { "name": "storage.type.array.mcfpp" },
+            "3": { "name": "punctuation.separator.mcfpp" }
+          }
+        },
+        { "name": "constant.numeric.mcfpp", "match": "(?<![\\p{L}\\p{Nd}_])(?:0x[0-9a-fA-F]+[bBsSlL]?|[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?[bBsSlLfFdD]?)(?![\\p{L}\\p{Nd}_])" },
+        { "name": "constant.numeric.coordinate.mcfpp", "match": "[~^](?:-?[0-9]+(?:\\.[0-9]+)?)?" }
+      ]
+    },
+    "calls": {
+      "name": "entity.name.function.mcfpp",
+      "match": "\\b[\\p{L}_][\\p{L}\\p{Nd}_]*(?=[ \\t]*(?:<[^<>\\r\\n]*(?:<[^<>\\r\\n]*>[^<>\\r\\n]*)*>[ \\t]*)?\\()"
+    },
+    "operators": {
+      "name": "keyword.operator.mcfpp",
+      "match": "==|!=|~=|<=|>=|=>|::|\\.\\.|&&|\\|\\||\\+=|-=|\\*=|/=|%=|[=+*/%<>|&!?-]"
+    },
+    "identifiers": {
+      "name": "variable.other.readwrite.mcfpp",
+      "match": "\\b[\\p{L}_][\\p{L}\\p{Nd}_]*\\b"
+    },
+    "punctuation": {
+      "patterns": [
+        { "name": "punctuation.section.group.mcfpp", "match": "[()\\[\\]]" },
+        { "name": "punctuation.separator.mcfpp", "match": "[,;:.]" }
+      ]
+    },
+    "command-messages": {
+      "name": "meta.embedded.line.mcfunction",
+      "contentName": "string.unquoted.command.mcfunction",
+      "begin": "^([ \\t]*)(/)(?!/)([ \\t]*)(say)(?=[ \\t]|$)",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.command.mcfpp" },
+        "4": { "name": "keyword.control.command.mcfunction" }
+      },
+      "end": "$",
+      "patterns": [{ "include": "#interpolation" }]
+    },
+    "commands": {
+      "name": "meta.embedded.line.mcfunction",
+      "begin": "^([ \\t]*)(/)(?!/)([ \\t]*)([a-z][a-z0-9_]*)?",
+      "beginCaptures": {
+        "2": { "name": "punctuation.definition.command.mcfpp" },
+        "4": { "name": "keyword.control.command.mcfunction" }
+      },
+      "end": "$",
+      "patterns": [
+        { "include": "#interpolation" },
+        { "include": "#command-strings" },
+        { "include": "#selectors" },
+        {
+          "contentName": "string.unquoted.command.mcfunction",
+          "begin": "\\b(run)([ \\t]+)(say)(?=[ \\t]|$)",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.command.mcfunction" },
+            "3": { "name": "keyword.control.command.mcfunction" }
+          },
+          "end": "$",
+          "patterns": [{ "include": "#interpolation" }]
+        },
+        { "match": "\\b(run)([ \\t]+)([a-z][a-z0-9_]*)", "captures": {
+          "1": { "name": "keyword.control.command.mcfunction" },
+          "3": { "name": "keyword.control.command.mcfunction" }
+        } },
+        { "name": "entity.name.function.mcfunction", "match": "#?[a-z0-9_.-]+:[a-z0-9_./-]+" },
+        { "name": "keyword.control.command.mcfunction", "match": "\\b(?:as|at|positioned|rotated|facing|align|anchored|in|if|unless|store|result|success|run|on|summon)\\b" },
+        { "include": "#literals" },
+        { "name": "punctuation.section.group.mcfunction", "match": "[{}\\[\\]]" },
+        { "name": "keyword.operator.mcfunction", "match": "\\.\\.|[=+*/%<>!~-]" }
+      ]
+    },
+    "command-strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.mcfunction",
+          "begin": "\"",
+          "end": "\"|$",
+          "patterns": [
+            { "include": "#interpolation" },
+            { "name": "constant.character.escape.mcfunction", "match": "\\\\[^$\\r\\n]" }
+          ]
+        },
+        {
+          "name": "string.quoted.single.mcfunction",
+          "begin": "'",
+          "end": "'|$",
+          "patterns": [
+            { "include": "#interpolation" },
+            { "name": "constant.character.escape.mcfunction", "match": "\\\\[^$\\r\\n]" }
+          ]
+        }
+      ]
+    }
+  },
+  "uuid": "b12f0f30-1234-5678-9abc-ddef12345678"
 }

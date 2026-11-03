@@ -1,39 +1,57 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# Namespace
+# Namespaces and imports
 
-The namespace in MCFPP is same as the namespace in Minecraft. That means, namespace only can be the combination of lowercase letters, numbers, dots and underlines.
+Namespaces group functions and data types. Minecraft locates generated resources with `namespace:path`.
 
-You can declare a namespace in a file, so all functions and variables in the file will be placed in the namespace. For example:
+## Derive a namespace from directories
+
+With `namespace = "hello"` in `mcfpp.toml`:
+
+| Source location | Default namespace |
+| --- | --- |
+| `src/main/mcfpp/main.mcfpp` | `hello` |
+| `src/main/mcfpp/game/rewards.mcfpp` | `hello.game` |
+| `src/main/mcfpp/game/rounds/start.mcfpp` | `hello.game.rounds` |
+
+Directories form the namespace. Filenames organize source code. Files in one directory can declare functions in the same namespace.
+
+## Declare a namespace
+
+Place `namespace` at the start of the file:
 
 ```mcfpp
-namespace test;
+namespace demo.rewards
 
-func test(){    # test:test function 
-    print(i);
+func grant() {
+    /give @s minecraft:stone 1
 }
 ```
 
-You can only define namespace once in a file.
+The game function is `demo.rewards:grant`.
 
-If no namespace is declared, the namespace of the file will be determined by the relative path of the file to the source code directory. For example, if the source code directory is `src/main/mcfpp`, then the namespace of the file `src/main/mcfpp/test/test.mcfpp` will be `test.test`. The source code path is determined by the `sourcePath` in the project configuration file.
+## Import another file
 
-## Compile-time commands <Badge type="tip">Technical</Badge>
-
-If an unnamed mcfpp file (i.e., a file with the .mcfpp extension) is placed under a namespace, the compiler treats that file as containing compile-time commands.
-
-Compile-time commands run after the `INDEX_TYPE` compilation phase and before the `stageProcessor[INDEX_TYPE]` processor executes. A compile-time command is a single-line comment starting with `#>`; the rest of the line is the command. Currently supported commands:
-
-### `injectedBy <classPath>`
-
-Injects a function defined by an MNI class into the current namespace as a global function.
-
-- `classPath` — the fully qualified Java class name of the MNI class.
-
-Example:
+`src/main/mcfpp/rewards.mcfpp`:
 
 ```mcfpp
-#> injectedBy top.mcfpp.mni.minecraft.StdCommands
+namespace demo.rewards
+
+func amount(): int {
+    return 10
+}
 ```
+
+`src/main/mcfpp/main.mcfpp`:
+
+```mcfpp
+import demo.rewards:*
+
+func main() {
+    print(amount())
+}
+```
+
+Use a qualified call such as `demo.rewards:amount()` to distinguish functions with the same name. Java packages are separate names. They appear after `=` in [native declarations](../11mni/02mni-framework-implementation).

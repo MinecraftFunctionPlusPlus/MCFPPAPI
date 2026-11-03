@@ -1,57 +1,54 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# Data Template
+# Data templates
 
-A Data Template is a data structure similar to a class. It is entirely based on the NBT data structure, but unlike ordinary NBT, a Data Template defines the structure of the NBT. In other words, it specifies which members exist in the NBT, allowing the compiler to check member access during compilation.
-
-## Definition
-
-Use the `data` keyword to define a Data Template. For example:
+`data` defines named fields, constructors, and methods. It tells the compiler which members an NBT value contains.
 
 ```mcfpp
-# Definition
-data Test{
-    a as int;  # An integer
-    b as nbt;  # Any NBT value
-}
+data Reward {
+    var amount: int
+    var label: string
 
-func main(){
-    # Create an object
-    var t = Test();
-    t.a = 5;
-    t.b = {
-        "key": "value"
-    };
+    constructor(amount: int, label: string) {
+        this.amount = amount
+        this.label = label
+    }
 
-    # Or directly assign values
-    var t2 as Test = {
-        "a": 5,
-        "b": {
-            "key": "value"
-        }
-    };
-}
-```
-
-Members of a Data Template can be accessed using the `.` operator.
-
-```mcfpp
-print(t.a);
-print(t.b);
-```
-
-Like a class, you can also define methods within a Data Template.
-
-```mcfpp
-data Test{
-    a as int;
-    b as nbt;
-
-    func print(){
-        print(this.a);
-        print(this.b);
+    func show() {
+        print(this.label)
+        print(this.amount)
     }
 }
+
+func main() {
+    var reward = Reward(10, "Daily reward")
+    reward.amount += 5
+    reward.show()
+}
 ```
+
+`constructor` initializes a new object. `this` means the current object. Use `this.amount` inside a method and `reward.amount` outside it.
+
+## Copy an object value
+
+Data templates use value semantics. This changes the copy:
+
+```mcfpp
+data Reward {
+    var amount: int = 10
+}
+
+func main() {
+    var original = Reward()
+    var copy = original
+    copy.amount = 20
+    print(original.amount)
+    print(copy.amount)
+}
+```
+
+This prints `10` followed by `20`. Constructors initialize fields through explicit, typed parameters.
+
+Continue with [nested templates](./02template-nest), [singleton objects](./05object), and [inheritance](./06inheritance). Use [generic templates](../07generic/03generic_class) for configurable field types.

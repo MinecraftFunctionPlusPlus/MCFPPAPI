@@ -4,38 +4,25 @@ lastUpdated: true
 
 # Comments
 
-Comment is a kind of text that add in the cod and won’t execute by the compiler. It can use to explain the function, purpose and realization details of the code. In MCFPP, there’re three kinds of comments：single-line comment, block comment and file comment.
+An ordinary comment starts with `//` and continues to the end of the line. Prefix each line of a longer explanation with `//`.
 
-## Single-line comment
-
-Single-line comment is a comment that only place in a single line. In MCFPP, single-line comment starts with `#`, until the line ends. Such as:
+A documentation comment starts with `///` before a declaration. Consecutive documentation lines form a Markdown document.
 
 ```mcfpp
-#This is a single line 
+/// Add two integer scores.
+/// The result is the sum of both inputs.
+func add(left: int, right: int): int {
+    // Keep the calculation in one place.
+    return left + right
+}
+
+func main() {
+    print(add(2, 3))
+}
 ```
 
-## Block comment
+Documentation comments support Markdown such as `**bold**`, lists, and code. Explain input meanings and results instead of repeating the function name.
 
-Block comment is a comment that can place in many lines. In MCFPP, block comment starts with `##` and ends with `##`. For example:
+Version conditions use `#if`, `#elif`, `#else`, and `#endif`. The [version processor](../minecraft-versions) handles those lines.
 
-```mcfpp
-##
-This
-is
-a
-block 
-comment 
-##
-```
-
-## Document comment
-
-Document comment is a special comment, It can be extracted by the compiler to generate documents. In MCFPP, document comment starts with `#{`, ends with `}`. For example:
-
-```mcfpp
-#{
-This is a document comment 
-}#
-```
-
-Document comment can include some special tags used to tag the content of the comment. Details in the [Document](../13doc/01doc-comment.md)。
+See [Documentation comments](../13doc/01doc-comment) for more examples.

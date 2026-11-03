@@ -1,51 +1,77 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# 泛型函数
+# 泛型函数：用参数选择类型
 
-## 泛型参数
+同一段处理逻辑经常需要接收不同类型的数据。例如，返回传入的整数，或返回传入的字符串。泛型让你写一份函数，再在调用时选择具体类型。
 
-我们之前说了编译确定量的概念。在mcfpp中，可以声明一个函数需要一些编译确定量作为参数。需要使用`<>`来包围编译确定量的参数列表，从而和普通的参数区分开。在调用的时候，也要使用`<>`来包围编译确定量的参数。
+本节先使用类型参数。下一节把同样的写法用于[数据模板](./03generic_class)。固定数值参数放在[编译时参数](./01concrete_var)中介绍。
 
-```mcfpp
+## 写一个保留原类型的函数
 
-func test<i as int>{
-    print(i);
-}
-
-func main(){
-    test<5>;
-    test<6>;
-}
-
-```
-
-在上面的例子中，`test`函数接受一个编译确定量`i`作为参数，然后打印出这个参数。在`main`函数中，我们调用了两次`test`函数，分别传递了`5`和`6`作为参数。这样，`test`函数就会打印出`5`和`6`。
-
-值得注意的是，编译器会在编译的时候，不会立刻将`test`函数编译，而是会等到要调用的时候，再将`test`函数的代码进行编译，并分别替换`i`为`5`和`6`。这样，`test`函数就会有两个版本，分别打印出`5`和`6`。而在编译好的数据包中，也只会包含编译后的`test`函数，不会包含原来的`test`函数。
-
-## 类型参数
-
-有一种特殊的变量，叫做类型变量。类型变量永远只能是编译时确定量，因此永远是编译器已知的。如果尝试让编译器丢失对类型变量的追踪，那么编译器会报错。
-
-使用`type`类型对类型变量进行声明。例如：
+将下面的完整示例放入普通工程的 `main.mcfpp`：
 
 ```mcfpp
-var t as type = int;
-#或者自动推断类型
-var t = int;
+func identity<T>(value: T): T {
+    return value
+}
+
+func main() {
+    var score = identity<int>(42)
+    var message = identity<string>("Ready")
+    print(score)
+    print(message)
+}
 ```
 
-此时，t就代表了int变量。但是这个时候，你还不能将t直接用于`t qwq = 1`这种变量声明，因为`t`并没有被注册入编译器的类型缓存中。只有当编译器作为函数的泛型参数被传入时，你才可以在这个函数中，使用这个类型变量进行变量声明。
+调用 `main` 时，依次显示 `42` 和 `Ready`。`score` 的类型是 `int`，`message` 的类型是 `string`。
+
+## 逐项读懂声明和调用
+
+`T` 是我们为类型参数起的名字。它可以换成 `Item` 等名称。声明中的每一个 `T` 都指向这同一个类型参数。
+
+| 声明的一部分 | 含义 |
+| --- | --- |
+| `identity<T>` | 调用者为 `T` 选择一个类型 |
+| `value: T` | 参数使用调用者选择的类型 |
+| `: T` | 返回值也使用该类型 |
+
+调用 `identity<int>(42)` 时：
+
+1. `<int>` 让本次调用中的 `T` 表示 `int`。
+2. `(42)` 将整数 `42` 传给 `value`。
+3. 函数返回一个 `int`，因此 `score` 也推导为 `int`。
+
+可以把这次调用理解为使用了签名 `identity(value: int): int`。`identity<string>("Ready")` 则使用签名 `identity(value: string): string`。
+
+`<T>` 是 `<T: type>` 的简写。`type` 表示这个位置接收一个类型。类型参数写在尖括号中，普通数据参数写在圆括号中。
+
+## 让多个参数使用同一类型
 
 ```mcfpp
-func test<T as type>(i as T){
-    print(qwq);
+func choose<T>(first: T, second: T, useFirst: bool): T {
+    if (useFirst) {
+        return first
+    }
+    return second
 }
 
-func main {
-    var t = int;
-    test<t>(1);
+func main() {
+    external useFirst: bool = true
+    print(choose<int>(10, 20, useFirst))
+    print(choose<string>("Start", "Stop", false))
 }
 ```
+
+`first`、`second` 和返回值都使用 `T`。本例的整数调用传入两个整数，字符串调用传入两个字符串。`useFirst` 始终为 `bool`，与 `T` 无关。
+
+编译时，`<int>` 和 `<string>` 决定函数采用的类型。游戏运行时，生成的函数接收普通参数，并执行分支和返回。`external useFirst` 明确让第一处调用使用运行时条件。
+
+## 在泛型函数中使用类型
+
+函数体可以使用参数、返回它，或调用该类型已有的接口。给 `T` 起名后，编译器仍需要确认每个操作适用于本次选中的类型。需要整数算术的函数，可以直接使用 `int` 参数。
+
+泛型也能出现在函数类型中，例如 `callback: (T) -> T`。先熟悉本节的类型对应关系，再阅读 [Lambda 与函数类型](../04function/05lambda)。
+
+继续阅读[泛型数据模板](./03generic_class)，把类型参数用于字段和构造函数。

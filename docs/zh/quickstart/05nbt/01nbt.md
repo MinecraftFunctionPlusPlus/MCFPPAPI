@@ -1,55 +1,32 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# NBT
+# NBT 数据
 
-在Minecraft中，NBT最重要的数据类型之一。NBT作为一种树状结构的数据类型，可以存储各种各样的数据，例如整数、浮点数、字符串、数组、列表、复合数据等。在MCFPP中，NBT是一种内置的数据类型，可以直接使用。
-
-## NBT数据类型的基本使用
-
-在MCFPP中，NBT数据类型的类型标识符为`nbt`。你可以使用一般的SNBT语法来创建NBT数据，例如：
+NBT 是 Minecraft 保存数据的树状格式。复合数据包含有名字的键，列表包含有顺序的元素。MCFPP 根据字面量推断字典、列表和数组等具体类型。
 
 ```mcfpp
-var value1 as nbt = "Hello, World!";
+func main() {
+    var position = {x: 5, z: 8}
+    var rewards = [10, 20, 30]
 
-var number as nbt = 42;
-
-var list as nbt = [1,2,3];
-
-var uuid as nbt = [I;0,0,0,1]
-
-var itemStack as nbt = {
-    "Count": 1,
-    "Item": "minecraft:stone",
-    "tag": {
-        "display": {
-            "Name": "Stone"
-        }
-    }
-};
+    print(position["x"])
+    print(rewards[0])
+}
 ```
 
-你可以使用`[]`索引来访问复杂NBT数据中的成员。例如：
+使用字符串索引读取复合数据，使用整数索引读取列表。MCFPP 复合字面量中的键写作标识符，例如 `title: "Round one"`。
+
+整数数组采用 SNBT 写法：
 
 ```mcfpp
-var itemStack = {
-    "Count": 1,
-    "Item": "minecraft:stone",
-    "tag": {
-        "display": {
-            "Name": "Stone"
-        }
-    }
-};
-
-print(itemStack["tag"]["display"]["Name"]);
-
-var list as nbt = [1,2,3];
-
-print(list[0]);
+func main() {
+    var values = [I; 1, 2, 3]
+    print(values)
+}
 ```
 
-编译器不会检查索引是否合法。即使索引对应的数据不存在，编译器也将正常拼接NBT路径。在后续的`list`,`dict`,`map`类型中，也是同理的。
+编译器知道数据布局时，会检查字段和索引。读取外部 storage、实体或方块的数据时，使用 [`NBTRef<T>.tryRead`](../02base/06references) 处理数据存在性。
 
-除了一种情况，就是编译器知道这个nbt类型的值。此时nbt将会尝试检查数据是否合法，但是并不会报错，而是会给出警告。数据包依然会正常生成。
+字段固定时，使用[数据模板](../06template/01define)描述结构。元素类型固定时，使用[列表](./02list)或[字典](./03dict)。

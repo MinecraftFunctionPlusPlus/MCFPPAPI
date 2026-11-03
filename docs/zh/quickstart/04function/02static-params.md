@@ -1,19 +1,23 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# static关键字<Badge type="tip">可能更改</Badge>
+# 通过函数更新数据
 
-`static`关键字用于声明一个静态参数。静态参数表示，在参数传递的过程中，是传递的参数本身而不是参数的值，因此在函数中对参数的修改会影响外部的变量。例如：
+普通参数接收值的副本。函数通过返回值交给调用者一个新值：
 
 ```mcfpp
-func test(static a as int){
-    a = 5;
+func increase(value: int): int {
+    return value + 1
 }
 
-void main {
-    int a = 0;
-    test(a);
-    print(a);  #输出5
+func main() {
+    var count = 2
+    count = increase(count)
+    print(count)
 }
 ```
+
+这段代码打印 `3`。调用者明确写出 `count = ...`，可以直接看到数据何时改变。
+
+需要更新 Minecraft 中的计分项或 NBT 时，使用 [`ScoreRef` 和 `NBTRef<T>`](../02base/06references)。

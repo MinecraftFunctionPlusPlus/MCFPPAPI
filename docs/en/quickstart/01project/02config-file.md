@@ -2,33 +2,66 @@
 lastUpdated: true
 ---
 
-# Configuration File
+# Project configuration
 
-The project configuration file for MCFPP is a JSON file, typically stored in the root directory of the project. The JSON format is as follows:
+Use `mcfpp.toml` in the project root. The CLI searches parent directories for this file. Use `--project` to select a project explicitly.
 
-```json
-{
-    // The target Minecraft version to compile for. Only official version numbers are supported.
-    "version": "1.21.4",
-    // The source code directory of the project. The namespace of the files is determined by their relative path to the source code directory.
-    "sourcePath": "src/main/mcfpp/**",
-    // Description of the datapack. This is a raw JSON text.
-    "description": "",
-    // The default namespace for the datapack, which will determine the namespace for datas, for instance storage in the package.
-    "namespace": "test",
-    // The jar-packaged libraries to be called.
-    "jar": [],
-    // The output path for the datapack. The datapack and library files will be output to this directory.
-    "targetPath": "build",
-    // Whether to *not* generate a datapack. Default is false.
-    "noDatapack": false,
-    // Compilation arguments
-    "compileArgs": [
-        // Compile in debug mode (for compiler development)
-        "-debug", 
-        // Ignore the standard library
-        "-ignoreStdLib",
-        // Whether it is a library
-        "-isLib"
-    ]
-}
+## A complete configuration
+
+```toml
+schema = 1
+name = "hello"
+namespace = "hello"
+version = "1.21.8"
+description = "My first MCFPP datapack"
+sourcePath = "src/main/mcfpp"
+dataPath = "src/main/resources/data"
+targetPath = "build"
+
+[toolchain]
+version = "java21-v1"
+
+[mni]
+enabled = false
+```
+
+| Field | Purpose |
+| --- | --- |
+| `schema` | Configuration format version, currently `1` |
+| `name` | Project name and output datapack directory name |
+| `namespace` | Default namespace |
+| `version` | Minecraft target version for this build |
+| `description` | Datapack description |
+| `sourcePath` | Directory that contains MCFPP source files |
+| `dataPath` | Extra resources copied into the datapack's `data/` directory |
+| `targetPath` | Build output directory inside the project |
+| `toolchain.version` | Toolchain identifier used by the CLI |
+| `mni.enabled` | Enables Java MNI sources and dependencies |
+
+Paths are relative to the project root. The compiler reads `.mcfpp` files recursively. Use a separate output directory, such as `build` or `out`. `mcfpp clean` deletes this directory.
+
+## Compiler options
+
+Set compiler options in the top-level `args` array. Place this line before the first `[table]`:
+
+```toml
+args = ["-level=INFO", "--dump-ir"]
+```
+
+Command options override matching options in the file:
+
+```sh
+mcfpp build -level=WARN
+mcfpp build --dump-ir=inspect
+mcfpp --project ./hello build
+```
+
+`--dump-ir=inspect` writes IR to `build/inspect/`. See [Build output and IR](./04build-and-ir).
+
+## Dependencies and MNI
+
+Declare MCFPP libraries and Java dependencies in `mcfpp-packages.json`. The CLI updates `mcfpp.lock` and the MNI project's `mcfpp-mni.lock`. Commit configuration, dependency declarations, and lockfiles.
+
+The `[mni]` table supports Java repositories, plugins, and Gradle extensions. See [Gradle and Java builds](../12gradle/01gradle-configuration).
+
+See [Minecraft target versions](../minecraft-versions) for version conditions.

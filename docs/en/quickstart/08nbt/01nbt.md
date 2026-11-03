@@ -1,55 +1,32 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# NBT
+# NBT data
 
-In Minecraft, NBT is one of the most important data types. NBT is a tree-structured data format that can store a wide variety of data, such as integers, floating-point numbers, strings, arrays, lists, and compound data. In MCFPP, NBT is a built-in data type that can be used directly.
-
-## Basic Usage of NBT Data Types
-
-In MCFPP, the type identifier for NBT is `nbt`. You can create NBT data using the standard SNBT (Stringified NBT) syntax, for example:
+NBT is Minecraft's tree-shaped data format. Compounds contain named keys. Lists contain ordered elements. MCFPP infers specific types such as dictionaries, lists, and arrays from literals.
 
 ```mcfpp
-var value1 as nbt = "Hello, World!";
+func main() {
+    var position = {x: 5, z: 8}
+    var rewards = [10, 20, 30]
 
-var number as nbt = 42;
-
-var list as nbt = [1, 2, 3];
-
-var uuid as nbt = [I; 0, 0, 0, 1];
-
-var itemStack as nbt = {
-    "Count": 1,
-    "Item": "minecraft:stone",
-    "tag": {
-        "display": {
-            "Name": "Stone"
-        }
-    }
-};
+    print(position["x"])
+    print(rewards[0])
+}
 ```
 
-You can use `[]` indexing to access members of complex NBT data, for example:
+Use string indices for compounds and integer indices for lists. MCFPP compound literal keys are identifiers, such as `title: "Round one"`.
+
+Integer arrays use SNBT syntax:
 
 ```mcfpp
-var itemStack as nbt = {
-    "Count": 1,
-    "Item": "minecraft:stone",
-    "tag": {
-        "display": {
-            "Name": "Stone"
-        }
-    }
-};
-
-print(itemStack["tag"]["display"]["Name"]);
-
-var list as nbt = [1, 2, 3];
-
-print(list[0]);
+func main() {
+    var values = [I; 1, 2, 3]
+    print(values)
+}
 ```
 
-The compiler does not check if the index is valid. Even if the indexed data does not exist, the compiler will still concatenate the NBT path normally. The same principle applies to `list`, `dict`, and `map` types.
+The compiler checks known layouts and indices. Use [`NBTRef<T>.tryRead`](../02base/06references) to handle data presence in external storage, entities, or blocks.
 
-There is one exception: when the compiler knows the value of the NBT type. In this case, NBT will attempt to check whether the data is valid. However, it will not throw an error but will issue a warning. The data pack will still be generated as expected.
+Use [data templates](../09template/01define-and-instantiate) for fixed fields. Use [lists](./02list) or [dictionaries](./03dict) for fixed element types.

@@ -1,45 +1,70 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# JVM Access Operator
+# Generate Minecraft commands from Java
 
-## Basic Usage
+The previous page returned integer values. This page generates an operation: display a message when the game calls `ready()`.
 
-In MCFPP, you can use the `::` operator to access the Java object of a variable in the compiler.
+## Complete implementation
+
+`src/main/java/example/mni/Messages.java`:
+
+```java
+package example.mni;
+
+import top.mcfpp.annotations.MNIFunction;
+import top.mcfpp.model.function.Function;
+
+public final class Messages {
+    @MNIFunction
+    public static void ready() {
+        Function.addCommand("say MNI is ready");
+    }
+}
+```
+
+`src/main/mcfpp/main.mcfpp`:
 
 ```mcfpp
-var i = 0;
-i::jvm.toString(); # Call the `toString` method of `i`
-var qwq = i::jvm.type.build("test"); # Call the `build` method of the `type` object of `i`
-# The `build` method returns a variable of type `MCIntConcrete`, so the type of `qwq` is `JavaVar`, and the value is `MCIntConcrete`
-var awa as int = qwq; # The value of `qwq` is automatically converted to an MCFPP variable
-print(i + qwq);
+func ready() = example.mni.Messages.ready
+
+func main() {
+    ready()
+}
 ```
 
-Also, you can directly access a static method of a Java static class using `::`.
+Run `mcfpp build`, load the datapack, and call `main`. Minecraft executes `say MNI is ready`.
+
+## What happens in each stage
+
+During compilation, the compiler processes the source call to `ready()` and invokes `Messages.ready`. `Function.addCommand` adds a command to the function being generated.
+
+During play, Minecraft executes that generated command. Each call to `main` executes it. The Java entry completes its work during compilation.
+
+`Function.addCommand` accepts the command body. Start the string with a command name, such as `say`. Selectors and coordinates use the execution context active when the command runs.
+
+## Java conditions and game conditions
+
+A source condition controls whether the game executes a command. Replace `main` with this complete source file:
 
 ```mcfpp
-::top.mcfpp.model.function$Function.addCommand(::top.mcfpp.command$Command.build("say hello"))
+func ready() = example.mni.Messages.ready
+
+func main() {
+    external enabled: bool = true
+    if (enabled) {
+        ready()
+    }
+}
 ```
 
-Note that you should use the fully qualified name.
+During compilation, the compiler places the generated command in the corresponding branch. During play, `enabled` determines whether that branch executes.
 
-## Command Insertion
+A Java `if` inside the entry selects generated commands from data available to Java during compilation. Use it to select fixed content from project configuration.
 
-In the previous section, we mentioned that you can insert a vanilla command using `/`. You can use a string template-like syntax to insert members and methods of Java objects into vanilla commands.
+## When to use this entry
 
-```mcfpp
-var i = 0;
-/say ${i}
-/say ${i::jvm.toString()}
-/scoreboard players get ${i::jvm.name} ${i::jvm.sbObject}
-```
+You can write fixed commands directly in [MCFPP source](../02base/05original-command). Use MNI when you need Java libraries, build configuration, or resource preparation before generating commands.
 
-Normally, the content in `${}` will automatically call the `toString()` function after calculation, so there is no need to add `.toString()` separately. However, if the calculation result is `MCFPPValue<*>`, which is a determined value, the `toString()` function of the value will be called. For example, `JavaVar` is an `MCFPPValue<*>`. Therefore, the compilation result of the above code is:
-
-```mcfunction
-say 0
-say [int,value=0]
-scoreboard players get default_func_main_qwq mcfpp_default
-```
+Read [Command API](/en/api/class/command) to combine command parts. Continue with [MNI macros](../mni-macros/overview) to generate loops, expressions, or user callbacks.

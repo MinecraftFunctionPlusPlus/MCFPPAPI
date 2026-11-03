@@ -1,68 +1,70 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# Generic Classes
+# Generic data templates: store different types
 
-Just like functions, classes can also have read-only parameter lists. Such classes are called generic classes. Additionally, the read-only parameter list grants generic classes some special properties.
+[Generic functions](./02generic_function) use a type parameter for a function call. Generic data templates use it for objects. Fields, constructors, and methods can all use the selected type.
 
-## Declaring Generic Classes
+This page uses `Box<T>` to store one value. `Box<int>` stores an integer. `Box<string>` stores a string.
 
-When declaring a class, generic parameters are enclosed in `<>` after the class identifier.
+## Complete example
 
 ```mcfpp
-class ClassName<T as type>{
-    # Class attributes and methods
-    ...
+data Box<T> {
+    var value: T
+
+    constructor(value: T) {
+        this.value = value
+    }
+
+    func read(): T {
+        return this.value
+    }
+}
+
+func showScore(box: Box<int>) {
+    print(box.read())
+}
+
+func main() {
+    var score = Box<int>(10)
+    var label = Box<string>("Ready")
+    showScore(score)
+    print(label.read())
 }
 ```
 
-In the above example, `T` is a generic parameter. As with functions, you can use `T` inside the class to declare variables, making the type of those variables the generic parameter `T`.
+Running `main` displays `10` and `Ready`.
+
+## Where the type parameter applies
+
+| Example location | In `Box<int>` | In `Box<string>` |
+| --- | --- | --- |
+| Field `value: T` | `int` | `string` |
+| Constructor parameter `value: T` | `int` | `string` |
+| Result of `read(): T` | `int` | `string` |
+
+In `Box<int>(10)`, `<int>` selects the template type. `(10)` invokes its constructor. That selection determines `T` for the new object.
+
+`this.value = value` stores the constructor argument in the object's field. `read()` returns that field with the same type.
+
+## Declare a generic parameter type
+
+`showScore(box: Box<int>)` requires a `Box` that stores an integer. The function therefore knows that `box.read()` returns an `int`.
+
+To accept several `Box` types, give the function its own type parameter:
 
 ```mcfpp
-class ClassName<T as type>{
-    value as T;
-    
-    public ClassName(value as T){
-        this.value = value;
-    }
-    
-    func getValue() -> T{
-        return this.value;
-    }
-}
-
-func main(){
-    var c = ClassName<int>(5);    # Creating an instance of a generic class
-    print(c.getValue()); # Outputs 5
+func readBox<T>(box: Box<T>): T {
+    return box.read()
 }
 ```
 
-Just like with generic functions, the compiler does not immediately compile a generic class. Instead, it waits until instantiation and compiles the generic class based on the provided generic parameters at that moment. Similarly, the generated data pack will only include the compiled version of the class, not the original generic template.
+Place this function after the `Box<T>` declaration above. Call `readBox<int>(score)` inside `main` to obtain its stored integer. Each `T` belongs to its own declaration.
 
-As seen in the example above, if you explicitly declare the generic type when instantiating the class, you don't need to pass the generic parameter again during instantiation.
+## Each object stores its own value
 
-## Overloading Generic Classes
+`Box<int>(10)` and `Box<int>(20)` use the same type. They remain separate objects with their own fields. Matching type arguments let the compiler reuse a template implementation. Each constructor call creates separate object data.
 
-Since generic classes contain generic parameters, they can also be overloaded. The compiler will treat classes with different generic parameters as distinct classes.
-
-```mcfpp
-class Test<i as int>{
-    func print(){
-        print(this.i);
-    }
-}
-
-class Test<i as int, j as int>{
-    func print(){
-        print(this.i + this.j);
-    }
-}
-
-func main(){
-    var test = Test<5>();
-    var test2 = Test<5, 6>();
-    test.print();
-    test2.print();
-}
-```
+Read [Compilation parameters and known values](./01concrete_var) for fixed numeric configuration. Read [in and out](../advanced/variance) for generic relationships between parent and child types.

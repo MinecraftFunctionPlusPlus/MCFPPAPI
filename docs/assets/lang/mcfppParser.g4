@@ -29,183 +29,229 @@
 parser grammar mcfppParser;
 
 options {
+    // Regenerate the standard library whenever this grammar or its vocabulary changes.
     tokenVocab = mcfppLexer;
 }
 
+// Compatibility-only token. The lexer never emits it; the shim alternatives
+// below exist solely to keep the generated accessor surface usable by the
+// existing read-only consumers while they migrate to the new rules.
+tokens { LEGACY_ACCESSOR_SHIM }
+
 //一个mcfpp文件
 compilationUnit
-    :   importDeclaration*
-        namespaceDeclaration?
-        statement*
-        typeDeclaration*
-        EOF
+    :   (separator* namespaceDeclaration (separator | EOF))?
+        (separator* importDeclaration (separator | EOF))*
+        (separator* typealiasDeclaration (separator | EOF))*
+        (separator* topStatement)?
+        (separator* typeDeclaration (separator | EOF))*
+        separator* EOF
+    ;
+
+separator
+    :   (SEMICOLON | NL)+
+    ;
+
+topStatement
+    : (statement (separator | EOF))+
     ;
 
 //命名空间声明
 namespaceDeclaration
-    :   doc_comment? NAMESPACE Identifier (DOT Identifier)* ';'
+    :   doc_comment? NL* NAMESPACE namespacePath
     ;
 
 importDeclaration
-    :   IMPORT Identifier ('.' Identifier)* ('.' cls = (ClassIdentifier|'*'))? ';'
+    :   IMPORT importType (AS Identifier)? (FROM Identifier)?
+    ;
+
+importType
+    :   namespacePath COLON (Identifier | MULT)
+    ;
+
+typealiasDeclaration
+    :   TYPEALIAS type AS Identifier
     ;
 
 //类或函数声明
 typeDeclaration
-    :   doc_comment? declarations
+    :   doc_comment? NL* declarations
     ;
 
 //类或函数声明
 declarations
-    :   classDeclaration
-    |   functionDeclaration
+    :   functionDeclaration
     |   inlineFunctionDeclaration
     |   nativeFuncDeclaration
     |   compileTimeFuncDeclaration
-    |   compileTimeClassDeclaration
-    |   nativeClassDeclaration
     |   templateDeclaration
+    |   objectTemplateDeclaration
     |   extensionFunctionDeclaration
-    |   interfaceDeclaration
-    |   globalDeclaration
+    |   enumDeclaration
+    |   annotation
     ;
 
-//全局声明
-globalDeclaration
-    :   GLOBAL '{' (doc_comment? fieldDeclaration ';')* '}'
+operationOverrideDeclaration
+    :   OPERATOR supportOperator NL* functionParams NL* (COLON functionReturnType)? NL* curlBlock
     ;
 
-//类声明
-classDeclaration
-    :   classAnnotation? STATIC? FINAL? ABSTRACT? CLASS classWithoutNamespace (':' className (',' className)*)? classBody
+nativeOperationOverrideDeclaration
+    :   OPERATOR supportOperator NL* functionParams NL* (COLON functionReturnType)? NL* ASSIGNMENT NL* javaRefer
     ;
 
-compileTimeClassDeclaration
-    :   CONST CLASS classWithoutNamespace (':' className (',' className)*)? classBody
+supportOperator
+    :   ADD
+    |   SUB
+    |   MULT
+    |   SLASH
+    |   MOD
+    |   RANGLE
+    |   LANGLE
+    |   GE
+    |   LE
+    |   EQEQ
+    |   EXCL_EQ
+    |   WVEQ
+    |   DISJ
+    |   CONJ
+    |   PIPE
+    |   Identifier
     ;
 
-nativeClassDeclaration
-    :   CLASS classWithoutNamespace '=' javaRefer ';'
+accessor
+    :   LCURL NL* (getter (separator+ setter)? | setter)? separator* RCURL
     ;
 
-staticClassMemberDeclaration
-    :   accessModifier? STATIC classMember
+getter
+    :   GET NL* curlBlock
+    |   GET NL* ASSIGNMENT NL* javaRefer
+    |   GET NL* ASSIGNMENT NL* expression
+    |   GET
     ;
 
-classMemberDeclaration
-    :   accessModifier? classMember
+setter
+    :   SET NL* curlBlock
+    |   SET NL* ASSIGNMENT javaRefer
+    |   SET NL* ASSIGNMENT expression
+    |   SET
     ;
 
-classBody
-    :   '{' (doc_comment? (classMemberDeclaration|staticClassMemberDeclaration))* '}'
-    ;
-
-//类成员
-classMember
-    :   classFunctionDeclaration
-    |   classFieldDeclaration ';'
-    |   constructorDeclaration
-    |   nativeClassFunctionDeclaration
-    |   abstractClassFunctionDeclaration
-    ;
-
-classFunctionDeclaration
-    :   funcAnnoation? OVERRIDE? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
-    ;
-
-abstractClassFunctionDeclaration
-    :   funcAnnoation? OVERRIDE? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? ';'
-    ;
-
-nativeClassFunctionDeclaration
-    :   funcAnnoation? OVERRIDE? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '=' javaRefer ';'
-    ;
-
-classFieldDeclaration
-    :   accessModifier? type fieldDeclarationExpression
+compoundDeclaration
+    :   declarationName NL* (COLON NL* extendName NL* (COMMA NL* extendName NL*)*)?
     ;
 
 //数据模板
 templateDeclaration
-    :   FINAL? TEMPLATE genericity classWithoutNamespace (EXTENDS className)? templateBody
+    :   (FINAL | ABSTRACT)? NL* DATA NL*
+        (compoundDeclaration
+        | (declarationName NL* AS NL* type)
+        )
+        NL* templateBody?
+    ;
+
+//数据模板
+objectTemplateDeclaration
+    :   FINAL? NL* OBJECT NL* DATA NL* compoundDeclaration NL* templateBody?
     ;
 
 templateBody
-    :   '{' (doc_comment? (templateMemberDeclaration|staticTemplateMemberDeclaration))* '}'
+    :   LCURL NL* (doc_comment? NL* templateMemberDeclaration separator*)* RCURL
     ;
 
 templateMemberDeclaration
-    :   accessModifier? templateMember
-    ;
-
-staticTemplateMemberDeclaration
-    :   accessModifier? STATIC? templateMember
+    :   accessModifier? NL* templateMember
     ;
 
 templateMember
     :   templateFunctionDeclaration
-    |   templateFieldDeclaration ';'
+    |   templateFieldDeclaration
+    |   templateConstructorDeclaration
+    |   operationOverrideDeclaration
+    |   nativeOperationOverrideDeclaration
+    |   annotation
+    ;
+
+functionDeclarationPart
+    :   FUNCTION NL* Identifier NL* functionParams (NL* COLON NL* functionReturnType)?
     ;
 
 templateFunctionDeclaration
-    :  FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
+    :   OVERRIDE? NL* ABSTRACT? NL* functionDeclarationPart (NL* curlBlock)?
     ;
 
 templateFieldDeclaration
-    :   (templateFieldDeclarationExpression ',')* templateFieldDeclarationExpression ';'
+    :   (VAR | CONST) NL* Identifier NL* (COLON NL* templateType)? (NL* ASSIGNMENT expression)? NL* accessor?
     ;
 
-templateFieldDeclarationExpression
-    :   CONST? type? Identifier ':' expression
+templateType
+    :   singleTemplateFieldType | unionTemplateFieldType
     ;
 
-
-//接口声明
-interfaceDeclaration
-    :   classAnnotation? INTERFACE classWithoutNamespace (':' className (',' className)*)? interfaceBody
+singleTemplateFieldType
+    :   type QUEST?
     ;
 
-interfaceBody
-    :   '{'( doc_comment? interfaceFunctionDeclaration )* '}'
+unionTemplateFieldType
+    :   LPAREN NL* type NL* (PIPE type NL*)* RPAREN QUEST?
     ;
 
-interfaceFunctionDeclaration
-    :   funcAnnoation? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? ';'
+declarationName
+    :   classWithoutNamespace NL* readOnlyParams?
+    ;
+
+extendName
+    :   className readOnlyArgs?
     ;
 
 compileTimeFuncDeclaration
-    :   CONST FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
+    :   CONST NL* functionDeclarationPart NL* curlBlock
     ;
 
 inlineFunctionDeclaration
-    :   funcAnnoation? INLINE FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
+    :   INLINE NL* functionDeclarationPart NL* curlBlock
     ;
 
 //函数声明
 functionDeclaration
-    :   funcAnnoation? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
+    :   functionDeclarationPart NL* curlBlock
     ;
 
 extensionFunctionDeclaration
-    :   funcAnnoation? STATIC? FUNCTION (type '.')? Identifier '(' parameterList? ')' (':' functionReturnType)? '{' functionBody '}'
+    :   FUNCTION NL* (type DOT)? Identifier functionParams (NL* COLON NL* functionReturnType)? NL* curlBlock
     ;
 
+//枚举
+enumDeclaration
+    :   ENUM NL* Identifier NL* enumBody
+    ;
+
+enumBody
+    :   LCURL NL* enumMember (NL* COMMA NL* enumMember)* NL* RCURL
+    ;
+
+enumMember
+    :   Identifier NL* (ASSIGNMENT NL* nbtValue)?
+    ;
+
+
 namespaceID
-    : (Identifier ( '.' Identifier)* ':')? Identifier
+    : (namespacePath COLON)? Identifier
+    ;
+
+namespacePath
+    : namespaceSegment (DOT namespaceSegment)*
+    ;
+
+namespaceSegment
+    : Identifier | ENTITY
     ;
 
 nativeFuncDeclaration
-    :   funcAnnoation? FUNCTION Identifier '(' parameterList? ')' (':' functionReturnType)? '=' javaRefer ';'
+    :   functionDeclarationPart NL* ASSIGNMENT NL* javaRefer SEMICOLON?
     ;
 
 javaRefer
-    :   stringName ('.' stringName)*
-    ;
-
-stringName
-    :   Identifier
-    |   ClassIdentifier
-    |   NormalString
+    :   Identifier (DOT Identifier)*
     ;
 
 accessModifier
@@ -215,179 +261,294 @@ accessModifier
     ;
 
 //构造函数声明
-constructorDeclaration
-    :   funcAnnoation? className '(' parameterList? ')' '{' functionBody '}'
-    ;
-
-//构造函数的调用
-constructorCall
-    :   className arguments
+templateConstructorDeclaration
+    :   CONSTRUCTOR NL* normalParams? NL* curlBlock
     ;
 
 //变量声明
 fieldDeclaration
-    :   fieldModifier? type fieldDeclarationExpression (',' fieldDeclarationExpression)*
-    |   fieldModifier? VAR Identifier '=' expression
+    :   (VAR | fieldModifier) NL* Identifier NL* (COLON NL* type)? NL* (ASSIGNMENT NL* expression)?
     ;
 
-fieldDeclarationExpression
-    :   Identifier ( '=' expression)?
+fieldModifier : CONST | EXTERNAL | IMPORT NL* VAR;
+
+functionParams
+    :   readOnlyParams? NL* normalParams
     ;
 
-fieldModifier : CONST|DYNAMIC|IMPORT;
+readOnlyParams
+    :   LANGLE NL* readOnlyParameterList? NL* RANGLE
+    ;
 
-//参数列表
+normalParams
+    :   LPAREN NL* parameterList? NL* RPAREN
+    ;
+
+// 只读参数允许省略类型标注，<T> 等价于 <T: type>。
+readOnlyParameterList
+    :   readOnlyParameter (NL* COMMA NL* readOnlyParameter)*
+    ;
+
+readOnlyParameter
+    :   (OUT | IN)? NL* Identifier (NL* COLON NL* type)? (NL* ASSIGNMENT NL* value)?
+    ;
+
+// 普通参数必须声明名称和类型。
 parameterList
-    :   parameter (',' parameter)*
+    :   parameter (NL* COMMA NL* parameter)*
     ;
 
-//参数
 parameter
-    :   STATIC? CONCRETE? type Identifier
+    :   Identifier NL* COLON NL* type (NL* ASSIGNMENT NL* value)?
     ;
-
-//表达式
-expression
-    :   primary
-    |   conditionalOrExpression
-    ;
-
-//expression
-//    :   conditionalOrExpression
-//    ;
 
 //能作为语句的表达式
 statementExpression
-    :   (basicExpression '=' )? expression
+    :   (varWithSelector assignmentOperator NL* )? expression
     ;
 
-//条件表达式
-conditionalExpression
-    :   conditionalOrExpression ( '?' expression ':' expression )?
+assignmentOperator
+    :   ASSIGNMENT | ADD_ASSIGNMENT | SUB_ASSIGNMENT | MULT_ASSIGNMENT | DIV_ASSIGNMENT | MOD_ASSIGNMENT
+    ;
+
+// Top-level expression. A trailing lambda is accepted only here, not in the
+// condition-specific expression below.
+expression
+    :   lambdaCallExpression
+    |   primary
+    |   commonBinaryOperatorExpression
+    ;
+
+// A trailing lambda belongs to the call it follows. Conditions use
+// conditionExpression so that the block of an if/while cannot be mistaken
+// for a trailing lambda; parenthesize such a call in a condition instead.
+lambdaCallExpression
+    :   jvmAccessExpression (NL* selector)+ NL* inlineLambda (NL* selector)*
+    |   functionCall NL* inlineLambda (NL* selector)*
+    |   varWithSuffix NL* inlineLambda (NL* selector)*
+    ;
+
+conditionExpression
+    :   primary
+    |   commonBinaryOperatorExpression
+    ;
+
+//其他运算符
+commonBinaryOperatorExpression
+    :   conditionalOrExpression (op+=(PIPE | Identifier) NL* conditionalOrExpression)*
     ;
 
 //或
 conditionalOrExpression
-    :   conditionalAndExpression ( '||' conditionalAndExpression )*
+    :   conditionalAndExpression (op+=DISJ NL* conditionalAndExpression )*
     ;
 
 //与
 conditionalAndExpression
-    :   equalityExpression ( '&&' equalityExpression )*
+    :   equalityExpression (op+=CONJ NL* equalityExpression )*
     ;
 
 //等同
 equalityExpression
-    :   relationalExpression ( op=('==' | '!=') relationalExpression )?
+    :   relationalExpression (op+=(EQEQ | EXCL_EQ | WVEQ) NL* relationalExpression )*
     ;
 
 //比较关系
 relationalExpression
-    :   additiveExpression ( relationalOp additiveExpression )?
-    ;
-
-//比较关系运算符
-relationalOp
-    :   '<='
-    |   '>='
-    |   '<'
-    |   '>'
+    :   additiveExpression (op+=(LANGLE | RANGLE | LE | GE) NL* additiveExpression )*
     ;
 
 //加减
 additiveExpression
-    :   multiplicativeExpression ( op=('+' | '-') multiplicativeExpression )*
+    :   multiplicativeExpression (op+=(ADD | SUB) NL* multiplicativeExpression )*
     ;
 
 //乘除
 multiplicativeExpression
-    :   unaryExpression ( op=( '*' | '/' | '%' ) unaryExpression )*
+    :   castExpression (op+=(MULT | SLASH | MOD) NL* castExpression )*
+    ;
+
+//强制类型转换表达式
+castExpression
+    :  unaryExpression (AS NL* type)?
     ;
 
 //一元表达式
 unaryExpression
-    :   '!' unaryExpression
-    |   castExpression
+    :   (EXCL | SUB) NL* unaryExpression
     |   rightVarExpression
     ;
 
 //右侧计算式取出的变量
 rightVarExpression
-    :   basicExpression
-    ;
-
-//强制类型转换表达式
-castExpression
-    :  '(' type ')' unaryExpression
-    ;
-
-basicExpression
-    :   primary
-    |   varWithSelector
-    ;
-//初级表达式
-primary
-    :   var
-    |   value
-    |   constructorCall
-    |   THIS
-    |   SUPER
-    |   TargetSelector
+    :   varWithSelector
     ;
 
 varWithSelector
-    : primary selector+
-    | type selector+
+    : jvmAccessExpression (NL* selector)*
+    ;
+
+jvmAccessExpression
+    :   propertyOperator
+    ;
+
+//字段操作器
+propertyOperator
+    :   primary (NL* LSQUARE NL* propertyOperatorExpression (NL* COMMA NL* propertyOperatorExpression)* NL* RSQUARE)?
+    ;
+
+propertyOperatorExpression
+    :   Identifier NL* ASSIGNMENT NL* expression
+    ;
+
+//初级表达式
+primary
+    :   range
+    |   value
+    |   inlineLambda
+    |   var
+    |   THIS
+    |   SUPER
+    |   type
     ;
 
 var
-    :   '(' expression ')'
-    |   Identifier identifierSuffix*
-    |   namespaceID arguments
+    :   bucketExpression
+    |   functionCall
+    |   varWithSuffix
+    ;
+
+bucketExpression
+    :   LPAREN NL* (expression NL*)? RPAREN
+    ;
+
+varWithSuffix
+    :   Identifier NL* identifierSuffix*
+    ;
+
+functionCall
+    :   namespaceID NL* arguments
     ;
 
 identifierSuffix
-    :   '[' conditionalExpression ']'
+    :   LSQUARE NL* (expression NL*)? RSQUARE
     ;
 
 selector
-    :   '.' var
+    :   DOT NL* var
+    |   DOT NL* memberKeyword NL* arguments?
+    ;
+
+// Type/accessor keywords can also name ordinary member calls.
+memberKeyword
+    :   MAP
+    |   SET
     ;
 
 arguments
-    :   '(' expressionList? ')'
+    :   readOnlyArgs? NL* normalArgs
     ;
 
-functionBody
-    :   statement*
+readOnlyArgs
+    :   LANGLE NL* (expressionList NL*)? RANGLE
     ;
 
-//functionCall
-//    :   namespaceID arguments
-//    |   varWithSelector arguments
-//    ;
+normalArgs
+    :   LPAREN NL* ((expressionList | callArgumentList) NL*)? RPAREN
+    ;
+
+// Keep expressionList first so existing visitors retain their ordinary-call tree.
+// The mixed form preserves the syntax category and order for the pure call binder.
+callArgumentList
+    :   callArgument (NL* COMMA NL* callArgument)*
+    ;
+
+callArgument
+    // Retain the old node only for located migration errors, including old cached ASTs.
+    :   legacy=REF NL* expression {notifyErrorListeners($legacy, "Legacy 'ref expression' is no longer supported; create ScoreRef or NBTRef<T> from an explicit Minecraft address and pass it as an ordinary value.", null);}
+    |   inlineLambda
+    |   expression
+    ;
+
+// Kotlin-style lambda. The parameter list requires the arrow; a no-parameter
+// lambda has no arrow. The body keeps the last expression distinct from a
+// semicolon-terminated statement.
+inlineLambda
+    :   LCURL NL* (lambdaParameterList NL* ARROW NL*)? lambdaBody NL* RCURL
+    |   LEGACY_ACCESSOR_SHIM Identifier+ curlBlock
+    ;
+
+// Diagnostic-only entry point. It is intentionally not reachable from
+// compilationUnit, so (args) => { ... } is not valid source. Migration code can
+// probe this rule after a source parse failure at DOUBLE_ARROW to report the
+// precise old callback shape.
+legacyLambdaSyntax
+    :   LPAREN NL* (Identifier (NL* COMMA NL* Identifier)*)? NL* RPAREN
+        NL* DOUBLE_ARROW NL* curlBlock
+    ;
+
+lambdaParameterList
+    :   lambdaParameter (NL* COMMA NL* lambdaParameter)*
+    ;
+
+lambdaParameter
+    :   Identifier (NL* COLON NL* type)?
+    ;
+
+lambdaBody
+    :   lambdaTailExpression
+    |   (statement separator)+ (lambdaTailExpression | statement)
+    |   (statement separator)+
+    |   statement
+    ;
+
+lambdaTailExpression
+    :   expression
+    ;
 
 statement
-    :   fieldDeclaration ';'
-    |   statementExpression ';'
-//    |   functionCall ';'
+    :   fieldDeclaration
+    |   statementExpression
     |   ifStatement
-    |   forStatement
     |   whileStatement
-    |   doWhileStatement ';'
-    |   ';'
-    |   selfAddOrMinusStatement ';'
+    |   doWhileStatement
     |   tryStoreStatement
-    |   controlStatement ';'
+    |   executeStatement
+    |   controlStatement
     |   orgCommand
-    |   returnStatement ';'
+    |   SEMICOLON
+    |   returnStatement
+    |   foreachStatement
+    ;
+
+foreachStatement
+    :   FOR NL* LPAREN NL* Identifier NL* COLON NL* expression NL* RPAREN NL* block
+    ;
+
+executeStatement
+    :   EXECUTE NL* LPAREN NL* executeContext (NL* COMMA NL* executeContext)* NL* RPAREN NL* block
+    ;
+
+executeContext
+    :   executeExpression NL* ASSIGNMENT NL* expression
+    ;
+
+executeExpression
+    :   AS | (var (NL* DOT NL* var)*)
     ;
 
 orgCommand
-    :   OrgCommand
+    :   SLASH (NL* orgCommandContent)*
     ;
 
+orgCommandContent
+    :   orgCommandExpression
+    |   OrgCommandText
+    ;
 
+orgCommandExpression
+    :   OrgCommandExprStart expression RCURL
+    ;
 
 controlStatement
     :   BREAK
@@ -395,94 +556,106 @@ controlStatement
     ;
 
 ifStatement
-    :   IF'('expression')' ifBlock elseIfStatement* elseStatement?
+    :   IF NL* conditionExpression NL* block (NL* elseIfStatement)* (NL* elseStatement)?
+    |   LEGACY_ACCESSOR_SHIM expression
     ;
 
 elseIfStatement
-    :   ELSE IF '('expression')' ifBlock
+    :   ELSE NL* IF NL* conditionExpression NL* block
+    |   LEGACY_ACCESSOR_SHIM expression
     ;
 
 elseStatement
-    :   ELSE ifBlock
-    ;
-
-ifBlock
-    :   block
-    ;
-
-forStatement
-    :   FOR '(' forControl ')' forBlock
-    ;
-
-forBlock
-    :   block
-    ;
-
-forControl
-    :   forInit ';' expression? ';' forUpdate
-    ;
-
-forInit
-    :   (fieldDeclaration|statementExpression)?
-    |   (fieldDeclaration|statementExpression) (',' (fieldDeclaration|statementExpression))+
-    ;
-
-forUpdate
-    :   statementExpression*
+    :   ELSE NL* block
     ;
 
 whileStatement
-    :   WHILE '(' expression ')' whileBlock
-    ;
-
-whileBlock
-    :   block
+    :   WHILE NL* conditionExpression NL* block
+    |   LEGACY_ACCESSOR_SHIM expression
     ;
 
 doWhileStatement
-    :   DO doWhileBlock WHILE '(' expression ')'
-    ;
-
-doWhileBlock
-    :   block
-    ;
-
-selfAddOrMinusStatement
-    :   selfAddOrMinusExpression
+    :   DO NL* block NL* WHILE NL* expression
     ;
 
 tryStoreStatement
-    :   TRY block  STORE '(' Identifier ')' ';'
+    :   TRY NL* block NL* STORE NL* LPAREN NL* Identifier NL* RPAREN
     ;
 
 returnStatement
     : RETURN expression?
     ;
 
-block
-    :   '{' statement* '}'
+curlBlock
+    :   LCURL NL* (statement (separator statement)* separator?)? NL* RCURL
     ;
 
-selfAddOrMinusExpression
-    :   rightVarExpression op = ('++'|'--')
+block
+    :   curlBlock
+    |   statement
     ;
 
 expressionList
-    :   expression (',' expression)*
+    :   expression (NL* COMMA NL* expression)*
     ;
 
 type
-    :   INT
+    :   typeBody
+    ;
+
+typeBody
+    :   normalType
+    |   VecType
+    |   (LIST | IMMUTABLE_LIST | MAP | DICT) NL* LANGLE NL* type NL* RANGLE
+    |   ENTITY NL* LANGLE NL* nbtInt NL* RANGLE
+    |   ENTITY NL* LANGLE NL* LineString (NL* COMMA NL* LineString)* NL* RANGLE
+    |   ENTITY NL* LANGLE NL* nbtInt NL* COMMA NL* LineString (NL* COMMA NL* LineString)* NL* RANGLE
+    |   className (NL* readOnlyArgs)?
+    |   Identifier
+    |   unionType
+    |   unionTemplateType
+    |   anonymousTemplateType
+    |   functionType
+    ;
+
+// (int, int) -> int / () -> void. Parameter and result types stay
+// ordinary type / functionReturnType rules so callers can inspect them.
+functionType
+    :   LPAREN NL* (type (NL* COMMA NL* type)*)? NL* RPAREN
+        NL* ARROW NL* functionReturnType
+    ;
+
+anonymousTemplateType
+    :   DATA (NL* COLON NL* extendName (NL* COMMA NL* extendName)*)? NL* templateBody
+    ;
+
+unionType
+    :   LPAREN NL* type (NL* PIPE NL* type)+ NL* RPAREN
+    ;
+
+unionTemplateType
+    :   LPAREN NL* type (NL* UNION NL* type)* NL* RPAREN
+    ;
+
+normalType
+    :   OBJECT
+    |   INT
     |   ENTITY
     |   BOOL
+    |   BYTE
+    |   SHORT
+    |   LONG
     |   FLOAT
+    |   DOUBLE
     |   SELECTOR
     |   STRING
     |   JTEXT
     |   NBT
+    |   TYPE
     |   ANY
-    |   VEC IntegerLiteral         //向量
-    |   className
+    |   BYTEARRAY
+    |   INTARRAY
+    |   LONGARRAY
     ;
 
 functionReturnType
@@ -491,53 +664,55 @@ functionReturnType
     ;
 
 value
-    :   IntegerLiteral
-    |   FloatLiteral
+    :   coordinate
     |   LineString
-    |   BooleanLiteral
     |   multiLineStringLiteral
     |   nbtValue
-    |   range
+    |   TargetSelector
+    |   NULL
+    ;
+
+coordinate
+    :   coordinateDimension NL* coordinateDimension (NL* coordinateDimension)?
+    ;
+
+coordinateDimension
+    :   (RelativeValue | nbtInt | nbtFloat | nbtDouble)
     ;
 
 className
-    :   (Identifier ('.' Identifier)* ':')? classWithoutNamespace
+    :   (namespacePath COLON NL*)? classWithoutNamespace
     ;
 
 classWithoutNamespace
-    :   ClassIdentifier
+    :   Identifier
     ;
 
-funcAnnoation
-    :   '@' id=(Identifier|ClassIdentifier) arguments?
-    ;
-classAnnotation
-    :   '@' id=(Identifier|ClassIdentifier) arguments?
+annotation
+    :   AT id=Identifier NL* annotationArgs?
     ;
 
-genericity
-    : '<' type '>'
+annotationArgs
+    :   LPAREN (NL* value (NL* COMMA NL* value)*)? NL* RPAREN
     ;
-
-
 
 range
-    :   num1=(IntegerLiteral|FloatLiteral) '..' num2=(IntegerLiteral|FloatLiteral)
-    |   num1=(IntegerLiteral|FloatLiteral) '..'
-    |   '..' num2=(IntegerLiteral|FloatLiteral)
+    :   num1=range1 RANGE NL* num2=range1
+    |   num1=range1 RANGE
+    |   RANGE NL* num2=range1
     ;
 
-
-
+range1: var | value;
 
 nbtValue
     :   LineString
-    |   NBTByteLiteral
-    |   NBTShortLiteral
-    |   NBTIntLiteral
-    |   NBTLongLiteral
-    |   NBTFloatLiteral
-    |   NBTDoubleLiteral
+    |   nbtBool
+    |   nbtByte
+    |   nbtShort
+    |   nbtInt
+    |   nbtLong
+    |   nbtFloat
+    |   nbtDouble
     |   nbtCompound
     |   nbtList
     |   nbtByteArray
@@ -545,18 +720,24 @@ nbtValue
     |   nbtLongArray
     ;
 
+nbtByte: SUB? NBTByte;
+nbtShort: SUB?  NBTShort;
+nbtInt: SUB?  NBTInt;
+nbtLong: SUB? NBTLong;
+nbtFloat: SUB? NBTFloat;
+nbtDouble: SUB? NBTDouble;
+nbtBool: TRUE | FALSE;
 
+nbtByteArray: NBT_BYTE_ARRAY_BEGIN NL* (nbtByte (NL* COMMA NL* nbtByte)*)? NL* RSQUARE;
+nbtIntArray: NBT_INT_ARRAY_BEGIN NL* (nbtInt (NL* COMMA NL* nbtInt)*)? NL* RSQUARE;
+nbtLongArray: NBT_LONG_ARRAY_BEGIN NL* (nbtLong (NL* COMMA NL* nbtLong)*)? NL* RSQUARE;
 
-nbtByteArray: '[B;' NBTByteLiteral (',' NBTByteLiteral)* ']';
-nbtIntArray: '[I;' NBTIntLiteral (',' NBTIntLiteral)* ']';
-nbtLongArray: '[L;' NBTLongLiteral (',' NBTLongLiteral)* ']';
-
-nbtList: '[' (nbtValue (',' nbtValue)* )* ']';
-nbtKeyValuePair: key=(Identifier|ClassIdentifier) ':' nbtValue;
-nbtCompound: '{'( nbtKeyValuePair (',' nbtKeyValuePair)* )*'}';
+nbtList: LSQUARE NL* (expression (NL* COMMA NL* expression)*)? NL* RSQUARE;
+nbtKeyValuePair: key=Identifier NL* COLON NL* expression;
+nbtCompound: LCURL (NL* nbtKeyValuePair (NL* COMMA NL* nbtKeyValuePair)* )* NL* RCURL;
 
 multiLineStringLiteral
-    : TRIPLE_QUOTE_OPEN multiLineStringContent * TRIPLE_QUOTE_CLOSE
+    : TRIPLE_QUOTE_OPEN multiLineStringContent* TRIPLE_QUOTE_CLOSE
     ;
 
 multiLineStringContent
@@ -566,14 +747,12 @@ multiLineStringContent
     ;
 
 multiLineStringExpression
-    : MultiLineStrExprStart  expression '}'
+    : MultiLineStrExprStart NL* expression NL* RCURL
     ;
 //
 // Whitespace and comments
 //
 
-
 doc_comment
     :   DOC_COMMENT
     ;
-

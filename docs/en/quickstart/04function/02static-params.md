@@ -1,19 +1,23 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# `static`<Badge type="tip">Possible changes</Badge>
+# Update data through a function
 
-`static` keyword is used to define a static parameter. Static parameter represents, during the process of transferring parameter,  it'll transfer parameter itself but not it's value, so the change of parameter in the function would effect the variable out of the function. For example:
+Ordinary parameters receive copies of values. A result returns a new value to the caller:
 
 ```mcfpp
-func test(static int a){
-    a = 5;
+func increase(value: int): int {
+    return value + 1
 }
 
-void main(){
-    int a = 0;
-    test(a);
-    print(a);  #output 5
+func main() {
+    var count = 2
+    count = increase(count)
+    print(count)
 }
 ```
+
+This prints `3`. The explicit `count = ...` shows where the caller's value changes.
+
+Use [`ScoreRef` and `NBTRef<T>`](../02base/06references) for game scores and NBT.

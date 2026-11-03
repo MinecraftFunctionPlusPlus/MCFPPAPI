@@ -1,6 +1,21 @@
 lexer grammar mcfppLexer;
 
-WAVE:'~';
+import unicodeClass;
+
+@members {
+boolean afterNewline = true;
+
+@Override
+public Token nextToken() {
+    Token token = super.nextToken();
+    if (token.getType() != NL && token.getType() != WS) {
+        afterNewline = false;
+    }
+    return token;
+}
+}
+
+//Base Character Set
 RESERVED: '...' ;
 DOT: '.' ;
 COMMA: ',' ;
@@ -12,7 +27,9 @@ LCURL: '{' -> pushMode(DEFAULT_MODE);
 RCURL: '}' -> popMode;
 MULT: '*' ;
 MOD: '%' ;
-DIV: '/' ;
+SLASH
+    : '/' {if(afterNewline){afterNewline = false; pushMode(OrgCommand);}}
+    ;
 ADD: '+' ;
 SUB: '-' ;
 INCR: '++' ;
@@ -28,11 +45,10 @@ SUB_ASSIGNMENT: '-=' ;
 MULT_ASSIGNMENT: '*=' ;
 DIV_ASSIGNMENT: '/=' ;
 MOD_ASSIGNMENT: '%=' ;
-ARROW: '->' ;
 DOUBLE_ARROW: '=>' ;
 RANGE: '..' ;
 COLONCOLON: '::' ;
-DOUBLE_SEMICOLON: ';;' ;
+//DOUBLE_SEMICOLON: ';;' ;
 HASH: '#' ;
 AT: '@' ;
 QUEST: '?' ;
@@ -41,34 +57,27 @@ RANGLE: '>' ;
 LE: '<=' ;
 GE: '>=' ;
 EXCL_EQ: '!=' ;
-EXCL_EQEQ: '!==' ;
+//EXCL_EQEQ: '!==' ;
 EQEQ: '==' ;
-EQEQEQ: '===' ;
+//EQEQEQ: '===' ;
+WVEQ: '~=';
 SINGLE_QUOTE: '\'' ;
-RIGHT_SHIFT_ARITHMETIC:           '>>';
-LEFT_SHIFT_ARITHMETIC:            '<<';
-RIGHT_SHIFT_LOGICAL:              '>>>';
-BIT_AND:                         '&';
-BIT_X_OR:                         '^';
-BIT_OR:                          '|';
-LEFT_SHIFT_ARITHMETIC_ASSIGN:      '<<=';
-RIGHT_SHIFT_ARITHMETIC_ASSIGN:     '>>=';
-RIGHT_SHIFT_LOGICAL_ASSIGN:        '>>>=';
-BIT_AND_ASSIGN:                   '&=';
-BIT_XOR_ASSIGN:                   '^=';
-BIT_OR_ASSIGN:                    '|=';
+//RIGHT_SHIFT_ARITHMETIC:           '>>';
+//LEFT_SHIFT_ARITHMETIC:            '<<';
+//RIGHT_SHIFT_LOGICAL:              '>>>';
+UNION:                         '&';
+//BIT_X_OR:                         '^';
+//BIT_OR:                          '|';
+//LEFT_SHIFT_ARITHMETIC_ASSIGN:      '<<=';
+//RIGHT_SHIFT_ARITHMETIC_ASSIGN:     '>>=';
+//RIGHT_SHIFT_LOGICAL_ASSIGN:        '>>>=';
+//BIT_AND_ASSIGN:                   '&=';
+//BIT_XOR_ASSIGN:                   '^=';
+//BIT_OR_ASSIGN:                    '|=';
+PIPE: '|';
 TRIPLE_QUOTE_OPEN: '"""' -> pushMode(MultiLineString) ;
 
-KEYWORD :
-    THIS | SUPER | IF | ELSE | WHILE | FOR | DO | TRY | STORE
-    | BREAK | CONTINUE | RETURN
-    | STATIC | EXTENDS | NATIVE | CONCRETE | FINAL
-    | PUBLIC | PROTECTED | PRIVATE
-    | OVERRIDE | ABSTRACT
-    | CONST | DYNAMIC | IMPORT | INLINE
-    | CLASS | INTERFACE | TEMPLATE | FUNCTION
-    | GLOBAL | VAR ;
-
+//KeyWords
 THIS:'this';
 SUPER:'super';
 IF:'if';
@@ -78,16 +87,18 @@ FOR:'for';
 DO:'do';
 TRY:'try';
 STORE:'store';
+AS:'as';
+FROM:'from';
+EXECUTE:'execute';
 
 BREAK:'break';
 CONTINUE:'continue';
 RETURN:'return';
 
-STATIC:'static';
 EXTENDS:'extends';
 NATIVE:'native';
 CONCRETE:'concrete';
-FINAL:'final ';
+FINAL:'final';
 
 PUBLIC:'public';
 PROTECTED:'protected';
@@ -95,101 +106,168 @@ PRIVATE:'private';
 
 OVERRIDE: 'override';
 ABSTRACT: 'abstract';
+IMPL: 'impl';
 
 CONST:'const';
-DYNAMIC:'dynamic';
+EXTERNAL:'external';
 IMPORT: 'import';
+
 INLINE:'inline';
 
-CLASS:'class';
-INTERFACE:'interface';
-TEMPLATE:'template';
+OBJECT:'object';
+DATA:'data';
 FUNCTION:'func';
+ENUM:'enum';
+OPERATOR:'operator';
+TYPEALIAS: 'typealias';
+OUT: 'out';
+IN: 'in';
+
+CONSTRUCTOR:'constructor';
 
 GLOBAL:'global';
 VAR:'var';
 
-NAMESPACE: 'namespace';
-VEC:'vec';
-INT    :   'int';
-ENTITY:       'entity';
-BOOL:   'bool';
-FLOAT:   'float';
-SELECTOR:   'selector';
-STRING:   'string';
-JTEXT:   'jtext';
-NBT:  'nbt';
-ANY:   'any';
-VOID: 'void';
+GET:'get';
+SET:'set';
 
+NAMESPACE:  'namespace';
+VEC:        'vec';
+INT:        'int';
+ENTITY:     'entity';
+BOOL:       'bool';
+BYTE:       'byte';
+SHORT:      'short';
+LONG:       'long';
+FLOAT:      'float';
+DOUBLE:     'double';
+SELECTOR:   'selector';
+STRING:     'string';
+JTEXT:      'text';
+NBT:        'nbt';
+ANY:        'any';
+VOID:       'void';
+LIST:       'list';
+IMMUTABLE_LIST: 'ImmutableList';
+MAP:        'map';
+DICT:       'dict';
+TYPE:       'Type';
+BYTEARRAY:  'ByteArray';
+INTARRAY:   'IntArray';
+LONGARRAY:  'LongArray';
+
+TRUE:   'true';
+FALSE:  'false';
+NULL:   'null';
+
+VecType: VEC DigitSequence;
+
+//Identifiers
 TargetSelector
     :   '@' ('a'|'r'|'p'|'s'|'e')
     ;
 
-IntegerLiteral:[1-9][0-9]*|[0];
+fragment DigitSequence: [0-9]+;
+fragment HexSequence: [0-9a-fA-F]+;
+fragment OctalSequence: [0-7]+;
 
-FloatLiteral
-    :   IntegerLiteral '.' [0-9]+
-    |   [0-9] ('.' [0-9]+)? 'e' '-'? [0-9]
-    ;
+fragment DecimalConstant: DigitSequence;
+fragment HexadecimalConstant: '0x' HexSequence;
+fragment OctalConstant: '0' | '0' OctalSequence;
+fragment FractionalConstant: DigitSequence DOT DigitSequence;
 
-BooleanLiteral
-    :   'true'
-    |   'false'
-    ;
+fragment ExponentPart
+    :   [e|E] (ADD|SUB)? DigitSequence;
 
-
-
+fragment IntConstant : DecimalConstant|HexadecimalConstant|OctalConstant;
 
 Identifier
-    :   [a-z_][a-zA-Z0-9_]*
+    : (Letter | '_') (Letter | '_' | UnicodeDigit)*
+      {if (getText().equals("ref")) setType(REF);}
     ;
 
-ClassIdentifier
-    :   [A-Z][a-zA-Z0-9_]*
+Letter
+    : UNICODE_CLASS_LU
+    | UNICODE_CLASS_LL
+    | UNICODE_CLASS_LT
+    | UNICODE_CLASS_LM
+    | UNICODE_CLASS_LO
     ;
 
-NormalString
-    :   [A-Za-z0-9_]+
-    ;
+fragment UnicodeDigit
+  : UNICODE_CLASS_ND
+  ;
 
 NBT_BYTE_ARRAY_BEGIN: '[B;';
 NBT_INT_ARRAY_BEGIN: '[I;';
 NBT_LONG_ARRAY_BEGIN: '[L;';
 
-NBTByteLiteral: ([1-9][0-9]*|[0])[b|B];
-NBTShortLiteral: ([1-9][0-9]*|[0])[s|S];
-NBTIntLiteral: IntegerLiteral;
-NBTLongLiteral: ([1-9][0-9]*|[0])[l|L];
-NBTFloatLiteral: IntegerLiteral '.' [0-9]+[f|F];
-NBTDoubleLiteral: IntegerLiteral '.' [0-9]+[f|D]?;
+fragment NBTByteSuffix: [bB];
+fragment NBTShortSuffix: [sS];
+fragment NBTLongSuffix: [lL];
+fragment NBTFloatSuffix: [fF];
+fragment NBTDoubleSuffix: [dD];
 
+NBTByte: IntConstant NBTByteSuffix;
+NBTShort: IntConstant NBTShortSuffix;
+NBTInt: IntConstant;
+NBTLong: IntConstant NBTLongSuffix;
+NBTFloat: (DigitSequence|FractionalConstant) ExponentPart? NBTFloatSuffix? ;
+NBTDouble: (DigitSequence|FractionalConstant) ExponentPart? NBTDoubleSuffix;
+NBTBool: BooleanConstant;
 
-
-
-LineString: ('"' .*? '"' )|( '\'' .*? '\'' );
-
-OrgCommand
-    :   '/' [a-z]* ([ ][a-z:._{}\\[0-9A-Z\]]*)+
+FloatConstant
+    : DigitSequence NBTFloatSuffix
+    | FractionalConstant ExponentPart? NBTFloatSuffix?
     ;
 
-WS  :  [ \t\r\n\u000C]+
+RelativeValue
+    :   '~'
+    |   '^'
+    |   '~' IntConstant?
+    |   '~' FloatConstant?
+    |   '^' IntConstant?
+    |   '^' FloatConstant?
+    ;
+
+BooleanConstant
+    :   TRUE
+    |   FALSE
+    ;
+
+LineString
+    : '"' ('\\' ["\\] | ~["\\\r\n])* '"'
+    | '\'' ('\\' ['\\] | ~['\\\r\n])* '\''
+    ;
+
+NL
+    :   ('\r'? '\n')+ {afterNewline = true;}
+    ;
+
+WS  :  [ \t\u000C]+ -> skip
     ;
 
 DOC_COMMENT
-    :   '/**' .*? '*/' -> channel(HIDDEN)
-    ;
-
-BLOCK_COMMENT
-    :   '/*' .*? '*/' -> channel(HIDDEN)
+    :   '///' ~[\r\n]* ('\r'? '\n' [ \t]* '///' ~[\r\n]*)*
     ;
 
 LINE_COMMENT
-    :   '//' ~[\r\n]* -> channel(HIDDEN)
+    :   '//' ~[\r\n]* -> skip
     ;
 
+mode OrgCommand ;
 
+OrgCommandText
+    :   ~[$\r\n]+ | '$'
+    ;
 
+OrgCommandExprStart
+    :   '${' -> pushMode(DEFAULT_MODE)
+    ;
+
+OrgCommandEnd
+    :   ('\r'? '\n')+ {afterNewline = true;} -> type(NL), popMode
+    ;
 
 mode MultiLineString ;
 
@@ -210,3 +288,12 @@ MultiLineStrExprStart
 MultiLineStrText
     :  ~('"' | '$')+ | '$'
     ;
+
+// Serialized library parse trees retain token numbers. Allocate new keywords
+// after every existing mode; Identifier emits them in DEFAULT_MODE.
+mode AddedKeywords;
+REF: 'ref'; // Diagnostic-only legacy spelling; never a successful source argument.
+
+// Appended token: keep existing token numbers stable for serialized parse trees.
+mode DEFAULT_MODE;
+ARROW: '->' ;

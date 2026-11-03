@@ -1,30 +1,88 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# Compile-time Constants
+# Compilation parameters and known values
 
-During the compilation process, the compiler will optimize certain variables whose values it can determine, for example:
+The first two pages use `<T>` to select a type. Angle brackets can also accept values known during compilation. For example, a function can receive a fixed reward and a player's runtime score.
 
-```mcfpp
-var i = 5;
-var j = 5;
+MCFPP calls parameters in angle brackets **readonly parameters**. `<T>` and `<T: type>` declare readonly type parameters. `<bonus: int>` declares a readonly integer parameter.
 
-print(i + j);
-```
-
-In this case, the compiler knows the values of `i` and `j`, so it can directly compute `i + j` as 10. The `print` function can directly output 10 without needing to convert it into the raw JSON text for a scoreboard.
-
-These kinds of variables are called compile-time constants (referred to as `Concrete Var` in MCFPP). Compile-time constants and regular variables can be converted between each other, for example:
+## Combine a fixed reward with a runtime score
 
 ```mcfpp
-var i = 5;
-dynamic var j as int;
-i = j;
+func addBonus<bonus: int>(score: int): int {
+    return score + bonus
+}
+
+func main() {
+    external score: int = 10
+    print(addBonus<5>(score))
+    print(addBonus<20>(score))
+}
 ```
 
-In this example, although the compiler can initially track the value of `i`, but later in the code, `i` is assigned the value of `j`, and `j` is marked with the keyword `dynamic`, indicating that its value is indeterminate at the time of declaration. As a result, the compiler loses track of the value of `i`.
+Running `main` displays `15` and `30`.
 
-Similarly, if a regular variable is assigned a fixed value or a compile-time constant, the compiler will be able to determine the value of that variable, and it will also become a compile-time constant.
+| Input | Call position | When supplied |
+| --- | --- | --- |
+| Fixed reward `bonus` | `<5>`, `<20>` | During datapack compilation |
+| Current score `score` | `(score)` | When the function executes in the game |
 
-It is important to note that the compiler will never track class member variables. Even if a class member variable is assigned a fixed value, the compiler will still treat it as a regular variable.
+The compiler prepares implementations for rewards `5` and `20`. Generated functions can then repeatedly receive runtime scores.
+
+If the reward must also change during play, make `bonus: int` an ordinary parameter. Place it in parentheses with `score`.
+
+## Supply a known value
+
+Use a literal or an expression whose result the compiler can determine:
+
+```mcfpp
+const BASE_BONUS: int = 5
+
+func addBonus<bonus: int>(score: int): int {
+    return score + bonus
+}
+
+func main() {
+    var extra = 2
+    print(addBonus<BASE_BONUS + extra>(10))
+}
+```
+
+At this call, `BASE_BONUS + extra` is known to be `7`. The result is `17`. `extra` uses `var`, but the compiler still knows its value at this point.
+
+Use ordinary parameters for game reads, runtime function inputs, and `external` variables. Readonly arguments must be known during compilation. They determine the prepared implementation.
+
+## Distinguish var, const, and readonly parameters
+
+| Form | Purpose |
+| --- | --- |
+| `var value = 5` | Declare a variable that permits reassignment |
+| `const value = 5` | Declare a variable assigned once |
+| `func f<value: int>()` | Receive an integer configuration during compilation |
+| `func f(value: int)` | Receive an ordinary integer argument in generated code |
+| `external value: int = 5` | Explicitly use game runtime storage for a variable |
+
+Whether the compiler knows a value depends on its source at that point. Assignment permissions are a separate question.
+
+## Give a data template a numeric parameter
+
+```mcfpp
+data Reward<bonus: int> {
+    func apply(score: int): int {
+        return score + bonus
+    }
+}
+
+func main() {
+    var small = Reward<5>()
+    var large = Reward<20>()
+    print(small.apply(10))
+    print(large.apply(10))
+}
+```
+
+The objects use different fixed rewards and produce `15` and `30`. A template can declare both type and numeric parameters, such as `data Box<T, limit: int>`.
+
+Use [build IR](../01project/04build-and-ir) to inspect generated functions. Continue with [in and out](../advanced/variance) to learn when one generic type can replace another.

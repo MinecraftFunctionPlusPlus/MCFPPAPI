@@ -1,40 +1,21 @@
-# public @interface MNIMember
+---
+lastUpdated: true
+---
+
+# MNIMember：成员标记
+
+`top.mcfpp.annotations.MNIMember` 是运行时保留的方法标记，定义中没有配置元素。
 
 ```java
-package top.mcfpp.annotations;
+import top.mcfpp.annotations.MNIMember;
 
-public @interface MNIMember {}
-```
-
-此方法用于在调用`getNativeFromClass`方法的过程中，标记一个Java方法能够用于向当前的复合数据类型变量中添加成员（变量、函数等。）
-
-::: info
-
-在java中使用：
-
-```java
-
+public final class MemberMetadata {
     @MNIMember
-    public static ArrayList<Var<?>> getMembers() {
-        NormalCompoundDataObject attributes = new NormalCompoundDataObject("attributes", Map.of());
-        CompoundData attributeData = new CompoundData("attribute", "mcfpp.hidden");
-        attributeData.getNativeFromClass(AttributeData.class);
-        attributes.getData().addMember(new NormalCompoundDataObject(attributeData, "armor", Map.of()));
-        return new ArrayList<>(List.of(attributes));
+    public static void marker() {
     }
-
+}
 ```
 
-:::
+这个例子展示注解的位置。具体成员的发现和注册由使用该标记的集成代码负责。
 
-## 函数格式
-
-### 定义要求
-
-|静态|需要为静态|
-|返回值|`ArrayList<Var<?>>`|
-|标识符|`getMembers()`|
-
-### 参数要求
-
-参数列表为空。
+普通库作者使用 `data` 字段声明数据结构，使用 [MNIFunction](./mnifunction) 声明 Java 函数，使用 [MNIAccessor](./mniaccessor) 和 [MNIMutator](./mnimutator) 实现原生属性。这样调用者可以从 MCFPP 声明中看到成员和类型。

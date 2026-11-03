@@ -1,55 +1,40 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# 数据模板的嵌套
+# 嵌套数据模板
 
-如果一个数据模板中，有另一个数据模板类型的变量作为成员，那么就可以实现数据模板的嵌套。
-
-## 基本使用
+一个字段可以使用另一个数据模板作为类型。这样可以把相关数据放在一起。
 
 ```mcfpp
-data A{
-    valueA as int;
+data Position {
+    var x: int
+    var z: int
+
+    constructor(x: int, z: int) {
+        this.x = x
+        this.z = z
+    }
 }
 
-data B{
-    valueB as int;
-    dataA as A;
+data Checkpoint {
+    var name: string
+    var position: Position
+
+    constructor(name: string, position: Position) {
+        this.name = name
+        this.position = position
+    }
 }
 
-func main(){
-    //创建对象
-    var b = B();
-    var a = A();
-    a.valueA = 5;
-    b.valueB = 5;
-    b.dataA = A();
-
-    //或者直接赋值
-    var qwq as B = {
-        "valueB": 5,
-        "dataA": {
-            "valueA": 5
-        }
-    };
-
-    //访问
-    print(b.valueB);
-    print(b.dataA.valueA);
+func main() {
+    var checkpoint = Checkpoint("Spawn", Position(10, 20))
+    print(checkpoint.position.x)
 }
 ```
 
-当然，使用自身类型作为数据模板的成员是不被允许的。
+`Checkpoint` 将名称与位置组成一个值。`checkpoint.position.x` 先访问 `position`，再访问 `x`。
 
-## 匿名定义
+构造函数接收明确类型的字段值。字段声明使用 `var name: Type`。嵌套对象通过普通构造调用创建。
 
-在数据模板中，可以定义匿名数据模板作为成员的类型：
-
-```mcfpp
-data B{
-    valueB as int;
-    dataA as data{
-        valueA as int;
-    };
-}
+需要多处复用结构时，给它声明一个名字。匿名结构也使用 `data { ... }` 类型语法和相同的字段声明规则。

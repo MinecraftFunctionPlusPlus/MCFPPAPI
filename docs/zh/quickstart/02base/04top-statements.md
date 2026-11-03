@@ -2,34 +2,31 @@
 lastUpdated: true
 ---
 
-# 顶层语句
+# 顶层语句与初始化
 
-在MCFPP中，允许在文件的开始直接编写语句而无需额外定义函数，即顶层语句。顶层语句处于一个隐式的函数中，这个函数每个文件有且只有一个，且不能被外部调用。它的返回值类型为`void`。
+顶层语句写在函数和模板声明之前。编译器将它们放入加载函数，并添加到 `minecraft:load` 标签中。
 
 ```mcfpp
-print("Top statement");
+var message = "Datapack loaded"
+print(message)
 
-func main(){
-    print("Function");
+func main() {
+    print(message)
 }
 ```
 
-在编译后，会生成两个函数——分别对应main函数以及顶层语句对应的默认函数。
+加载数据包或执行 `/reload` 时，顶层的 `print(message)` 输出一次消息。之后执行 `main`，可以再次读取同文件的顶层变量。
 
-顶层语句只能在文件的开始编写，即在函数定义或类定义之前。顶层语句可以调用文件中声明的其他函数和类，而顶层语句中声明的变量则可以被同文件的其他函数使用。
+文件的顺序为：命名空间、导入、类型别名、顶层语句、函数和模板声明。顶层语句可以调用本文件中后面声明的函数。
+
+使用顶层语句初始化自己的计分项：
 
 ```mcfpp
-var qwq = "qwq";
+/scoreboard objectives add rewards dummy
 
-main();
-
-func main(){
-    print(qwq);
+func main() {
+    /scoreboard players add @s rewards 1
 }
 ```
 
-顶层语句永远都会拥有一个`minecraft:load`标签，即顶层语句永远都会在数据包被加载的时候执行一次。因此，顶层语句中非常适合进行一些初始化操作。
-
-:::tip
-顶层语句的函数为`命名空间:文件名__top__`，会在编译的时候加入对应命名空间中，因此理论上你可以使用调用函数的一般方式去调用它。但是我们一般不推荐这样做，因为调用一个*没有被明确声明的函数*会让代码显得很混乱，而且这并不是我们希望你使用顶层语句的方式。
-:::
+命名函数通过显式调用运行。使用[函数标签资源](../01project/04build-and-ir)安排每 tick 工作时，将对应函数加入 `minecraft:tick` 标签。

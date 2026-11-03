@@ -1,47 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { sidebar } from './sidebar'
 
-const mcfpp: any = {
-  "name": "mcfpp",
-  "scopeName": "source.mcfpp",
-  "displayName": "MCFPP",
-  "fileTypes": ["mcfpp"],
-  "patterns": [
-      {
-          "name": "comment.block.documentation.mcfpp",
-          "match": "#\\{.*?\\}#"
-      },
-      {
-          "name": "comment.block.mcfpp",
-          "match": "##.*?##"
-      },
-      {
-          "name": "comment.line.mcfpp",
-          "match": "#.*"
-      },
-      {
-          "name": "keyword.control.mcfpp",
-          "match": "\\b(this|super|if|else|while|for|do|try|store|as|from|execute|break|continue|return|static|extends|native|concrete|final|public|protected|private|override|abstract|impl|const|dynamic|import|inline|class|object|interface|data|func|enum|constructor|global|var|get|set|namespace|vec|int|entity|bool|float|double|selector|string|text|nbt|any|type|void|list|map|dict)\\b"
-      },
-      {
-          "name": "constant.numeric.mcfpp",
-          "match": "\\b\\d+(\\.\\d+)?\\b"
-      },
-      {
-          "name": "string.quoted.double.mcfpp",
-          "begin": "\"",
-          "end": "\"",
-          "patterns": [
-              {
-                  "name": "constant.character.escape.mcfpp",
-                  "match": "\\\\."
-              }
-          ]
-      }
-  ],
-  "repository": {},
-  "uuid": "b12f0f30-1234-5678-9abc-ddef12345678"
-}
+import mcfpp from '../assets/lang/mcfpp.json'
 
 const mcf: any = {
   "displayName": "Syntax Mcfunction",

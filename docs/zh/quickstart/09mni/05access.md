@@ -1,45 +1,70 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# JVM访问符
+# 从 Java 生成 Minecraft 命令
 
-## 基本使用
+上一节通过返回值交付整数。本节让 Java 入口生成一个操作：游戏调用 `ready()` 时发送消息。
 
-在MCFPP中，你可以使用`::`运算符来简单地访问一个变量对象在编译过程中编译器中Java对象，以及这个对象的成员和方法。
+## 完整实现
+
+`src/main/java/example/mni/Messages.java`：
+
+```java
+package example.mni;
+
+import top.mcfpp.annotations.MNIFunction;
+import top.mcfpp.model.function.Function;
+
+public final class Messages {
+    @MNIFunction
+    public static void ready() {
+        Function.addCommand("say MNI is ready");
+    }
+}
+```
+
+`src/main/mcfpp/main.mcfpp`：
 
 ```mcfpp
-var i = 0;
-i::jvm.toString();  #调用i的toString方法
-var qwq = i::jvm.type.build("test"); #调用i的type对象的build方法
-# build方法返回一个MCIntConcrete类型的变量，所以这里qwq的类型JavaVar，值是MCIntConcrete
-var awa as int = qwq;  #JavaVar自动转换为MCFPP变量
-print(i + qwq);
+func ready() = example.mni.Messages.ready
+
+func main() {
+    ready()
+}
 ```
 
-同时，你可以直接用`::`访问一个Java静态类的静态方法。
+执行 `mcfpp build`，加载生成的数据包，再调用 `main`。游戏将执行 `say MNI is ready`。
+
+## 两个阶段发生什么
+
+构建时，编译器处理源码中的 `ready()` 调用，并执行 Java 方法 `Messages.ready`。`Function.addCommand` 把一条命令放进当前生成的函数。
+
+游戏运行时，Minecraft 执行这条已生成的命令。每次调用 `main` 都会执行它。Java 入口在构建时完成工作。
+
+`Function.addCommand` 接收命令正文，字符串从 `say` 等命令名称开始。命令中的选择器和坐标以实际运行时的执行上下文为准。
+
+## Java 条件与游戏条件
+
+源码中的条件控制游戏运行时是否执行命令。例如，把上面的 `main` 改为：
 
 ```mcfpp
-::top.mcfpp.model.function$Function.addCommand(::top.mcfpp.command$Command.build("say hello"))
+func ready() = example.mni.Messages.ready
+
+func main() {
+    external enabled: bool = true
+    if (enabled) {
+        ready()
+    }
+}
 ```
 
-请注意使用完全限定名。
+编译器在构建时处理这条调用，把命令放入对应分支。游戏执行时，`enabled` 决定是否进入分支。
 
-## 命令插入
+如果在 Java 入口中写 Java `if`，它根据构建时 Java 能取得的数据选择要生成哪些命令。这适合读取工程配置后选择固定内容。
 
-在前文中，我们提到使用`/`可以插入一段原版命令。你可以使用类似字符串模板的语法，将Java对象的成员和方法插入到原版命令中。
+## 什么时候使用这种入口
 
-```mcfpp
-var i = 0;
-/say ${i}
-/say ${i::jvm.toString()}
-/scoreboard players get ${i::jvm.name} ${i::jvm.sbObject}
-```
+固定命令可以直接写在 [MCFPP 源码](../02base/05original-command)中。需要复用 Java 库、读取构建配置或整理资源时，可以用 MNI 完成这些工作，并输出命令。
 
-一般来说，`${}`中的内容会在计算完毕后自动调用`toString()`函数，所以无须额外添加`.toString()`。但是若计算结果是`MCFPPValue<*>`，也就是一个确定的值，那么将会调用值的`toString()`函数。例如`JavaVar`就是一个`MCFPPValue<*>`。所以，上述的编译结果是：
-
-```mcfunction
-say 0
-say [int,value=0]
-scoreboard players get default_func_main_qwq mcfpp_default
-```
+需要组合命令片段时，查看 [Command API](/zh/api/class/command)。需要生成循环、表达式或插入用户回调时，继续阅读 [MNI 宏框架](../mni-macros/overview)。

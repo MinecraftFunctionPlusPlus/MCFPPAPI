@@ -2,84 +2,60 @@
 lastUpdated: true
 ---
 
-# Logic statements
+# Conditions and loops
 
-::: tip
-The logic statement of MCFPP is totally the same as in C/Java. You can skip this chapter if you already know it.
-:::
+## if and else
 
-## if statement
-
-`if` statement is a condition statement, it can used to determine a condition is true or false. If true, then the code in the `if` statement block will be execute. The grammar of `if` is:
+`if` selects a block with a `bool` condition. Parentheses around the condition are optional.
 
 ```mcfpp
-if (condition){
-    #code
-}
-```
-
-`condition` is a boolean expression, it’s value is `true` or `false`. If the value of `condition` is `true`, then `#code` will be execute.
-
-`if` statement can be used together with `else` statement, `else` statement used to execute the code when the condition in `if`is false. The grammar of `if-else` is shown:
-
-```mcfpp
-if (condition){
-    #code1
-}else{
-    #code2
-}
-```
-
-`condition` is a boolean expression, it’s value is `true` or `false`. If the value of `condition` is `true`, then `#code1‘ will be execute; Else, ’#code2‘ will be execute.
-
-We can use `else if` to add another condition when `if` is false. The grammar of `if-else if-else` is shown below:
-
-```mcfpp
-if (condition1){
-    #code1
-}else if (condition2){
-    #code2
-}else{
-    #code3
-}
-```
-
-## while statement and do-while statement
-
-`while` is a loop statement, it can execute a code block repeatedly, until the condition is false. The grammar of `while` statement is:
-
-```mcfpp
-while (condition){
-    #code
-}
-```
-
-`condition` is an boolean expression, when `condition` is `true`, it’ll execute the code block in `#code`. Then, determine the value of `condition` again. If value of `condition` is `true`, then `#code` will be execute; loop again and again, until the value of `condition` is `false`.
-
-`do-while` statement is similar with `while` statement, but no matter the condition is true or false, it’ll execute the statement in the loop once, and then determine the condition to see continue execution or not. The grammar of `do-while` is shown below:
-
-```mcfpp
-do{
-    #code
-}while (condition);
-```
-
-## break and continue statement
-
-`break` statement used to jump out the whole loop, `continue` statement used to skip the current loop. For example:
-
-```mcfpp
-for (var i = 0; i < 10; i++){
-    if (i == 5){
-        break;
+func classify(score: int) {
+    if score >= 10 {
+        print("Gold")
+    } else if score >= 5 {
+        print("Silver")
+    } else {
+        print("Bronze")
     }
-    if (i == 3){
-        continue;
-    }
-    #code
+}
+
+func main() {
+    external score: int = 7
+    classify(score)
 }
 ```
 
-In this example, when the value of `i` is `5`, `break`will jump out of the loop; when the value of `i` is `3`, `continue` will jump this loop, go to the next loop directly. So, the change of I in each loop are:`0`，`1`，`2`，`4`，`5`, and finally jump out.
+Comparison operators include `==`, `!=`, `<`, `<=`, `>`, and `>=`. Combine conditions with `&&`, `||`, and `!`.
 
-`break` and `continue` only can be used in the loop
+## while and do while
+
+`while` checks the condition before each iteration. `do while` executes the body once before checking the condition.
+
+```mcfpp
+func main() {
+    external count: int = 0
+    while count < 3 {
+        print(count)
+        count += 1
+    }
+
+    do {
+        count -= 1
+    } while count > 0
+}
+```
+
+Use `break` to end a loop. Use `continue` to start the next iteration. Update counters with `+=` or `-=`.
+
+## Iterate over a list
+
+```mcfpp
+func main() {
+    var rewards: list<int> = [10, 20, 30]
+    for (reward: rewards) {
+        print(reward)
+    }
+}
+```
+
+The loop variable receives each element. See [Lists](../08nbt/02list) for more operations.

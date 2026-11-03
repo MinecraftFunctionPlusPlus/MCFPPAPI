@@ -1,44 +1,23 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
 # 内联函数
 
-MCFPP中，可以使用`inline`关键字来声明一个内联函数。编译器会在调用内联函数的地方直接将函数的代码插入，而不是通过函数调用的方式来执行。这样可以减少函数调用的开销，提高程序的运行效率。
-
-## 内联函数的声明
-
-内联函数的声明语法如下：
+在 `func` 前写 `inline`，让编译器在调用位置编译函数正文。
 
 ```mcfpp
-inline func functionName(parameter1, parameter2, ...) -> returnType{
-    #函数体
+inline func announceReady() {
+    /say Ready
+}
+
+func main() {
+    announceReady()
 }
 ```
 
-## 内联函数的调用过程
+当前版本的内联示例采用 `void` 命令辅助函数。带返回值的计算使用普通 `func`，例如[整数加法](./01define-and-call)。
 
-在调用内联函数的地方，编译器会直接将内联函数的代码插入，而不是通过函数调用的方式来执行。例如下面的例子：
+内联可能在多个调用点生成多份命令。使用 [Dump IR](../01project/04build-and-ir) 比较输出，再决定哪些函数需要内联。
 
-```mcfpp
-inline func add(a as int, b as int) -> int{
-    return a + b;
-}
-
-func main {
-    print(add(1, 2));
-}
-```
-
-编译的时候，上述代码会相当于：
-
-```mcfpp
-func main {
-    var a = 1;
-    var b = 2;
-    var ret = a + b;
-    print(ret);
-}
-```
-
-这同时意味着，在内联函数中，对变量的修改会影响到函数外部的变量。
+需要把逻辑作为参数传入时，使用[函数值与 lambda](./05lambda)。

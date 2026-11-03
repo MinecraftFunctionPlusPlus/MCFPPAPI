@@ -2,34 +2,56 @@
 lastUpdated: true
 ---
 
-# Native Commands
+# Native commands and interpolation
 
-MCFPP supports the use of Minecraft native commands. There are two ways to use native commands:
-
-## Using `/` to Insert Commands
-
-Statements that start with `/` are considered as native commands. For example:
+Start a line with `/` to insert a Minecraft command. The generated datapack contains the command body.
 
 ```mcfpp
-func test(){
-    /summon minecraft:armor_stand ~ ~ ~
+func main() {
+    /say Hello from MCFPP
+    /give @s minecraft:stone 1
 }
 ```
 
-This will directly insert a summon command into the `test` function.
+Use one line for each native command. Quotes, JSON, and NBT keep their Minecraft command meaning.
 
-## Using the `insert` Function
+## Insert a value
 
-The `insert` function allows you to insert a string at the current location. For example:
+`${expression}` inserts an expression result into the command. This example places a gold block below the executor:
 
 ```mcfpp
-func test(){
-    insert("summon minecraft:armor_stand ~ ~ ~");
+func main() {
+    const block = "minecraft:gold_block"
+    /setblock ~ ~-1 ~ ${block}
 }
 ```
 
-This will insert the raw text from the `insert` function's parameter into the `test` function. It's important to note that the `insert` function's parameter is a string, so you can insert any content. This also means that the compiler will not perform any checks on the command format.
+Known values can appear directly in commands. Runtime values depend on the target version and command interface. Use standard library functions when you need typed arguments or a command result.
 
-## Command Interpolation
+## Reuse commands through a function
 
-See [JVM Accessors](../11mni/05access.md) for more information.
+Place a fixed command in an ordinary function to call it from several locations:
+
+```mcfpp
+func announce() {
+    /say Ready
+}
+
+func main() {
+    announce()
+}
+```
+
+See [MNI command generation](../11mni/05access) to compose commands with Java.
+
+## Line breaks and division
+
+A single `/` at the start of a line means a command. For a division across lines, place the operator on the preceding line:
+
+```mcfpp
+func main() {
+    var count = 12 /
+        3
+    print(count)
+}
+```

@@ -1,41 +1,57 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
-# 命名空间
+# 命名空间与导入
 
-## 定义
+命名空间给函数和数据类型分组。Minecraft 使用 `命名空间:路径` 找到生成的资源。
 
-MCFPP中的命名空间和MC中的命名空间是同一种东西。这也意味着，命名空间只能是小写字母、数字，点和下划线的组合。
+## 从目录推导
 
-你可以在文件中声明一个命名空间，这样文件中的所有函数和变量都会被放置在这个命名空间中。例如：
+当 `mcfpp.toml` 中设置 `namespace = "hello"` 时：
+
+| 源码位置 | 默认命名空间 |
+| --- | --- |
+| `src/main/mcfpp/main.mcfpp` | `hello` |
+| `src/main/mcfpp/game/rewards.mcfpp` | `hello.game` |
+| `src/main/mcfpp/game/rounds/start.mcfpp` | `hello.game.rounds` |
+
+文件夹形成命名空间，文件名用于组织源码。同一个文件夹中的文件可以声明同一命名空间的函数。
+
+## 显式声明
+
+将 `namespace` 放在文件开头：
 
 ```mcfpp
-namespace test;
+namespace demo.rewards
 
-func test {    # test:test函数
-    print(i);
+func grant() {
+    /give @s minecraft:stone 1
 }
 ```
 
-一个文件中只能声明一次命名空间。
+对应游戏函数为 `demo.rewards:grant`。
 
-若没有声明命名空间，文件的命名空间将会由文件路径相对于源代码路径的相对路径决定。例如，假设源代码目录为`src/main/mcfpp`，项目命名空间为`test`，那么文件`src/main/mcfpp/uwu/test.mcfpp`的命名空间将会是`test:uwu`。源代码路径通过工程配置文件中的`sourcePath`决定。
+## 导入其他文件
 
-## 编译时命令<Badge type="tip">技术性内容</Badge>
-
-在命名空间下声明一个没有名字的`mcfpp`文件，即`.mcfpp`文件，编译器将会把此文件判定为包含了编译时命令的文件。
-
-编译时命令将会在`INDEX_TYPE`编译阶段后，`stageProcessor[INDEX_TYPE]`处理器执行前执行。编译时命令定义为`#>`开头的一行行注释，其后的内容就是命令内容。目前支持的命令有：
-
-### `injectedBy <classPath>`
-
-向当前命名空间中注入一个MNI类定义的函数作为命名空间内的全局函数。
-
-* `classPath`一个MNI类的完全Java类限定名。
-
-例如
+`src/main/mcfpp/rewards.mcfpp`：
 
 ```mcfpp
-#> injectedBy top.mcfpp.mni.minecraft.StdCommands
+namespace demo.rewards
+
+func amount(): int {
+    return 10
+}
 ```
+
+`src/main/mcfpp/main.mcfpp`：
+
+```mcfpp
+import demo.rewards:*
+
+func main() {
+    print(amount())
+}
+```
+
+需要区分同名函数时，使用完整命名空间调用，例如 `demo.rewards:amount()`。MNI 的 Java 包名是另一套名称，写在[原生声明](../09mni/02mni-framework-implementation)的等号右侧。

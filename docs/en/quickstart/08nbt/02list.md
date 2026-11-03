@@ -1,59 +1,42 @@
 ---
-lastUpdate: true
+lastUpdated: true
 ---
 
 # Lists
 
-NBT supports the basic data type of lists, which MCFPP abstracts and provides as a separate type.
-
-## Basic Usage
-
-Use the `list<type T>` type identifier to define a list, where the type parameter `T` represents the type of elements stored in the list.
+`list<T>` stores elements of one type. Indices start at `0`.
 
 ```mcfpp
-var l as list<int> = []; # Create an empty list
-l.add(1); # Add an element to the list
-l.add(2); 
-l.add(3); 
-print(l); # Outputs [1,2,3]
-print(l[0]);    # Outputs 1
+func main() {
+    var rewards: list<int> = [10, 20]
+    rewards.add(30)
+    rewards.removeAt(0)
 
-l.removeAt(1); # Remove the element at index 1
-```
+    print(rewards[0])
+    print(rewards.size())
 
-Passing a list is by value, not by reference. In fact, all NBT-based data types are passed by value.
-
-```mcfpp
-var l as list<int> = [1,2,3];
-var l2 = l;
-l2.add(4);
-print(l); # Outputs [1,2,3]
-print(l2); # Outputs [1,2,3,4]
-```
-
-## List Operations
-
-The MCFPP standard library provides a series of functions for list operations.
-
-| Function Name | Parameters | Return Value | Description |
-| --- | --- | --- | --- |
-| `add` | `T element` | `void` | Adds an element to the list |
-| `addAll` | `list<T> elements` | `void` | Adds a group of elements to the list |
-| `insert` | `int index, T element` | `void` | Inserts an element at a specified position |
-| `removeAt` | `int index` | `void` | Removes the element at the specified position |
-| `remove` | `T element` | `void` | Removes the specified element |
-| `indexOf` | `T element` | `int` | Returns the index of the specified element |
-| `lastIndexOf` | `T element` | `int` | Returns the last index of the specified element |
-| `contains` | `T element` | `bool` | Checks if the list contains the specified element |
-| `clear` | `void` | `void` | Clears the list |
-
-## Iterating Over Lists <Badge type="tip" text="Future Feature" />
-
-Use the `foreach` loop to easily iterate over all elements in a list.
-
-```mcfpp
-var l = [1,2,3];
-foreach(i in l){
-    print(i);
+    for (reward: rewards) {
+        print(reward)
+    }
 }
 ```
+
+After removal, the list is `[20, 30]`. `rewards[0]` is `20` and `size()` is `2`.
+
+## Common methods
+
+| Method | Purpose |
+| --- | --- |
+| `add(value)` | Append an element |
+| `prepend(value)` | Insert at the start |
+| `addAll(values)` | Append several elements |
+| `insert(index, value)` | Insert at an index |
+| `removeAt(index)` | Remove an indexed element |
+| `remove(value)` | Remove a matching value |
+| `contains(value)` | Test for a value |
+| `indexOf(value)` | Find an index |
+| `size()` | Read the element count |
+| `isEmpty()` | Test whether the list is empty |
+| `clear()` | Remove all elements |
+
+List assignment copies the value. Changes to a copy leave the original content intact. Use [address references](../02base/06references) to update persistent game data.
