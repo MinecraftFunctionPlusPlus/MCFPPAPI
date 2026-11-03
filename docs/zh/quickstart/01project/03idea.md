@@ -2,13 +2,13 @@
 lastUpdated: true
 ---
 
-# IDEA 开发流程
+# IDEA 插件
 
 ## 打开并同步工程
 
-使用 **File → Open** 打开包含 `mcfpp.toml` 的目录。插件读取 CLI 导出的工程信息，配置源码、资源、JDK 和依赖。右侧 **MCFPP** 工具窗口显示同步状态。
+使用 **File → Open** 打开包含 `mcfpp.toml` 的目录。插件会自动解析工程，读取 CLI 导出的工程信息，配置源码、资源、JDK 和依赖。右侧 **MCFPP** 工具窗口显示同步状态。
 
-MNI 工程同步后，Java 源码可以导航到编译器 API 和 Maven 依赖。修改配置或依赖后保存，插件会重新同步。也可点击 **Synchronize**。同步失败时，窗口保留上次成功的信息，并提供重试入口。
+MNI 工程同步后，Java 源码可以导航到编译器 API 和 Maven 依赖。修改配置或依赖后保存，插件会重新同步。也可点击 **Synchronize** 手动同步。
 
 ## 编写与整理代码
 
