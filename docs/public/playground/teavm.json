@@ -1,0 +1,31 @@
+{
+  "engine": "teavm-wasm-gc",
+  "teavm": "0.16.0",
+  "version": "0.1.0",
+  "kernelApi": 1,
+  "minecraft": "1.21.8",
+  "module": "teavm/mcfpp.wasm",
+  "runtime": "teavm/mcfpp.wasm-runtime.js",
+  "artifacts": [
+    {
+      "path": "teavm/mcfpp.wasm",
+      "size": 41611749,
+      "sha256": "bf64b4127e6678caf25de364efc7a7886e01c7c61fe707429c58584b34e2c98d"
+    },
+    {
+      "path": "teavm/mcfpp.wasm-runtime.js",
+      "size": 34487,
+      "sha256": "05a76aaced9113a89533c1b6609e19dcb2a484bb7f20593f4980e0cfbb6b9787"
+    },
+    {
+      "path": "teavm/mcfpp.wasm-deobfuscator.wasm",
+      "size": 48410,
+      "sha256": "d64d18b9d003c0ced4191133fadb870be4b532f54a2de25f094bc0de61223654"
+    },
+    {
+      "path": "teavm/mcfpp.wasm.teadbg",
+      "size": 7629237,
+      "sha256": "b19818f037e78515d1b78a1afb9aea5629298de40fe47d6f450acf6fe1fee1e5"
+    }
+  ]
+}

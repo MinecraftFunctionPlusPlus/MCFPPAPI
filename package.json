@@ -6,11 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:highlight": "node tests/highlighting.mjs",
-    "test:filesystem": "node tests/filesystem-compatibility.mjs",
-    "playground:prepare": "node scripts/prepare-playground.mjs",
+    "playground:prepare": "node scripts/prepare-teavm.mjs",
     "playground:verify": "node scripts/verify-playground.mjs",
     "playground:typecheck": "vue-tsc --noEmit -p tsconfig.playground.json",
-    "playground:repro": "node scripts/prepare-cheerpj-repro.mjs",
     "docs:dev": "pnpm playground:verify && vitepress dev docs",
     "docs:build": "pnpm playground:verify && vitepress build docs",
     "docs:preview": "vitepress preview docs"

@@ -1,24 +1,26 @@
 # Playground 编译器资源
 
-页面使用文档站中的 Vue/TypeScript 组件。CheerpJ 5.0 从官方 CDN 加载，Java 版本固定为 25。
+页面使用文档站的 Vue/TypeScript 组件，编译器通过 TeaVM 0.16.0 提前编译为 WasmGC，
+在独立 Web Worker 中运行。编译源码不会发送到服务器。
 
-在相邻的 MCFPP 仓库构建浏览器分发文件：
+在相邻 MCFPP 仓库的 `teavm-playground` 分支构建：
 
 ```powershell
-.\gradlew.bat playgroundJar
+.\gradlew.bat :browser:buildWasmGC
 ```
 
 随后在本站仓库更新资源：
 
 ```powershell
-pnpm playground:prepare ../MCFPP/build/playground/MCFPP-0.1.0.jar
+pnpm playground:prepare
 pnpm playground:typecheck
-pnpm test:filesystem
 pnpm docs:build
 ```
 
-`playgroundJar` 保留原始 `build/libs/MCFPP-0.1.0.jar`，输出 `build/playground/MCFPP-0.1.0.jar`。它将所有标准库目标的文件保存为索引和共享 chunk，打包结束后逐字节验证全部文件；不会删减标准库内容。旁边的 `.source.json` 分别记录原始和派生 JAR 的 SHA-256。资源准备脚本校验该清单，再将来源哈希和派生哈希写入 `compiler.json`。
+准备命令默认读取 `../MCFPP/browser/build/generated/teavm/wasm-gc/`，也接受自定义生成目录。
+它先检查全部产物，再复制模块、加载器及调试文件到 `docs/public/playground/teavm/`，
+将版本、文件大小和 SHA-256 写入 `teavm.json`。启动和构建文档站前校验文件哈希。
+调试文件随资源提供，但页面默认不加载。
 
-`playground:prepare` 也接受原始 JAR 或发布目录。直接传入原始 JAR 时保留其布局；需要紧凑资源布局时应传入 `build/playground/` 中的产物。
-
-页面初始化后、加载编译器前应用文件系统兼容修正。它只匹配已复现的 CheerpJ 5.0 函数实现，修正缓存替换的引用计数、重命名目录的旧路径缓存和过期回调的对象归属；升级运行时时应重新执行独立的目录重命名复现和页面编译验收。JavaScript 补丁不捕获或隐藏其他运行时异常。
+目标固定为 Minecraft 1.21.8，包含该版本完整内置标准库。首次编译时间包含标准库准备，
+后续编译复用内核并恢复可变状态。页面与 DSB 的说明见组件目录的 README。

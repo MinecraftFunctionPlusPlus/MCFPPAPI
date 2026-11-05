@@ -10,10 +10,10 @@ import {
 import { withBase } from "vitepress";
 import {
   CompilerTimeoutError,
+  compilerErrorText,
   initializeCompiler,
   type BrowserCompiler,
 } from "./services/compiler";
-import { compilerErrorText } from "./services/cheerpj";
 import { DatapackRunner } from "./services/sandbox";
 import type { CompilerDiagnostic, GeneratedFile, RunOutput } from "./types";
 
@@ -44,9 +44,9 @@ const seconds = (started: number): string =>
 type CompilerState = "loading" | "ready" | "compiling" | "success" | "error";
 type RunState = "idle" | "running" | "success" | "error";
 
-/** 管理页面状态；组件负责展示，服务负责 JVM 和 Worker 的生命周期。 */
+/** 管理页面状态；组件负责展示，服务负责编译和 DSB Worker 的生命周期。 */
 export function usePlayground() {
-  // 不将 Java 代理放入 Vue reactive，防止 Vue 探测属性时触发 LiveConnect。
+  // Worker 和编译内核由服务持有，组件只保存可展示的数据。
   let compiler: BrowserCompiler | undefined;
   const compiledSource = ref<string | null>(null);
   let sourceRevision = 0;
@@ -65,7 +65,7 @@ export function usePlayground() {
   const compilation = reactive({
     state: "loading" as CompilerState,
     status: "正在初始化",
-    message: "首次使用需要加载 Java 25 运行时及 MCFPP 编译器资源。",
+    message: "首次使用需要加载 TeaVM WasmGC 编译器及内置标准库。",
     elapsed: "",
     initializationTime: "",
     needsReload: false,
@@ -217,7 +217,7 @@ export function usePlayground() {
         execution.placeholder = "没有 main 函数，可选择其他入口运行。";
       }
     } catch (error) {
-      // Java 异常的字符串转换也必须等待，之后再次确认源码版本。
+      // 错误到达时再次确认源码版本，避免覆盖用户的新输入。
       const message = await compilerErrorText(error);
       if (!current()) return;
       diagnostics.value = [
@@ -242,7 +242,7 @@ export function usePlayground() {
     source,
     () => {
       sourceRevision++;
-      // 重载是 CheerpJ 故障后的恢复入口，保留草稿以免恢复时丢失用户代码。
+      // 重载是运行时故障后的恢复入口，保留草稿以免恢复时丢失用户代码。
       try {
         localStorage.setItem(DRAFT_KEY, source.value);
       } catch {

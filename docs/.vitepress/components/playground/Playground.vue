@@ -83,9 +83,9 @@ const {
       </section>
     </div>
     <footer class="playground-footer">
-      <span>源代码在浏览器内编译 · Java 25</span>
-      <a href="https://cheerpj.com/" target="_blank" rel="noopener noreferrer"
-        >Built with CheerpJ</a
+      <span>源代码在浏览器内编译 · WasmGC</span>
+      <a href="https://teavm.org/" target="_blank" rel="noopener noreferrer"
+        >Built with TeaVM</a
       >
     </footer>
   </section>
