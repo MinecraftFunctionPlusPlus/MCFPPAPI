@@ -40,7 +40,7 @@ enabled = false
 | `resourceOverrides` | 允许替换编译产物的数据资源相对路径列表 |
 | `targetPath` | 构建输出根目录，位于工程目录内 |
 | `toolchain.version` | CLI 使用的工具链标识 |
-| `mni.enabled` | 是否准备 Java MNI 源码和依赖 |
+| `mni.enabled` | 是否准备 Kotlin MNI 源码和依赖 |
 
 相对路径从工程根目录计算。`targetPath` 使用独立的子目录，例如 `build` 或 `out`。`mcfpp clean` 会删除这个输出目录。
 
@@ -64,9 +64,9 @@ mcfpp --project ./hello build
 
 ## 依赖和 MNI
 
-在 `mcfpp-packages.json` 中声明 MCFPP 库和 Java 依赖。CLI 更新 `mcfpp.lock` 和 MNI 工程的 `mcfpp-mni.lock`。将配置、依赖声明和锁文件提交到版本库。
+在 `mcfpp-packages.json` 中声明 MCFPP 库和 JVM 依赖。CLI 更新 `mcfpp.lock` 和 MNI 工程的 `mcfpp-mni.lock`。将配置、依赖声明和锁文件提交到版本库。
 
-MNI 工程可使用 `[mni]` 配置 Java 仓库、插件和 Gradle 扩展。示例见 [Gradle 与 Java 构建](../10gradle/01gradle-configuration)。
+MNI 工程可使用 `[mni]` 配置 JVM 仓库、插件和 Gradle 扩展。示例见 [Gradle 与 Kotlin 构建](../10gradle/01gradle-configuration)。
 
 版本条件见 [Minecraft 目标版本](../minecraft-versions)。
 

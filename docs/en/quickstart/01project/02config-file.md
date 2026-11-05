@@ -36,7 +36,7 @@ enabled = false
 | `dataPath` | Extra resources copied into the datapack's `data/` directory |
 | `targetPath` | Build output directory inside the project |
 | `toolchain.version` | Toolchain identifier used by the CLI |
-| `mni.enabled` | Enables Java MNI sources and dependencies |
+| `mni.enabled` | Enables Kotlin MNI sources and dependencies |
 
 Paths are relative to the project root. The compiler reads `.mcfpp` files recursively. Use a separate output directory, such as `build` or `out`. `mcfpp clean` deletes this directory.
 
@@ -60,8 +60,8 @@ mcfpp --project ./hello build
 
 ## Dependencies and MNI
 
-Declare MCFPP libraries and Java dependencies in `mcfpp-packages.json`. The CLI updates `mcfpp.lock` and the MNI project's `mcfpp-mni.lock`. Commit configuration, dependency declarations, and lockfiles.
+Declare MCFPP libraries and JVM dependencies in `mcfpp-packages.json`. The CLI updates `mcfpp.lock` and the MNI project's `mcfpp-mni.lock`. Commit configuration, dependency declarations, and lockfiles.
 
-The `[mni]` table supports Java repositories, plugins, and Gradle extensions. See [Gradle and Java builds](../12gradle/01gradle-configuration).
+The `[mni]` table supports JVM repositories, plugins, and Gradle extensions. See [Gradle and Kotlin builds](../12gradle/01gradle-configuration).
 
 See [Minecraft target versions](../minecraft-versions) for version conditions.

@@ -4,16 +4,25 @@ lastUpdated: true
 
 # MNIAccessor：原生属性读取
 
-`@MNIAccessor("name")` 标记一个属性的 Java getter。`name` 与 MCFPP 字段名一致，Java 方法接收单个 `NativeCallContext`。
+`@MNIAccessor("name")` 标记一个属性的 Kotlin getter。`name` 与 MCFPP 字段名一致，Kotlin 方法接收单个 `NativeCallContext`。
 
 ## 标准库示例
 
 BossBar 的 `max` 读取入口采用以下形式：
 
-```java
-@MNIAccessor("max")
-public static void getMax(NativeCallContext context) {
-    NativeMinecraftCommandOperations.INSTANCE.bossbarGetMax(context);
+```kotlin
+package example.mni
+
+import top.mcfpp.annotations.MNIAccessor
+import top.mcfpp.mni.NativeCallContext
+import top.mcfpp.backend.NativeMinecraftCommandOperations
+
+object BossBarReadProperties {
+    @JvmStatic
+    @MNIAccessor("max")
+    fun getMax(context: NativeCallContext) {
+        NativeMinecraftCommandOperations.bossbarGetMax(context)
+    }
 }
 ```
 

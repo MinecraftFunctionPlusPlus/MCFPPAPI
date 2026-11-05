@@ -4,41 +4,40 @@ lastUpdated: true
 
 # MNIFunction
 
-`top.mcfpp.annotations.MNIFunction` describes an ordinary Java MNI entry. Follow [MNI introduction](/en/quickstart/11mni/01mni-framework) for project creation and source binding.
+`top.mcfpp.annotations.MNIFunction` describes a native Kotlin/JVM MNI entry invoked during compilation.
 
-## Wrapper entry signature
+```kotlin
+import top.mcfpp.annotations.MNIFunction
+import top.mcfpp.core.lang.MCInt
+import top.mcfpp.util.ValueWrapper
 
-```text
-public static void method(
-    readonly parameters...,
-    ordinary parameters...,
-    member caller,
-    ValueWrapper<ResultType> result
-)
+object Arithmetic {
+    @JvmStatic
+    @MNIFunction(normalParams = ["int", "int"], returnType = "int")
+    fun add(left: MCInt, right: MCInt, result: ValueWrapper<MCInt>) {
+        result.set(left.plus(right) as MCInt)
+    }
+}
 ```
 
-Free functions omit the member caller. Entries returning `void` omit the result wrapper. Inputs use `Var` subclasses, such as `MCInt`. Entries with results supply them through `result.set(value)`.
-
-Read [MNI parameters and results](/en/quickstart/11mni/02mni-framework-implementation) for complete matching examples.
-
-## Annotation fields
+Inputs use `Var` subclasses. Wrapper ABI order is readonly parameters, ordinary parameters, optional receiver, then the non-void result wrapper. The Kotlin method returns Unit/JVM void and supplies its MCFPP result through `result.set(value)`.
 
 | Field | Default | Meaning |
 | --- | --- | --- |
-| `readOnlyParams` | `{}` | Readonly parameter types in order |
-| `normalParams` | `{}` | Ordinary parameter types in order |
-| `caller` | `"void"` | A member caller type marker |
+| `readOnlyParams` | `[]` | Readonly parameter types |
+| `normalParams` | `[]` | Ordinary parameter types |
+| `caller` | `"void"` | Receiver type marker |
 | `returnType` | `"void"` | MCFPP result type |
-| `override` | `false` | Mark an inherited method override |
-| `genericType` | `{}` | Type parameter names for a generic caller |
-| `tag` | `{}` | Additional tags |
-| `identifier` | `""` | Registration name, defaulting to the Java method name |
-| `returnsConstWhenArgsConst` | `false` | Declare constant results for constant inputs |
+| `override` | `false` | Inherited override |
+| `genericType` | `[]` | Generic type parameter names |
+| `tag` | `[]` | Additional tags |
+| `identifier` | `""` | Registered name; empty uses the JVM method name |
+| `returnsConstWhenArgsConst` | `false` | Constant-result property for constant inputs |
 
-The annotation targets Java methods and remains available at JVM runtime for compiler discovery. Explicit source declarations define source interfaces and actual caller types. `caller` supplies a type marker.
+The annotation is retained at runtime. Entries must be public and static; Kotlin object/companion methods use `@JvmStatic`. Explicit MCFPP declarations define the source interface. Defaults are not converted automatically. See [native parameters and results](/en/quickstart/11mni/02mni-framework-implementation).
 
-## NativeCallContext entry
+## NativeCallContext
 
-Another signature is `public static void method(NativeCallContext context)`. This context supplies parameters, the caller, known values, and result publication. Standard library entries use it to access compiler read and write operations.
+An alternative entry accepts only `NativeCallContext`, which provides arguments, the receiver, and result publication. The method still returns Unit/JVM void. Property entries also use this form; see [MNIAccessor](./mniaccessor) and [MNIMutator](./mnimutator).
 
-Property entries use this form. Read [MNIAccessor](./mniaccessor) and [MNIMutator](./mnimutator).
+Structured macros use the separate [MNIMacro](./mnimacro) protocol and [Kotlin DSL](../kotlin-dsl).

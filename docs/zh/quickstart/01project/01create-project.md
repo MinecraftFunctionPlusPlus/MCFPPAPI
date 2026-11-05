@@ -4,7 +4,7 @@ lastUpdated: true
 
 # 创建工程
 
-一个 MCFPP 工程包含配置、源码和资源。IDEA 向导与 CLI 使用同一套模板。普通工程生成数据包，MNI 工程还包含 Java 源码和 JUnit 测试。
+一个 MCFPP 工程包含配置、源码和资源。IDEA 向导与 CLI 使用同一套模板。普通工程生成数据包，MNI 工程还包含 Kotlin 源码和 JUnit 测试。
 
 ## 在 IDEA 中创建
 
@@ -14,7 +14,7 @@ lastUpdated: true
 4. 等待工程同步，打开 `src/main/mcfpp/main.mcfpp`。
 5. 点击右侧 **MCFPP → Build**。
 
-需要编写 Java 扩展时，选择 **MCFPP MNI**。创建后的 Java 示例见 [MNI 入门](../09mni/01mni-framework)。
+需要编写 Kotlin 扩展时，选择 **MCFPP MNI**。创建后的 Kotlin 示例见 [MNI 入门](../09mni/01mni-framework)。
 
 插件包含匹配的 CLI、标准库、语言服务和格式化工具。JDK 21 运行编译器和 MNI 构建。Node.js 20 或更新版本运行格式化服务。工具路径可以在 **Settings → Tools → MCFPP** 中设置。
 

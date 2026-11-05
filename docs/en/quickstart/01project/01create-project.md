@@ -4,7 +4,7 @@ lastUpdated: true
 
 # Create a project
 
-An MCFPP project contains configuration, source code, and resources. The IDEA wizard and CLI use the same templates. An MNI project also contains Java source code and JUnit tests.
+An MCFPP project contains configuration, source code, and resources. The IDEA wizard and CLI use the same templates. An MNI project also contains Kotlin source code and JUnit tests.
 
 ## Create a project in IDEA
 
@@ -16,7 +16,7 @@ An MCFPP project contains configuration, source code, and resources. The IDEA wi
 6. Open `src/main/mcfpp/main.mcfpp`.
 7. Select **MCFPP → Build** in the right tool window.
 
-Select **MCFPP MNI** for a project with Java extensions. See [MNI introduction](../11mni/01mni-framework) for the generated example.
+Select **MCFPP MNI** for a project with Kotlin extensions. See [MNI introduction](../11mni/01mni-framework) for the generated example.
 
 The plugin includes matching CLI, standard library, language server, and formatting tools. JDK 21 runs the compiler and MNI build. Node.js 20 or later runs the formatting service. Configure paths in **Settings → Tools → MCFPP**.
 

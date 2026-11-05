@@ -2,51 +2,35 @@
 lastUpdated: true
 ---
 
-# MNI parameters and results
+# Native MNI: parameters and results
 
-This page follows [MNI introduction](./01mni-framework). Continue with the same project. The Java entry will receive integers and return their sum.
+`@MNIFunction` uses compiler value classes and result wrappers for native interfaces. See [MNI projects](./01mni-framework) and [macros](../mni-macros/overview) for the default macro entry and structured DSL.
 
-## Receive integers with MCInt
+## Write a native entry in Kotlin
 
-`src/main/java/example/mni/Arithmetic.java`:
+`src/main/kotlin/example/mni/Arithmetic.kt`:
 
-```java
-package example.mni;
+```kotlin
+package example.mni
 
-import top.mcfpp.annotations.MNIFunction;
-import top.mcfpp.core.lang.MCInt;
-import top.mcfpp.util.ValueWrapper;
+import top.mcfpp.annotations.MNIFunction
+import top.mcfpp.core.lang.MCInt
+import top.mcfpp.util.ValueWrapper
 
-public final class Arithmetic {
-    @MNIFunction(normalParams = {"int", "int"}, returnType = "int")
-    public static void add(
-            MCInt left, MCInt right, ValueWrapper<MCInt> result) {
-        result.set((MCInt) left.plus(right));
+object Arithmetic {
+    @JvmStatic
+    @MNIFunction(normalParams = ["int", "int"], returnType = "int")
+    fun add(left: MCInt, right: MCInt, result: ValueWrapper<MCInt>) {
+        result.set(left.plus(right) as MCInt)
     }
 
-    @MNIFunction(
-        readOnlyParams = {"int"},
-        normalParams = {"int"},
-        returnType = "int"
-    )
-    public static void addBonus(
-            MCInt bonus, MCInt score, ValueWrapper<MCInt> result) {
-        result.set((MCInt) score.plus(bonus));
+    @JvmStatic
+    @MNIFunction(readOnlyParams = ["int"], normalParams = ["int"], returnType = "int")
+    fun addBonus(bonus: MCInt, score: MCInt, result: ValueWrapper<MCInt>) {
+        result.set(score.plus(bonus) as MCInt)
     }
 }
 ```
-
-`add` receives two ordinary integers. `addBonus` receives a fixed reward and an ordinary score. Both return a result through `ValueWrapper<MCInt>`.
-
-The central operation in `add` is:
-
-```java
-result.set((MCInt) left.plus(right));
-```
-
-`left.plus(right)` asks the compiler to perform MCFPP integer addition. The compiler produces the appropriate calculation and supplies its result to `result`.
-
-## Declare the two interfaces
 
 `src/main/mcfpp/main.mcfpp`:
 
@@ -61,51 +45,23 @@ func main() {
 }
 ```
 
-Run `mcfpp build`. Then call `main` in the game. The outputs are `5` and `7`.
+The expected results are `5` and `7`. `MCInt` can represent a known value or runtime data; `plus` requests MCFPP addition from the compiler.
 
-`external count` uses game runtime storage. During compilation, Java receives a compiler object that describes access to this integer. Generated addition commands read the actual integer when the datapack executes.
+## Align the signatures
 
-`<5>` supplies the reward during compilation. Read [Compilation parameters](../07generic/01concrete_var) for the difference between angle brackets and parentheses.
-
-## Match the three parameter descriptions
-
-An ordinary MNI wrapper describes its parameters in three corresponding places:
-
-| MCFPP declaration | Java annotation | Java method parameters |
+| MCFPP | Kotlin annotation | Kotlin parameter |
 | --- | --- | --- |
-| `left: int, right: int` | `normalParams = {"int", "int"}` | `MCInt left, MCInt right` |
-| `<bonus: int>` | `readOnlyParams = {"int"}` | `MCInt bonus` before ordinary parameters |
-| `: int` | `returnType = "int"` | Final `ValueWrapper<MCInt> result` |
+| `left: int, right: int` | `normalParams = ["int", "int"]` | `left: MCInt, right: MCInt` |
+| `<bonus: int>` | `readOnlyParams = ["int"]` | `bonus: MCInt` |
+| `: int` | `returnType = "int"` | `result: ValueWrapper<MCInt>` |
 
-The source declaration defines the caller's interface. The annotation describes the Java entry signature. Java parameters use corresponding compiler types in declaration order.
+Wrapper ABI order is readonly parameters, ordinary parameters, optional receiver, then the non-void result wrapper. The Kotlin method returns Unit, emitted as JVM void. It supplies the MCFPP result through `result.set(...)`. Kotlin defaults do not become MCFPP default arguments.
 
-For these free functions, the order is: readonly parameters, ordinary parameters, then the result wrapper. Member entries also receive a caller object before the result wrapper. Read [MNIFunction API](/en/api/annotation/mnifunction) for those signatures.
-
-## Where Java int and MCInt apply
-
-| Form | Meaning | Typical use |
-| --- | --- | --- |
-| Java `int` | An integer that Java currently holds | Configuration, ordinary calculations, and tests |
-| Java `MCInt` | An MCFPP integer value represented by the compiler | Source inputs and generated integer operations |
-| MCFPP `int` | An integer type in the datapack program | Variable, parameter, and result declarations |
-
-`MCInt` can represent either a known integer or runtime data. Compiler operations such as `plus` support both inputs through the same entry. Reading an ordinary Java integer requires a value known during compilation.
-
-## Common value type mappings
-
-Use the corresponding compiler value class for other inputs and results. Import the classes listed below:
-
-| MCFPP type | Java class |
+| MCFPP | Host type |
 | --- | --- |
 | `int` | `top.mcfpp.core.lang.MCInt` |
 | `float` | `top.mcfpp.core.lang.MCFloat` |
 | `bool` | `top.mcfpp.core.lang.bool.ScoreBool` |
 | `string` | `top.mcfpp.core.lang.nbt.MCString` |
 
-For example, use `MCString input` for a string input and `ValueWrapper<MCString> result` for a string result. The annotation and source declaration still use `string`.
-
-## Return a value or generate an operation
-
-An entry with a result calls `result.set(...)` on every successful completion path. This delivers an MCFPP value to the caller. The Java method itself still returns `void`.
-
-Read [Generate commands](./05access) for messages and other operations without results. Read [MNIFunction API](/en/api/annotation/mnifunction) for annotation field details.
+An alternative entry accepts only `NativeCallContext`, which supplies arguments and publishes results. See the [MNIFunction API](/en/api/annotation/mnifunction).

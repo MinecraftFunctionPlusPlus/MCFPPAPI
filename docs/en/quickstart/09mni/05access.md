@@ -10,6 +10,6 @@ head:
       href: /en/quickstart/11mni/05access.html
 ---
 
-# Generate commands from Java
+# Generate commands from Kotlin
 
 [Continue to the documentation](/en/quickstart/11mni/05access)

@@ -8,19 +8,19 @@ lastUpdated: true
 
 Use **File → Open** to open a directory with `mcfpp.toml`. The plugin reads the CLI project model. It configures source directories, resources, the JDK, and dependencies.
 
-The **MCFPP** tool window displays synchronization status. In MNI projects, Java navigation includes compiler APIs and Maven dependencies. Save configuration changes to start synchronization. You can also select **Synchronize**.
+The **MCFPP** tool window displays synchronization status. In MNI projects, Kotlin navigation includes compiler APIs and Maven dependencies. Save configuration changes to start synchronization. You can also select **Synchronize**.
 
 If synchronization fails, the window keeps the last successful model. Use **Synchronize** to retry.
 
 ## Edit and format code
 
-The plugin provides completion, parameter hints, documentation, navigation, reference search, and rename. An ordinary MNI declaration also links to its Java method:
+The plugin provides completion, parameter hints, documentation, navigation, reference search, and rename. A native MNI declaration identifies a Kotlin/JVM method, for example:
 
 ```mcfpp
-func answer(): int = example.mni.Example.answer
+func add(left: int, right: int): int = example.mni.Arithmetic.add
 
 func main() {
-    print(answer())
+    print(add(20, 22))
 }
 ```
 
@@ -45,7 +45,7 @@ Formatting removes trailing spaces and adjusts indentation. Editor diagnostics f
 | **Lint** | Check source code |
 | **Format Check** | Check formatting |
 | **Dump IR** | Build and export readable compiler records |
-| **Test** | Run Java tests in an MNI project |
+| **Test** | Run Kotlin/Java tests in an MNI project |
 
 The plugin creates run configurations when it first opens the project. **MCFPP Build** is the default. Configurations support a working directory, environment variables, extra arguments, and `offline` or `locked` options.
 
@@ -55,7 +55,7 @@ Use the top run button or a task button. The Run window supports cancellation, a
 
 Open **Settings → Tools → MCFPP**:
 
-- **JDK 21** runs the CLI and Java MNI builds.
+- **JDK 21** runs the CLI and Kotlin MNI builds.
 - **Node.js** runs Prettier and Linter.
 - **Command service Java** runs the Minecraft command service. Use Java 25.
 - **External tool paths** select another CLI or formatting package when required.

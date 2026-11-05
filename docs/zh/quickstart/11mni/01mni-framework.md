@@ -10,6 +10,6 @@ head:
       href: /zh/quickstart/09mni/01mni-framework.html
 ---
 
-# MNI 入门：调用 Java 实现
+# MNI 入门：调用 Kotlin 实现
 
 [继续阅读文档](/zh/quickstart/09mni/01mni-framework)

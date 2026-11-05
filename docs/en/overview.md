@@ -48,6 +48,6 @@ Newlines separate ordinary statements. Semicolons separate statements on one lin
 
 - [Develop in IDEA](/en/quickstart/01project/03idea): save formatting, diagnostics, and tasks.
 - [Project configuration](/en/quickstart/01project/02config-file): TOML, directories, and target versions.
-- [MNI introduction](/en/quickstart/11mni/01mni-framework): Java native functions and tests.
+- [MNI introduction](/en/quickstart/11mni/01mni-framework): Kotlin macros and tests.
 - [Address references](/en/quickstart/02base/06references): score and NBT access.
 - [Build output and IR](/en/quickstart/01project/04build-and-ir): datapacks and compiler records.

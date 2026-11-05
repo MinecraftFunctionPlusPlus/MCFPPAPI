@@ -63,11 +63,11 @@ const sections: Section[] = [
         ["添加与管理依赖", "Add and manage dependencies", ["quickstart/08library/01import-and-use","quickstart/10library/01import-and-use"]],
         ["导出库", "Export a library", ["quickstart/08library/02export-library","quickstart/10library/02export-library"]],
     ] },
-    { text: ["MNI 函数与 Java", "MNI functions and Java"], collapsed: true, items: [
-        ["创建 Java MNI 工程", "Create a Java MNI project", ["quickstart/09mni/01mni-framework","quickstart/11mni/01mni-framework"]],
+    { text: ["Kotlin MNI 工程", "Kotlin MNI projects"], collapsed: true, items: [
+        ["创建 Kotlin MNI 工程", "Create a Kotlin MNI project", ["quickstart/09mni/01mni-framework","quickstart/11mni/01mni-framework"]],
         ["参数与返回值", "Parameters and results", ["quickstart/09mni/02mni-framework-implementation","quickstart/11mni/02mni-framework-implementation"]],
         ["生成 Minecraft 命令", "Generate Minecraft commands", ["quickstart/09mni/05access","quickstart/11mni/05access"]],
-        ["Gradle 与 Java 测试", "Gradle and Java tests", ["quickstart/10gradle/01gradle-configuration","quickstart/12gradle/01gradle-configuration"]],
+        ["Gradle 与 Kotlin 测试", "Gradle and Kotlin tests", ["quickstart/10gradle/01gradle-configuration","quickstart/12gradle/01gradle-configuration"]],
     ] },
     { text: ["MNI 宏框架", "MNI macro framework"], collapsed: false, items: [
         ["宏入门与调用准备", "Macro introduction and setup", "quickstart/mni-macros/overview"],
@@ -79,6 +79,7 @@ const sections: Section[] = [
     ] },
     { text: ["API 参考", "API reference"], collapsed: true, items: [
         ["API 导航", "API index", "api/index"],
+        ["Kotlin DSL", "Kotlin DSL", "api/kotlin-dsl"],
         ["@MNIFunction", "@MNIFunction", "api/annotation/mnifunction"],
         ["@MNIMacro", "@MNIMacro", "api/annotation/mnimacro"],
         ["@MNIAccessor", "@MNIAccessor", "api/annotation/mniaccessor"],

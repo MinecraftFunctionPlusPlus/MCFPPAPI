@@ -8,17 +8,17 @@ lastUpdated: true
 
 使用 **File → Open** 打开包含 `mcfpp.toml` 的目录。插件读取 CLI 导出的工程信息，配置源码、资源、JDK 和依赖。右侧 **MCFPP** 工具窗口显示同步状态。
 
-MNI 工程同步后，Java 源码可以导航到编译器 API 和 Maven 依赖。修改配置或依赖后保存，插件会重新同步。也可点击 **Synchronize**。同步失败时，窗口保留上次成功的信息，并提供重试入口。
+MNI 工程同步后，Kotlin 源码可以导航到编译器 API 和 Maven 依赖。修改配置或依赖后保存，插件会重新同步。也可点击 **Synchronize**。同步失败时，窗口保留上次成功的信息，并提供重试入口。
 
 ## 编写与整理代码
 
-插件提供补全、参数提示、文档、声明导航、查找引用和重命名。普通 MNI 声明也能导航到 Java 方法：
+插件提供补全、参数提示、文档、声明导航、查找引用和重命名。原生 MNI 声明指定 Kotlin/JVM 方法，例如：
 
 ```mcfpp
-func answer(): int = example.mni.Example.answer
+func add(left: int, right: int): int = example.mni.Arithmetic.add
 
 func main() {
-    print(answer())
+    print(add(20, 22))
 }
 ```
 
@@ -43,7 +43,7 @@ func main() {
 | **Lint** | 检查代码 |
 | **Format Check** | 检查格式 |
 | **Dump IR** | 构建并导出可读的编译记录 |
-| **Test** | 在 MNI 工程中运行 Java 测试 |
+| **Test** | 在 MNI 工程中运行 Kotlin/Java 测试 |
 
 首次打开工程会创建这些运行配置。默认配置是 **MCFPP Build**。配置可设置工作目录、环境变量、附加参数、`offline` 和 `locked` 选项。
 
@@ -53,7 +53,7 @@ func main() {
 
 打开 **Settings → Tools → MCFPP**，设置：
 
-- **JDK 21**：运行 CLI 和 Java MNI 构建。
+- **JDK 21**：运行 CLI 和 Kotlin MNI 构建。
 - **Node.js**：运行 Prettier 与 Linter。
 - **命令服务 Java**：运行 Minecraft 命令服务，使用 Java 25。
 - **外部工具路径**：需要时选择外部 CLI 或格式化包。

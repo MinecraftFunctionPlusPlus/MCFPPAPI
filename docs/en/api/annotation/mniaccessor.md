@@ -4,16 +4,25 @@ lastUpdated: true
 
 # MNIAccessor: native property reads
 
-`@MNIAccessor("name")` marks a Java property getter. `name` matches the MCFPP field. The method receives one `NativeCallContext`.
+`@MNIAccessor("name")` marks a Kotlin property getter. `name` matches the MCFPP field. The method receives one `NativeCallContext`.
 
 ## Standard library example
 
 The BossBar `max` getter uses this form:
 
-```java
-@MNIAccessor("max")
-public static void getMax(NativeCallContext context) {
-    NativeMinecraftCommandOperations.INSTANCE.bossbarGetMax(context);
+```kotlin
+package example.mni
+
+import top.mcfpp.annotations.MNIAccessor
+import top.mcfpp.mni.NativeCallContext
+import top.mcfpp.backend.NativeMinecraftCommandOperations
+
+object BossBarReadProperties {
+    @JvmStatic
+    @MNIAccessor("max")
+    fun getMax(context: NativeCallContext) {
+        NativeMinecraftCommandOperations.bossbarGetMax(context)
+    }
 }
 ```
 

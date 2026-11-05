@@ -4,33 +4,49 @@ lastUpdated: true
 
 # MNIMacro
 
-`top.mcfpp.annotations.MNIMacro` 描述生成代码的 Java 宏入口。完整开发过程见 [MNI 宏教程](/zh/quickstart/mni-macros/overview)。
+`top.mcfpp.annotations.MNIMacro` 描述编译期生成代码的 Kotlin/JVM 宏入口。
 
-## 入口签名
+```kotlin
+package example.macros
 
-```text
-public static Expr<R> method(MacroContext context, 宏输入...)
-public static Block method(MacroContext context, 宏输入...)
+import top.mcfpp.annotations.MNIMacro
+import top.mcfpp.mni.api.*
+
+object MathMacros {
+    @JvmStatic
+    @MNIMacro(normalParams = ["int"], returnType = "int")
+    fun addOne(context: MacroContext, input: Value<IntT>): Expr<IntT> =
+        context.quote.expression(context.types().intType()) {
+            yield(input.value + 1)
+        }
+}
 ```
 
-`Expr<R>` 用于有结果的代码，`Block` 用于无结果代码。首个 Java 参数为 `MacroContext`，之后的参数与 `params` 顺序一致。
+每个可调用的宏都需要 MCFPP 声明，格式与 `@MNIFunction` 的显式绑定相同：
 
-`R` 使用宏 API 类型标记，例如整数标记 `IntT`。输入通过 `Value<T>` 等接口接收。
+```mcfpp
+func addOne(input: int): int = example.macros.MathMacros.addOne
+```
 
-## MNIMacro 字段
+公开名称、参数名和命名空间由 MCFPP 声明决定；声明类型必须与注解匹配。`injectedBy` 不会自动注册宏。
+
+## 入口规则
+
+- provider 和入口必须公开，方法必须具有 JVM static 入口。object/companion 方法使用 `@JvmStatic`；顶层函数通过其 file facade 类名绑定。
+- 首参数精确为 `MacroContext`；`normalParams` 按顺序列出后续参数的 MCFPP 类型，不含 context。
+- 模式直接从 JVM 包装类型推导：`Value<T>` 为 VALUE，`Const<T>` 为 CONST，`Ref<T>` 为 REF，`InlineFn<S>` 为 INLINE。
+- `void` 宏返回 `Block`，非 void 宏返回 `Expr<T>`。实际 MCFPP 类型由编译器校验。
+- `suspend`、普通实例方法和额外默认参数 mask 不符合该同步入口协议。Kotlin 默认参数不会变为 MCFPP 默认参数。
+- 重载按 MCFPP 名称与参数类型区分；参数模式和返回类型不区分重载。
+
+## 注解字段
 
 | 字段 | 默认值 | 含义 |
 | --- | --- | --- |
-| `identifier` | `""` | 源码函数名称，空值使用 Java 方法名 |
-| `params` | `{}` | 按顺序列出 `MacroParam` |
-| `returnType` | `"void"` | 源码返回类型 |
+| `normalParams` | `[]` | 按顺序列出类型，如 `"int"`、`"ScoreRef"`、`"NBTRef<int>"`、`"(int)->void"` |
+| `returnType` | `"void"` | MCFPP 返回类型 |
+| `identifier` | `""` | 可省略；显式绑定始终使用 MCFPP `func` 声明的名称 |
 
-## MacroParam 字段
+宏声明目前使用圆括号参数，不支持只读泛型参数或参数默认值。`Const` 参数仍写在圆括号中。重载按公开名称和参数类型选择，返回类型、模式与 wrapper 不区分重载。
 
-| 字段 | 默认值 | 含义 |
-| --- | --- | --- |
-| `name` | 必填 | 源码参数名称 |
-| `type` | 必填 | MCFPP 类型，例如 `"int"`、`"(int)->void"` |
-| `mode` | `VALUE` | 输入模式 |
-
-`VALUE`、`CONST`、`REF` 和 `INLINE` 的含义与完整代码见[参数和表达式](/zh/quickstart/mni-macros/parameters)。宏注解的命名信息在宏库加载时参与登记，加载流程见[教程入口](/zh/quickstart/mni-macros/overview#让宏具有可调用的名字)。
+公开引用使用 `Value<ScoreRefT>` 或 `Value<NBTRefT<IntT>>` 与 VALUE 模式。注册、调用和完整引用转发示例见 [宏入门](/zh/quickstart/mni-macros/overview)与[参数教程](/zh/quickstart/mni-macros/parameters)。

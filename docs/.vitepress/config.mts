@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { sidebar } from './sidebar'
+import { readdirSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 
 import mcfpp from '../assets/lang/mcfpp.json'
 
@@ -745,6 +747,15 @@ const mcf: any = {
   }
 }
 
+// Playground 与文档共用 VitePress 路由、语言导航和页面生命周期。
+const playgroundLink = (locale: 'zh' | 'en') => ({ text: 'Playground', link: `/${locale}/playground` })
+
+// SDK 0.2.2 的 Worker 文件带内容哈希，通过安装包定位，交给站点的 Vite 统一处理。
+const sandboxAssets = new URL('./assets/', import.meta.resolve('@datapack-sandbox/vitepress-playground'))
+const sandboxWorkers = readdirSync(sandboxAssets).filter(name => /^worker-.+\.js$/.test(name))
+if (sandboxWorkers.length !== 1) throw new Error('DSB 安装包必须包含一个浏览器 Worker 入口。')
+const sandboxWorker = fileURLToPath(new URL(sandboxWorkers[0], sandboxAssets))
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "MCFPP",
@@ -753,7 +764,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'QuickStart', link: '/en/quickstart/index' }
+      { text: 'QuickStart', link: '/en/quickstart/index' },
+      playgroundLink('en')
     ],
 
     search: {
@@ -777,7 +789,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '主页', link: '/zh/' },
-          { text: '快速开始', link: '/zh/quickstart/index' }
+          { text: '快速开始', link: '/zh/quickstart/index' },
+          playgroundLink('zh')
         ]
       }
     },
@@ -788,10 +801,21 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          { text: 'QuickStart', link: '/en/quickstart/index' }
+          { text: 'QuickStart', link: '/en/quickstart/index' },
+          playgroundLink('en')
         ]
       }
     }
+  },
+
+  vite: {
+    resolve: { alias: [{ find: /^@mcfpp\/dsb-worker(?=\?|$)/, replacement: sandboxWorker }] },
+    optimizeDeps: {
+      // 预先处理懒加载 SDK，避免首次运行时才发现依赖而触发页面刷新。
+      include: ['@datapack-sandbox/vitepress-playground'],
+      exclude: ['@mcfpp/dsb-worker?worker&url']
+    },
+    worker: { format: 'es' }
   },
 
   markdown: {

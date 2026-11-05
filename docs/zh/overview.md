@@ -48,6 +48,6 @@ func main() {
 
 - [IDEA 开发流程](/zh/quickstart/01project/03idea)：保存格式化、诊断和任务。
 - [工程配置](/zh/quickstart/01project/02config-file)：TOML、目录和目标版本。
-- [MNI 入门](/zh/quickstart/09mni/01mni-framework)：Java 原生函数和测试。
+- [MNI 入门](/zh/quickstart/09mni/01mni-framework)：Kotlin 宏和测试。
 - [地址引用](/zh/quickstart/02base/06references)：计分板与 NBT 读写。
 - [构建与 IR](/zh/quickstart/01project/04build-and-ir)：数据包和编译记录。

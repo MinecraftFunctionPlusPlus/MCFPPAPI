@@ -2,98 +2,89 @@
 lastUpdated: true
 ---
 
-# MNI 宏入门：把一次调用变成代码
+# MNI 宏入门：用 Kotlin 生成代码
 
-上一组教程让 Java 入口提供值或命令。宏进一步把**一段待执行的代码**作为结果交给编译器。例如，`addOne(score)` 可以生成“读取分数，加一，再把结果交给调用者”的代码。
+MNI 宏在编译期运行 Kotlin，通过类型化代码树生成 MCFPP/Minecraft 的运行时代码。API、DSL、示例和工程模板以 Kotlin 为主要设计对象；Java 可以调用生成的 JVM 方法。
 
-本组教程面向宏库作者。先熟悉 [Java MNI 入门](../09mni/01mni-framework)与 [Lambda](../04function/05lambda)，再从本页的单个表达式开始。
+## 创建工程
 
-## 准备宏库与调用环境
-
-宏开发包含两个步骤：实现 Java 入口，再把入口加入宏库的加载流程。加载后的函数具有 MCFPP 名字，源码才能找到它。
-
-普通 MNI 工程可以编译本组的 Java 类。当前 CLI 的工程模板提供 `@MNIFunction` 绑定，宏的登记则通过库加载接口完成。体验已有宏时，可以使用编译器仓库中的完整示例：
-
-| 示例 | Java 与 Kotlin 实现 | 源码用途 |
-| --- | --- | --- |
-| 重复执行 | `examples/mni/repeat` | 按序号调用用户回调 |
-| 射线检测 | `examples/mni/raycast` | 沿朝向检查方块 |
-| 字段与计分板同步 | `examples/mni/score-mapping` | 生成模板的 `load`、`save` 方法 |
-
-仓库中的 `src/test/kotlin/top/mcfpp/test/MniRepeatTest.kt` 展示了入口准备、源码调用和生成命令检查。在编译器仓库根目录运行：
+使用 JDK 21：
 
 ```sh
-./gradlew test --tests top.mcfpp.test.MniRepeatTest
+mcfpp init hello-mni --mni
+cd hello-mni
+mcfpp build
+mcfpp test
 ```
 
-Windows 使用 `gradlew.bat`。该测试检查 `repeat` 的调用、回调和循环。Java MNI 工程自身的测试步骤见 [Gradle 与 Java 测试](../10gradle/01gradle-configuration)。
+provider 放在 `src/main/kotlin`，JUnit 测试放在 `src/test/kotlin`。默认的 `answer()` 宏及目录说明见 [MNI 工程](../09mni/01mni-framework)。
 
 ## 实现一个加一宏
 
-在宏库中创建 `example/macros/ScoreMacros.java`：
+创建 `src/main/kotlin/example/macros/ScoreMacros.kt`：
 
-```java
-package example.macros;
+```kotlin
+package example.macros
 
-import top.mcfpp.annotations.MNIMacro;
-import top.mcfpp.annotations.MacroParam;
-import top.mcfpp.mni.api.*;
+import top.mcfpp.annotations.MNIMacro
+import top.mcfpp.mni.api.*
 
-public final class ScoreMacros {
+object ScoreMacros {
+    @JvmStatic
     @MNIMacro(
-        params = {@MacroParam(name = "value", type = "int")},
+        normalParams = ["int"],
         returnType = "int"
     )
-    public static Expr<IntT> addOne(MacroContext context, Value<IntT> value) {
-        return context.quote().expression(context.types().intType(), code -> {
-            code.yield(code.add(value.expr(), code.intLiteral(1)));
-        });
-    }
+    fun addOne(context: MacroContext, value: Value<IntT>): Expr<IntT> =
+        context.quote.expression(context.types().intType()) {
+            yield(value.value + 1)
+        }
 }
 ```
 
-先看 Java 方法的输入和输出：
-
-| Java 类型 | 本例中表示什么 |
+| 类型或写法 | 含义 |
 | --- | --- |
-| `MacroContext` | 为这次宏调用提供代码构造、类型和诊断服务 |
-| `IntT` | 宏 API 中的整数类型标记 |
-| `Value<IntT>` | 调用方传入的整数值 |
-| `Expr<IntT>` | 执行后会产出整数的代码 |
+| `MacroContext` | 此次展开的代码、类型、诊断和资源服务 |
+| `IntT` | MCFPP 整数的宿主类型标记 |
+| `Value<IntT>` | 调用方已求值并绑定一次的整数 |
+| `Expr<IntT>` | 执行后产生整数的代码 |
+| `yield(...)` | 指定当前表达式区域的结果 |
 
-`IntT` 只标记类型。实际输入由 `Value<IntT>` 表示，待生成的结果由 `Expr<IntT>` 表示。它们与普通 MNI 的 `MCInt` 分别属于两套入口接口。
-
-## 读懂构造代码的三步
-
-1. `quote().expression(intType, ...)` 开始构造一段结果为整数的代码。
-2. `code.add(value.expr(), code.intLiteral(1))` 创建加法，两个输入是传入值和整数 `1`。
-3. `code.yield(...)` 指定这段代码的结果。
-
-`code -> { ... }` 是一个 Java 回调。编译器在构建时通过它建立代码结构。Java 方法返回的是代码对象，游戏执行这些代码后才得到整数结果。
-
-在已加载此宏的工程中，`main` 内可以写：
-
-```mcfpp
-external score: int = 10
-print(addOne(score))
-```
-
-运行后显示 `11`。构建时读取注解和生成加法，游戏运行时读取 `score` 并执行加法。
+`value.value` 和 `+ 1` 是 `CodeScope` 内的 DSL 操作。Kotlin 在构建时建立加法节点，游戏运行时读取输入并计算。完整操作表见 [Kotlin DSL API](/zh/api/kotlin-dsl)。
 
 ## 让宏具有可调用的名字
 
-`@MNIMacro` 默认使用 Java 方法名作为源码名字，所以这里叫 `addOne`。`params` 给出源码参数名和类型，`returnType` 给出源码返回类型。
+在 MCFPP 中显式声明，格式与 MNI 函数相同：
 
-**登记**指把这些名字和入口方法加入一个 MCFPP 命名空间。宏库的加载代码负责这个步骤，调用方再按该库的命名空间规则导入函数。当前 CLI 尚无单独的宏登记配置项；库作者可以参考上述仓库测试中的加载流程。
+```mcfpp
+func addOne(value: int): int = example.macros.ScoreMacros.addOne
+```
 
-普通 MNI 的 `func ... = package.Class.method` 对应 `@MNIFunction` 入口。本组宏的调用使用宏库已经登记的名字。
+CLI 构建的 provider 会自动加入类加载器；独立 JAR 使用 `mcfpp.toml` 中的 `jars`。`@MNIMacro` 只描述 JVM 实现；每个可调用的宏都需要源码声明，`injectedBy` 不会自动暴露宏。
+
+```mcfpp
+func main() {
+    external score: int = 10
+    print(addOne(score))
+}
+```
+
+预期输出为 `11`。公开名称、参数名和命名空间由 MCFPP 声明决定，可以用不同名称绑定同一个 JVM 方法。参数类型与返回类型必须和注解匹配；参数模式由 JVM 包装类型推导。
+
+## 入口与生成阶段
+
+入口必须是公开的 JVM 静态方法，首参数为 `MacroContext`。`object` 和 companion 成员使用 `@JvmStatic`；顶层函数天然是静态方法，可用 `@file:JvmName("ScoreMacros")` 固定绑定所用的类名。
+
+`void` 宏返回 `Block`；其他宏返回 `Expr<T>`，所有可达正常出口用 `yield` 给出结果。DSL 回调在构造时执行一次，builder 与句柄属于本次展开及相应作用域。
+
+Kotlin 的 `if`、`for` 控制生成过程；DSL 的 `ifThen`、`whileLoop` 构造运行时控制流。
 
 ## 阅读顺序
 
-1. [参数和表达式](./parameters)：区分运行时输入与构建时常量。
-2. [循环和回调](./callbacks)：实现带用户代码的 `repeat`。
-3. [实体、位置和计分板](./minecraft)：让宏生成 Minecraft 操作。
-4. [诊断、辅助函数和资源](./services)：组织一个宏库。
-5. [模板处理器](./declarations)：根据声明生成方法。
+1. [参数和表达式](./parameters)：值、常量、位置句柄和公开地址。
+2. [循环和回调](./callbacks)：INLINE、累加器与局部 return。
+3. [实体、位置和计分板](./minecraft)：Minecraft 执行上下文。
+4. [诊断、辅助函数和资源](./services)：组织宏库。
+5. [模板处理器](./declarations)：生成实例方法。
 
-需要观察生成过程时，使用 `mcfpp build --dump-ir`，并按 [IR 说明](../01project/04build-and-ir)查看输出。
+实际 Kotlin provider 位于编译器仓库 `examples/mni/*/provider/kotlin`。在该仓库根目录运行 `./gradlew test --tests top.mcfpp.test.MniLambdaMigrationTest` 可检查 repeat、raycast 等示例；Windows 使用 `gradlew.bat`。

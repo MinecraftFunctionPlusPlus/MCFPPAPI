@@ -2,29 +2,28 @@
 lastUpdated: true
 ---
 
-# 从 Java 生成 Minecraft 命令
+# 从 Kotlin 原生入口生成命令
 
-上一节通过返回值交付整数。本节让 Java 入口生成一个操作：游戏调用 `ready()` 时发送消息。
+原生入口可以在构建时添加命令。下面的 `ready()` 使生成的数据包发送一条消息。
 
-## 完整实现
+`src/main/kotlin/example/mni/Messages.kt`:
 
-`src/main/java/example/mni/Messages.java`：
+```kotlin
+package example.mni
 
-```java
-package example.mni;
+import top.mcfpp.annotations.MNIFunction
+import top.mcfpp.model.function.Function
 
-import top.mcfpp.annotations.MNIFunction;
-import top.mcfpp.model.function.Function;
-
-public final class Messages {
+object Messages {
+    @JvmStatic
     @MNIFunction
-    public static void ready() {
-        Function.addCommand("say MNI is ready");
+    fun ready() {
+        Function.addCommand("say MNI is ready")
     }
 }
 ```
 
-`src/main/mcfpp/main.mcfpp`：
+`src/main/mcfpp/main.mcfpp`:
 
 ```mcfpp
 func ready() = example.mni.Messages.ready
@@ -34,37 +33,8 @@ func main() {
 }
 ```
 
-执行 `mcfpp build`，加载生成的数据包，再调用 `main`。游戏将执行 `say MNI is ready`。
+执行 `mcfpp build`，加载数据包并调用 main，预期执行 `say MNI is ready`。`Function.addCommand` 接收不带 `/` 的命令正文；选择器与坐标使用命令执行时的上下文。
 
-## 两个阶段发生什么
+Kotlin 的 if 根据构建时数据决定生成哪些命令。MCFPP 的 if 控制游戏运行时是否执行生成的分支。
 
-构建时，编译器处理源码中的 `ready()` 调用，并执行 Java 方法 `Messages.ready`。`Function.addCommand` 把一条命令放进当前生成的函数。
-
-游戏运行时，Minecraft 执行这条已生成的命令。每次调用 `main` 都会执行它。Java 入口在构建时完成工作。
-
-`Function.addCommand` 接收命令正文，字符串从 `say` 等命令名称开始。命令中的选择器和坐标以实际运行时的执行上下文为准。
-
-## Java 条件与游戏条件
-
-源码中的条件控制游戏运行时是否执行命令。例如，把上面的 `main` 改为：
-
-```mcfpp
-func ready() = example.mni.Messages.ready
-
-func main() {
-    external enabled: bool = true
-    if (enabled) {
-        ready()
-    }
-}
-```
-
-编译器在构建时处理这条调用，把命令放入对应分支。游戏执行时，`enabled` 决定是否进入分支。
-
-如果在 Java 入口中写 Java `if`，它根据构建时 Java 能取得的数据选择要生成哪些命令。这适合读取工程配置后选择固定内容。
-
-## 什么时候使用这种入口
-
-固定命令可以直接写在 [MCFPP 源码](../02base/05original-command)中。需要复用 Java 库、读取构建配置或整理资源时，可以用 MNI 完成这些工作，并输出命令。
-
-需要组合命令片段时，查看 [Command API](/zh/api/class/command)。需要生成循环、表达式或插入用户回调时，继续阅读 [MNI 宏框架](../mni-macros/overview)。
+此页面使用原生接口，可访问编译器命令对象。结构化宏使用 `MacroContext` 和 `CodeScope`，通过 DSL 构造表达式、循环与上下文操作。见 [Kotlin 宏](../mni-macros/overview)、[Minecraft 操作](../mni-macros/minecraft)和 [Command API](/zh/api/class/command)。

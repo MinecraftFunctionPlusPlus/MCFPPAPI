@@ -4,16 +4,25 @@ lastUpdated: true
 
 # MNIMutator：原生属性写入
 
-`@MNIMutator("name")` 标记一个属性的 Java setter。`name` 与 MCFPP 字段名一致，Java 方法接收单个 `NativeCallContext`。
+`@MNIMutator("name")` 标记一个属性的 Kotlin setter。`name` 与 MCFPP 字段名一致，Kotlin 方法接收单个 `NativeCallContext`。
 
 ## 标准库示例
 
 BossBar 的 `max` 写入入口采用以下形式：
 
-```java
-@MNIMutator("max")
-public static void setMax(NativeCallContext context) {
-    NativeMinecraftCommandOperations.INSTANCE.bossbarSetMax(context);
+```kotlin
+package example.mni
+
+import top.mcfpp.annotations.MNIMutator
+import top.mcfpp.mni.NativeCallContext
+import top.mcfpp.backend.NativeMinecraftCommandOperations
+
+object BossBarWriteProperties {
+    @JvmStatic
+    @MNIMutator("max")
+    fun setMax(context: NativeCallContext) {
+        NativeMinecraftCommandOperations.bossbarSetMax(context)
+    }
 }
 ```
 

@@ -12,7 +12,7 @@ Follow this development path to create a project and produce a datapack. The sid
 
 ## Complete a project
 
-1. [Create a project](./01project/01create-project): choose an ordinary project or a Java MNI project.
+1. [Create a project](./01project/01create-project): choose an ordinary project or a Kotlin MNI project.
 2. [Develop in IDEA](./01project/03idea): edit, organize saved code, synchronize dependencies, and run tasks.
 3. [Configure the project](./01project/02config-file): select the Minecraft version, directories, and compiler options.
 4. [Manage dependencies](./10library/01import-and-use): add libraries and use lock files.
@@ -46,10 +46,10 @@ Follow this development path to create a project and produce a datapack. The sid
 
 Start with a complete project. Read these pages in order:
 
-1. [Java MNI introduction](./11mni/01mni-framework): create a project and bind a Java method to an MCFPP function.
+1. [Kotlin MNI introduction](./11mni/01mni-framework): create a Kotlin project, declare a macro, and call it from MCFPP.
 2. [Parameters and results](./11mni/02mni-framework-implementation): receive ordinary and compilation parameters, then return MCFPP values.
 3. [Generate commands](./11mni/05access): produce operations that execute in the game.
-4. [Gradle and Java tests](./12gradle/01gradle-configuration): configure dependencies and tests.
+4. [Gradle and Kotlin tests](./12gradle/01gradle-configuration): configure dependencies and tests.
 
 For libraries that combine expressions, loops, or user callbacks, continue with [MNI macro introduction](./mni-macros/overview). It starts with call preparation, then covers parameters, callbacks, Minecraft operations, and template processors.
 

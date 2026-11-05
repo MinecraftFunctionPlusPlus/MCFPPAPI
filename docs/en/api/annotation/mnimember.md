@@ -6,16 +6,18 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIMember` is a method marker retained at runtime. It has no configuration elements.
 
-```java
-import top.mcfpp.annotations.MNIMember;
+```kotlin
+package example.mni
 
-public final class MemberMetadata {
+import top.mcfpp.annotations.MNIMember
+
+object MemberMetadata {
+    @JvmStatic
     @MNIMember
-    public static void marker() {
-    }
+    fun marker() {}
 }
 ```
 
 This example shows annotation placement. Integration code that consumes the marker controls member discovery and registration.
 
-Library authors declare structures with `data` fields and Java functions with [MNIFunction](./mnifunction). Use [MNIAccessor](./mniaccessor) and [MNIMutator](./mnimutator) for native properties. These declarations expose member names and types to callers.
+Library authors declare structures with `data` fields and Kotlin/JVM native functions with [MNIFunction](./mnifunction). Use [MNIAccessor](./mniaccessor) and [MNIMutator](./mnimutator) for native properties. These declarations expose member names and types to callers.

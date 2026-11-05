@@ -1,2 +1,12 @@
 node_modules/
-docs/.vitepress/
+docs/.vitepress/*
+!docs/.vitepress/theme/
+!docs/.vitepress/theme/**
+!docs/.vitepress/components/
+!docs/.vitepress/components/**
+output/
+.playwright-cli/
+tools/cheerpj-repro/*.jar
+tools/cheerpj-repro/native-output.txt
+tools/cheerpj-repro/repro-manifest.json
+tools/cheerpj-repro/box-bytecode.txt

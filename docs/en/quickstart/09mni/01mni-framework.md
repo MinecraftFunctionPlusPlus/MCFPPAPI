@@ -10,6 +10,6 @@ head:
       href: /en/quickstart/11mni/01mni-framework.html
 ---
 
-# MNI introduction: call a Java implementation
+# MNI introduction: call a Kotlin implementation
 
 [Continue to the documentation](/en/quickstart/11mni/01mni-framework)

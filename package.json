@@ -6,19 +6,28 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:highlight": "node tests/highlighting.mjs",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "test:filesystem": "node tests/filesystem-compatibility.mjs",
+    "playground:prepare": "node scripts/prepare-playground.mjs",
+    "playground:verify": "node scripts/verify-playground.mjs",
+    "playground:typecheck": "vue-tsc --noEmit -p tsconfig.playground.json",
+    "playground:repro": "node scripts/prepare-cheerpj-repro.mjs",
+    "docs:dev": "pnpm playground:verify && vitepress dev docs",
+    "docs:build": "pnpm playground:verify && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "1.0.0-rc.41"
+    "@datapack-sandbox/vitepress-playground": "0.2.2",
+    "typescript": "5.7.3",
+    "vitepress": "1.0.0-rc.41",
+    "vue-tsc": "2.2.12"
   },
   "packageManager": "pnpm@8.15.9",
   "dependencies": {
     "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "vue": "3.5.44"
   }
 }

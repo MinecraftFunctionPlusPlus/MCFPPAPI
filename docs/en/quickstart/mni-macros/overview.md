@@ -2,98 +2,89 @@
 lastUpdated: true
 ---
 
-# MNI macros: turn a call into code
+# MNI macros: generate code with Kotlin
 
-Ordinary Java MNI entries supply values or commands. A macro returns **code for later execution**. For example, `addOne(score)` can generate code that reads a score, adds one, and supplies the result.
+An MNI macro runs Kotlin during compilation and constructs typed code for the MCFPP/Minecraft runtime. APIs, the DSL, examples, and project templates prioritize Kotlin. Java can call the emitted JVM methods.
 
-This guide is for macro library authors. First read [Java MNI introduction](../11mni/01mni-framework) and [Lambdas](../04function/05lambda). Then start with the single expression below.
+## Create a project
 
-## Prepare a macro library and caller
-
-Macro development has two steps: implement a Java entry, then add it to a library loading process. Loading gives the function an MCFPP name that source code can resolve.
-
-An ordinary MNI project can compile these Java classes. Current CLI templates provide `@MNIFunction` bindings. Macros register through library loading interfaces. The compiler repository contains complete examples:
-
-| Example | Java and Kotlin implementations | Source behavior |
-| --- | --- | --- |
-| Repetition | `examples/mni/repeat` | Invoke user callbacks with iteration indexes |
-| Raycasting | `examples/mni/raycast` | Test blocks along a direction |
-| Field and score synchronization | `examples/mni/score-mapping` | Generate template `load` and `save` methods |
-
-`src/test/kotlin/top/mcfpp/test/MniRepeatTest.kt` demonstrates entry preparation, source calls, and generated command checks. Run this command from the compiler repository root:
+Use JDK 21:
 
 ```sh
-./gradlew test --tests top.mcfpp.test.MniRepeatTest
+mcfpp init hello-mni --mni
+cd hello-mni
+mcfpp build
+mcfpp test
 ```
 
-Use `gradlew.bat` on Windows. This test checks `repeat` calls, callbacks, and loops. Read [Gradle and Java tests](../12gradle/01gradle-configuration) for tests in an ordinary MNI project.
+Write providers in `src/main/kotlin` and JUnit tests in `src/test/kotlin`. See [MNI projects](../11mni/01mni-framework) for the generated files and default `answer()` macro.
 
-## Implement an increment macro
+## Implement an add-one macro
 
-Create `example/macros/ScoreMacros.java` in the macro library:
+Create `src/main/kotlin/example/macros/ScoreMacros.kt`:
 
-```java
-package example.macros;
+```kotlin
+package example.macros
 
-import top.mcfpp.annotations.MNIMacro;
-import top.mcfpp.annotations.MacroParam;
-import top.mcfpp.mni.api.*;
+import top.mcfpp.annotations.MNIMacro
+import top.mcfpp.mni.api.*
 
-public final class ScoreMacros {
+object ScoreMacros {
+    @JvmStatic
     @MNIMacro(
-        params = {@MacroParam(name = "value", type = "int")},
+        normalParams = ["int"],
         returnType = "int"
     )
-    public static Expr<IntT> addOne(MacroContext context, Value<IntT> value) {
-        return context.quote().expression(context.types().intType(), code -> {
-            code.yield(code.add(value.expr(), code.intLiteral(1)));
-        });
-    }
+    fun addOne(context: MacroContext, value: Value<IntT>): Expr<IntT> =
+        context.quote.expression(context.types().intType()) {
+            yield(value.value + 1)
+        }
 }
 ```
 
-Read its inputs and result first:
-
-| Java type | Meaning in this example |
+| Type or expression | Meaning |
 | --- | --- |
-| `MacroContext` | Code construction, types, and diagnostics for this macro call |
-| `IntT` | The macro API marker for integers |
-| `Value<IntT>` | An integer value supplied by the caller |
+| `MacroContext` | Code, type, diagnostic, and resource services for this expansion |
+| `IntT` | A host type marker for MCFPP integers |
+| `Value<IntT>` | An integer argument evaluated and bound once by the caller |
 | `Expr<IntT>` | Code that produces an integer when executed |
+| `yield(...)` | Supply the current expression region's result |
 
-`IntT` only marks a type. `Value<IntT>` represents the input. `Expr<IntT>` represents result code. These interfaces belong to the macro API. Ordinary MNI uses interfaces such as `MCInt`.
+`value.value` and `+ 1` are DSL operations inside `CodeScope`. Kotlin constructs the addition during the build. The game reads the input and computes the result later. See the [Kotlin DSL API](/en/api/kotlin-dsl).
 
-## Read the three construction steps
+## Declare the macro
 
-1. `quote().expression(intType, ...)` starts code construction with an integer result.
-2. `code.add(value.expr(), code.intLiteral(1))` creates addition of the input value and integer `1`.
-3. `code.yield(...)` specifies the result of this code.
-
-`code -> { ... }` is a Java callback. The compiler invokes it during compilation to construct code. The Java method returns a code object. Executing that code in the game produces the integer.
-
-Inside `main` of a project that loads this macro, write:
+Declare the macro explicitly in MCFPP, using the same syntax as a native MNI function:
 
 ```mcfpp
-external score: int = 10
-print(addOne(score))
+func addOne(value: int): int = example.macros.ScoreMacros.addOne
 ```
 
-Execution displays `11`. Compilation reads the annotation and generates addition. Game execution reads `score` and performs that addition.
+The CLI automatically loads its provider output. Load standalone JARs through `jars` in `mcfpp.toml`. `@MNIMacro` describes the JVM implementation. Each callable macro needs a source declaration; `injectedBy` does not expose macros automatically.
 
-## Make the macro callable
+```mcfpp
+func main() {
+    external score: int = 10
+    print(addOne(score))
+}
+```
 
-`@MNIMacro` defaults to the Java method name, so this source function is `addOne`. `params` specifies source parameter names and types. `returnType` specifies the source result type.
+The expected output is `11`. The MCFPP declaration supplies the public name, parameter names, and namespace. Different names can bind the same JVM method. Parameter and return types must match the annotation; JVM wrappers determine parameter modes.
 
-**Registration** adds these names and the entry method to an MCFPP namespace. Library loading performs registration. Callers then import functions according to that library's namespace rules. The current CLI has no separate macro registration configuration. Library authors can follow the loading process in the repository test above.
+## Entry and construction phase
 
-Ordinary `func ... = package.Class.method` declarations bind `@MNIFunction` entries. Macro calls use names already registered by their library.
+The entry must be a public static JVM method whose first parameter is `MacroContext`. Use `@JvmStatic` on object and companion members. Top-level functions are already static; `@file:JvmName("ScoreMacros")` can fix the class name used in bindings.
+
+A void macro returns `Block`. Other macros return `Expr<T>`, with `yield` on every reachable normal exit. DSL callbacks run once during construction. Builders and handles belong to the current expansion and their lexical scopes.
+
+Kotlin `if` and `for` control construction. DSL `ifThen` and `whileLoop` construct runtime control flow.
 
 ## Reading order
 
-1. [Parameters and expressions](./parameters): runtime inputs and compilation constants.
-2. [Loops and callbacks](./callbacks): implement `repeat` with user code.
-3. [Entities, positions, and scores](./minecraft): generate Minecraft operations.
+1. [Parameters and expressions](./parameters): values, constants, locations, and public addresses.
+2. [Loops and callbacks](./callbacks): INLINE, accumulators, and local return.
+3. [Entities, positions, and scores](./minecraft): Minecraft execution contexts.
 4. [Diagnostics, helpers, and resources](./services): organize a macro library.
-5. [Template processors](./declarations): generate methods from declarations.
+5. [Template processors](./declarations): generate instance methods.
 
-Use `mcfpp build --dump-ir` to inspect generation. Read [IR output](../01project/04build-and-ir) for file locations.
+Actual providers live under `examples/mni/*/provider/kotlin` in the compiler repository. Run `./gradlew test --tests top.mcfpp.test.MniLambdaMigrationTest` there to check repeat and raycast examples. On Windows, use `gradlew.bat`.

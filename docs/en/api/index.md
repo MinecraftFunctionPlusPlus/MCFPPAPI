@@ -4,18 +4,19 @@ lastUpdated: true
 
 # MNI API reference
 
-This section describes Java extension entries and command objects. Start a complete project with the [MNI introduction](/en/quickstart/11mni/01mni-framework).
+MNI APIs, the DSL, and project templates prioritize Kotlin. Java can call the generated JVM methods. Start with a [Kotlin MNI project](/en/quickstart/11mni/01mni-framework).
 
 | API | Purpose |
 | --- | --- |
-| [MNIFunction](./annotation/mnifunction) | Ordinary native functions and results |
-| [MNIMacro](./annotation/mnimacro) | Macros that generate typed code |
-| [MNIAccessor](./annotation/mniaccessor) | Native property reads |
-| [MNIMutator](./annotation/mnimutator) | Native property writes |
-| [MNIMember](./annotation/mnimember) | Member metadata marker |
-| [InsertCommand](./annotation/insertcommand) | Command generation marker |
-| [Command](./class/command) | Minecraft command fragments |
+| [Kotlin DSL](./kotlin-dsl) | Quote, expressions, location writes, control flow, calls, and contexts |
+| [MNIMacro](./annotation/mnimacro) | Structured macro entries and input modes |
+| [MNIFunction](./annotation/mnifunction) | Native entries, compiler values, and result wrappers |
+| [MNIAccessor](./annotation/mniaccessor) / [MNIMutator](./annotation/mnimutator) | Native property access |
+| [MNIMember](./annotation/mnimember) | Member metadata |
+| [InsertCommand](./annotation/insertcommand) / [Command](./class/command) | Native command construction |
 
-Ordinary MNI functions receive `Var` subclasses and return results through `ValueWrapper`. Another form receives one `NativeCallContext`. The standard library uses it for receivers, arguments, and backend operations.
+Structured macros use `top.mcfpp.mni.api` and construct code through `MacroContext`, `Value<T>`, `Expr<T>`, and `Block`. Native `@MNIFunction` entries use `Var` subclasses, `ValueWrapper`, or `NativeCallContext`. Each entry protocol validates its own signature.
 
-Macros describe generated code with `MacroContext`, `Value<T>`, `Expr<T>`, and `Block`. Macros and ordinary native functions serve different extension needs.
+The current macro API version is `ApiVersion.VERSION = "0.2.0-experimental"`, independent of the compiler release. Providers can check it with `ApiVersion.isCompatibleWith("0.2")`.
+
+See the [macro tutorial](/en/quickstart/mni-macros/overview) and [public address inputs](/en/quickstart/mni-macros/parameters).

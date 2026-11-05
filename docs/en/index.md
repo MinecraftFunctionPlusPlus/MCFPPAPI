@@ -11,6 +11,9 @@ hero:
       text: QuickStart
       link: /en/quickstart/index
     - theme: alt
+      text: Playground
+      link: /en/playground
+    - theme: alt
       text: GitHub
       link: https://github.com/MinecraftFunctionPlusPlus/MCFPP
 

@@ -2,100 +2,127 @@
 lastUpdated: true
 ---
 
-# Macro parameters: values, constants, and writable locations
+# Macro inputs: values, constants, and addresses
 
-Continue with the [macro library prepared earlier](./overview). Implement `addConstant(value, amount)`: generate addition from a runtime integer and a fixed increment.
+Continue with the [macro project](./overview). Use `Value<T>` for ordinary inputs and `Const<T>` for inputs known during compilation.
 
-## Read the source call first
+## VALUE and CONST
 
-In a project that loads this macro, write:
+Create `src/main/kotlin/example/macros/ConstantMacros.kt`:
 
-```mcfpp
-external score: int = 10
-print(addConstant(score, 5))
-```
+```kotlin
+package example.macros
 
-`score` can change during play. `5` is known during compilation. The macro declares these inputs as `VALUE` and `CONST`.
+import top.mcfpp.annotations.MNIMacro
+import top.mcfpp.mni.api.*
 
-Both arguments use parentheses. `CONST` adds a requirement to the macro input. Source [readonly parameters](../07generic/01concrete_var) use angle brackets.
-
-## Complete Java implementation
-
-`example/macros/ConstantMacros.java`:
-
-```java
-package example.macros;
-
-import top.mcfpp.annotations.MNIMacro;
-import top.mcfpp.annotations.MacroParam;
-import top.mcfpp.mni.api.*;
-
-public final class ConstantMacros {
-    @MNIMacro(params = {
-        @MacroParam(name = "value", type = "int"),
-        @MacroParam(name = "amount", type = "int", mode = ParamMode.CONST)
-    }, returnType = "int")
-    public static Expr<IntT> addConstant(
-            MacroContext context, Value<IntT> value, Const<IntT> amount) {
-        int step = amount.intValue();
-        return context.quote().expression(context.types().intType(), code -> {
-            Local<IntT> result = code.local(
-                "result", context.types().intType(), value.expr());
-            code.assign(result, code.add(result.load(), code.intLiteral(step)));
-            code.yield(result.load());
-        });
+object ConstantMacros {
+    @JvmStatic
+    @MNIMacro(normalParams = [
+        "int",
+        "int"
+    ], returnType = "int")
+    fun addConstant(context: MacroContext, value: Value<IntT>, amount: Const<IntT>): Expr<IntT> {
+        val step = amount.intValue()
+        return context.quote.expression(context.types().intType()) {
+            val result = local("result", value.value)
+            result += step
+            yield(result.value)
+        }
     }
 }
 ```
 
-## VALUE: generate a read of the input
+Declare the macro in MCFPP:
 
-`value` has type `Value<IntT>`. It can represent a runtime score. `value.expr()` supplies an expression that reads this input.
-
-The caller evaluates and binds its arguments first. Repeated uses of `value.expr()` then reference the same bound input. If an argument comes from a function call, repeated macro uses read that call's bound result.
-
-## CONST: read a constant directly in Java
-
-`amount` has type `Const<IntT>`. `amount.intValue()` obtains an ordinary Java integer during compilation. Here, it obtains `5`.
-
-Java can use this integer to select generated content. For example, a fixed repetition count can determine how many code fragments to construct. `mode = ParamMode.CONST` makes the compiler check the argument before invoking the entry.
-
-`step` is Java data. `code.intLiteral(step)` places it into the generated code.
-
-## Local: create a variable in generated code
-
-`result` has type `Local<IntT>`. It represents a local integer in the generated program:
-
-| Operation | Effect here |
-| --- | --- |
-| `local("result", intType, value.expr())` | Create a local initialized from the input |
-| `result.load()` | Read the local |
-| `assign(result, expression)` | Write an expression result to the local |
-| `yield(result.load())` | Use the final integer as the macro call result |
-
-The generated behavior corresponds to:
-
-```text
-var result = score
-result = result + 5
-// Use result as the value of addConstant(score, 5)
+```mcfpp
+func addConstant(value: int, amount: int): int = example.macros.ConstantMacros.addConstant
 ```
 
-Java `step + 1` calculates an integer during compilation. `code.add` constructs addition in the generated program. Choose the interface according to when the data takes effect.
+`addConstant(score, 5)` returns `score + 5` at runtime. Both arguments use parentheses. Source readonly parameters use angle brackets and are a separate feature. `normalParams` lists types; `Value` and `Const` determine the modes.
 
-## REF: operate on a writable location
+- `VALUE`: the caller evaluates arguments once, in source order. Repeated `value.value` reads use the same stable result. Argument side effects execute even when the macro ignores the input.
+- `CONST`: `amount.intValue()` returns a Kotlin `Int` during compilation. Dynamic inputs are rejected before invoking the macro.
+- `Local<T>`: `local("result", expression)` infers the type from its initializer. `.value` accesses the generated variable; `+=` constructs an update.
 
-`Ref<T>` describes a writable location supplied by the compiler. Locals and `minecraft.score(...)` can provide these locations. `load()` reads them. `assign` writes them.
+Kotlin `step + 1` computes a host integer immediately. DSL `value.value + 1` constructs runtime code. See the [Kotlin DSL API](/en/api/kotlin-dsl).
 
-Source types `ScoreRef` and `NBTRef<T>` contain game addresses that callers can store and pass. They serve source interfaces. Macro `Ref<T>` serves code construction. Read [Address values](../02base/06references) for game address usage.
+## `Ref<T>` and public addresses
 
-## The four parameter modes
-
-| Mode | Java parameter | Input |
+| Type | Contents | Access |
 | --- | --- | --- |
-| `VALUE` | `Value<T>` | A bound value |
-| `CONST` | `Const<T>` | A value known during compilation |
-| `REF` | `Ref<T>` | A readable and writable location |
-| `INLINE` | `InlineFn<S>` | A user callback for generated code |
+| `Ref<IntT>` / `Local<IntT>` | A writable integer location issued by the compiler | DSL `.value`, `assign`, and `+=` |
+| `Value<ScoreRefT>` | An address descriptor for MCFPP `ScoreRef` | Forward it to source code using `tryRead` / `set` |
+| `Value<NBTRefT<IntT>>` | An address descriptor for MCFPP `NBTRef<int>` | Use source reference operations to access NBT |
 
-`VALUE` is the default. Continue with [INLINE callbacks and loops](./callbacks).
+For `health: Value<ScoreRefT>`, `health.value` has type `Expr<ScoreRefT>` and contains the address descriptor. Reading its target requires `tryRead`. Calling `set` on a captured reference updates the game target; the captured descriptor remains readonly.
+
+Construct references from explicit Minecraft addresses. The removed `ref local` syntax cannot take the address of an ordinary local variable.
+
+## Forward a reference to an ordinary function
+
+Use this page's imports and place this entry in `DamageMacros.kt` in the same package:
+
+```kotlin
+object DamageMacros {
+    @JvmStatic
+    @MNIMacro(normalParams = [
+        "ScoreRef",
+        "int"
+    ], returnType = "void")
+    fun damage(context: MacroContext, health: Value<ScoreRefT>, amount: Value<IntT>): Block {
+        @Suppress("UNCHECKED_CAST")
+        val target = context.types().function(
+            "applyDamage", listOf(health.type(), amount.type())
+        ) as FunctionRef<VoidT>
+        return context.quote.block {
+            callVoid(target, health.value, amount.value)
+        }
+    }
+}
+```
+
+Provide the explicit macro declaration and the ordinary source helper:
+
+```mcfpp
+func damage(health: ScoreRef, amount: int): void = example.macros.DamageMacros.damage
+
+func applyDamage(health: ScoreRef, amount: int) {
+    health.tryRead { current ->
+        if (current < amount) { health.set(0); }
+        else { health.set(current - amount); }
+    }
+}
+
+func main() {
+    /scoreboard objectives add hp dummy
+    /scoreboard players set #health hp 100
+    damage(scoreRef("#health", "hp"), 30)
+    var alias = scoreRef("#health", "hp")
+    alias.tryRead { current -> damage(alias, current); }
+}
+```
+
+The first call produces `70`. The second call, inside the callback, produces `0`. Factory calls can be macro arguments directly. Callback parameters and captured references can be passed to macros. `tryRead` invokes its callback synchronously only when reading the target succeeds.
+
+An NBT entry uses `normalParams = ["NBTRef<int>", "int"]` and `Value<NBTRefT<IntT>>`. Its source helper accepts `NBTRef<int>`. The complete example binds and calls it as follows:
+
+```mcfpp
+func damageNbt(health: NBTRef<int>, amount: int): void = example.mnidamage.KotlinDamageMacro.damageNbt
+func main() {
+    damageNbt(nbtStorageRef<int>("example:health", "normal.hp"), 30)
+}
+```
+
+The complete provider is `examples/mni/damage/provider/kotlin/example/mnidamage/KotlinDamageMacro.kt` in the compiler repository. Its caller projects are `examples/mni/damage` and `examples/mni/nbt-reference`. See [address references](../02base/06references).
+
+## The four modes
+
+| Mode | Kotlin parameter | Meaning |
+| --- | --- | --- |
+| `VALUE` | `Value<T>` | An evaluated value, including a public address descriptor |
+| `CONST` | `Const<T>` | A proven closed constant |
+| `REF` | `Ref<T>` | A compiler-issued writable location |
+| `INLINE` | `InlineFn<S>` | A statically insertable source callback |
+
+`REF` remains available for builder and helper locations. Public reference inputs use the default `VALUE` mode. Continue with [INLINE and loops](./callbacks).

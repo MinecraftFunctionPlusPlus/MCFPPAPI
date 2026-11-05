@@ -13,7 +13,7 @@ mcfpp --version
 mcfpp --project ./hello build
 ```
 
-Java MNI uses JDK 21. Select it through `MCFPP_JAVA_HOME` or IDEA settings. Source links in the console open the affected line.
+Kotlin MNI uses JDK 21. Select it through `MCFPP_JAVA_HOME` or IDEA settings. Source links in the console open the affected line.
 
 ## Kotlin reflection in a single JAR
 
@@ -39,4 +39,4 @@ This is a distribution dependency issue. Keep source declarations in the form sh
 
 After dependency declarations change, run `mcfpp install` to update locks. Run `mcfpp update` to select newer versions within declared ranges.
 
-Prepare dependencies online before an offline build. `--offline` needs the required Gradle distribution and Java dependencies in the local cache.
+Prepare dependencies online before an offline build. `--offline` needs the required Gradle distribution and JVM dependencies in the local cache.

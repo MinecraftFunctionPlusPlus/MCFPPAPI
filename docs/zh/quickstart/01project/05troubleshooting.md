@@ -13,7 +13,7 @@ mcfpp --version
 mcfpp --project ./hello build
 ```
 
-Java MNI 使用 JDK 21。通过 `MCFPP_JAVA_HOME` 或 IDEA 设置选择它。源码错误可以从控制台链接跳转到对应行。
+Kotlin MNI 使用 JDK 21。通过 `MCFPP_JAVA_HOME` 或 IDEA 设置选择它。源码错误可以从控制台链接跳转到对应行。
 
 ## 旧发行包缺少 Kotlin 反射库
 
@@ -29,4 +29,4 @@ MNI 工程使用本地 CLI JAR，因此 IDEA 的 Maven“下载源码”无法�
 
 依赖声明改变后，运行 `mcfpp install` 更新锁。需要主动选择范围内的新版本时，运行 `mcfpp update`。
 
-离线构建前，先联网完成一次依赖准备。`--offline` 同时要求本机已有所需 Gradle 版本和 Java 依赖。
+离线构建前，先联网完成一次依赖准备。`--offline` 同时要求本机已有所需 Gradle 版本和 JVM 依赖。

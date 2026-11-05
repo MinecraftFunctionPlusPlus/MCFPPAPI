@@ -12,7 +12,7 @@ next:
 
 ## 完成一个工程
 
-1. [创建工程](./01project/01create-project)：创建普通工程或 Java MNI 工程。
+1. [创建工程](./01project/01create-project)：创建普通工程或 Kotlin MNI 工程。
 2. [在 IDEA 中开发](./01project/03idea)：编辑、保存整理、同步依赖和运行任务。
 3. [配置工程](./01project/02config-file)：选择 Minecraft 版本、目录和编译选项。
 4. [管理依赖](./08library/01import-and-use)：添加库并使用锁文件。
@@ -46,10 +46,10 @@ next:
 
 从完整工程开始，按下面的顺序阅读：
 
-1. [Java MNI 入门](./09mni/01mni-framework)：创建工程，把 Java 方法绑定为 MCFPP 函数。
+1. [Kotlin MNI 入门](./09mni/01mni-framework)：创建 Kotlin 工程，声明并调用宏。
 2. [参数与返回值](./09mni/02mni-framework-implementation)：接收普通参数和编译时参数，返回 MCFPP 值。
-3. [生成命令](./09mni/05access)：让 Java 入口生成游戏中执行的操作。
-4. [Gradle 与 Java 测试](./10gradle/01gradle-configuration)：配置依赖和测试。
+3. [生成命令](./09mni/05access)：让 Kotlin 原生入口生成游戏中执行的操作。
+4. [Gradle 与 Kotlin 测试](./10gradle/01gradle-configuration)：配置依赖和测试。
 
 编写需要组合表达式、循环或用户回调的库时，继续阅读 [MNI 宏入门](./mni-macros/overview)。宏教程从调用准备开始，再依次介绍参数、回调、Minecraft 操作和模板处理器。
 

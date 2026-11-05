@@ -11,6 +11,9 @@ hero:
       text: 快速开始
       link: /zh/quickstart/index
     - theme: alt
+      text: 在线试用
+      link: /zh/playground
+    - theme: alt
       text: GitHub
       link: https://github.com/MinecraftFunctionPlusPlus/MCFPP
 

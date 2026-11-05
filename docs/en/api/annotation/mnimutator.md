@@ -4,16 +4,25 @@ lastUpdated: true
 
 # MNIMutator: native property writes
 
-`@MNIMutator("name")` marks a Java property setter. `name` matches the MCFPP field. The method receives one `NativeCallContext`.
+`@MNIMutator("name")` marks a Kotlin property setter. `name` matches the MCFPP field. The method receives one `NativeCallContext`.
 
 ## Standard library example
 
 The BossBar `max` setter uses this form:
 
-```java
-@MNIMutator("max")
-public static void setMax(NativeCallContext context) {
-    NativeMinecraftCommandOperations.INSTANCE.bossbarSetMax(context);
+```kotlin
+package example.mni
+
+import top.mcfpp.annotations.MNIMutator
+import top.mcfpp.mni.NativeCallContext
+import top.mcfpp.backend.NativeMinecraftCommandOperations
+
+object BossBarWriteProperties {
+    @JvmStatic
+    @MNIMutator("max")
+    fun setMax(context: NativeCallContext) {
+        NativeMinecraftCommandOperations.bossbarSetMax(context)
+    }
 }
 ```
 
