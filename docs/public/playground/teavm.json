@@ -9,8 +9,8 @@
   "artifacts": [
     {
       "path": "teavm/mcfpp.wasm",
-      "size": 41611749,
-      "sha256": "bf64b4127e6678caf25de364efc7a7886e01c7c61fe707429c58584b34e2c98d"
+      "size": 41645764,
+      "sha256": "2faf4c138ed101133d87ec0d8768ea1e1053c390d06518e1f2c821ea5d5d4f58"
     },
     {
       "path": "teavm/mcfpp.wasm-runtime.js",
@@ -24,8 +24,8 @@
     },
     {
       "path": "teavm/mcfpp.wasm.teadbg",
-      "size": 7629237,
-      "sha256": "b19818f037e78515d1b78a1afb9aea5629298de40fe47d6f450acf6fe1fee1e5"
+      "size": 7638702,
+      "sha256": "ac6b21de6038a53d611cf61efdcc3c95f07d2d36db72ab0745666b61f21bad6a"
     }
   ]
 }
