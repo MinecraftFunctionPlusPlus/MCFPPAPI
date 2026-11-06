@@ -4,9 +4,9 @@ lastUpdated: true
 
 # 工程配置
 
-在工程根目录中使用 `mcfpp.toml`。CLI 从当前目录向上查找这个文件，也可以通过 `--project` 指定工程。
+MCFPP 在工程根目录中使用 `mcfpp.toml` 作为配置文件。CLI 从当前目录向上查找这个文件，也可以通过 `--project` 指定工程配置文件路径。
 
-## 一个完整的普通工程配置
+## 一个完整的普通工程配置示例
 
 ```toml
 schema = 1
@@ -26,21 +26,21 @@ version = "java21-v1"
 enabled = false
 ```
 
-| 字段 | 用途 |
-| --- | --- |
-| `schema` | 配置格式版本，当前为 `1` |
-| `name` | 工程名称，也是输出数据包目录名 |
-| `namespace` | 默认命名空间 |
-| `version` | 本次构建的 Minecraft 目标版本 |
-| `description` | 数据包描述 |
-| `sourcePath` | MCFPP 源码目录，递归读取 `.mcfpp` 文件 |
-| `dataPath` | 附加数据资源目录，其内容复制到数据包的 `data/` 下 |
-| `assetsPath` | 客户端资源目录，非空时生成 `<name>-resources` 资源包 |
-| `entrypoints` | 公开原版函数 ID 到 MCFPP 顶层函数的映射 |
-| `resourceOverrides` | 允许替换编译产物的数据资源相对路径列表 |
-| `targetPath` | 构建输出根目录，位于工程目录内 |
-| `toolchain.version` | CLI 使用的工具链标识 |
-| `mni.enabled` | 是否准备 Kotlin MNI 源码和依赖 |
+| 字段                | 用途                                                 |
+|---------------------|------------------------------------------------------|
+| `schema`            | 配置格式版本，当前为 `1`                             |
+| `name`              | 工程名称，也是输出数据包目录名                       |
+| `namespace`         | 默认命名空间                                         |
+| `version`           | 本次构建的 Minecraft 目标版本                        |
+| `description`       | 数据包描述                                           |
+| `sourcePath`        | MCFPP 源码目录，递归读取 `.mcfpp` 文件               |
+| `dataPath`          | 附加数据资源目录，其内容复制到数据包的 `data/` 下    |
+| `assetsPath`        | 客户端资源目录，非空时生成 `<name>-resources` 资源包 |
+| `entrypoints`       | 公开原版函数 ID 到 MCFPP 顶层函数的映射              |
+| `resourceOverrides` | 允许替换编译产物的数据资源相对路径列表               |
+| `targetPath`        | 构建输出根目录，位于工程目录内                       |
+| `toolchain.version` | CLI 使用的工具链标识                                 |
+| `mni.enabled`       | 是否准备 Kotlin MNI 源码和依赖                       |
 
 相对路径从工程根目录计算。`targetPath` 使用独立的子目录，例如 `build` 或 `out`。`mcfpp clean` 会删除这个输出目录。
 
@@ -60,13 +60,14 @@ mcfpp build --dump-ir=inspect
 mcfpp --project ./hello build
 ```
 
-`--dump-ir=inspect` 将 IR 写入 `build/inspect/`。格式见[构建产物与 IR](./04build-and-ir)。
+>[!NOTE]
+> `--dump-ir=inspect` 将 IR 写入 `build/inspect/`。参见[构建产物与 IR](./04build-and-ir)。
 
 ## 依赖和 MNI
 
 在 `mcfpp-packages.json` 中声明 MCFPP 库和 JVM 依赖。CLI 更新 `mcfpp.lock` 和 MNI 工程的 `mcfpp-mni.lock`。将配置、依赖声明和锁文件提交到版本库。
 
-MNI 工程可使用 `[mni]` 配置 JVM 仓库、插件和 Gradle 扩展。示例见 [Gradle 与 Kotlin 构建](../10gradle/01gradle-configuration)。
+MNI 工程可使用 `[mni]` 配置 JVM 仓库、插件和 Gradle 扩展。详细见 [Gradle 与 Kotlin 构建](../10gradle/01gradle-configuration)。
 
 版本条件见 [Minecraft 目标版本](../minecraft-versions)。
 
