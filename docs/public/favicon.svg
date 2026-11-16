@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 6 104 108" width="64" height="64">
+  <style>
+    .p { fill: #6442C9; }
+    .g { fill: #1B7D63; }
+    .c { fill: #C27200; }
+    .o { fill: #D95314; }
+    @media (prefers-color-scheme: dark) {
+      .p { fill: #8A6CE8; }
+      .g { fill: #37AD8D; }
+      .c { fill: #EB9E1A; }
+      .o { fill: #F57636; }
+    }
+  </style>
+  <polygon class="p" points="22,25 39,25 39,48 16,48 16,31"/>
+  <rect class="g" x="45" y="25" width="23" height="23" rx="2.5"/>
+  <rect class="g" x="16" y="54" width="23" height="23" rx="2.5"/>
+  <rect class="c" x="45" y="54" width="23" height="23" rx="2.5"/>
+  <rect class="g" x="74" y="54" width="23" height="23" rx="2.5"/>
+  <polygon class="p" points="16,83 39,83 39,106 22,106 16,100"/>
+  <rect class="g" x="45" y="83" width="23" height="23" rx="2.5"/>
+  <polygon class="p" points="74,83 97,83 97,100 91,106 74,106"/>
+  <rect class="o" x="88.5" y="14" width="8" height="23" rx="1.8"/>
+  <rect class="o" x="81" y="21.5" width="23" height="8" rx="1.8"/>
+</svg>

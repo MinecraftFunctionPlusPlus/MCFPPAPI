@@ -763,7 +763,19 @@ const sandboxWorker = fileURLToPath(new URL(sandboxWorkers[0], sandboxAssets))
 export default defineConfig({
   title: "MCFPP",
   description: "Change the way you develop Minecraft Datapacks",
+  appearance: 'force-dark',
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: '' }],
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@5.3.1/wght.css',
+      media: 'print',
+      onload: "this.media='all'"
+    }]
+  ],
   themeConfig: {
+    logo: { src: '/logo-dark.svg', alt: 'MCFPP' },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },

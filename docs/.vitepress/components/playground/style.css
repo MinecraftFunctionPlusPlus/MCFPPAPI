@@ -141,11 +141,9 @@
 }
 .mcfpp-playground textarea,
 .mcfpp-playground pre {
-  font:
-    13px/1.85 "Cascadia Code",
-    "SFMono-Regular",
-    Consolas,
-    monospace;
+  font: 13px/1.85 var(--vp-font-family-mono);
+  font-variant-ligatures: contextual;
+  font-feature-settings: "calt" 1, "liga" 1;
   tab-size: 4;
   background: var(--code);
   color: var(--text);

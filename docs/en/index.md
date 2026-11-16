@@ -5,24 +5,23 @@ lastUpdated: true
 
 hero:
   name: "MCFPP"
-  text: "Change the way you develop Minecraft Datapacks"
+  text: "Typed. Cross-Version. Vanilla."
+  image:
+    src: /logo-dark.svg
+    alt: MCFPP
   actions:
     - theme: brand
-      text: QuickStart
+      text: Get started
       link: /en/quickstart/index
     - theme: alt
       text: Playground
       link: /en/playground
-    - theme: alt
-      text: GitHub
-      link: https://github.com/MinecraftFunctionPlusPlus/MCFPP
 
 features:
-  - title: Ultimate Experience
-    details: Through carefully designed syntax, make the development experience of data packs more smooth
-  - title: Cross-version Compilation
-    details: One code, multi-version support, no need to worry about Mojang's weekly changes
-  - title: Seamless Integration
-    details: Powerful MNI framework, more possibilities based on the data pack compilation period
+  - title: Structured Syntax
+    details: Familiar C-like and object-oriented syntax with type checking, generics, and lambdas instead of raw command sprawl.
+  - title: Cross-Version Builds
+    details: Target 1.21 through 26.3+ from one codebase with #if version directives and automatic backend adaptation.
+  - title: Native MNI & O2
+    details: Compile to clean vanilla .mcfunction packs optimized by an O2 pass pipeline, and bind Kotlin macros seamlessly.
 ---
-

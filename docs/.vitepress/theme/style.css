@@ -1,0 +1,714 @@
+:root,
+.dark {
+  --mcfpp-font-display: "Plus Jakarta Sans", "Noto Sans SC Variable", "Noto Sans SC",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --vp-font-family-base: "Chinese Quotes", "IBM Plex Sans", "Noto Sans SC Variable",
+    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif,
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", "Noto Sans SC Variable", "Noto Sans SC",
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --vp-c-bg: #0b0d12;
+  --vp-c-bg-alt: #08090d;
+  --vp-c-bg-soft: #131720;
+  --vp-c-brand-1: #37ad8d;
+  --vp-c-brand-2: #46c2a0;
+  --vp-c-brand-3: #25876c;
+  --vp-c-brand-soft: rgba(55, 173, 141, 0.14);
+  --vp-nav-logo-height: 26px;
+}
+
+.VPNavBarTitle .title,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  font-family: var(--mcfpp-font-display);
+}
+
+.vp-doc pre,
+.vp-doc code,
+.mcfpp-bg-code,
+.mcfpp-panel-pre,
+.mcfpp-result-value {
+  font-variant-ligatures: contextual;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+.mcfpp-bg-code code,
+.mcfpp-panel-pre code {
+  font-family: inherit;
+}
+
+/* 左侧纯净暗色排版 + 右侧 45° 旋转 Logo 与直角通透玻璃板，首屏留出下方引导 */
+.VPHome {
+  position: relative;
+  overflow-x: clip;
+  padding-bottom: 96px !important;
+}
+
+.mcfpp-hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(580px, 82vh, 740px);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
+}
+
+/* 右侧克制低饱和的 45° 层叠几何背景，衬托清透玻璃折射 */
+.mcfpp-stage-plane {
+  position: absolute;
+  top: 50%;
+  right: -12vw;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mcfpp-plane-1 {
+  width: 56vw;
+  height: 56vw;
+  max-width: 780px;
+  max-height: 780px;
+  transform: translate(18%, -50%) rotate(45deg);
+  background: linear-gradient(135deg, rgba(22, 52, 46, 0.42) 0%, rgba(15, 22, 32, 0.85) 100%);
+}
+
+.mcfpp-plane-2 {
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  right: -14vw;
+  transform: translate(22%, -46%) rotate(45deg);
+  background: linear-gradient(135deg, rgba(55, 173, 141, 0.14) 0%, rgba(46, 33, 94, 0.52) 100%);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.42);
+}
+
+.mcfpp-plane-3 {
+  width: 34vw;
+  height: 34vw;
+  max-width: 480px;
+  max-height: 480px;
+  right: -16vw;
+  transform: translate(26%, -40%) rotate(45deg);
+  background: linear-gradient(135deg, rgba(138, 108, 232, 0.22) 0%, rgba(245, 118, 54, 0.14) 100%);
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.38);
+}
+
+.mcfpp-stage-glow {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 580px;
+  max-height: 580px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 55% 50%,
+    rgba(55, 173, 141, 0.14) 0%,
+    rgba(138, 108, 232, 0.12) 48%,
+    transparent 74%
+  );
+  filter: blur(72px);
+}
+
+/* 右侧大面积淡化背景代码片段：占满右半屏视野，含 / 原版命令并增强与前景玻璃板的折射层次 */
+.mcfpp-bg-code {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: min(64vw, 940px);
+  margin: 0;
+  padding: 28px 36px 28px 96px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 14.5px;
+  line-height: 1.76;
+  color: rgba(226, 232, 240, 0.25);
+  white-space: pre;
+  overflow: hidden;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 26%,
+    #000 54%,
+    rgba(0, 0, 0, 0.85) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 26%,
+    #000 54%,
+    rgba(0, 0, 0, 0.85) 88%,
+    transparent 100%
+  );
+}
+
+.mcfpp-bg-code .bg-kw {
+  color: rgba(167, 139, 250, 0.36);
+}
+
+.mcfpp-bg-code .bg-ty {
+  color: rgba(55, 173, 141, 0.38);
+}
+
+.mcfpp-bg-code .bg-fn {
+  color: rgba(125, 211, 252, 0.34);
+}
+
+.mcfpp-bg-code .bg-num {
+  color: rgba(245, 158, 11, 0.34);
+}
+
+.mcfpp-bg-code .bg-str {
+  color: rgba(134, 239, 172, 0.32);
+}
+
+.mcfpp-bg-code .bg-dir {
+  color: rgba(245, 118, 54, 0.38);
+}
+
+.mcfpp-bg-code .bg-cmd-root {
+  color: rgba(244, 114, 182, 0.44);
+}
+
+.mcfpp-bg-code .bg-sub {
+  color: rgba(125, 211, 252, 0.36);
+}
+
+.mcfpp-bg-code .bg-sel {
+  color: rgba(251, 191, 36, 0.44);
+}
+
+.mcfpp-bg-code .bg-res {
+  color: rgba(55, 173, 141, 0.42);
+}
+
+@media (max-width: 959px) {
+  .mcfpp-hero-backdrop {
+    height: 440px;
+  }
+
+  .mcfpp-stage-plane {
+    opacity: 0.45;
+  }
+
+  .mcfpp-bg-code {
+    right: -4%;
+    width: 108%;
+    padding: 20px 24px;
+    font-size: 12px;
+    opacity: 0.45;
+  }
+}
+
+.VPHome .VPHero {
+  position: relative;
+  z-index: 1;
+  margin-top: 0 !important;
+  padding: 36px 24px 28px !important;
+}
+
+.VPHome .VPHero .main {
+  position: relative;
+  z-index: 2;
+  order: 1 !important;
+}
+
+/* 放大 MCFPP 主标题字号，与右侧 45° Logo 玻璃板平衡 */
+.VPHome .VPHero .name,
+.VPHome .VPHero .name .clip {
+  font-family: var(--mcfpp-font-display) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--vp-c-text-1) !important;
+  color: var(--vp-c-text-1) !important;
+  font-size: clamp(60px, 7.6vw, 98px) !important;
+  font-weight: 700 !important;
+  line-height: 1.0 !important;
+  letter-spacing: 0.015em !important;
+}
+
+.VPHome .VPHero .text {
+  font-family: var(--mcfpp-font-display) !important;
+  margin-top: 16px !important;
+  color: var(--vp-c-text-2) !important;
+  font-size: clamp(22px, 2.3vw, 31px) !important;
+  font-weight: 450 !important;
+  line-height: 1.32 !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* MC 身份锚点（紧跟在三词标语下方，带草方块图标） */
+.mcfpp-mc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: var(--vp-c-text-2);
+}
+
+.mcfpp-grass-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mcfpp-mc-badge-text strong {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+.VPHome .VPHero .actions {
+  margin-top: 28px !important;
+  padding-top: 0 !important;
+  gap: 12px;
+}
+
+.VPHome .VPHero .actions .action {
+  padding: 0 !important;
+}
+
+.VPHome .VPHero .actions .VPButton.medium {
+  border-radius: 9999px;
+  height: 44px;
+  line-height: 42px;
+  padding: 0 26px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.VPHome .VPHero .image {
+  order: 2 !important;
+  margin: 24px 0 8px !important;
+}
+
+.VPHome .VPHero .image-container {
+  position: relative;
+  width: 100% !important;
+  max-width: 380px !important;
+  height: 300px !important;
+  transform: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VPHome .VPHero .image-bg {
+  display: none !important;
+}
+
+/* 右侧 Logo + 直角通透玻璃板 */
+.mcfpp-hero-stage {
+  --hero-logo-size: clamp(165px, 38vw, 210px);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mcfpp-hero-glass-plate {
+  position: absolute;
+  z-index: 1;
+  width: calc(var(--hero-logo-size) * 1.22);
+  height: calc(var(--hero-logo-size) * 1.22);
+  border-radius: 0;
+  transform: rotate(45deg);
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.055) 0%,
+    rgba(255, 255, 255, 0.012) 44%,
+    rgba(160, 225, 215, 0.025) 100%
+  );
+  border: 1.5px solid rgba(255, 255, 255, 0.36);
+  border-right-color: rgba(185, 235, 228, 0.22);
+  border-bottom-color: rgba(185, 235, 228, 0.20);
+  box-shadow:
+    inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.42),
+    inset -1.5px -1.5px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 0 rgba(120, 200, 188, 0.14),
+    4.5px 4.5px 0 0 rgba(70, 130, 125, 0.20),
+    6px 6px 0 0 rgba(190, 238, 232, 0.30),
+    15px 15px 40px rgba(0, 0, 0, 0.48);
+}
+
+.mcfpp-hero-logo {
+  position: relative;
+  z-index: 2;
+  width: var(--hero-logo-size);
+  height: var(--hero-logo-size);
+  transform: rotate(45deg);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.40));
+  user-select: none;
+}
+
+/* 第二部分导语：下移至首屏偏底部，刚好露出引导视线 */
+.mcfpp-section-head {
+  padding: 20px 24px 18px;
+}
+
+.mcfpp-section-head-inner {
+  margin: 0 auto;
+  max-width: 1152px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mcfpp-section-title {
+  font-family: var(--mcfpp-font-display);
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+}
+
+.mcfpp-section-more {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.mcfpp-section-more:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.VPHome .VPFeatures .VPFeature {
+  background: rgba(19, 23, 32, 0.78) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+.VPHome .VPFeatures .VPFeature .title {
+  font-family: var(--mcfpp-font-display);
+}
+
+/* 第二屏：紧接在 Why MCFPP 导语下方的交互式代码块，其后衔接特性小卡片 */
+.mcfpp-examples-section {
+  padding: 6px 24px 36px;
+}
+
+.mcfpp-examples-container {
+  margin: 0 auto;
+  max-width: 1152px;
+}
+
+.mcfpp-examples-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.mcfpp-examples-cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  transition: color 0.15s ease;
+}
+
+.mcfpp-examples-cta:hover {
+  color: var(--vp-c-brand-2);
+}
+
+.mcfpp-examples-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mcfpp-tab-btn {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(19, 23, 32, 0.72);
+  color: var(--vp-c-text-2);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.mcfpp-tab-btn:hover {
+  color: var(--vp-c-text-1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.mcfpp-tab-btn.is-active {
+  background: rgba(55, 173, 141, 0.16);
+  border-color: rgba(55, 173, 141, 0.50);
+  color: #6ee7c7;
+  font-weight: 600;
+}
+
+.mcfpp-examples-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.mcfpp-code-panel,
+.mcfpp-output-panel {
+  display: flex;
+  flex-direction: column;
+  height: 384px;
+  background: rgba(17, 21, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 959px) {
+  .mcfpp-code-panel {
+    height: 340px;
+  }
+
+  .mcfpp-output-panel {
+    height: 290px;
+  }
+}
+
+.mcfpp-panel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mcfpp-panel-file {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12.5px;
+  color: var(--vp-c-text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mcfpp-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.mcfpp-panel-badge,
+.mcfpp-panel-tag {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #46c2a0;
+  background: rgba(55, 173, 141, 0.12);
+  border: 1px solid rgba(55, 173, 141, 0.24);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.mcfpp-panel-tag {
+  color: #a78bfa;
+  background: rgba(138, 108, 232, 0.12);
+  border-color: rgba(138, 108, 232, 0.24);
+}
+
+.mcfpp-copy-btn {
+  padding: 2px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--vp-c-text-2);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.mcfpp-copy-btn:hover {
+  color: var(--vp-c-text-1);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.mcfpp-panel-pre {
+  margin: 0;
+  padding: 18px 20px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #e2e8f0;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.mcfpp-panel-pre-out {
+  background: rgba(10, 12, 17, 0.55);
+  flex: 0 0 132px;
+}
+
+.tk-kw { color: #c084fc; }
+.tk-ty { color: #4fd1b5; }
+.tk-fn { color: #60a5fa; }
+.tk-num { color: #f59e0b; }
+.tk-str { color: #86efac; }
+.tk-dir { color: #f57636; }
+.tk-cm { color: #64748b; font-style: italic; }
+.tk-cmd { color: #cbd5e1; }
+.tk-cmd-root { color: #f472b6; }
+.tk-sub { color: #7dd3fc; }
+.tk-sel { color: #fbbf24; }
+.tk-res { color: #4fd1b5; }
+
+.mcfpp-panel-summary {
+  padding: 16px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(13, 16, 23, 0.72);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.mcfpp-result-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mcfpp-result-label {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.mcfpp-result-value {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #46c2a0;
+  background: rgba(55, 173, 141, 0.12) !important;
+  padding: 2px 8px !important;
+  border-radius: 5px;
+}
+
+.mcfpp-summary-desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.58;
+  color: var(--vp-c-text-2);
+}
+
+.mcfpp-summary-link {
+  align-self: flex-start;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+
+.mcfpp-summary-link:hover {
+  color: var(--vp-c-brand-2);
+}
+
+@media (min-width: 640px) {
+  .VPHome .VPHero {
+    padding: 40px 48px 28px !important;
+  }
+
+  .VPHome .VPHero .image-container {
+    max-width: 440px !important;
+    height: 340px !important;
+  }
+
+  .mcfpp-hero-stage {
+    --hero-logo-size: 215px;
+  }
+
+  .mcfpp-section-head {
+    padding: 20px 48px 18px;
+  }
+
+  .mcfpp-examples-section {
+    padding: 6px 48px 40px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHome .VPHero {
+    min-height: clamp(540px, 78vh, 700px);
+    display: flex;
+    align-items: center;
+    padding: 48px 64px 40px !important;
+  }
+
+  .VPHome .VPHero .container {
+    width: 100%;
+    max-width: 1240px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .VPHome .VPHero.has-image .main {
+    width: 48%;
+    max-width: 560px;
+    flex-shrink: 0;
+  }
+
+  .VPHome .VPHero .image {
+    width: 52%;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .VPHome .VPHero .image-container {
+    max-width: 560px !important;
+    height: clamp(420px, 60vh, 560px) !important;
+  }
+
+  .mcfpp-hero-stage {
+    --hero-logo-size: min(37vh, 23vw, 340px);
+  }
+
+  .mcfpp-section-head {
+    padding: 24px 64px 20px;
+  }
+
+  .mcfpp-examples-section {
+    padding: 8px 64px 44px;
+  }
+
+  .mcfpp-examples-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+  }
+}
