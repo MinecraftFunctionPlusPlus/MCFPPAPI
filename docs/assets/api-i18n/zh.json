@@ -1,0 +1,3053 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh",
+  "symbols": {
+    "s-ee9c34c3ff166beb1997cc954329b01598cfd03f601a0d9ac331b9fdefea4350": {
+      "sourceHash": "60912c38164cc17e65a209433f6848affbd5f8d5b32a9e8fae8294d2eeb9e04a",
+      "markdown": "保存任意类型的值。",
+      "tags": []
+    },
+    "s-cc33c5dcb9c8a11aa90b73e72ddcc6b5bdaf70344619d8ed9ed1b48a9b6b4eb3": {
+      "sourceHash": "3bf5126bf773131bd15d9b90dd2d104a4812234a52cb8bb68437c592db7b1af0",
+      "markdown": "计数值的类型别名。",
+      "tags": []
+    },
+    "s-edac3cc2d6522895cff324b2f21d088cdc7623dbc7008aa81d2dce5359f4009e": {
+      "sourceHash": "2b6c32cb67e239460b5f655d5174c0c2320ca7cd5195e14291a79cea4f973f71",
+      "markdown": "保存当前累计值。",
+      "tags": []
+    },
+    "s-f238dac63f9669477a05a32998685ca11a549d5be46267a11305676642a325a2": {
+      "sourceHash": "dd9a4e8e40004aab15d26c6124544f013df877a02da4be25066b7cfefe00b7f7",
+      "markdown": "带名称的计数器，继承 [Counter.read()] 的文档。",
+      "tags": []
+    },
+    "s-82ab5bd5e5e20b02f507e75c9d02cb3aaab8018aff27e7ad6c5685a5032e821c": {
+      "sourceHash": "4aeac3269b69182cece05ae20e3c52c544c4720059018d65a9114a764f92bad6",
+      "markdown": "计数器状态。",
+      "tags": []
+    },
+    "s-6340c8e20a036f9a42b2e0ced61a072762ab0d29ee1b75d0ca62608457b2f502": {
+      "sourceHash": "7b6e4857243be11e496b34693494b6daff575de1e4d0ca1575d69f4f6e5f9db8",
+      "markdown": "# Counter API\n\n用于记录和读取累计值。参见 [Counter]、[identity(int)] 和 [Box]。",
+      "tags": []
+    },
+    "s-2031dd725b9ec75ca9ab8f91145f771947893cf01a4a47efde5877ac82c184d0": {
+      "sourceHash": "f7757ee3139b605c3c1882bc2ece0a643596624f07319c71aa1269a1d1374682",
+      "markdown": "返回布尔输入。",
+      "tags": [
+        {
+          "content": "要返回的布尔值。",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "输入值。",
+          "name": "return"
+        },
+        {
+          "content": "identity(int)",
+          "name": "see"
+        }
+      ]
+    },
+    "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5": {
+      "sourceHash": "d87a0852542696b70c5402c0b60105254c8de698f2b6bdbd85455c829e253024",
+      "markdown": "返回整数输入。",
+      "tags": [
+        {
+          "content": "要返回的整数。",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "输入值。",
+          "name": "return"
+        },
+        {
+          "content": "identity(bool)",
+          "name": "see"
+        }
+      ]
+    },
+    "s-7d8b1a278fb93884ed252525bfea6170eba9e685190c0f8bc4e611e59a9a4efb": {
+      "sourceHash": "5fd09d4be9ac9eacaac41e15d7e013936ee00b69646e02dfca09059f56a3e0f1",
+      "markdown": "早期的读取入口。",
+      "tags": [
+        {
+          "content": "使用 [identity(int)]。",
+          "name": "deprecated"
+        }
+      ]
+    },
+    "s-3dbb8ffd6d081899ea29280cdf7a737aadb01cb03fcf72dcc5d0eabf29205b4b": {
+      "sourceHash": "eb4829154673aedb675dbbc4e6393eef4fa4a429523f21db63968dedd99f008b",
+      "markdown": "存储的值。",
+      "tags": []
+    },
+    "s-53f0e13d63f31f2f2fe047745b7e26045c9192c705de155e668c0b38cfe510e9": {
+      "sourceHash": "1db975f7abade2c39b8878fd4e53f181f53cdf93265e1be85cbde3be9f4ceac0",
+      "markdown": "创建从零开始的计数器。",
+      "tags": []
+    },
+    "s-7db2c5128237e6e4dcfc5ebdecfcbb2c90c1a3ecbac174cfbf97dd7a349badc1": {
+      "sourceHash": "5c4b888609c8bc2ede8d0a7d26b4fc52b18ccf352f6ec5efc8f40846f929b917",
+      "markdown": "读取当前累计值。\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "tags": [
+        {
+          "content": "当前累计值。",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    "s-307f3cc1980c397215f23525cb43d23dfe8f66fa3e5dbe3f4b69e5645de8b25f": {
+      "sourceHash": "099550c196dfea2c79eb69b8c46743cc4302104b57311991f7dcf9b8fa42d004",
+      "markdown": "当前累计值。",
+      "tags": []
+    },
+    "s-3703c404d97f0c1d41f79eac417c9b9e7e9f98b87bdc36b834f382b708fb6db2": {
+      "sourceHash": "d56db237f5ab34682d25391856443404f09c27239f8521559f7ee05cd012fabd",
+      "markdown": "显示名称。",
+      "tags": []
+    },
+    "s-862630d87742e7472ed2b94e058509e22dd38f08e3cb80f02ec5e1a45f7983c1": {
+      "sourceHash": "5c4b888609c8bc2ede8d0a7d26b4fc52b18ccf352f6ec5efc8f40846f929b917",
+      "markdown": "读取当前累计值。\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "tags": [
+        {
+          "content": "当前累计值。",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    "s-f3c79e9e876b69e5f99442c4f2a31c759bfbd30fb3ff3d4a528db92d25e7fe9f": {
+      "sourceHash": "099550c196dfea2c79eb69b8c46743cc4302104b57311991f7dcf9b8fa42d004",
+      "markdown": "当前累计值。",
+      "tags": []
+    },
+    "s-da6ff920e9eccb72f3e868dc56cf9d5b6b338fec7ae4936a3068eddabb831f07": {
+      "sourceHash": "3720e5857e64804ee7de2b84c501ff5d78bed2c503b526305d2dc43915d57b6d",
+      "markdown": "已完成。",
+      "tags": []
+    },
+    "s-c30059e9cbbaabe9a27efb5e61da523c4dad51dbadc0e2eefda60b6d82f8070c": {
+      "sourceHash": "65e49de640da2fece887c7bace409811e88c7dcd029896d876d560504584e21b",
+      "markdown": "已就绪。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.InsertCommand": {
+      "sourceHash": "1bf75c1a047056a059e9a3d1ccf436aa76d1b15f79f76b868e544a50b6d0968f",
+      "markdown": "将 JVM 函数或构造函数标记为插入生成命令的入口。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MCFPPNative": {
+      "sourceHash": "38e73544477b47478c8ec01969408d954e7e3afa6a9f3c661ec4bdf4535dd643",
+      "markdown": "将 JVM 函数标记为 MCFPP 原生实现。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIAccessor": {
+      "sourceHash": "1a8f8fa69298c43d4c0a7a8b78d58e4e8bf8eef6b7c28125e75f3d88df3de5b1",
+      "markdown": "将公开静态 JVM 方法登记为 MCFPP 属性的 getter。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIAccessor.value": {
+      "sourceHash": "7c7289bad7c4c32222ce67744c8a26dbdf0891b6f58aa3e213bccfb58cb6e531",
+      "markdown": "要读取的 MCFPP 属性名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction": {
+      "sourceHash": "237945e07977f0ac5d584216695f6a8b99e9b783f7d31e7e2a98b699109bb2bf",
+      "markdown": "将公开静态 JVM 方法登记为 MCFPP 原生函数的实现。\n编译器在处理调用时执行该方法，由方法生成 Minecraft 命令或计算编译期结果。\n实现方法可接收 NativeCallContext，由上下文提供参数和结果。\n旧包装器签名按只读参数、普通参数、调用者和返回值包装器的顺序接收参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.readOnlyParams": {
+      "sourceHash": "270136a84e14a4899fe0fcf58f2dd0597d5c827456a21682f7890876c7a5f66d",
+      "markdown": "只读参数的 MCFPP 类型列表，按调用实参顺序排列。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.normalParams": {
+      "sourceHash": "14df93a59e95894284213cc27c7852898a022f8ddcd7c1e95459a53065e99531",
+      "markdown": "普通参数的 MCFPP 类型列表，按调用实参顺序排列。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.caller": {
+      "sourceHash": "7f4dad2d47d17a1b52eaf8b3622d74e39233b7904048865c5577c4f6c074e800",
+      "markdown": "调用者的类型提示。默认值为 void，实际调用者类型由成员绑定确定。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.returnType": {
+      "sourceHash": "0c40ebfb7ff54e0a009356bd7d2f311f48a7228e31561270cbe665aa400df976",
+      "markdown": "函数的返回类型。默认为void",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.override": {
+      "sourceHash": "69838bf7e63a24eefa8af2a2a8a0637235852e036c73ae8dc5e183dc1fe497fb",
+      "markdown": "是否重写了父类中的函数。默认为false",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.genericType": {
+      "sourceHash": "7f09c3cdf068ba41cdf484d6c282bae43a7a79dcd9d0a5e9fb7ab664313f3455",
+      "markdown": "签名中使用的泛型参数名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.tag": {
+      "sourceHash": "2dd138eab71f925e883424272e5ddd785ec6208fde22e2786485dd26263120a9",
+      "markdown": "登记函数时附加的标记信息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.identifier": {
+      "sourceHash": "44fe4d206a386bad484123d4a9975c18bfbf5febc9fd5255159f0cff0a26425c",
+      "markdown": "MCFPP 函数名称。空字符串表示使用 JVM 方法名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.returnsConstWhenArgsConst": {
+      "sourceHash": "883d86db47af958e4a5ffa744bbeae82164d00719a60e4b71874b3602b351fef",
+      "markdown": "当参数都是常量时，是否返回常量。默认为false",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro": {
+      "sourceHash": "037d10e0905c5518e851e7c21eb6f05a99484c7c12a18ceda56648b7c30e386d",
+      "markdown": "描述在编译期展开 MCFPP 宏的公开静态 JVM 方法。\n每个宏都通过显式 MCFPP `func ... = Provider.method` 声明公开。\n方法的首参数是 MacroContext；Value、Ref、Const 和 InlineFn 包装器决定参数模式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.identifier": {
+      "sourceHash": "fe7a5eaad620c97885f626e064f7398dc2597d95b94e790f580d6e1345695a3d",
+      "markdown": "可选的描述符名称；公开名称由显式 MCFPP 声明提供。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.normalParams": {
+      "sourceHash": "e21c34f5ac28c610601e55e0f6cad0f4cee65dc711e4198718f8e357cafebdbb",
+      "markdown": "按 JVM 参数顺序排列的 MCFPP 参数类型列表，不包含 MacroContext。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.returnType": {
+      "sourceHash": "5f74bb91724f031a8ab1c6e93ea04ac9f192af89de84225c684bd693c8dd227c",
+      "markdown": "MCFPP 返回类型。void 宏返回 Block，有结果的宏返回 Expr。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMember": {
+      "sourceHash": "7c7207eba940595403a4d89ca6a5970360ad3a82a6abdf2364da73dbb8ddc61c",
+      "markdown": "将 JVM 方法标记为要登记的 MCFPP 成员。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMutator": {
+      "sourceHash": "b7e418a625e23ddc86a8dad6a1852dffffcfe537bcd21d0f25ae500fe3e5690f",
+      "markdown": "将公开静态 JVM 方法登记为 MCFPP 属性的 setter。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMutator.value": {
+      "sourceHash": "c3aca201b5e7016043ba81fd4a571fe26d93e27761b94c96470672aec1ea6790",
+      "markdown": "要写入的 MCFPP 属性名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator": {
+      "sourceHash": "dd87ad93715f628b044338151dcb11321b19728aa8ab492983de1b550e8165df",
+      "markdown": "将公开静态 JVM 方法登记为 MCFPP 类型的运算符实现。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.operator": {
+      "sourceHash": "fdfec281176163a2262d7828c0278a776ca1849d6614571a2479f0d4ade5c72b",
+      "markdown": "源码中的运算符符号，例如 `+`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.paramType": {
+      "sourceHash": "be74de30dd94e49cfab52d775d96d4b6e2473a01c6a77e48d6a1da2ee1ee3ad0",
+      "markdown": "参数类型。如果为空字符串，则表示一个一元运算符",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.returnType": {
+      "sourceHash": "74c39c7b869b3f7ea85ef195c77cc77b4fbf5ed18817a0c719470046317cf9b0",
+      "markdown": "运算结果的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.tag": {
+      "sourceHash": "6e01070062a585718196b4cca871ad5e489c7307986b69ae8546dd2a274caf6f",
+      "markdown": "额外的标记信息",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.returnsConstWhenArgsConst": {
+      "sourceHash": "883d86db47af958e4a5ffa744bbeae82164d00719a60e4b71874b3602b351fef",
+      "markdown": "当参数都是常量时，是否返回常量。默认为false",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command": {
+      "sourceHash": "79d2ef431f9775ef27637f2dbeb7dcd7be5f05f9c0cbae1216e7c4166393d8ac",
+      "markdown": "一条命令。在MCFPP编译过程中，一条命令可能会被分为多个命令片段，由接口`ICommandPart`实现。一个`Command`对象可以包含多个`CommandPart`对象。命令中的片段可以被字符串标签标记，从而能够对命令的某些片段进行替换操作。\n\n要开始构建一个命令，可以使用`Command`的伴随对象中的`Command.build`方法，或者使用`Command(String)`构造函数。此后，可以继续通过链式调用成员方法`build(String)`或者`build(Command)`来添加命令片段，或者使用`build(command:String, pointID: String)`来在添加命令片段的同时，标记该片段的替换标签为`pointID`。\n\n对于宏命令而言，可以使用成员方法`buildMacro(id: Var<*>)`来构建一个宏命令，其中`id`代表的变量就是要传递给宏的变量。随后，构建出的宏命令需要再使用`buildMacroFunction`方法将宏命令转换为宏函数来调用，从而提高宏命令的效率。此方法将会返回一个新的`Command`对象，即调用此宏函数的命令。\n\n要替换命令中的一些片段，可以使用成员方法`replace(pointID: String, target: String)`或者`replace(pointID: String, target: Command)`。它将会把标记为`pointID`的片段替换为`target`。",
+      "tags": [
+        {
+          "name": "constructor",
+          "content": "创建空的 Command。"
+        },
+        {
+          "name": "constructor",
+          "content": "创建空的 Command。"
+        },
+        {
+          "name": "see",
+          "subject": "CommandPart",
+          "content": ""
+        },
+        {
+          "name": "see",
+          "subject": "MacroPart",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.debugPoint": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.debugPointCaptured": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.commandParts": {
+      "sourceHash": "02f6f61c60eea5f4967eda0696869c930f21d3f84da6f7afa0820e91fca44d9c",
+      "markdown": "命令片段的列表",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.isCompleted": {
+      "sourceHash": "4022ef1176ca7948bf2974e15c8504be331a7d96d2f02d1042cd9e52786bdad5",
+      "markdown": "这个命令是否已经构建完成。若已经完成，则无法再向这个命令中添加新的命令片段，也不能再替换命令片段",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.isMacro": {
+      "sourceHash": "8b604b346c2ea43a36a7cbfb0c6a74870d7077e321f190a5defc70e78088a29f",
+      "markdown": "只读。这个命令是否是一个宏命令",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.hasTag(String)": {
+      "sourceHash": "0487959605c5ad2d43cd4645fccb3d351511820bc63126b8c7cf7e486cb3d673",
+      "markdown": "这个命令是否拥有指定的tag",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "tag",
+          "content": "目标tag"
+        },
+        {
+          "name": "return",
+          "content": "是否有这个tag"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.analyze()": {
+      "sourceHash": "7fb89218984d9b50fcc3ad03f1773b4babd6ff7b5b21bd7106376cdb14308804",
+      "markdown": "将这个命令解析为字符串，同时合并所有的命令片段并清空替换位点",
+      "tags": [
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.replace(Pair<String,String>)": {
+      "sourceHash": "5bbdcfab36c0dba9edb9a8470ad05800b03db99f34e5dd4eb9520b47a644458c",
+      "markdown": "替换多个目标位点中的字符串",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "pointIDtoTarget",
+          "content": "多个目标位点的ID和目标字符串"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.get(String)": {
+      "sourceHash": "006cd3d7099c206cdd03032649cb4313682c6ccc1d87a2997d8dfac8a3ffc959",
+      "markdown": "获取指定标签对应的命令片段的字符串",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.prepend(String,Boolean)": {
+      "sourceHash": "6fa85b55ae4e0e68438015fffea629c1cd2539663a492165fb65470319dfa339",
+      "markdown": "在这条命令的开头插入命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "固定的命令字符串"
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "是否在插入的命令和原命令之间加一个空格"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.prepend(Command,Boolean)": {
+      "sourceHash": "6ff0d86573ac3041d60ffbfefd7ddd82dce8e73ef17587a4c64b25284775594d",
+      "markdown": "在这条命令的开头插入命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "插入的命令"
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "是否在插入的命令和原命令之间加一个空格"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,Boolean)": {
+      "sourceHash": "645c50235294b41840b0318242880792035b5e65e4db4e0cdeae38ec4bcd7c83",
+      "markdown": "在这条命令的末尾继续构建命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "固定的命令字符串"
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "是否在插入的命令和原命令之间加一个空格"
+        },
+        {
+          "name": "return",
+          "content": "构建后的命令"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.build(Command,Boolean)": {
+      "sourceHash": "5c6657593f070fa3b0736647157df3ac68f27888ec8a9d56c3be0b5dbf6f690e",
+      "markdown": "在这条命令的末尾继续构建命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "可被替换的命令字符串"
+        },
+        {
+          "name": "return",
+          "content": "构建后的命令"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(Command)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,String,Boolean)": {
+      "sourceHash": "f998172e5440ed5d384e2f1035497857b7bfad8c9f095db5833ba9f1ff45e834",
+      "markdown": "在这条命令的末尾继续构建命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "可被替换的命令字符串"
+        },
+        {
+          "name": "param",
+          "subject": "pointID",
+          "content": "命令字符串的位点ID"
+        },
+        {
+          "name": "return",
+          "content": "构建后的命令"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,String)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacro(Var<*>,Boolean)": {
+      "sourceHash": "45f412e0beccbbdbf5a4f78a30ba3b36ad6e5dab53fad183a3b8e701db68d88a",
+      "markdown": "在这条命令的末尾构建一个宏参数。得到的命令需要使用[buildMacroFunction]方法进行转换才能使用。\n\n插入的命令片段的值为空字符串，替换位点的id为宏参数",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacro(Var<*>)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.selectorStringGuard(Var<*>,Boolean)": {
+      "sourceHash": "8304d83e32d7d50d18bb6f4fc5beffdd74bdda9d528635295ace3c1bb37441a8",
+      "markdown": "仅将选择器字符串的词法校验传递给实际使用者。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.entityTargetStringGuard(Var<*>,top.mcfpp.lib.SelectorExpression.DirectKind)": {
+      "sourceHash": "5ec53cf372fa4afe423f79b05e50f1c71a3248c5c439a83dfe478842168c1232",
+      "markdown": "直接目标的校验信息随操作数保留在命令组合和复制结果中。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacroFunction()": {
+      "sourceHash": "696070a2b386089c166fd3693de22fa881e2910a3b58a1ec2fb2cd87b039abf3",
+      "markdown": "将此命令以宏命令的方式调用。自动确定宏参数的路径。",
+      "tags": [
+        {
+          "name": "return",
+          "content": "用来调用 *执行宏参数的函数* 的function命令，以及传入宏参数使用的值"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacroFunction(NBTPath)": {
+      "sourceHash": "f3c9aaccb29088e8af3b34c015894b308f373d0778d0ec2a5d62f26233b71916",
+      "markdown": "将此命令以宏命令的方式调用。手动指定宏参数的路径",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "nbtPath",
+          "content": "用于替换宏参数的nbt路径"
+        },
+        {
+          "name": "return",
+          "content": "用来调用 *执行宏参数的函数* 的function命令。无需自行补全with参数"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.buildAll(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.toString()": {
+      "sourceHash": "d27feee76d6e4b6c0595d1243a59e9778bc42b4918540f50de3c20a4bb4430fb",
+      "markdown": "将此命令解析为一个字符串",
+      "tags": [
+        {
+          "name": "return",
+          "content": "解析后的字符串"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.clone()": {
+      "sourceHash": "69f13ed58617d082b25beb65a9875781233a34e817f40c4e7c1ea211699a1942",
+      "markdown": "复制这个命令",
+      "tags": [
+        {
+          "name": "return",
+          "content": "复制后的命令"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.removeLast()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.build(String)": {
+      "sourceHash": "c7e66940e0d7e68785bcc22e401cedb252b10e862020ca3f9e7e551351458848",
+      "markdown": "构建命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "固定的命令字符串"
+        },
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.build(String,String)": {
+      "sourceHash": "caed55e0081ad77a6fc3414b06927460c8a9a10e1db641113b74617de3142a39",
+      "markdown": "构建命令",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "可被替换的命令字符串"
+        },
+        {
+          "name": "param",
+          "subject": "pointID",
+          "content": "命令字符串的位点ID"
+        },
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.buildAll(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.ICommandPart": {
+      "sourceHash": "f29a79569f4acc63201b9eecac1c735548069e6f81b171ff2968d6944861663f",
+      "markdown": "表示一个命令片段，作为命令的一部分。一个命令对象中包含数个命令片段。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion": {
+      "sourceHash": "1092418fb45ab0fb2d85b7c89dcf1b03ab9b458d083e8581c9104c85ae46dcc8",
+      "markdown": "公开 MNI API 的版本，与编译器发行版本分别管理。\n\n此版本涵盖 `top.mcfpp.mni.api`、`@MNIMacro` 和 MCFPP 源码中的显式宏声明。\n在实验性的 0.x 系列中，次版本变化可能要求修改 provider。\n\nKotlin provider 可在初始化时检查所需版本：\n\n```kotlin\nrequire(ApiVersion.isCompatibleWith(\"0.2\")) { \"Provider requires MNI API 0.2\" }\n```\n\n兼容性策略见 `docs/mni/api-versioning.md`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.MAJOR": {
+      "sourceHash": "61de13d80cfde74ea7c9ee9c3840f544e530fb9756a8ee5babec305eb7fd03a8",
+      "markdown": "API 主版本号。零表示实验性系列。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.MINOR": {
+      "sourceHash": "c5b8795fdfd9d7017dd691984bc7b1eb1b9740751b9d9ada1fe7bb6c6afa419e",
+      "markdown": "API 次版本号。在 0.x 系列中，provider 要求次版本号相同。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.PATCH": {
+      "sourceHash": "2c6bdc4a590419f770f194e459531526691f0646c0f44c13d80610dc6668c481",
+      "markdown": "API 修订版本号，表示当前次版本内的兼容性修正。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.STABILITY": {
+      "sourceHash": "a2fa5fcda17fbad5f536ccb18b1770e92fb5edc03e6a40828ba6e5627e723158",
+      "markdown": "附加在 [VERSION] 后的发布渠道。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.VERSION": {
+      "sourceHash": "81ccc07135f062c87b22635596531c2ad8fb0b50fadf2bf903998ff565865baf",
+      "markdown": "完整版本标识，例如 `0.2.0-experimental`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.EXPERIMENTAL": {
+      "sourceHash": "ef7769c5b51cbbdd01bce419fcd7d9ce07216a6b6abe71ed17b3d1f82702bca8",
+      "markdown": "供 provider 判断是否采用实验性约定的便捷标记。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.current()": {
+      "sourceHash": "94c7d3c344c8873b3cd8eee35fcc8c6ee0a30573cc8cc4977fbf156695f047bd",
+      "markdown": "当前编译器构建实现的 API 版本。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.isCompatibleWith(String)": {
+      "sourceHash": "5a73e4b5b1bdf31ad82737267e45943aa7dee1b9b4ec508d1ad1f4566a463aee",
+      "markdown": "要求 [required] 版本的 provider 能在当前 API 上运行时返回 true。\n\n[required] 接受 `major.minor` 或 `major.minor.patch`，也可带有 `-experimental` 等后缀。\n省略的修订版本号视为零。比较使用数字部分。\n在 0.x 系列中，主版本和次版本必须相同，当前修订版本不得低于所需版本。\n从 1.0 开始，同一主版本内较新的次版本也满足较旧的次版本要求。\n版本格式错误或包含负数时返回 false。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Code": {
+      "sourceHash": "c3fd671dbe89e6fc26c99ef06a03dccce26aeff4919440e4a63db10c061235a8",
+      "markdown": "带有源码位置的生成 MCFPP 代码，供编译器报告消息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Code.source()": {
+      "sourceHash": "d22a47054bac91c88dfd1c5b1f591206ae451f0755e538ba0950eda656b8b775",
+      "markdown": "返回此代码关联的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Expr": {
+      "sourceHash": "cbf5e22c3a372c0031ce23b69a3ff20778afe22a168a183e70bdc07ceb894a93",
+      "markdown": "生成代码运行时产生 [T] 类型 MCFPP 值的表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Expr.type()": {
+      "sourceHash": "df718ed64be33883aecd14eac91c0b547aec18c1f06760542d9425a6c3049278",
+      "markdown": "返回表达式结果的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Stmt": {
+      "sourceHash": "1be1fd0f08dd3fb32adf89e8097fd1fe206c581353e14e57d5a3443e3f1b3b9d",
+      "markdown": "生成的语句，例如赋值或循环。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Block": {
+      "sourceHash": "3fe0b0d1966106c69f1411ac6f0eaae63f0bb04ecbed35ff681dba15310d4396",
+      "markdown": "一组有序的生成语句。使用 [Quote.block] 创建。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Block.statements()": {
+      "sourceHash": "ee704ebd376496645e399e9a76b648694524e5711216e527fd0d44af82aa1f81",
+      "markdown": "按执行顺序返回语句。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Local": {
+      "sourceHash": "986f26990f5cc30d389ae4525b2956794f078f217bea293b74dfd2600f92fbf3",
+      "markdown": "由 [CodeBuilder.local] 创建的可写局部变量。每个声明获得独立的生成名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Local.hint()": {
+      "sourceHash": "0479d3aeafcc5348fca5181bf8af5fb51b15a267c9ae4b77fb03dcfbcc8b602c",
+      "markdown": "返回编译器为此变量命名时采用的建议名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder": {
+      "sourceHash": "736fc55a2dafa2a7c8aa1692c957d0dce396882e32765d288dc1a3c4034b4d07",
+      "markdown": "在 quote 或生成代码体的回调中构建 MCFPP 表达式和语句。\n使用当前展开中的代码、类型描述符，以及当前作用域可见的变量。\n构建方法检查 MCFPP 类型，并通过 [CodeModelException] 报告无效代码。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.local(TypeRef<T>,Expr<T>)": {
+      "sourceHash": "bf462de2cb890efdb9fab74a43f3fb23df9c8c307a24bf862617f463c6c0c445",
+      "markdown": "声明局部变量，在执行到该声明时使用 [initialValue] 初始化。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.local(String,TypeRef<T>,Expr<T>)": {
+      "sourceHash": "3f49433f0310f3d66bb85210cbf2536a93ff0282fb10c8e90554d6aba2670a71",
+      "markdown": "声明已初始化的局部变量，以 [hint] 作为生成名称的建议。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.assign(Ref<T>,Expr<T>)": {
+      "sourceHash": "0d140867a2c7e5c3de20f1b2df84ec55c821ea2b3bf3f223ff9f2e7c93e56992",
+      "markdown": "追加语句，在生成代码运行时将 [expression] 写入 [destination]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.evaluate(Expr<*>)": {
+      "sourceHash": "d9c1b18a0aaa7846dd4a68b6874c99fdb8154f5b7f2773c8ec867ffe0340df5c",
+      "markdown": "追加语句，求值 [expression] 并丢弃结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.append(Block)": {
+      "sourceHash": "5619f6f58424de1609448ec73a14eac3b8106a3d3d177ef76aa9a57ba02d8985",
+      "markdown": "插入 [block]，为其中的局部声明分配新身份，并更新其引用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ifThen(Expr<BoolT>,Consumer<CodeBuilder>)": {
+      "sourceHash": "79e0b36257dab9bfb285f1019f488b6c9dc041e9151d98731cc7d9c76b0a92eb",
+      "markdown": "追加条件语句，在 [condition] 为真时执行 [thenBody] 生成的语句。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ifElse(Expr<BoolT>,Consumer<CodeBuilder>,Consumer<CodeBuilder>)": {
+      "sourceHash": "d3d3ad23c5c24fe7cec8f0a353c4f838168961e9771cf1da7a5c427e8d46fd5a",
+      "markdown": "追加条件语句，为两种布尔结果分别提供分支。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.whileLoop(Function<CodeBuilder,Expr<BoolT>>,Consumer<CodeBuilder>)": {
+      "sourceHash": "b6431485609f36e1a35189df62f77f69858b2f28756d6cf9883b7a78abed33e9",
+      "markdown": "构建条件和循环体各一次。生成的循环在每轮迭代前求值条件。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.call(FunctionRef<R>,List<CallArgument>)": {
+      "sourceHash": "eb2dc79acfb8a1107d916c2f386c1fcd5f204c3fcdfc8c1c086d6fd9003a2822",
+      "markdown": "构建调用表达式。调用在返回的表达式被使用的位置执行。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.callVoid(FunctionRef<VoidT>,List<CallArgument>)": {
+      "sourceHash": "cb6f6951788174f43e49177f2261ef3f38fd3248b519de20bd41ad6117ca062f",
+      "markdown": "为返回 void 的函数追加调用语句。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.inline(InlineFn<*>,List<InlineArgument>)": {
+      "sourceHash": "d8c625fb8f1cb5e0f939e4d284c31425ff56c6ee620f64bd2f6bf260afad530c",
+      "markdown": "将源码回调作为表达式插入。[R] 必须匹配回调的结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.inlineVoid(InlineFn<*>,List<InlineArgument>)": {
+      "sourceHash": "61571673f67d9739cf3b479d6bcfdc336621cef52e385f3430fa9a1179144883",
+      "markdown": "将返回 void 的源码回调作为语句插入。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.yield(Expr<T>)": {
+      "sourceHash": "adfad675c7abd1592ce1d51d44db577bbc17961efb94f4bbc7ebe5edd05d8f29",
+      "markdown": "以 [expression] 为结果，完成当前表达式或需要返回值的辅助函数体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.intLiteral(Int)": {
+      "sourceHash": "5a967f90111fbc3f61af6fc02ef60ba4ff954f72eda5ec9d6a475bba6e99a0a7",
+      "markdown": "根据 [value] 创建 MCFPP int 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.boolLiteral(Boolean)": {
+      "sourceHash": "8b7bcd7098c5cac8f6e160ba4785c988f1e6d8c7a62e4c407df2f5489215a89a",
+      "markdown": "根据 [value] 创建 MCFPP bool 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.floatLiteral(Float)": {
+      "sourceHash": "bd2818425fc149d94fe70960eab4b5b4a307934c438174cf557865d8a06f1788",
+      "markdown": "根据 [value] 创建 MCFPP float 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.stringLiteral(String)": {
+      "sourceHash": "5e690aad5ef6e0ebe271d77246d07b68cfbb91825f33ea7555ce8f5f3a78aedb",
+      "markdown": "根据 [value] 创建 MCFPP string 字面量，转义由编译器处理。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.add(Expr<T>,Expr<T>)": {
+      "sourceHash": "aea8b86e9f0d2057c9fc443d3fe49b87f96eca644bf274bbdb3b2f04923467f6",
+      "markdown": "将两个 int 操作数或两个 float 操作数相加。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.sub(Expr<T>,Expr<T>)": {
+      "sourceHash": "b3e894feda8188b8faef09b196609a8bd12354194795c4243d75a08aa4bffb4e",
+      "markdown": "从 [left] 减去 [right]。两个操作数使用相同且受支持的数值类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.mul(Expr<T>,Expr<T>)": {
+      "sourceHash": "fc7158159af29a50ba6bb8ae60cb45dffc57533e2e1ba7e51b0dad664403901f",
+      "markdown": "将相同且受支持的数值类型的操作数相乘。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.div(Expr<T>,Expr<T>)": {
+      "sourceHash": "4958adaa4fcd12390414dac9923e9e71d182922f50ad28d5212413c96a6282d4",
+      "markdown": "按照操作数的 MCFPP 数值类型，将 [left] 除以 [right]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.mod(Expr<T>,Expr<T>)": {
+      "sourceHash": "9158717414fd997a0fb16430dbd1b29d0bf8911a68af07af02db410aca6c5d43",
+      "markdown": "计算受支持的数值类型中 [left] 除以 [right] 后的余数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.negate(Expr<T>)": {
+      "sourceHash": "b821cdf79d14d19559e99e000076ae9513dfad371f5686940041cd311d422d99",
+      "markdown": "构建 [value] 的算术取负。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.lt(Expr<T>,Expr<T>)": {
+      "sourceHash": "efa28323fd90615ee3d05b60c93138af4fcfb24649ebf37c605e00f9b012e9b0",
+      "markdown": "判断 [left] 是否小于 [right]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.le(Expr<T>,Expr<T>)": {
+      "sourceHash": "c5945afd213258a25267a6ca3796cdc2d7c47cb1f62fa278932377777d2bcd1f",
+      "markdown": "判断 [left] 是否小于或等于 [right]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.gt(Expr<T>,Expr<T>)": {
+      "sourceHash": "0290092980c60edc212be315e127794a97ff39894185f6afb62832773f9d4eec",
+      "markdown": "判断 [left] 是否大于 [right]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ge(Expr<T>,Expr<T>)": {
+      "sourceHash": "2fae6a33e784ef2ccdcba7ea56ed340091bf96ef0123ba8499e12ab6b2dd4809",
+      "markdown": "判断 [left] 是否大于或等于 [right]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.eq(Expr<T>,Expr<T>)": {
+      "sourceHash": "6dfcd075db9a4349f31eedc9bdda4b1cba65b651b47ee0d3f952cbc0e24dd71a",
+      "markdown": "相等比较要求实际类型兼容，并支持相等操作。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ne(Expr<T>,Expr<T>)": {
+      "sourceHash": "300073912fcdae59e6de90b7775c4084f8bf85e9b90759a1f3f5b49787202c50",
+      "markdown": "使用 MCFPP 相等操作判断兼容的操作数是否不同。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.not(Expr<BoolT>)": {
+      "sourceHash": "36d1cd237fe56bd15359b1c8300b2016cd18edb58114fa4e196005b88e6d9bef",
+      "markdown": "对 [value] 的布尔结果取反。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.and(Expr<BoolT>,Expr<BoolT>)": {
+      "sourceHash": "fbed0fbb9f2ab3019fa966873a0f881ff37e56634c19e87d72a9b92d0f2deb2c",
+      "markdown": "构建使用 MCFPP 短路求值的布尔与表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.or(Expr<BoolT>,Expr<BoolT>)": {
+      "sourceHash": "3f3e3a920ab3ded57646903f7d948f8e7540173e5884edc9c2ee6e5dc4a6d4cf",
+      "markdown": "构建使用 MCFPP 短路求值的布尔或表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.field(Expr<*>,FieldRef<T>)": {
+      "sourceHash": "11ba9f9cbdb3a1b62187117490d785f6f897878e45b9f4c80250fe44157d4ba3",
+      "markdown": "创建从 [receiver] 读取 [field] 的表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.fieldRef(Ref<*>,FieldRef<T>)": {
+      "sourceHash": "1d538dcbed640104e417d01d9d3950b1caa13b784cb49daa5477001f57dad404",
+      "markdown": "返回 [receiver] 中可写的字段位置。字段必须支持写入。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.minecraft()": {
+      "sourceHash": "7ffbd1c6ce672767733b9f4d26a3e32641afe98fdc231bb982844265509548c7",
+      "markdown": "返回当前构建作用域可用的 Minecraft 操作。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateProcessor": {
+      "sourceHash": "96176565dfc22c46eb148ce2eba72cd7c09070057660dcd6a056c7267a51e0ca",
+      "markdown": "在编译器完成源码声明后，添加生成的成员或元数据。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateProcessor.expand(DeclarationContext,TemplateView)": {
+      "sourceHash": "4363c2a77206e1fce8db809e347584d3b42d63449de21f18da2c5d8fad8d07fd",
+      "markdown": "检查 [template] 并返回通过 [context] 构建的修改。在此阶段，生成的元数据保持为数据。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView": {
+      "sourceHash": "66bfe072593c8527129290e8e4a6ecf372974d8cba183d2303996d4cac22df52",
+      "markdown": "已完成解析的 MCFPP 模板及其有效成员，包括继承成员。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.type()": {
+      "sourceHash": "7859b903934368f23965c20c3a5b08d62679fe4d01ddee0c0834d3119e7a63eb",
+      "markdown": "返回已完成解析的模板类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.fields()": {
+      "sourceHash": "da4afa0f3cf86e69d57677890b7a4bed981c7cfd27d880a69e7a2d39db0ccdaf",
+      "markdown": "返回供生成代码读写的字段引用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.fieldDeclarations()": {
+      "sourceHash": "b8fe87ef63f5e20895cb46da4cca333a7c2f6fdeab1403569765a7883d325cc0",
+      "markdown": "返回字段声明，包括可见性、归属和注解信息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.methods()": {
+      "sourceHash": "fe5e087e6c3f35fd62218c34fdd0c3327f12fa94c4118d7cd8aa004ae1d732e7",
+      "markdown": "返回模板的有效方法声明。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.annotations()": {
+      "sourceHash": "91f2326a5a1fbb98126a23d9f304302a72ed0e65730d9deac55a98f72dfb358e",
+      "markdown": "返回模板上附加的注解。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.source()": {
+      "sourceHash": "cdc7ab4acec528dd2cdfd634a351684314ff38b2bf6287c49a5ea2706b952f37",
+      "markdown": "返回模板的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess": {
+      "sourceHash": "cc89f987a3efbe96b2a52b7e21618b7ff0ee75d7e69b0e2f9f837b2119b6d261",
+      "markdown": "MCFPP 声明记录的可见性。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PUBLIC": {
+      "sourceHash": "2745edd77ddf6e6d637cf6b212b56d54fa94bbd4c57ad0d22e560516ce687b79",
+      "markdown": "在声明类型可访问的位置均可访问。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PROTECTED": {
+      "sourceHash": "cd26862b57850f2eed74d76dc4bf5d0bd32715aca7cca4b4fcf0c900f56c84da",
+      "markdown": "在声明类型及其派生类型中可访问。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PRIVATE": {
+      "sourceHash": "35c11d743f8eb169495e60bf4436d9d4109e8cb523fac8143ae40617f71d3e38",
+      "markdown": "在声明类型内部可访问。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.COMPILE_PRIVATE": {
+      "sourceHash": "b1a8144a81a8fe406a694e1234c46354fc3b42695a5c6c0ab049c68671acd30a",
+      "markdown": "使用 MCFPP 的 compile-private 访问规则。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView": {
+      "sourceHash": "4fea16f02353031e5ae7c6a149f55132a36621661565ad41d38012aceab821fc",
+      "markdown": "注解名称、常量实参及其源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.name()": {
+      "sourceHash": "8b7a8f72ae1360d238715d2ef3525bfebc40738661400dc262a701a77ff5a831",
+      "markdown": "返回注解解析后的名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.arguments()": {
+      "sourceHash": "90f75c7598e43dab678dab4059949f1b9f238847f8f58a7d943bdbdcf89a7bab",
+      "markdown": "返回按参数名称索引的不可变实参值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.source()": {
+      "sourceHash": "e8a25e3b9cb8f8f0836db99ca527c6adc641871a96acda8bfaffbbaaf45dbb99",
+      "markdown": "返回注解的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView": {
+      "sourceHash": "98c846cb460d5b425544ee2e7d11202f867d5a0a123ea24f77d20cb9cf5de353",
+      "markdown": "已完成解析的模板中的字段声明信息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.field()": {
+      "sourceHash": "6eecd671c5738a13b4ad6bfebf65866b0a2c0be165fa6032875b1c1fb72d86e5",
+      "markdown": "返回供生成代码使用的字段引用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.owner()": {
+      "sourceHash": "85d384357bd51aaecaffd47e4c794d56c13e2cb60567d36a75cce2900446f1a0",
+      "markdown": "返回声明此字段的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.access()": {
+      "sourceHash": "b97498b46faa3b19a8ad444e0529c569b6f0c6f85c8523bf7c67f46c059eb5ad",
+      "markdown": "返回字段声明的可见性。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.nullable()": {
+      "sourceHash": "48dac195c70235b5673ba84b02c84b8064fa2c62462599f64518c36a987d80e6",
+      "markdown": "字段声明允许 null 值时返回 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.annotations()": {
+      "sourceHash": "0e08553fa494d69865e781378886cce15f7cb50e36390a1b7d5159ecaac47c8c",
+      "markdown": "返回字段上附加的注解。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.source()": {
+      "sourceHash": "53a25fa09e34543a26917cb865b1829cf7a9e033ba8543e26b438c8ddce88f23",
+      "markdown": "返回字段的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView": {
+      "sourceHash": "f05fed3eacd00849dc4c350f71ba2db60a4114e5e91ed663bfbfbb689a6863b6",
+      "markdown": "已完成解析的模板中的方法声明信息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.name()": {
+      "sourceHash": "ec0c939322e77f949c72656ad4699235a61ff6bd5a30cefc3a1af1e5efd031ed",
+      "markdown": "返回方法名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.owner()": {
+      "sourceHash": "1937c000c72ff86f5a81b7044d1cc09221e4eea865e170051a629f89e3dabbe1",
+      "markdown": "返回声明此方法的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.signature()": {
+      "sourceHash": "acae760c7eec6515886ddd3013b3e9cf8dbc34a97a59e4f0a078a38f223966bc",
+      "markdown": "返回普通参数和结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.readonlyParameters()": {
+      "sourceHash": "edf017f28a8e2f1d7595c0cc39657d372ef188123efe7429cb65e448bc726c2f",
+      "markdown": "按声明顺序返回只读参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.access()": {
+      "sourceHash": "8416f50593b52983717bd16f76f85853a1ebb3f4b46f4b758315639db9a7448c",
+      "markdown": "返回方法声明的可见性。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isStatic()": {
+      "sourceHash": "f09df5ce6573dacd094b3ec3f051b9b9af3917575ca6e1ced57d0f3ef9fa8871",
+      "markdown": "静态方法返回 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isAbstract()": {
+      "sourceHash": "59d419493ef98b1c47e9466576170cae642c311d84ca5b933d214d5a49306967",
+      "markdown": "抽象方法返回 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isFinal()": {
+      "sourceHash": "a1b017622071c58d415b3af822d080ed6e326f03c08842090c435171d2fc8939",
+      "markdown": "final 方法返回 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.annotations()": {
+      "sourceHash": "93ea481631c3fddc277558f0557ffb12077f87f0274e7cbb4e9fce21ca46abbd",
+      "markdown": "返回方法上附加的注解。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.source()": {
+      "sourceHash": "effa4971f5af2a368646bef4eb6ddde3c8fb43d3b5d9a457232d9e154cdb46eb",
+      "markdown": "返回方法的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext": {
+      "sourceHash": "d13a003875d0ac0705e7122c8d7e23335963d7c799804d071e91145b8c0a44e6",
+      "markdown": "[TemplateProcessor] 为当前声明构建修改时可使用的服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.quote()": {
+      "sourceHash": "aec7b56eb267763a86eb6aabf42e03d7a73f3830cca05ba33637dc1a43b72ba6",
+      "markdown": "返回构建生成代码体的入口。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.types()": {
+      "sourceHash": "11c0b0b054272184f28655c591bdcee3e33d8437aeb2cdfede390e045cf808b6",
+      "markdown": "返回声明所在环境中的类型与函数查找服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.diagnostics()": {
+      "sourceHash": "39fdd82983cd9b49581155db29e767ff3dbf95a2871dc7ba148ee3aad624e24f",
+      "markdown": "返回编译器消息服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.helpers()": {
+      "sourceHash": "4ddf8a39bbc76a9a8793882a1b6cba309fe2bb12147cb5dd7de288cdfc216a0d",
+      "markdown": "返回生成辅助函数的服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.resources()": {
+      "sourceHash": "b03df6ee2646349ca5e73c70facdcd9781a1ae3fbfd8cf1029437f1875a04a59",
+      "markdown": "返回生成资源的服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.declarations()": {
+      "sourceHash": "66a9e7cf5d276f8907789871312c15dd79729c6b1bee216876df0899410d53ec",
+      "markdown": "返回修改当前声明的构建器。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder": {
+      "sourceHash": "3b734ab4b92e7d5aa0e3fc2b61401da20ed507a5293fb476dc08d71c7faca5b3",
+      "markdown": "为当前正在处理的声明构建新增内容。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.method(TypeRef<O>,String,FunctionSignature<R>,GeneratedMethodBody<O,R>)": {
+      "sourceHash": "96ed0e121b4a6bcbf0df98fe2b9e92385cfdbe0cf5c7c6eb74ce4210cb7f63fc",
+      "markdown": "在当前模板 [owner] 上构建新的公开实例方法。\n签名应区别于现有方法和继承方法。显式参数使用 VALUE 模式。\n[body] 立即执行，并通过 [MethodBodyContext.self] 单独接收实例。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.internalFunction(String,FunctionSignature<R>,GeneratedBody<R>)": {
+      "sourceHash": "28b460d628e9cc1f10c59eac6b1203ee042a6e9e7a32130e8de75dbed602b43b",
+      "markdown": "以 [hint] 为建议名称构建内部辅助函数，参数规则遵循 [HelperService.define]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.metadata(TypeRef<*>,String,Map<String,ConstantValue>)": {
+      "sourceHash": "cd768c8904e5d4d1f4d189a4f4fee01400d45f1825abc2ed11f01418b4d609e2",
+      "markdown": "为 [owner] 构建元数据。注解名称和实参类型必须匹配编译器支持的注解。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.edits(List<DeclarationEdit>)": {
+      "sourceHash": "2124fc335de6891c1665a4ccef24ca01cbc7a8acc71d79045bdc22ced4d8fbbc",
+      "markdown": "将此构建器的修改组合为 [TemplateProcessor.expand] 返回的结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedMethodBody": {
+      "sourceHash": "679570dae89292aff39bd41b0b4387d8d36bf6be40f0ba291981b7d169c4a687",
+      "markdown": "在声明处理期间执行一次、构建生成实例方法体的 JVM 回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedMethodBody.build(MethodBodyContext<O>)": {
+      "sourceHash": "1df588762640272ffe4fa8bac0cecc452ab8192131c2c88751de62ef9648408b",
+      "markdown": "构建方法体。签名要求返回结果时，使用 [CodeBuilder.yield]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext": {
+      "sourceHash": "99323e1c81919680163061ce6a30a714da24e864e7192cb7a8b27d2963e038d2",
+      "markdown": "构建生成方法时可用的构建器、实例和参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.builder()": {
+      "sourceHash": "e2e377e92c97c232644b992cfc44cd66391d58f0843659ffa2c74f96e2f17e33",
+      "markdown": "返回此方法体的构建器。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.owner()": {
+      "sourceHash": "c6d320401290eb1e813359880f27abd40f7b116f058b0a7b8a2b13314f850536",
+      "markdown": "返回生成方法所属的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.self()": {
+      "sourceHash": "9ab29a15e1c83d41f4089ed600a6cf1c4a6071b4dbc7e61a27488916436c67c9",
+      "markdown": "返回此方法实例的可写引用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.parameters()": {
+      "sourceHash": "afc3d224575709674878ad4c3886fd2e7de4254118b3d33394645bc43cb621f5",
+      "markdown": "按签名顺序返回显式参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdit": {
+      "sourceHash": "446f6b1ab0f756f37616e60201a449b05539a111c1e8fd9b812e2c4b40e3c93b",
+      "markdown": "一项待添加内容，在编译器验证处理器结果后应用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdit.source()": {
+      "sourceHash": "a47e4549c0ffb19d4c5e7398ccbf941c4e512b80332ad6cbe99261e807b4ecce",
+      "markdown": "返回此新增内容关联的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit": {
+      "sourceHash": "dd5ccc84bd73f83a69b4f2bdff82a4ab645b337e0a84b874974ab9167dd674ed",
+      "markdown": "待添加的公开实例方法及其生成的方法体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.owner()": {
+      "sourceHash": "85f8f8e98962841e087b8395188ebbf718290e5632809af26248d287084a8011",
+      "markdown": "返回要添加此方法的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.name()": {
+      "sourceHash": "71b1e58c126837a4efe0e92a44659e7ebf8b8f58c8baaa7094ed1430e7fe1bff",
+      "markdown": "返回待添加方法的名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.signature()": {
+      "sourceHash": "3a413f9924d2f9ff3e2c5a1400cfbd921d45019201972bcdc40eb03c9d82aa54",
+      "markdown": "返回待添加的参数和结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.body()": {
+      "sourceHash": "e3d85d3896e22a57692793ffddb0ffd04ea14bf89ce3d49231ff60dc307938c0",
+      "markdown": "返回生成的方法体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InternalDeclarationEdit": {
+      "sourceHash": "15ba3c1d2e0edb55572684a69eccfd58212063a5ddf2f43d9739cbe65f302884",
+      "markdown": "待添加的内部辅助函数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InternalDeclarationEdit.function()": {
+      "sourceHash": "7f0da84371978622cdb49f50ded68351d7e4e515870ed6ee6b5900a485607016",
+      "markdown": "返回生成代码可调用的函数引用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit": {
+      "sourceHash": "73b29d2bf550f21074e482994e3c9ce5660aefa880ef14ff5db1ae3836c19b2e",
+      "markdown": "待添加到模板的注解。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit.owner()": {
+      "sourceHash": "baba4fece6c21bbe6399e1986afd470c88405114b30bb2afd5a65547303361d7",
+      "markdown": "返回要添加此注解的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit.annotation()": {
+      "sourceHash": "597f934f70b45b3cb8ca61b78ef7dceb9a6db70eec5448f1ad232ec130e4405f",
+      "markdown": "返回待添加的注解和常量实参。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdits": {
+      "sourceHash": "6aa823f6c63435c377f3a250b8883250fd42d7641ecc1aed3172511517fd1324",
+      "markdown": "声明处理器返回的全部新增内容。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdits.all()": {
+      "sourceHash": "66a3159e0aecaddf157294fd257721c255d9dd3d2707fb1f4f4534fc6f729b5b",
+      "markdown": "按提供顺序返回待添加内容。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroInput": {
+      "sourceHash": "08be9ea062d8e0c19301a542a3a6684d93ed673c7e75d9675714bb003037bbb9",
+      "markdown": "由编译器在 MCFPP 调用位置绑定的宏实参。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value": {
+      "sourceHash": "9357296d6a2b221d6584a0d3ac64def608f385ebbc9505ece801f91e9f9ac3c4",
+      "markdown": "VALUE 实参。编译器对调用者的表达式求值一次，并提供其值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value.type()": {
+      "sourceHash": "d092aecaa36ef716548aa05c1a8c3e9ac7fef97a1d8ed870cfaa65b56c3cc013",
+      "markdown": "返回实参的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value.expr()": {
+      "sourceHash": "cff6f863cbd46a4cb75818b620eeada14d30932fd969e6dea7cb19d54c826ffd",
+      "markdown": "返回表示绑定值的表达式。重复调用复用同一个值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref": {
+      "sourceHash": "8c9afca55435f94e48b45faef13a6278c93875dc27ec9454f8eb68c64aa50bed",
+      "markdown": "标识可写 MCFPP 位置的 REF 实参。通过 [CodeBuilder.assign] 赋值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref.type()": {
+      "sourceHash": "64a2535893fe733be62036f168f9df988cfc794f7b981262e4d2053547142d80",
+      "markdown": "返回此位置存储的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref.load()": {
+      "sourceHash": "6153a62452e2ed6bfa3a2d34d1317c744a70a544263ad7004a24492182a989fa",
+      "markdown": "创建在生成代码运行时读取此位置的表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const": {
+      "sourceHash": "129e679654568b5a7bd61d41c6d2622c733d22c1de44daebc93ac27a07eb0f4d",
+      "markdown": "宏展开时编译器已知其值的 CONST 实参。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.value()": {
+      "sourceHash": "72ad0b4c679d2c531f71bfc37560a0d9cae4f60f53f635e691b71a3aa620e002",
+      "markdown": "返回展开期间 provider 可用的不可变值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.intValue()": {
+      "sourceHash": "576c1712c534127eca78b5cfbf215769174621213c9d2f970c3e21b48ac3c2d8",
+      "markdown": "将 MCFPP int 常量作为 JVM Int 返回。其他常量类型引发 [CodeModelException]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.boolValue()": {
+      "sourceHash": "40322d57f5729ad672ff9358f574f327a1765afab8140bda1a82a7a3e12f30e2",
+      "markdown": "将 MCFPP bool 常量作为 JVM Boolean 返回。其他常量类型引发 [CodeModelException]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineFn": {
+      "sourceHash": "c17ff64a775d276349d440b18db235cebd25c97d3a428aa1a94dd7a718d5e977",
+      "markdown": "包含源码回调的 INLINE 实参，通过 [CodeBuilder.inline] 插入。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineFn.signature()": {
+      "sourceHash": "e531b61e020c7a684d1b2a3e69576a6ab5b2ed458d755b74c6ef789d117a73d6",
+      "markdown": "返回回调的参数模式、参数类型和结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument": {
+      "sourceHash": "4bbc9a016f7dd4dd3ec79654ffe00c6331f0ae1df168ee2a98f483ecfd233de5",
+      "markdown": "[CodeBuilder.call] 的实参。工厂方法决定生成的调用如何传递实参。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.mode()": {
+      "sourceHash": "8f786264da99375206770460aa4a8081ddf3662b51f083082b76d42f1cea425e",
+      "markdown": "返回所选的实参模式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.source()": {
+      "sourceHash": "80f97f18e465dc5f01b0585568d3bcf936971d1b47a9ba854e5d4204eb5a0595",
+      "markdown": "返回所提供表达式、引用、常量或回调的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.value(Expr<T>)": {
+      "sourceHash": "c46cd737669dd5daf6a08a8e5933e6a5d008ff63469641e6f00d1d00e48e371b",
+      "markdown": "按值传递 [expression] 的结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.ref(Ref<T>)": {
+      "sourceHash": "924f4f55d3d1d9b05267640cecb7db90acaf6574e24167a79f7b64a7d0b406e3",
+      "markdown": "将 [reference] 作为可写位置传递。别名保留其共享的位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.constant(Const<T>)": {
+      "sourceHash": "4b9308c1568ab172aba8da1e2c08d8497d0d89616cf649bc876e77c7ac7b8879",
+      "markdown": "向 CONST 参数传递展开时已知的值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.inline(InlineFn<*>)": {
+      "sourceHash": "e3b83f0e0c66d5015114577cc424718bea7e7dba0a2c75218f9d8a1e67126a74",
+      "markdown": "向 INLINE 参数传递源码回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument": {
+      "sourceHash": "a20cb3bc0d41877b77f34d6c22016a0db6b12aa57f8549f12ec5c5352075c0c7",
+      "markdown": "插入源码回调时使用的实参。使用与回调参数模式匹配的工厂方法。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.mode()": {
+      "sourceHash": "8f786264da99375206770460aa4a8081ddf3662b51f083082b76d42f1cea425e",
+      "markdown": "返回所选的实参模式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.source()": {
+      "sourceHash": "52552e083e47926b6135cc46ac49e9cf7f634cfa2051173fdd81dcc3d1db8f63",
+      "markdown": "返回所提供实参的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.value(Expr<T>)": {
+      "sourceHash": "c46cd737669dd5daf6a08a8e5933e6a5d008ff63469641e6f00d1d00e48e371b",
+      "markdown": "按值传递 [expression] 的结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.ref(Ref<T>)": {
+      "sourceHash": "9bb5f1adbf245f604655971e8e0fd67ed3131043cb3d05650cc80a526c78c3a2",
+      "markdown": "传递 [reference] 标识的可写位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.constant(Const<T>)": {
+      "sourceHash": "ffba71182307e3f1e59289e04c532ea630d4a460d3146505e85098640a673b36",
+      "markdown": "提供常量，供编译器插入回调时使用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MniCodeDsl": {
+      "sourceHash": "b29fe32513825533b866267a271207205af059b0aead52246b5beaee2d6d441e",
+      "markdown": "使嵌套代码回调使用当前的 [CodeScope] 接收者。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope": {
+      "sourceHash": "3ef81219271b3b6dc529a691a107c5ab373335c125df35e0d476fe6f491d7557",
+      "markdown": "使用 [KotlinQuote] 构建代码的 Kotlin 接收者。嵌套回调获得其生成代码体的作用域。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.ifThen(Expr<BoolT>,CodeScope.()->Unit)": {
+      "sourceHash": "52efd515ebd401cdc04f978d31f28df40ae36d9896c18373167197ae3d0db748",
+      "markdown": "构建在 [condition] 为真时执行的分支。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.ifElse(Expr<BoolT>,CodeScope.()->Unit,CodeScope.()->Unit)": {
+      "sourceHash": "6a3b5521a846a000a1a7a53e97c97cc697f41b87ccf78d161debcdcf257726e8",
+      "markdown": "为 [condition] 的两种布尔结果分别构建分支。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.whileLoop(CodeScope.()->Expr<BoolT>,CodeScope.()->Unit)": {
+      "sourceHash": "35bf361798aa2761aa8533a08dccbe38f95e4ee93ea10c853a82e0ffcc9fc361",
+      "markdown": "构建在每轮迭代前判断条件的循环。两个 Kotlin 回调都在构造代码时执行。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.minecraft()": {
+      "sourceHash": "adafac5ccb10c6b9ffe18f2b7298f375395fca8e498a4da4331092312775aa58",
+      "markdown": "返回可使用 Minecraft 操作的当前作用域。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.executeAs(EntitySet,CodeScope.(EntityHandle)->Unit)": {
+      "sourceHash": "8b6748f0b5cb76f9cef68c4602e87a0f7ae9c17c6adc65d72f181fbcee213e1d",
+      "markdown": "构建以每个选中实体为执行者的代码。[body] 接收当前实体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.at(PositionHandle,CodeScope.()->Unit)": {
+      "sourceHash": "6bf57527ae5461ad70c9bb804ee2aa8eacb93d0f07c38fddd9be29450b3fbd57",
+      "markdown": "在 [position] 构建代码，位置和维度遵循 [MinecraftBuilder.at] 的规则。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.rotated(RotationHandle,CodeScope.()->Unit)": {
+      "sourceHash": "19515b6d9a07ee5934a6704cdf87c1c08731372a82b63017f98000baa332663a",
+      "markdown": "使用指定执行朝向构建代码。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Int)": {
+      "sourceHash": "1654bd52314e054ce266736dee204085a74ed02283253916adf2d14ee607019b",
+      "markdown": "创建 MCFPP int 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Float)": {
+      "sourceHash": "a3b64fa242febcef2d5d52e32c278bae96d210a216237c85c7731841990e1277",
+      "markdown": "创建 MCFPP float 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Boolean)": {
+      "sourceHash": "02a833215db8bbbb6b6f3d4d52ca1fba7480809dc2d8ff4d74193970d04602ce",
+      "markdown": "创建 MCFPP bool 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(String)": {
+      "sourceHash": "315e77052c57b94f2f090807169e5fb206f1cf30bf12464910d53ef00b3b3132",
+      "markdown": "创建由编译器处理转义的 MCFPP string 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.local(Expr<T>)": {
+      "sourceHash": "7f4d54f3a74b16d5ad90a2ce1938f65e35af021d9ea22b3c91f7b666a925ca4e",
+      "markdown": "声明局部变量，类型由 [initialValue] 推导。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.local(String,Expr<T>)": {
+      "sourceHash": "fda6fea9ab7f3558c7f98e4d6de2a95cb7474cf5e15ec3f38b23a843875724f5",
+      "markdown": "声明已初始化的局部变量，并提供生成名称的建议。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Value<T>.value": {
+      "sourceHash": "ef90e42384f72635933d2e96664fd13952700f2f55eed4d8d69bd36e68ab2ef2",
+      "markdown": "读取宏实参绑定的值。重复读取使用同一个值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.value": {
+      "sourceHash": "49e2066e6e666c3f1df63f25b879fd9c7ecbbe84b34dd3c96ef92923538fceaf",
+      "markdown": "读取引用或向其赋值。读写操作由生成的代码执行。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.plus(Expr<T>)": {
+      "sourceHash": "0af6cc9b4d535f741498b24f60e7917510c28085857f674ce16951cd265a046e",
+      "markdown": "将两个 int 表达式或两个 float 表达式相加。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.minus(Expr<T>)": {
+      "sourceHash": "90b3c92db9d7425721a13b268f6ce146e88706555d44533b33cc4350945d1102",
+      "markdown": "按照表达式的 MCFPP 数值类型减去 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.times(Expr<T>)": {
+      "sourceHash": "49fb68fc55f27336fb6fc278c405732fef3236c46ce501f1427a7e552f316141",
+      "markdown": "将类型匹配的数值表达式相乘。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.div(Expr<T>)": {
+      "sourceHash": "7393f1377aaeef9609a905e5ebdf61c37eb50bac422d798a4b95f78295f7d8f5",
+      "markdown": "按照 MCFPP 数值规则，将当前表达式除以 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.rem(Expr<T>)": {
+      "sourceHash": "20309f0eebe5e08d5e9f28ceff6b34fa91fbcc219b5ee08acd85a931589c8e16",
+      "markdown": "计算除以 [other] 后的数值余数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.unaryMinus()": {
+      "sourceHash": "f86dc4b73a1b65949f8186a8fa24129dac04bc50903f20cefb51b0058b9314a9",
+      "markdown": "构建当前表达式的算术取负。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.not()": {
+      "sourceHash": "4ca8dcd7363d33d75920989c3a9219062c62918ff66146206b0073b3cf24decf",
+      "markdown": "对当前表达式的布尔结果取反。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.plus(Int)": {
+      "sourceHash": "dddd10970e8cd5d254eb1c1ffe0aeb117306adb4ae32e70f13d33b302ee6b064",
+      "markdown": "将 int 字面量加到当前表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.minus(Int)": {
+      "sourceHash": "c4088f53cba51f3cdfa575ba9c7ed98e837d54302dbf7c3482f7e83b7e8a5853",
+      "markdown": "从当前表达式减去 int 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.times(Int)": {
+      "sourceHash": "098ef7c4041ecc424ca44a0c9ddac79e05e3ab0db7f9dc89f60d30665a8a12d7",
+      "markdown": "将当前表达式乘以 int 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.div(Int)": {
+      "sourceHash": "15fd0ad3903b78304aab3c4f4f51dc388c82816d7d5cc3e32830f65f0791e872",
+      "markdown": "将当前表达式除以 int 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.rem(Int)": {
+      "sourceHash": "73cfbc52ed2d7a0a8a85a441e975614b323ba4d0bf78d3510e0e2f09bbff76d6",
+      "markdown": "计算除以 int 字面量后的余数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.plus(Float)": {
+      "sourceHash": "798328e4bbd1d3a51039e0f8df486191f8fb730da667fd35ed2b56c49fe23c6f",
+      "markdown": "将 float 字面量加到当前表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.minus(Float)": {
+      "sourceHash": "65c92bbeb94e368cf76b1b9ac1d56c04fabba91fba37d27ae560fa09e1048d7e",
+      "markdown": "从当前表达式减去 float 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.times(Float)": {
+      "sourceHash": "2ee032ae042ddb52215d5f625e63f8802e906d166b9673a370cf397920d461bb",
+      "markdown": "将当前表达式乘以 float 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.div(Float)": {
+      "sourceHash": "73eb110cc8589506c24dc2c05aea9ebce922affde64fd2354cf4945782f6fe0d",
+      "markdown": "将当前表达式除以 float 字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.rem(Float)": {
+      "sourceHash": "f773cf32c51e512f31cc07f20d9e723a4fa1a2880cdb9bf02a916d3b9bedf0a2",
+      "markdown": "计算除以 float 字面量后的余数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<StringT>.plus(String)": {
+      "sourceHash": "5c38281ce2336cba27003d901e7ca220ff4a53d24ca1a12bd5078f2e75576cdb",
+      "markdown": "通过 [CodeBuilder.add] 进行字符串加法；该接口目前对字符串操作数报告 [CodeModelException]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.plusAssign(Expr<T>)": {
+      "sourceHash": "780daa3a3e30c92d10fde28fb3a5a45de9dcee0066431b2b437a3754d915e186",
+      "markdown": "将 [other] 加到当前位置的值，并把结果写回。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.minusAssign(Expr<T>)": {
+      "sourceHash": "a469b19abf7358132e3b1437bfe4e5e996f0faedb9b26bb77e5953802a732285",
+      "markdown": "从当前位置的值减去 [other]，并把结果写回。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<IntT>.plusAssign(Int)": {
+      "sourceHash": "721eea618973324aab3fba7930b658c6f6dd8deb3071080d00b29fe7e5cefcc0",
+      "markdown": "将 int 位置的值增加指定字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<IntT>.minusAssign(Int)": {
+      "sourceHash": "1e87ec6b7d6945c65b5150d6d55b908a8eb1c327c29a5f3a564317681ee6e4e4",
+      "markdown": "将 int 位置的值减少指定字面量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.lt(Expr<T>)": {
+      "sourceHash": "fec25f43eb843d7f73c411506e51f2cc830149ec2f4b9b150cc8764da4c6a734",
+      "markdown": "判断当前表达式是否小于 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.le(Expr<T>)": {
+      "sourceHash": "a0b05c11b565b9796efaee9b8e0727463800d5c4a3fa54143a7ef761ae874f60",
+      "markdown": "判断当前表达式是否小于或等于 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.gt(Expr<T>)": {
+      "sourceHash": "b8ff5a82c443e6b7b7430990d1f46bd98c4da82f87448ba938af463802d6b6a3",
+      "markdown": "判断当前表达式是否大于 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.ge(Expr<T>)": {
+      "sourceHash": "85346df8c18b3e7be50540d4fccd850b9f011930ce994bfa5f8113ec622de6d0",
+      "markdown": "判断当前表达式是否大于或等于 [other]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.eq(Expr<T>)": {
+      "sourceHash": "4cef1309d8f350bf99effd6c337d80a3c2d6bdc5dbbfe7d1bf629fd838f45121",
+      "markdown": "使用 MCFPP 相等操作比较兼容的表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.ne(Expr<T>)": {
+      "sourceHash": "cbb69c3cc60c5d0e3cd659503a902d66945113d660e9af57fd41b11bdd47d6fd",
+      "markdown": "判断兼容的表达式是否具有不同的值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.and(Expr<BoolT>)": {
+      "sourceHash": "566ab2604ff4c7ac51a902690f8f6babd1c2b7bfb804678756cc6cef1daa0582",
+      "markdown": "构建短路布尔与表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.or(Expr<BoolT>)": {
+      "sourceHash": "a8ba319e61e77ce120a3fcdbb988293fe6d3869a80637dd77a52b9a2b5938823",
+      "markdown": "构建短路布尔或表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.call(FunctionRef<R>,Expr<*>)": {
+      "sourceHash": "fec390f0c0d80d5496050546bf5c03e2a14b71cea9981591e014bf346fb39281",
+      "markdown": "使用 VALUE 实参构建函数调用。其他参数模式使用 [CallArgument] 列表。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.callVoid(FunctionRef<VoidT>,Expr<*>)": {
+      "sourceHash": "0d5852cf756cdcac7f8e5e51bdd51b26fb42fc4e70edf8d7d8e9f1eb424a974a",
+      "markdown": "追加使用 VALUE 实参的 void 函数调用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.inline(InlineFn<*>,Expr<*>)": {
+      "sourceHash": "34d7d2f3ebc376fde0f25f96987931fb55ec4782994063311b1eb5783b52ae3f",
+      "markdown": "使用 VALUE 实参插入回调，生成有结果的表达式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.inlineVoid(InlineFn<*>,Expr<*>)": {
+      "sourceHash": "b394d5d6eb7c2576df6c0eed57202a0c175205845c0c1e992b258011ab772e48",
+      "markdown": "使用 VALUE 实参插入 void 回调，生成语句。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote": {
+      "sourceHash": "292d6b6e96bbb639eabdabd6e6eb4a1bc0e3c5a9fd5772293834cef5eefc7933",
+      "markdown": "通过 Kotlin 接收者回调构建生成代码。每个回调在构造阶段执行一次。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote.block(CodeScope.()->Unit)": {
+      "sourceHash": "9f02978868464c797e0e5586823171efd0b2d72f0d46c23a0e289d1c8a485e17",
+      "markdown": "在 [CodeScope] 中构建有序的语句组。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote.expression(TypeRef<T>,CodeScope.()->Unit)": {
+      "sourceHash": "eb3f1a531d16c8fc5410f0a89fcbd4c917705a7a0f0779145b40113d72b5c5c3",
+      "markdown": "构建有结果的表达式。每条正常执行路径都通过 [CodeBuilder.yield] 提供结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.kotlin()": {
+      "sourceHash": "c9cbea0312e14d58857cfc1b1752ad661171276b8bb783c39769466e87ba19c4",
+      "markdown": "为当前 quote 服务提供 Kotlin 接收者回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.quote": {
+      "sourceHash": "43328f8dbe11d76db64c936158806bf2cfd6f99a0c87b7d5526af5287d7dfcc0",
+      "markdown": "当前宏的 quote 服务，使用 Kotlin 接收者回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.quote": {
+      "sourceHash": "ec58e359aaf7b8b46fffdc7bc4e2928c6a8fa3383eccd90b015236c75bfabc0f",
+      "markdown": "当前声明处理器的 quote 服务，使用 Kotlin 接收者回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.kotlin(CodeScope.()->Unit)": {
+      "sourceHash": "70249771e861d7a0540561cd2ba7e2c2fa5a47305a47ce5ad22390649921b973",
+      "markdown": "立即以当前生成方法或 helper 作用域的 Kotlin 接收者执行 [body]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext": {
+      "sourceHash": "a26b21139d2b52af2f89b8b44dc29eb4c1142da06dc3f4d94b319be8ac7bb984",
+      "markdown": "单次宏展开中构建代码的服务。在 provider 方法运行期间使用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.quote()": {
+      "sourceHash": "824d53f2158c4982b55a55a46d1ca6941855a697150d29c693ce169ca6cc0332",
+      "markdown": "返回当前展开的代码构建入口。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.types()": {
+      "sourceHash": "7bfa80cca57d6cab89745981917f332b0861efa4bd18ce3bec3daac34d5e3778",
+      "markdown": "返回宏所在源码环境中的类型与函数查找服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.diagnostics()": {
+      "sourceHash": "33f4499e67576ec4bfff695b7801976828588d463e05b5ce50fba23f7188ac1b",
+      "markdown": "返回编译器警告与错误服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.helpers()": {
+      "sourceHash": "216058931ddccfb610cc53807dbe9bdfd505559f5b934d3839482a451daf98a2",
+      "markdown": "返回定义生成辅助函数的服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.resources()": {
+      "sourceHash": "9f5b4348bdc15cd4df3d53fb927233917b22b9de88216a44fa4ddf8ea997013d",
+      "markdown": "返回预留生成 Minecraft 资源的服务。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.callSite()": {
+      "sourceHash": "d32d54545b59d879e6c7792a70b403c9a25c04dba3b36fdad104b8cc9c95a46b",
+      "markdown": "返回 MCFPP 宏调用的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService": {
+      "sourceHash": "4574058e4b8aec33fd1ca8e39c30346ba087da5c8863c35aa41a8859d9b944f9",
+      "markdown": "查找当前源码环境中可见的 MCFPP 类型和函数。查找在展开期间执行。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.intType()": {
+      "sourceHash": "de44dd3b52b33ed5630c4ddceaac9484b79c4aa64cd0478e48b5e216fd7745c1",
+      "markdown": "返回 MCFPP int 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.boolType()": {
+      "sourceHash": "f6ecb589515b29c14de9b3aea3cf9d660708fa4709ff0442516abfbcbccf3042",
+      "markdown": "返回 MCFPP bool 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.floatType()": {
+      "sourceHash": "087f13639cbb7dde04090ac79208d57b74434cba4d30727fd0b5b277261cac65",
+      "markdown": "返回 MCFPP float 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.stringType()": {
+      "sourceHash": "308df9b6eb58dcf02054eff6e8d97b28efb85bebfcc98b560c06d7df61519ee5",
+      "markdown": "返回 MCFPP string 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.voidType()": {
+      "sourceHash": "05f15011195f0523c50d0ceb02c035167622066841b334fcc3f8c5ea1bb7d796",
+      "markdown": "返回 MCFPP void 类型，用于仅生成语句的代码体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.lookup(String)": {
+      "sourceHash": "9e91567fc7b00bda0431ce52ce722cf452e9f4b69b5f17d5dd113e50a7468a70",
+      "markdown": "未知或不可访问的名称会在宏调用位置产生诊断。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.function(String,List<TypeRef<*>>)": {
+      "sourceHash": "dcf696fddbb65db3e6f8c000f7d821806a7c33c12e27c1faf09d8c43042a154e",
+      "markdown": "查找匹配 [argumentTypes] 的可访问重载。多个重载的匹配程度相同时报告错误。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService": {
+      "sourceHash": "702516ea5a0f78a9cb667466c3601e0984580008fde6b3a8c5b52a9dd93140f3",
+      "markdown": "在宏或声明处理器指定的源码位置报告消息。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService.warning(SourceSpan,String)": {
+      "sourceHash": "b00efe88b335ad41968cd8522544e38fb44bac949929eeeb7d03e8f6f933d8ca",
+      "markdown": "在 [site] 添加编译器警告，并允许展开继续。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService.error(SourceSpan,String)": {
+      "sourceHash": "921c2cef1bcc0a4bb088f418f0c695d51d328f9ef6cab92988320852f617f912",
+      "markdown": "在 [site] 报告编译器错误。编译器丢弃此次失败展开的输出。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.HelperService": {
+      "sourceHash": "f71f12461b5dfdcf01b22a5d3b17e32b13b9ddb402aa4ffe6a3faf2f49753b1a",
+      "markdown": "定义生成函数，其他生成代码可通过 [CodeBuilder.call] 调用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.HelperService.define(String,FunctionSignature<R>,GeneratedBody<R>)": {
+      "sourceHash": "53ac2814e957da7722db2e94293192bdc04913ab1477feb52a894f0d0910f4c1",
+      "markdown": "立即构建辅助函数并返回其函数引用。\n[hint] 提供生成名称的建议。[signature] 按声明顺序接受 VALUE 和 REF 参数。\nREF 参数保留调用者的位置，包括共享位置。\n使用辅助函数自身的参数和局部声明值构建函数体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedBody": {
+      "sourceHash": "d44b71052731697c0fbd6a4829cc92185d617e7f80db00707a2021960d46a0e2",
+      "markdown": "在展开期间执行一次、构建辅助函数体的 JVM 回调。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedBody.build(CodeBuilder,List<MacroInput>)": {
+      "sourceHash": "7548eeb867b703756b8a6a6566a74bb73e33e5fa4f6e0b789753ee67352276c3",
+      "markdown": "按签名顺序使用 Value 或 Ref 参数构建代码。通过 [CodeBuilder.yield] 产生 [R] 类型的结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind": {
+      "sourceHash": "f31762c6b3df7d7e91866072ab69ec997c1e8ea3a7e29918103599d196c9ff9a",
+      "markdown": "通过 [ResourceService] 预留的 Minecraft 资源类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.OBJECTIVE": {
+      "sourceHash": "a186069a965876f5ee64d609c9b2182628aed991ffa8f22c85521269a20e5c8e",
+      "markdown": "记分板目标。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.STORAGE": {
+      "sourceHash": "4f5ccd9b618b3fd4a8cd6c7b9694a79bc3c0814730ba8e41f0aabf730712e83c",
+      "markdown": "命令存储资源。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.INTERNAL_FUNCTION": {
+      "sourceHash": "2afd078c3c4f36edbcecbe20fbcc83c56c24346fd93a258487eea6e318758538",
+      "markdown": "编译器生成的函数。通过 [HelperService.define] 创建。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData": {
+      "sourceHash": "0e6e028580377d66ea37c57a7f84d7cbe8456d8fa4280094f5b98a7f9bb3f9ab",
+      "markdown": "描述资源的不可变数据。[ResourceService.reserve] 按资源类型检查数据。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.value()": {
+      "sourceHash": "5959797b92d5ea660d9fa94da94750527d2fda55f4aa8725d264e4215b2a6a1e",
+      "markdown": "返回传给 [of] 的资源描述。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.Companion.of(ConstantValue)": {
+      "sourceHash": "f076d4fd05a7bd1ecb12f1048e4d69bb387487c1e128de1ed5e2649649fb47e3",
+      "markdown": "包装 [descriptor]，用于预留资源。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef": {
+      "sourceHash": "7325fb7103000a95aa712142d104f063d1f2a9c1b17941bb203d292be22fe941",
+      "markdown": "标识当前展开期间预留的资源。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.kind()": {
+      "sourceHash": "e61fe4261e739f7348a3ba109766f512c4ca59554b80b7a600c543af2041e09b",
+      "markdown": "返回预留资源的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.name()": {
+      "sourceHash": "37b539422e0ab42c8b19cf2e575b6bf704d505faeef61cea7591d77ef2db62e4",
+      "markdown": "返回编译器选定的名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.source()": {
+      "sourceHash": "c2e784bafe91166d7197a477ef55a22d6ec349ab7404a04386b64d869dccb556",
+      "markdown": "返回此次预留关联的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceService": {
+      "sourceHash": "3230dcfa3d622f36812255e6d089ebf8862caba5560f9f90b80936992bbf95b9",
+      "markdown": "预留资源，在展开成功时发布。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceService.reserve(ResourceKind,String,ResourceData)": {
+      "sourceHash": "b5460e4a5b13a536859e1fe14755e14af87371db541b3a37f874abc15e2096c5",
+      "markdown": "预留 [kind] 类型的资源，以 [hint] 为建议名称、[immutableData] 为资源描述。\n编译器分配可重现的名称，并在发布资源前检查描述。\n\n支持的描述是包含下列字段的记录：\n- OBJECTIVE：`criteria` 包含文本 `dummy`。\n- STORAGE：`initial` 包含数字、布尔值、文本，或由这些值组成的嵌套记录和序列。\n\n使用 [HelperService.define] 构建 INTERNAL_FUNCTION。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder": {
+      "sourceHash": "2312b034b0ca7cd780364e80453660d84aa711c406635a5f4e1ec8d768a10267",
+      "markdown": "将 Minecraft 操作构建为生成的 MCFPP 代码。JVM 回调在编译器构建代码时执行一次。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.entities(EntityQuery)": {
+      "sourceHash": "ee7aa452e8f58e84d2d05a909b2f42f6f89c952a1cf36e6b9b1bd168d705e97b",
+      "markdown": "描述生成代码运行时由 [query] 选中的实体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.executeAs(EntitySet,BiConsumer<MinecraftBuilder,EntityHandle>)": {
+      "sourceHash": "0786fd750a943817e64c6ddd26a1fbd33a9691441be96650687470d7d4cbf963",
+      "markdown": "构建以每个选中实体为执行者的代码。[body] 在其子作用域内接收该实体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.at(PositionHandle,Consumer<MinecraftBuilder>)": {
+      "sourceHash": "be8c077098829a7694959f1a539b3806ce6cf728931fed8142f04a3c0699489e",
+      "markdown": "使用指定执行位置构建代码。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotated(RotationHandle,Consumer<MinecraftBuilder>)": {
+      "sourceHash": "62e3a57c22e2af4d7818be3750f6d8bdc7cea4dc4a338fdbd1a58b03e3239260",
+      "markdown": "使用指定朝向构建代码。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.score(EntityHandle,String)": {
+      "sourceHash": "5a2d1c7905100af9270eb8c4b149c14b4f44a796327493b89a9a69c07a8ab6bc",
+      "markdown": "返回 [entity] 在现有记分板目标 [objective] 中的可写分数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.score(ScoreHolder,String)": {
+      "sourceHash": "39efb10a98d1c916c2a23b8e08e87304ab90b91db5788bacc5087d9b6851a842",
+      "markdown": "返回固定持有者 [holder] 在现有记分板目标 [objective] 中的可写分数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.position(Double,Double,Double)": {
+      "sourceHash": "f4ac5a7045dff1883765a932b90e0af2547bbdcc69d6e823e4c1a88c9458ff86",
+      "markdown": "描述绝对世界坐标。坐标必须为有限值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.position(EntityHandle)": {
+      "sourceHash": "13ea4d41da28e44fbb7f2f45576f28ed58730ed36c50c0c248cbfd01188f6943",
+      "markdown": "描述生成代码运行时使用的实体位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.currentPosition()": {
+      "sourceHash": "ef6881201b685be3a9df41c76b408527de68e76600c3e28cf16729da666825dd",
+      "markdown": "描述生成代码当前位置的执行位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.offset(PositionHandle,Double,Double,Double)": {
+      "sourceHash": "a3501f13bc2e8d9cece3396b93a1bdc721dab1ed6c444108c9f88bcea208ed31",
+      "markdown": "沿世界坐标轴添加偏移，不受当前朝向影响。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.localOffset(PositionHandle,RotationHandle,Double,Double,Double)": {
+      "sourceHash": "8a6f2bde7de5eb14b964f3374d5699da1752a5c277a8f3df0333f97d37932f08",
+      "markdown": "使用指定朝向添加明确的左、上、前偏移。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotation(Double,Double)": {
+      "sourceHash": "33a0bb924231e5c976f259d5e471f4dae921763c12cf3f2d53d1ac2d93b23e61",
+      "markdown": "以度为单位描述绝对偏航角和俯仰角。角度必须为有限值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotation(EntityHandle)": {
+      "sourceHash": "a6cbd000deb4b4ef5ce113deb67a536a8ccd66f260150c3375e13dd8835c3973",
+      "markdown": "描述 [entity] 的朝向。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.currentRotation()": {
+      "sourceHash": "4a89983b79d83a29dc7def4ec3423777b0966a8067233710203b7b101f04d31e",
+      "markdown": "描述生成代码当前位置的执行朝向。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.blockAt(PositionHandle)": {
+      "sourceHash": "7eace687d5b73e9193a2754719f3460302df19e8b9cd6e7911e238800729e1be",
+      "markdown": "描述 [position] 处的方块。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.blockMatches(BlockHandle,BlockPredicate)": {
+      "sourceHash": "a53600027e2c3f7fc236c3dabe7a22606c2a333f34b5e881a623dcea676f0aec",
+      "markdown": "创建运行期检测，检查方块的标识符或标签及指定状态。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySet": {
+      "sourceHash": "6d11f6ffe0cfdb93f893b766e6b2e872a481c90c2d82e422b7691d1c4684a052",
+      "markdown": "生成代码运行时选中的实体集合。通过 [MinecraftBuilder.executeAs] 遍历每个实体。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityHandle": {
+      "sourceHash": "da0dd8bc3a3f6b0821e12042206e36e8bb1d6a2dcfc16a10c1eda822d92366d6",
+      "markdown": "[MinecraftBuilder.executeAs] 回调中提供的单个实体。在该回调的作用域内使用。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.PositionHandle": {
+      "sourceHash": "59207290f74dc55752a8049584092d8977b5dcc5527fe91a2c5a2b5e5a7b68e4",
+      "markdown": "供 [MinecraftBuilder.at] 和 [MinecraftBuilder.blockAt] 使用的位置描述。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.RotationHandle": {
+      "sourceHash": "94607ba4330dad434e1b04aa58f59d6483f11edd83bd53286dfd46bed7c309a8",
+      "markdown": "供 [MinecraftBuilder.rotated] 和 [MinecraftBuilder.localOffset] 使用的朝向描述。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockHandle": {
+      "sourceHash": "2a47c3672aed7506afe570b798f118d2781d995750cfe4324356ffb2732af8eb",
+      "markdown": "供 [MinecraftBuilder.blockMatches] 使用的方块位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection": {
+      "sourceHash": "000b1252de8c2e33913ce62874b967eb4ff93a517e6a284a72ef6a3dd720e058",
+      "markdown": "实体查询的初始集合。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection.ALL_ENTITIES": {
+      "sourceHash": "a7e18d1884647be7c7bc425657269420204be54266cda7adc16485fdaee1b279",
+      "markdown": "所有实体，对应 `@e`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection.ALL_PLAYERS": {
+      "sourceHash": "1a8698cba0048f8b338dfbfd82c7d8aa53e7acc84382b3f55f93122d8480919e",
+      "markdown": "所有玩家，对应 `@a`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort": {
+      "sourceHash": "0c3ffc7309704f47a041ea41c95fa2d3fb2d87276c64b588d9dc5fdb221fd6c0",
+      "markdown": "应用实体查询数量限制前使用的排序方式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.NEAREST": {
+      "sourceHash": "ea30cf865ce4ace5105920b1b9332a4e3cf88b6aeffd9186fbb803334927385c",
+      "markdown": "最近的实体优先。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.FURTHEST": {
+      "sourceHash": "3e3f2c4e12da138897b5ec534c4718ded11f5f423deef746bcb304e9dc222c75",
+      "markdown": "最远的实体优先。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.RANDOM": {
+      "sourceHash": "bc860b89ecd98d6ee8192ad4453226555e92088eccb5a9d6247892dce3d4f797",
+      "markdown": "随机实体顺序。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.ARBITRARY": {
+      "sourceHash": "eaa4581f98626c3a8df0494fcc4e54510b61da332aaea8f99a5e545453369665",
+      "markdown": "游戏提供的实体顺序。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery": {
+      "sourceHash": "0201a45b6cdcfee26c8b382bea01f0f10517504d2f7ef66f530a14a6b877fc24",
+      "markdown": "实体选择器的不可变描述。每个筛选方法返回新的查询。",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "selection",
+          "content": "实体的初始集合。"
+        },
+        {
+          "name": "property",
+          "subject": "selection",
+          "content": "实体的初始集合。"
+        },
+        {
+          "name": "property",
+          "subject": "entityType",
+          "content": "要求的带命名空间实体类型；null 表示任意类型。"
+        },
+        {
+          "name": "property",
+          "subject": "entityType",
+          "content": "要求的带命名空间实体类型；null 表示任意类型。"
+        },
+        {
+          "name": "property",
+          "subject": "limit",
+          "content": "最大结果数量；null 表示使用选择器默认值。"
+        },
+        {
+          "name": "property",
+          "subject": "limit",
+          "content": "最大结果数量；null 表示使用选择器默认值。"
+        },
+        {
+          "name": "property",
+          "subject": "sort",
+          "content": "结果顺序；null 表示使用选择器默认值。"
+        },
+        {
+          "name": "property",
+          "subject": "sort",
+          "content": "结果顺序；null 表示使用选择器默认值。"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.selection": {
+      "sourceHash": "d50f3d1c7ce11d2994bde65044b6185acd277fcb55c5957c851476c9a01dfa3a",
+      "markdown": "实体的初始集合。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.entityType": {
+      "sourceHash": "49b9f6d99f07982b1374f03b0e39489ecbecaa1d6dbf45023f951f6b9917d120",
+      "markdown": "要求的带命名空间实体类型；null 表示任意类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.limit": {
+      "sourceHash": "2c0bb9ebcf44dc8b1715a8b11d41baaed3f6a6a9ee9aa96f60032affd6d62fe4",
+      "markdown": "最大结果数量；null 表示使用选择器默认值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.sort": {
+      "sourceHash": "19ff96a39b643b511123a9861a45ea5b6ffb432b6a98cf303d404545522fbe44",
+      "markdown": "结果顺序；null 表示使用选择器默认值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.tags": {
+      "sourceHash": "699c8f0374fc80c62861bac928ad6b13e99bdda5cd3f23a85369353fcc4ae2b3",
+      "markdown": "每个选中实体必须具有的标签。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withType(String)": {
+      "sourceHash": "adb7506822d8ed2fe35c8e8a6743b5af389bcc2045b060dd2faaa18f9203d6af",
+      "markdown": "返回限定为指定带命名空间实体类型的查询，例如 `minecraft:pig`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withTag(String)": {
+      "sourceHash": "03cd12cec5d14accc28be2ffa6ae755b6ee993b0e575ba3f8f00cce6d1c4cb18",
+      "markdown": "返回增加一个必需实体标签的查询。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withLimit(Int)": {
+      "sourceHash": "5127526989a4177a5469c10598abf1885a10d82f932c3fc3b3cb27900b7f4084",
+      "markdown": "返回最多选择正整数 [count] 个实体的查询。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.sorted(EntitySort)": {
+      "sourceHash": "4c6a782746d3aaff4b6f99caa965a5fca08321b3d4d0d59a94194adcb70f81c3",
+      "markdown": "返回采用指定结果顺序的查询。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion.allEntities()": {
+      "sourceHash": "93dcabd5caffa3ddfde7ab41bec9000fe396abf7c01dfd012b73effaee5aa6f9",
+      "markdown": "创建以 `@e` 为初始集合、未添加筛选条件的查询。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion.allPlayers()": {
+      "sourceHash": "34ff42dabcff17d74cc116a19ac8f5817f54a5a301a00cb370813c59fa2c571f",
+      "markdown": "创建以 `@a` 为初始集合、未添加筛选条件的查询。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder": {
+      "sourceHash": "1a7b387e346eda372570b5e58130aa41b580c8fcb998e7d3d32af40fe142d542",
+      "markdown": "固定的记分板名称，例如虚拟玩家。执行者变化时 [name] 保持不变。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.name": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.Companion.named(String)": {
+      "sourceHash": "178d09d8540345252389fbd7af8bde4274cc7e7a2a1733a82a1e758d598628d8",
+      "markdown": "创建长度为 1–40 个字符的持有者名称，可使用字母、数字、`#`、`_`、`.`、`+` 和 `-`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate": {
+      "sourceHash": "20a90259dee8917140ed6067f6dc5d4c23c4478b3dd1a0bd5bd9749ab25c3b06",
+      "markdown": "可附带方块状态的方块检测。每个筛选方法返回新的谓词。",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "resource",
+          "content": "带命名空间的方块或方块标签标识符。"
+        },
+        {
+          "name": "property",
+          "subject": "resource",
+          "content": "带命名空间的方块或方块标签标识符。"
+        },
+        {
+          "name": "property",
+          "subject": "isTag",
+          "content": "检测方块标签时为 true。"
+        },
+        {
+          "name": "property",
+          "subject": "isTag",
+          "content": "检测方块标签时为 true。"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.resource": {
+      "sourceHash": "000739b11bf2abb21af261cb44f735b8c70c775088cf492297a0df4b0f141e51",
+      "markdown": "带命名空间的方块或方块标签标识符。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.isTag": {
+      "sourceHash": "e17c3df5f14a7b04563c4104a695532663062c46b2a77b4d74c5f3f284fa764b",
+      "markdown": "检测方块标签时为 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.states": {
+      "sourceHash": "5ea9f686dbc360a29eef33a14f228028e263863cde3b9c75bfab6017395e2910",
+      "markdown": "按状态名称索引的必需状态值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.withState(String,String)": {
+      "sourceHash": "057e5e1093dd45dda00b00e671e8bb82c004806b4f1eaa5b07dca36e356b3221",
+      "markdown": "返回带有指定状态值的谓词。状态名称和值使用小写字母、数字或下划线。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion.block(String)": {
+      "sourceHash": "2d09ea236a5b16a3d45ecf95fb5b6bcb2aa5926c8a3f0afb805c64380392a650",
+      "markdown": "创建对带命名空间方块标识符的检测，例如 `minecraft:stone`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion.tag(String)": {
+      "sourceHash": "fe6046e4d7f162f3b7b9aafe3a41b866af635ce2e0b3a2fd5a65aa9d41ce7a59",
+      "markdown": "创建对带命名空间方块标签标识符的检测，传入格式为 `minecraft:logs`。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote": {
+      "sourceHash": "c2d7518178d58826cd29b8b1284e68b5d354df545880004e64b8012a96bd184a",
+      "markdown": "为当前展开构建不可变的 MCFPP 代码。每个 JVM 回调在构建期间执行一次。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.block(Consumer<CodeBuilder>)": {
+      "sourceHash": "ada3c61527ba5c4f2e2e70ad60667f0f6e34cd1ea9027d547075a6abb0dc6b5a",
+      "markdown": "构建一组语句。生成代码需要产生值时，使用 [expression]。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.expression(TypeRef<T>,Consumer<CodeBuilder>)": {
+      "sourceHash": "54f22ade1eb89a22a9fae563cbdbb7b41b5e105047dc1c1355dee2e195c31867",
+      "markdown": "构建结果类型为 [type] 的表达式。\n每条正常完成的执行路径都必须通过 [CodeBuilder.yield] 产生兼容的值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.IntT": {
+      "sourceHash": "501b11e3d11d9f63de4ae43b4c5e90bf2d48378fe4c512819dac7842102e84b5",
+      "markdown": "标记生成代码中的 MCFPP int。通过 [TypeService.intType] 获取类型描述符。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BoolT": {
+      "sourceHash": "54d0819c61fbd675de4309354e0fa2ecfd01f9e2cc23f1bfb4c0c9c023d3d83e",
+      "markdown": "标记生成代码中的 MCFPP bool。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FloatT": {
+      "sourceHash": "ffd69d1b63544a4719c246bd296edcf0f837c2e42f6faadb581b5ae9428a91c7",
+      "markdown": "标记生成代码中的 MCFPP float。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.StringT": {
+      "sourceHash": "ae6cefe7a40df2de32c566c821119e9e066690ea5bae8c07e9836d12915b3d05",
+      "markdown": "标记生成代码中的 MCFPP string。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.VoidT": {
+      "sourceHash": "322c64f09cf68751c68a8f195f6ef439ad90fbb2ab3d639af91d21290d3727df",
+      "markdown": "标记 MCFPP void 结果。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityT": {
+      "sourceHash": "be285065b81886fedbddfb86b8436793c860cc181425bfaa739cde1afb25c555",
+      "markdown": "标记生成代码中的 MCFPP entity 值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.PositionT": {
+      "sourceHash": "aaab037e7f64abd912c6912eec57636d077d7a4805bdee929dd5f9ad6d5c9d68",
+      "markdown": "标记生成代码中的 MCFPP position 值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockT": {
+      "sourceHash": "a9f64320d2d20db932569f0940bfcde8d25c4c79d8d1007cee2f2be29b5e5ec9",
+      "markdown": "标记生成代码中的 MCFPP block 值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreRefT": {
+      "sourceHash": "6e2f40a28454471fbfa502d694ccf90a927601bc9ddb0480845905a00971b7f1",
+      "markdown": "标记 MCFPP ScoreRef 值，该值存储 Minecraft 记分板地址。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.NBTRefT": {
+      "sourceHash": "ac47d4278fa1346de34dfa7079a1eb672c6cc758f71e3a3a11a208f0ba7ced18",
+      "markdown": "标记 MCFPP NBTRef 值，该值存储 [T] 类型值的 Minecraft NBT 地址。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan": {
+      "sourceHash": "9ab00cbe44b16baceb5ef2b9c2cb1b3c16245767558632127dd4bc7b1481a3a1",
+      "markdown": "供编译器消息使用的源码范围。",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "file",
+          "content": "逻辑源文件名称。"
+        },
+        {
+          "name": "property",
+          "subject": "file",
+          "content": "逻辑源文件名称。"
+        },
+        {
+          "name": "property",
+          "subject": "startOffset",
+          "content": "首字符的偏移，从零开始。"
+        },
+        {
+          "name": "property",
+          "subject": "startOffset",
+          "content": "首字符的偏移，从零开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endOffset",
+          "content": "范围结束后的偏移，从零开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endOffset",
+          "content": "范围结束后的偏移，从零开始。"
+        },
+        {
+          "name": "property",
+          "subject": "startLine",
+          "content": "起始行号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "startLine",
+          "content": "起始行号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "startColumn",
+          "content": "起始列号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "startColumn",
+          "content": "起始列号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endLine",
+          "content": "结束行号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endLine",
+          "content": "结束行号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endColumn",
+          "content": "范围结束后的列号，从一开始。"
+        },
+        {
+          "name": "property",
+          "subject": "endColumn",
+          "content": "范围结束后的列号，从一开始。"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.file": {
+      "sourceHash": "80756994f02a5f6980c0673aa166644cf2bfbc20ccb020189f341efdd4412455",
+      "markdown": "逻辑源文件名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startOffset": {
+      "sourceHash": "0c49afd42a526b1cebf895ffc70cb02bb54a0743225f15d40ae870fa8a500fcf",
+      "markdown": "首字符的偏移，从零开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endOffset": {
+      "sourceHash": "a85af2147ae24b240384c047d3a75b2f6f7ac1546031c56af8955f1800b0b29f",
+      "markdown": "范围结束后的偏移，从零开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startLine": {
+      "sourceHash": "0569f8bc006e90b1cfb22666650c2ede5532e01849fe5d49708b0c55e8c81c34",
+      "markdown": "起始行号，从一开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startColumn": {
+      "sourceHash": "a18865daf60e8257e7acc4edafdf2e0914a018391ffe70990e90a1c70dc1f945",
+      "markdown": "起始列号，从一开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endLine": {
+      "sourceHash": "d3d274e19368e301150deebb9879342844f2d3523a2139716dc2c43dad45ca41",
+      "markdown": "结束行号，从一开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endColumn": {
+      "sourceHash": "b6e6c59191aec662686e7d97d07897caf819c24fcdebe2dbf8f939732c1ffa98",
+      "markdown": "范围结束后的列号，从一开始。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.Companion.unknown()": {
+      "sourceHash": "fc4b0c85c50e7454d6d87a1c8f0b0d4f2cfad67fee9ee136522d195132f4a3e6",
+      "markdown": "返回逻辑文件 `<generated>` 中的空范围。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef": {
+      "sourceHash": "c04e4a17c51064d91279a89062751ab9128b0985c59e542197290abeb6b9d2e2",
+      "markdown": "编译器提供的 MCFPP 类型。通过 [TypeService] 或声明视图获取描述符。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.name()": {
+      "sourceHash": "47cd4e9d3b3664477d2764b03b0b3071740fbe6ce6a6ac4125bfd2442fa88f52",
+      "markdown": "返回类型的显示名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.sameType(TypeRef<*>)": {
+      "sourceHash": "0c1ffe7917682bf430f18180ff05f0be93b881c68ae230d3547af35036dfd61a",
+      "markdown": "判断 [other] 是否标识同一次编译中的相同 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.isAssignableFrom(TypeRef<*>)": {
+      "sourceHash": "80231406b0d80e2f1e9ece0bc5e48dd6b5d9054fe69c150dd9ad3c2ce2697dcd",
+      "markdown": "判断 [other] 类型的值是否可赋给此类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.fields()": {
+      "sourceHash": "728f8f412eab735d3720f095383e80199e787bea125d9fff1e61bfe7c6f97930",
+      "markdown": "返回此类型上的可见字段。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.inlineSignature()": {
+      "sourceHash": "ae3c5250f5e016436f6595f6a9724845e83d39912bf3695dc58e6ffe4994e3e0",
+      "markdown": "函数类型返回回调签名，其他类型返回 null。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef": {
+      "sourceHash": "7d7d916cdfaff14d87266d83a4a0150eff42c69cfbb1cf9c023805acc14767ca",
+      "markdown": "标识供 [CodeBuilder.field] 或 [CodeBuilder.fieldRef] 使用的 MCFPP 字段。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.name()": {
+      "sourceHash": "139bb16c03cbd5c7936a23092e7ebd4d9b72bb1d0f41adce20ceb413c1d05220",
+      "markdown": "返回字段名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.type()": {
+      "sourceHash": "944ef7a4fdaf12b667a023d50e6f17d80b381219f9fd108b792e50ace535d161",
+      "markdown": "返回字段值的类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.writable()": {
+      "sourceHash": "93f6abb9fe5b2486ce478d972169f5da8a2a5f3b06efebb47a7cfc53865bcf15",
+      "markdown": "字段支持赋值时返回 true。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.source()": {
+      "sourceHash": "53a25fa09e34543a26917cb865b1829cf7a9e033ba8543e26b438c8ddce88f23",
+      "markdown": "返回字段的源码位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode": {
+      "sourceHash": "4e8d273853d5e9408e72413f3549801940c45e57512653bc40dcc021df430f90",
+      "markdown": "生成的函数或宏接收实参的方式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.VALUE": {
+      "sourceHash": "72a8e2c89b44b4b287a58f24a692991a921cec17b51cb2cdf8a70a03ed1ee544",
+      "markdown": "对实参求值一次并传递其值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.REF": {
+      "sourceHash": "9eff6b8fd939df2bcf8702bdde55f091428f8e3f488c7119bd7cb7e4737fd594",
+      "markdown": "传递与调用者共享的可写位置。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.CONST": {
+      "sourceHash": "d9461052707f1919993081c8f729fa60851ff70015c5b1432a92b743e1302320",
+      "markdown": "提供编译期已知的值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.INLINE": {
+      "sourceHash": "66392ce5873555c20baaa9326addc41f2372eb0f82622245b63d6a29c850bd11",
+      "markdown": "提供源码回调，在展开期间插入。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView": {
+      "sourceHash": "e6c58e7e22c4ecfde334cb84de5e1fee992298766eba1a611349bde499f79387",
+      "markdown": "参数的名称、MCFPP 类型和实参模式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.name()": {
+      "sourceHash": "87fd6e4012b53f42e89ed523a149a8a89c9ceff12db193ce7fa1a934e36f0c58",
+      "markdown": "返回函数签名中使用的名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.type()": {
+      "sourceHash": "893b617e46f45c606ee78832f862bed7dc2394d5f615a749277f8bc74e568bab",
+      "markdown": "返回参数的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.mode()": {
+      "sourceHash": "c45caa6350d7e8b4c41346842e712fa9eafa9c02a0b40ce3972fa88d03c11181",
+      "markdown": "返回调用者传递实参的方式。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.inlineSignature()": {
+      "sourceHash": "4e1cdcee62bf93b257c92e2bc361825483bcf35de1689617791d78f7633226a3",
+      "markdown": "此参数描述回调时返回回调签名，否则返回 null。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion.of(String,TypeRef<*>,ParamMode)": {
+      "sourceHash": "223a5b26762c0f9f5b0e9f4265b52052d8f4d0ccc030cc42c7bd12f6294a14b8",
+      "markdown": "创建参数描述，并在可用时从 [type] 推导回调签名。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion.of(String,TypeRef<*>,ParamMode,InlineSignature<*>)": {
+      "sourceHash": "34263b9cda42258e577eceb7fa93f73fb0da3727c049c63fac78bef03007f992",
+      "markdown": "使用显式回调签名创建参数描述。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature": {
+      "sourceHash": "3c5c866a4fa38b1b5812c4d6bdcffb7302b1b5a7b706b05f31400369d3193006",
+      "markdown": "MCFPP 回调的有序参数和结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature.parameters()": {
+      "sourceHash": "26ecfbc26cac690241301ade61b7af61f34c66fed2aca7b948529579209e210a",
+      "markdown": "按调用顺序返回参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature.returnType()": {
+      "sourceHash": "37838e9fb41d7cc6e29907cfcda61fb1175b3c59e33021c6381964ea290a9df5",
+      "markdown": "返回 MCFPP 结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature": {
+      "sourceHash": "d393502b37193e4b51fa6e709c53510c6d665cd8c409be961c5fab3b4e238081",
+      "markdown": "构建生成声明时使用的函数签名。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature.Companion.of(List<ParameterView>,TypeRef<R>)": {
+      "sourceHash": "565367df99d7596d9ed9176aa0c89877f9a29dc26b262a861a3923bf96175865",
+      "markdown": "根据名称互不重复的参数列表和结果类型创建签名。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef": {
+      "sourceHash": "329c7845c8c6396fc21d8855fdf51630c0e949910d48d31b1b4a8ce513dced11",
+      "markdown": "标识生成代码可调用的 MCFPP 函数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.name()": {
+      "sourceHash": "ed634e8c37fb83773686ae0dcce77c3ad5261333768139385d91509e0e7d8e1d",
+      "markdown": "返回函数名称。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.parameters()": {
+      "sourceHash": "3c8ba68945fafb4329be5e48c6f38acee44c51df3044914cebb2f74a55f45a35",
+      "markdown": "按调用顺序返回普通参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.returnType()": {
+      "sourceHash": "37838e9fb41d7cc6e29907cfcda61fb1175b3c59e33021c6381964ea290a9df5",
+      "markdown": "返回 MCFPP 结果类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.readonlyParameters()": {
+      "sourceHash": "7b37bf11f7e267d078a35a8c9e231c76c69358defec363eb772708eabc17cece",
+      "markdown": "按声明顺序返回函数只读参数列表中的参数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue": {
+      "sourceHash": "0598bc167028b27edabf4b3f61709abba668837ff54ca4b40b08e0028c1b2868",
+      "markdown": "编译期可用的不可变值，例如注解实参或 CONST 输入。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Integral": {
+      "sourceHash": "4313d6e664f51ee06933f6f90bb5612342e821c2ac0d64a4bda37a12dd4b0f8b",
+      "markdown": "以 JVM 有符号 64 位值存储的整数。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Integral.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.FloatBits": {
+      "sourceHash": "c5a302f11252140b84c0099eb6e01e434f26f0d37f296b3bc1e9a41448d6305d",
+      "markdown": "按 IEEE 754 位模式存储的 32 位浮点值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.FloatBits.bits": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.DoubleBits": {
+      "sourceHash": "fb9a57fd435061e4ca91a4afd1296e782c739fda45837dc58edfeea558057b46",
+      "markdown": "按 IEEE 754 位模式存储的 64 位浮点值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.DoubleBits.bits": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Bool": {
+      "sourceHash": "65bb59005a69a988b1e3984ff0ded36bd7af8ae755750ab73f86eae413c07922",
+      "markdown": "布尔值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Bool.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Text": {
+      "sourceHash": "7ff9a8c84c2880590f126a84f51b7e9a946ed7fbe96d2b1358792845ac744284",
+      "markdown": "字符串值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Text.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Nbt": {
+      "sourceHash": "f06883f95e71358c59994dbcd7bfa1831a0059e8056fbaf87df05504248b09e7",
+      "markdown": "以 SNBT 文本表示的 NBT 数据。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Nbt.snbt": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.TypeValue": {
+      "sourceHash": "b5c9034c5db32c0820cc4d298663230eb8594ffeec20ecd969e104852a1a3ce0",
+      "markdown": "用作常量值的 MCFPP 类型。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.TypeValue.type": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.NullValue": {
+      "sourceHash": "380954bf731b782d9bf7eff66b806bf1169f0427037d15d4d33ad1993df51f36",
+      "markdown": "MCFPP null 值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence": {
+      "sourceHash": "5620b3787f4e0ecd15105183562de162b7c5e52302ba24e2360a8ae5ee80db63",
+      "markdown": "[elements] 的有序不可变副本。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.elements": {
+      "sourceHash": "213c06b42ab9790a75256fbb4fbb9c83b904b71a5e72f3d3210d0b6bb1497bf5",
+      "markdown": "按原始顺序排列的常量元素。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.equals(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.hashCode()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record": {
+      "sourceHash": "1fbe9e9eb0d48ea3db2d0ad241bf33e8c46302b220b63a3b85fef31b587b8363",
+      "markdown": "具名 [fields] 的不可变副本，按字段名称排序。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.fields": {
+      "sourceHash": "9feefe2cddf7f9e04192376f8b9f8783d37d37158177aebbc59725e94dbf1cd1",
+      "markdown": "按字段名称索引的常量值。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.equals(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.hashCode()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.integral(Long)": {
+      "sourceHash": "10c4011172275098eb4889b0e01ee13707355aac118ed162ce80b2f51cff9ce2",
+      "markdown": "创建整数常量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.bool(Boolean)": {
+      "sourceHash": "98c9f24f39623bd300a42d0fcbf5e383d4e9ce514e873aec0c1f439c5aa190c0",
+      "markdown": "创建布尔常量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.text(String)": {
+      "sourceHash": "ab9494f40fe26b7cf56344fcf7c1beffe90b33ca14c1834ddda63b3db5296380",
+      "markdown": "创建字符串常量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.sequence(List<ConstantValue>)": {
+      "sourceHash": "5930facb29ab502bad5f3a7736914ac2793a3a98c1894c97c367d2bc66a8d447",
+      "markdown": "将 [elements] 复制为不可变序列常量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.record(Map<String,ConstantValue>)": {
+      "sourceHash": "ca1c0ea85210d2de76deaaec3970fde2c9d1739c54dc8511c40f26d7d342dfc9",
+      "markdown": "将 [fields] 复制为不可变记录常量。",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeModelException": {
+      "sourceHash": "5cdc6c9417789944b7549ec3ccf00c2faa73e4d6e8685f132e09fde64ce258d1",
+      "markdown": "报告无效的生成代码或代码构建器的不当使用。",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "source",
+          "content": "错误消息中包含的源码位置。"
+        },
+        {
+          "name": "property",
+          "subject": "source",
+          "content": "错误消息中包含的源码位置。"
+        },
+        {
+          "name": "param",
+          "subject": "message",
+          "content": "对无效操作的说明。"
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.CodeModelException.source": {
+      "sourceHash": "642771fe5f11b2389327c0770507b7befc971c4750a6a3e37ab7f8f183d9e8b8",
+      "markdown": "错误消息中包含的源码位置。",
+      "tags": []
+    },
+    "s-79223cddd156de742212567b23371bab9ea85309743cdf901081b29ec89dd28b": {
+      "sourceHash": "da2fea6e2c31464935062ee3fbef55ca7d9f9748e74cdcd0349f95929093cae2",
+      "markdown": "返回 value 的 int 值。",
+      "tags": []
+    },
+    "s-ec613e7b2130846305eb8c10da1ca6c296328c32407381e182030cd0e0dcc080": {
+      "sourceHash": "68e17ba5e71e0c315b4ff57d64e7f0ea6080dd0bf1be07776e5c83c0955a12c2",
+      "markdown": "将 float 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-c4860b61b1e6434700d30ea82e00d0dfaaacb92e50cffb5ca2e382d550c2d7cc": {
+      "sourceHash": "6522f4aedb78b95ce9b243dd8164b09fe3f7dbbcb1e029d271db56d8576e7980",
+      "markdown": "将 byte 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-6b72ee8237e89e1d938f02270d27e6b2cef78e7b774c939ce1024f18c06a6e2a": {
+      "sourceHash": "f7bca1b2503f76d16fe42cef8e6a879c63c0ca537bdf0bf072116bf16eaffb97",
+      "markdown": "将 short 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-470fbedcfc1872e237c807d7efdf66987f218e1e97eef01a1d58defaaa4a31bd": {
+      "sourceHash": "19bcd369c4c1eac596ec18053b358ba903283b08d5c35d2a740b5221f4132c28",
+      "markdown": "将 long 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-607611b39bc2c26468b9dfdfe451c2aa6d6ed5c28749046e104bacdff671da0d": {
+      "sourceHash": "00cfd901e2e9bbf0f4d055eb105b45bf145f0edc99535810bdb2dbba471b4ab8",
+      "markdown": "将 double 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-3e2816cd1cb25ef1dd4bc01ddd896101d92da82b2fee2ac4d72de683d3c006af": {
+      "sourceHash": "f3b3eafff55299b23691b0576868876e460c2f876a17d35fadfbf5703893d726",
+      "markdown": "将 int 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-86e34a070ceb88663960286d044308a47c1b22d07c0e4274d143763ecaeb3a36": {
+      "sourceHash": "4d4765f28e49ef690c6398763e06fde5fe27c933aa9a9f0ce7bbbf2e89edf125",
+      "markdown": "返回 value 的 float 值。",
+      "tags": []
+    },
+    "s-6b1ec86bf4e191051c043bde82efab92240a16efadcc26292b44503ffec3c22d": {
+      "sourceHash": "1ef1e480eb55830b8fe1b0fc27da84fde9ffeec83447fc859417997aecdff4f9",
+      "markdown": "将 byte 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-0bb96b89df3676fc9ee864a102e38857c35127414a2e5a0166d887bda66b7a2b": {
+      "sourceHash": "1042ebf0cacfd9fb0bf6c206d5912f2289c6b42e718438d328b6fa058aa3c496",
+      "markdown": "将 short 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-b0ae0ef4c56d0fd6fdcf1007f767bc3175e4cdfc394c603aabe9f4a96ee78f2a": {
+      "sourceHash": "94e4f425fcc49774aa58e91a7d2a8c458723fa50755d1c80825ce03c54366add",
+      "markdown": "将 long 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-0a8a4e8a257171c6946c48f398c92b80ddb37207e13510275135b0fdde3d9b27": {
+      "sourceHash": "e273098043051de045541c4c71b97baab001677e360f85ebca1227b2acf1f0f6",
+      "markdown": "将 double 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-08a9a1d10a41d2212e5240941d92a25aecbe51fb6ad9cbb42e3844b2c15028da": {
+      "sourceHash": "0f8678a5b29cd2011e9ca0a75716bda295dcabcfbd8904e6569c38fb293133ae",
+      "markdown": "将 int 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-00d835f49f25e63486f732f3dc095e3766fb6417360854573810bc650a695e1e": {
+      "sourceHash": "d0e454d9c47c67c801f043bb97a0ac486b8121cbec46e85c0efd852736208c0e",
+      "markdown": "将 float 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-dea2d0b5a825a367164874e7ad3ebe3cc4ca6125e4b34996743c22d857872a1a": {
+      "sourceHash": "b0dd160a15c6a67f4c099d26b62586c1c3c5b4252c5a1cefd395555446b6a0c1",
+      "markdown": "返回 value 的 byte 值。",
+      "tags": []
+    },
+    "s-0fafb164383023950378ab7c81e1b0b430e5440c3da7d30a885b6b8d132cc834": {
+      "sourceHash": "9e47f8cfb402ec9a2a0594c3f26e42d1cddb293fed3823c030aa9a2f5a1f1cdf",
+      "markdown": "将 short 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-2a4bb0d5c02749483e883dcc1bd3c0a349d23c3e7c7e1214877903371ac42fab": {
+      "sourceHash": "451f7cacf969a79592a69035e1b78d913f75888501247d655140754e84331ee1",
+      "markdown": "将 long 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-949e08c957bf70fa03705802dacbd885936038974efade183cbe649979e27e15": {
+      "sourceHash": "921b1724c37efee69291b2250aaa70338dcaa6d042c57c543d32df7bfec9fb11",
+      "markdown": "将 double 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-75357914f1940960b5e5e311993e885aa4ecace9e2cfc00ca4de3d5135ba3869": {
+      "sourceHash": "c5244816e43024827788f7954e1a82e95dceba1e4461e697e9278c5334bce065",
+      "markdown": "将 int 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-c0044254ac94161706c80d70d42ce6f9c1e263cd58a1e0a98b3b7332010e5020": {
+      "sourceHash": "2d0c5290e80e100546af1ede296bc08eeebf5dd355bdd4855c86fac5b21c9948",
+      "markdown": "将 float 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-47bbd320631ad38c97e868432b8929d5c2567c5084135ad2e35f64698a07fe5a": {
+      "sourceHash": "4770000222c4b304eb8cf049b28a07d590e9e0448e1be39032278d274d7d95ea",
+      "markdown": "将 byte 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-1cca560812d879f3237ed936a3fe60d8be4c575646ee98bcd8bdace42e662750": {
+      "sourceHash": "90338c4be7da7ae514777cf2e4d421fbc241f252ff0a8c0cde021930abfcf28d",
+      "markdown": "返回 value 的 short 值。",
+      "tags": []
+    },
+    "s-a86d5afacdcb6088dbe1445699646fa5143d3be5d5faef71748c7ea8bada8341": {
+      "sourceHash": "e2efa92151fe8d13e53f232219397decf490c1d9d90c4a05a077471f0eccea6d",
+      "markdown": "将 long 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-b0732e91684ff1eddc2109c755120f944f458bde5fbd808a207bef25f6b2ae01": {
+      "sourceHash": "4dd4199a826805657d49dea19d56cb3af09d6cea4b337222d4d0c771ece79387",
+      "markdown": "将 double 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-fa2bcabce01980592b420920d83a67a518f58105a9dadc2670b825b75e4ed867": {
+      "sourceHash": "23912efe3975730d964a147c31d3793ef0bb8c8f787048c2ae859b420dc0ae28",
+      "markdown": "将 int 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-a233152d11dc533bc8c8e9f31745063f98fdc767ea07ccd1252d4de17348a4b8": {
+      "sourceHash": "7393dc2353968928c87fb2cad2b33c26ccb3d85b311fd7177278e0ff7cbd35aa",
+      "markdown": "将 float 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-741908b467c2c57e5714dce907e5fb5f1f12ee185620e95735ebfb379bc4a638": {
+      "sourceHash": "a26703771b9b80313e2b57bf0af4d78ece9ba6f1ede01eb21135755a114ea345",
+      "markdown": "将 byte 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-8066b03888ad865089a9b4b51d638e8708318b02cef2c5bf75d157e22a101601": {
+      "sourceHash": "31ed57b1310301c5e05ec0aed3eaf31e06612184ed05233f7f150b4d87e7457d",
+      "markdown": "将 short 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-4c41f92493d3f619c847826bb4df075c36508d97230950ce8d8b2cf84d5df718": {
+      "sourceHash": "bf5a88acd76ddbe3d7a7255a4da518ffef7064402ffa98cf2e7477f203d1dca3",
+      "markdown": "返回 value 的 long 值。",
+      "tags": []
+    },
+    "s-a4f4501ae3e7ffd65a8e894c3dac2f2825ec2e0b61fdbb87e8f8556d71c6ee7d": {
+      "sourceHash": "d0b8b7b57d8aaad4206d9c28359175b0554dbccb9156263539b44af00efbf1fd",
+      "markdown": "将 double 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-b23750bd81bccf47ed396fb3e5496ae2dabc5690f44536bfbdbe360ef8148a39": {
+      "sourceHash": "8dcf0043243e974b25100f6e76bf125f9ffa28ef6f10dcb9e28f4b0daf731134",
+      "markdown": "将 int 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-a99c43fbadf99f3ccaeaa265ce9e912ba3f08343e49797e3c5bcf9661328e97a": {
+      "sourceHash": "c42892b28308cc293c7fb5c28094a52784acdb9baa5532e104353ecc34a902ee",
+      "markdown": "将 float 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-ff9531653c9854ff2403b291cae5a6bc3f175fc9ed4e31ac7c8f381a6a4edf53": {
+      "sourceHash": "f934f77bfd1401a39e0848fc98ca2778e52a1eb17db358db0263bb34e799a95a",
+      "markdown": "将 byte 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-2d2e383382c4d713949a512f89d779c62acc4250d97625a335462cc9e02e169d": {
+      "sourceHash": "d14549fd3081b9f788a6a2cec461929b040c25f9a8aa4d754769a562c77e337d",
+      "markdown": "将 short 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-d1d50ab24bd022396ea86e8143a6f82a635c50dcaa2c497bb6950a8e3793f372": {
+      "sourceHash": "21a6a6168166ff5a8b3660bfd2596d3e23664cbad2d86dd1f4762849e60dec97",
+      "markdown": "将 long 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-8991a6e6016a70eb486d53d9f453127713c534f80fc67a7374f6d10ea6607446": {
+      "sourceHash": "d85d893d68b64e5a5e4be9c305ec989cecb3c21e5f6f56f073e2b2d68c052d55",
+      "markdown": "返回 value 的 double 值。",
+      "tags": []
+    },
+    "s-a3d2966449c909c696fe639ce39582607df8369c9c5e11ce1672b7287a5db312": {
+      "sourceHash": "593b19941564362c34f5f18c379f025591e0744f17521db3307d42be7f54b536",
+      "markdown": "将 int 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-dc29bd87b0eb193aecb46098d1f22c7158d29f24904a07d81544774c0ce8d47f": {
+      "sourceHash": "9ca543c88c3cc25895851a848bca032790f968c6bc7cc689b4e9387675c0f338",
+      "markdown": "将 float 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-6735540f2366330e2e8ec3aaf313490a1d12c999e02de97c25ba1b7157e2ca1b": {
+      "sourceHash": "d7ce71f8c338eabcbc333c367d8b023d47e00980f4caed4eec61f3a00b78800e",
+      "markdown": "将 byte 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-a5949b4b00a9d894689b3df1bd23325fe32e35cdd23d9992943f70b6fbb11178": {
+      "sourceHash": "aae88cbfe7cf7d672ca7c92d9925d90dc281555b06d7afcefa8c0ba4a270283f",
+      "markdown": "将 short 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-9c6fdcaf2e87dee5ab039e3c1a5c5883e566bf19de06a3918ec40e82e6d89e2a": {
+      "sourceHash": "04235c4b315efcea3095f61fc67343234afd97cc7552b7840248096b5f09a859",
+      "markdown": "将 long 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-c2ad61f72f6a7486bfba4aeef44455b08d9dc17866d8db45025011b6a8c5c26f": {
+      "sourceHash": "a5f680aa03b6f2628a79ee30f6b13c56f226a5afb1a24e8078000f0036da698f",
+      "markdown": "将 double 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-77cd05c0caba698f7021e998a82996db5d85fe36328771b6caa143c6414910bd": {
+      "sourceHash": "e10991303acad48ff955729ef63b0c4d567822a775cf5629b9b8d7bc9a2da657",
+      "markdown": "将 bool 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-070dac5bab496449a01c77157175e88d995b00422951444a0d8929d62bc0f626": {
+      "sourceHash": "7909d257dd90f44582d2cd8244da716727bee90594c508c364173999c6c935d4",
+      "markdown": "将 string 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-b3a38755f891b96f050d128addfc06f7361a709bd2129d3b1f5035ba32b5f04f": {
+      "sourceHash": "1817022f1d6d4cfdbebc4000201935400c7ff5891e98bc7886ca839b4d925a4b",
+      "markdown": "返回 value 的 NBT 值。",
+      "tags": []
+    },
+    "s-97bb3c18cfae96a402d90f692fc6a038132a43899bda1b136c3fe385c309f8b0": {
+      "sourceHash": "ce0906f10b3f4845fc7504ea99ca11cac16dd0011e9a8a74d0bc8177284b7923",
+      "markdown": "将 DataObject 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-93a29083dadcd25547fce16d7f461e30ce01523e1be8afe7e9d11d132869f0a8": {
+      "sourceHash": "f20b35dff4711566d2d838f9c0e11ab18ab29faba103e6e40aabb51e3cb8bcf7",
+      "markdown": "将 ByteArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-f047c9424f6b9157236910077f2deb14f91bf582c212d9313449927941bb4d09": {
+      "sourceHash": "01c3916a7d35b1e76f05ce8d4c60409bcf69f23b527b8547d1ae1b4ef461a3dd",
+      "markdown": "将 IntArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-fdd49207ace9c5966da9f8d0167c937fc190dccd5e47ddcd48aa5c4cf42d303d": {
+      "sourceHash": "d78783d01568a7c087dbb60fa97f869a719ca9de5b64b314527dba3b52334ca1",
+      "markdown": "将 LongArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "tags": []
+    },
+    "s-9223eadf5b2dea8ff30cd0b7f3ca030eb33d34a57589b7c907e43dd461198325": {
+      "sourceHash": "7fc4d7f480e6fd0b659c4b3e6511df986e7957e2c92183291c839cabda2ef6e3",
+      "markdown": "按玩家名称创建实体目标。名称使用 1–16 个 ASCII 字母、数字或下划线。使用目标时查找对应实体。",
+      "tags": []
+    },
+    "s-9182f62061276b94a63d2f32def738cb0d0b892ada2c895ab6672adc7caa2f51": {
+      "sourceHash": "ea2aee4e1b538ae9b9aa185312a5c0fbebea094f5425965028c0b7e9f1db760d",
+      "markdown": "按 UUID 文本创建实体目标。文本由五组十六进制数字组成，最大宽度为 8-4-4-4-12。使用目标时查找对应实体。",
+      "tags": []
+    },
+    "s-5738b8d70d3c845ab2464ee5669ecc187b51dc8cc371c49948d2083cdb4b4b34": {
+      "sourceHash": "b4ce487f3f7de9048423a60104e475e6f5ad063d934bb0dfea41a61da4311487",
+      "markdown": "创建记分板地址。holder 是固定持有者名称，objective 是目标名称。创建时保存这两个参数。",
+      "tags": []
+    },
+    "s-b88b6a515ee244e5cd264905ed28d1775f7c25fa940efccd9f6ee7a0d2659bd2": {
+      "sourceHash": "e86477584ec4511da3379bdfea02acb69eb4a4e601ccfdf527ddc74659d15e0a",
+      "markdown": "创建命令存储中的 NBT 地址。storage 指定存储标识符，path 指定 NBT 路径，T 指定读写值的类型。",
+      "tags": []
+    },
+    "s-8547b0ae3116bb11133c4575538e158841c908ab64caf5e08a540f0b199120aa": {
+      "sourceHash": "967853d3f5b941d92829b2824e6245dadf84f6cbfb69f625d19b0adff641fb0e",
+      "markdown": "创建实体的 NBT 地址。target 指定实体，path 指定 NBT 路径，T 指定读写值的类型。",
+      "tags": []
+    },
+    "s-40b85d43fd2a4a204e2ede724415aaea62c0d41bdcae7826f793edf1cf9cdf35": {
+      "sourceHash": "9b18ec8eaec904ef85eb09c57e2838bdb12fd676708e2f74f35802b54add86af",
+      "markdown": "创建方块实体的 NBT 地址。dimension 和 x、y、z 指定位置，path 指定 NBT 路径，T 指定值类型。",
+      "tags": []
+    },
+    "s-0c6579682978019e49adbd6429ceff1a644e10dd8e52b5af55aa66f7f415d211": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "tags": []
+    },
+    "s-78f5f7dfba2cc2a5de82b55488dcc7b970d8ef77411417ddae4c479df2977fc5": {
+      "sourceHash": "47d2f6497e8f1c2ec64c81f806e58b5c7233113a324f58c9d1270e1e12f03421",
+      "markdown": "向所有玩家的聊天栏输出布尔值。true 显示为 1，false 显示为 0。",
+      "tags": []
+    },
+    "s-be4f50ebe1d76f3d113c5fb9adf7326241857fe81de95e9243ded62588f20ce7": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "tags": []
+    },
+    "s-8f64d7c4a72ef135efecf37a280a7f72091f8429d85d5c15fc03cb7ea914fabc": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "tags": []
+    },
+    "s-7dde377e9766a646efcb44fc178853491cb48e86c00fcbd2b6bb297bdf278f83": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "tags": []
+    },
+    "s-64533a2390715a0bf0420504b056c9f1097f2bb7d26e0731842c0044cd8b665a": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "tags": []
+    },
+    "s-a088f090bd6641277b99259de58551537f1f422110d7731ee0d747ddce953932": {
+      "sourceHash": "2067f1dc5f5889a37f428694abc92954d3864c224f2f83810da99bd486507659",
+      "markdown": "向所有玩家的聊天栏输出格式化文本，保留文本组件的样式。",
+      "tags": []
+    },
+    "s-2cf70ff01de626fef7b85ea8cf07f96221f64de508c7eced348450ca2ffc6f52": {
+      "sourceHash": "29d4b7fb7c12736f3cf566935258369d5879fa3c6ef206d49bb2824b68ed7227",
+      "markdown": "提供编译器调试断点位置。调试编译器时可在对应 JVM 实现中设置断点。",
+      "tags": []
+    },
+    "s-17a6c44a21bad30b98409bb7733a0d8ac05dd6b11d5fea9a7fb256ee3a755c00": {
+      "sourceHash": "365f1ed184c82921bf0ff29807975f145af0a6fd7a6a9fd492cc903772e49615",
+      "markdown": "在编译期间记录信息。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "tags": []
+    },
+    "s-7900499cbb4835d1f088ed3e9ded341240ff5823f136a706f58781a3d739d227": {
+      "sourceHash": "10e5ed07812252c81e25634ddee241567dc1bf9d8d4a6536dfb4e093e719110f",
+      "markdown": "在编译期间记录警告。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "tags": []
+    },
+    "s-75189741cc287b22a283451a115b639f4c36f92576b769271f09668463b9f8bb": {
+      "sourceHash": "2a7ecdea5a8d532d938b541cbf657c15b77864def7a7f69ecd902ae1dee17fb8",
+      "markdown": "在编译期间记录错误。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "tags": []
+    },
+    "s-be06acd30b22cae2031659afbf62a6cc2feba6a128f76cd723dc0c726a48b295": {
+      "sourceHash": "7a01ee037a9de4841eb3318b6760e88d07d5d580dbcd4c7ec25d6ac1e5d44114",
+      "markdown": "将目标实体传送到给定坐标。返回命令的数值结果和成功状态。",
+      "tags": []
+    },
+    "s-b8ef9c719bc9c7c715642097221f352fc55289b3bbcaeab28eb1bb176f6e38ee": {
+      "sourceHash": "1da85476ba237539193523078fce704c54e6116c962ea0bcf400d7f731642f91",
+      "markdown": "将目标实体传送到上下文位置，使用该位置保存的维度。返回命令的数值结果和成功状态。",
+      "tags": []
+    }
+  }
+}

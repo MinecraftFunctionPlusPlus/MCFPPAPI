@@ -6,7 +6,7 @@ lastUpdated: true
 
 Use the Kotlin receiver DSL to insert a source lambda into a runtime loop. Create `src/main/kotlin/example/macros/RepeatMacros.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

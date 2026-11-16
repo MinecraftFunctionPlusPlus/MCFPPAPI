@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIFunction` describes a native Kotlin/JVM MNI entry invoked during compilation.
 
-```kotlin
+```kotlin api=kotlin-mni
 import top.mcfpp.annotations.MNIFunction
 import top.mcfpp.core.lang.MCInt
 import top.mcfpp.util.ValueWrapper

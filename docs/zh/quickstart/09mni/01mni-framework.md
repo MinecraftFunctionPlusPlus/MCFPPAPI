@@ -32,7 +32,7 @@ CLI 自动准备 Kotlin/Gradle 依赖，首次准备需要联网。生成的 Gra
 
 `src/main/kotlin/example/mni/Example.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIMacro
@@ -78,7 +78,7 @@ function hello-mni:main
 
 `src/test/kotlin/example/mni/ExampleTest.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import org.junit.jupiter.api.Test

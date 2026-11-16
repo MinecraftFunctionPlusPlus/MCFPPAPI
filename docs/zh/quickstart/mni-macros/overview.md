@@ -23,7 +23,7 @@ provider 放在 `src/main/kotlin`，JUnit 测试放在 `src/test/kotlin`。默�
 
 创建 `src/main/kotlin/example/macros/ScoreMacros.kt`：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

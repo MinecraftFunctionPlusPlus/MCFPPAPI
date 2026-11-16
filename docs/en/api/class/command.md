@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.command.Command` stores command fragments. `Function.addCommand` places a command in the function currently being compiled.
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIFunction

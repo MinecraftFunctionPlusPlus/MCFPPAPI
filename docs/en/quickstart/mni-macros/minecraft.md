@@ -6,7 +6,7 @@ lastUpdated: true
 
 `CodeScope` directly provides `MinecraftBuilder` operations. Create `src/main/kotlin/example/macros/PlayerMacros.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -42,7 +42,7 @@ Each runtime invocation adds one point to every current player. `entities(...)` 
 
 `executeAs` changes the executor, `at` changes position, and `rotated` changes rotation. Each Kotlin callback receives the corresponding child `CodeScope`. Replace the score update above with:
 
-```kotlin
+```kotlin api=kotlin-mni
 at(position(player)) {
     val below = offset(currentPosition(), 0.0, -1.0, 0.0)
     ifThen(blockMatches(blockAt(below), BlockPredicate.block("minecraft:stone"))) {

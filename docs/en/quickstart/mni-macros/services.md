@@ -6,7 +6,7 @@ lastUpdated: true
 
 `MacroContext` supplies type lookup, diagnostics, helpers, and resources for one expansion. This example creates a helper returning `10`, adds the input bonus, and stores the result in an allocated objective:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -45,7 +45,7 @@ The expected result of `print(recordReward(5))` is `15`.
 
 ## Diagnostics
 
-```kotlin
+```kotlin api=kotlin-mni
 if (step < 0) {
     context.diagnostics().error(context.callSite(), "Amount must be zero or greater.")
 }

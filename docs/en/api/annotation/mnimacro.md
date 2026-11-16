@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIMacro` describes a Kotlin/JVM entry that constructs code during compilation.
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

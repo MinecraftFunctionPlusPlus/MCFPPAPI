@@ -1,0 +1,1891 @@
+{
+  "schemaVersion": 1,
+  "symbols": [
+    {
+      "access": "public",
+      "id": "s-79223cddd156de742212567b23371bab9ea85309743cdf901081b29ec89dd28b",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 int 值。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: int): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 2
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-ec613e7b2130846305eb8c10da1ca6c296328c32407381e182030cd0e0dcc080",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: float): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 4
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-c4860b61b1e6434700d30ea82e00d0dfaaacb92e50cffb5ca2e382d550c2d7cc",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: byte): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 6
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-6b72ee8237e89e1d938f02270d27e6b2cef78e7b774c939ce1024f18c06a6e2a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: short): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 8
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-470fbedcfc1872e237c807d7efdf66987f218e1e97eef01a1d58defaaa4a31bd",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: long): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 10
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-607611b39bc2c26468b9dfdfe451c2aa6d6ed5c28749046e104bacdff671da0d",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 int 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toInt",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func toInt(value: double): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 12
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-3e2816cd1cb25ef1dd4bc01ddd896101d92da82b2fee2ac4d72de683d3c006af",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: int): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 14
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-86e34a070ceb88663960286d044308a47c1b22d07c0e4274d143763ecaeb3a36",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 float 值。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: float): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 16
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-6b1ec86bf4e191051c043bde82efab92240a16efadcc26292b44503ffec3c22d",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: byte): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 18
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-0bb96b89df3676fc9ee864a102e38857c35127414a2e5a0166d887bda66b7a2b",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: short): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 20
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b0ae0ef4c56d0fd6fdcf1007f767bc3175e4cdfc394c603aabe9f4a96ee78f2a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: long): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 22
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-0a8a4e8a257171c6946c48f398c92b80ddb37207e13510275135b0fdde3d9b27",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 float 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toFloat",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "float",
+      "signature": "func toFloat(value: double): float",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 24
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-08a9a1d10a41d2212e5240941d92a25aecbe51fb6ad9cbb42e3844b2c15028da",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: int): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 26
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-00d835f49f25e63486f732f3dc095e3766fb6417360854573810bc650a695e1e",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: float): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 28
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-dea2d0b5a825a367164874e7ad3ebe3cc4ca6125e4b34996743c22d857872a1a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 byte 值。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: byte): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 30
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-0fafb164383023950378ab7c81e1b0b430e5440c3da7d30a885b6b8d132cc834",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: short): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 32
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-2a4bb0d5c02749483e883dcc1bd3c0a349d23c3e7c7e1214877903371ac42fab",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: long): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 34
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-949e08c957bf70fa03705802dacbd885936038974efade183cbe649979e27e15",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 byte 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toByte",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "byte",
+      "signature": "func toByte(value: double): byte",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 36
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-75357914f1940960b5e5e311993e885aa4ecace9e2cfc00ca4de3d5135ba3869",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: int): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 38
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-c0044254ac94161706c80d70d42ce6f9c1e263cd58a1e0a98b3b7332010e5020",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: float): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 40
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-47bbd320631ad38c97e868432b8929d5c2567c5084135ad2e35f64698a07fe5a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: byte): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 42
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-1cca560812d879f3237ed936a3fe60d8be4c575646ee98bcd8bdace42e662750",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 short 值。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: short): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 44
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a86d5afacdcb6088dbe1445699646fa5143d3be5d5faef71748c7ea8bada8341",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: long): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 46
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b0732e91684ff1eddc2109c755120f944f458bde5fbd808a207bef25f6b2ae01",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 short 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toShort",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "short",
+      "signature": "func toShort(value: double): short",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 48
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-fa2bcabce01980592b420920d83a67a518f58105a9dadc2670b825b75e4ed867",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: int): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 50
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a233152d11dc533bc8c8e9f31745063f98fdc767ea07ccd1252d4de17348a4b8",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: float): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 52
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-741908b467c2c57e5714dce907e5fb5f1f12ee185620e95735ebfb379bc4a638",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: byte): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 54
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-8066b03888ad865089a9b4b51d638e8708318b02cef2c5bf75d157e22a101601",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: short): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 56
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-4c41f92493d3f619c847826bb4df075c36508d97230950ce8d8b2cf84d5df718",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 long 值。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: long): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 58
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a4f4501ae3e7ffd65a8e894c3dac2f2825ec2e0b61fdbb87e8f8556d71c6ee7d",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 long 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toLong",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "long",
+      "signature": "func toLong(value: double): long",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 60
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b23750bd81bccf47ed396fb3e5496ae2dabc5690f44536bfbdbe360ef8148a39",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: int): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 62
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a99c43fbadf99f3ccaeaa265ce9e912ba3f08343e49797e3c5bcf9661328e97a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: float): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 64
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-ff9531653c9854ff2403b291cae5a6bc3f175fc9ed4e31ac7c8f381a6a4edf53",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: byte): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 66
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-2d2e383382c4d713949a512f89d779c62acc4250d97625a335462cc9e02e169d",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: short): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 68
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-d1d50ab24bd022396ea86e8143a6f82a635c50dcaa2c497bb6950a8e3793f372",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 double 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: long): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 70
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-8991a6e6016a70eb486d53d9f453127713c534f80fc67a7374f6d10ea6607446",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 double 值。",
+      "name": "toDouble",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "double",
+      "signature": "func toDouble(value: double): double",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 72
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a3d2966449c909c696fe639ce39582607df8369c9c5e11ce1672b7287a5db312",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 int 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: int): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 74
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-dc29bd87b0eb193aecb46098d1f22c7158d29f24904a07d81544774c0ce8d47f",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 float 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "float"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: float): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 76
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-6735540f2366330e2e8ec3aaf313490a1d12c999e02de97c25ba1b7157e2ca1b",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 byte 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "byte"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: byte): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 78
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a5949b4b00a9d894689b3df1bd23325fe32e35cdd23d9992943f70b6fbb11178",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 short 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "short"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: short): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 80
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-9c6fdcaf2e87dee5ab039e3c1a5c5883e566bf19de06a3918ec40e82e6d89e2a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 long 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "long"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: long): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 82
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-c2ad61f72f6a7486bfba4aeef44455b08d9dc17866d8db45025011b6a8c5c26f",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 double 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "double"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: double): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 84
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-77cd05c0caba698f7021e998a82996db5d85fe36328771b6caa143c6414910bd",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 bool 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "bool"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: bool): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 86
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-070dac5bab496449a01c77157175e88d995b00422951444a0d8929d62bc0f626",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 string 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: string): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 88
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b3a38755f891b96f050d128addfc06f7361a709bd2129d3b1f5035ba32b5f04f",
+      "imports": [],
+      "kind": "native",
+      "markdown": "返回 value 的 NBT 值。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "nbt"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: nbt): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 90
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-97bb3c18cfae96a402d90f692fc6a038132a43899bda1b136c3fe385c309f8b0",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 DataObject 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "DataObject"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: DataObject): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 92
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-93a29083dadcd25547fce16d7f461e30ce01523e1be8afe7e9d11d132869f0a8",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 ByteArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "ByteArray"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: ByteArray): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 94
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-f047c9424f6b9157236910077f2deb14f91bf582c212d9313449927941bb4d09",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 IntArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "IntArray"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: IntArray): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 96
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-fdd49207ace9c5966da9f8d0167c937fc190dccd5e47ddcd48aa5c4cf42d303d",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将 LongArray 类型的 value 转换为 nbt 并返回结果。转换使用 MCFPP 的类型转换规则。",
+      "name": "toNBT",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "LongArray"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "nbt",
+      "signature": "func toNBT(value: LongArray): nbt",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/conversions.mcfpp",
+        "line": 98
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-9223eadf5b2dea8ff30cd0b7f3ca030eb33d34a57589b7c907e43dd461198325",
+      "imports": [],
+      "kind": "native",
+      "markdown": "按玩家名称创建实体目标。名称使用 1–16 个 ASCII 字母、数字或下划线。使用目标时查找对应实体。",
+      "name": "entityByName",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "entity",
+      "signature": "func entityByName(name: string): entity",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/entity.mcfpp",
+        "line": 6
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-9182f62061276b94a63d2f32def738cb0d0b892ada2c895ab6672adc7caa2f51",
+      "imports": [],
+      "kind": "native",
+      "markdown": "按 UUID 文本创建实体目标。文本由五组十六进制数字组成，最大宽度为 8-4-4-4-12。使用目标时查找对应实体。",
+      "name": "entityByUUID",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "uuid",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "entity",
+      "signature": "func entityByUUID(uuid: string): entity",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/entity.mcfpp",
+        "line": 8
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-5738b8d70d3c845ab2464ee5669ecc187b51dc8cc371c49948d2083cdb4b4b34",
+      "imports": [],
+      "kind": "native",
+      "markdown": "创建记分板地址。holder 是固定持有者名称，objective 是目标名称。创建时保存这两个参数。",
+      "name": "scoreRef",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "holder",
+          "type": "string"
+        },
+        {
+          "name": "objective",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "ScoreRef",
+      "signature": "func scoreRef(holder: string, objective: string): ScoreRef",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/reference.mcfpp",
+        "line": 3
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b88b6a515ee244e5cd264905ed28d1775f7c25fa940efccd9f6ee7a0d2659bd2",
+      "imports": [],
+      "kind": "native",
+      "markdown": "创建命令存储中的 NBT 地址。storage 指定存储标识符，path 指定 NBT 路径，T 指定读写值的类型。",
+      "name": "nbtStorageRef",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "storage",
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [
+        {
+          "name": "T",
+          "type": "type"
+        }
+      ],
+      "references": [],
+      "returnType": "NBTRef<T>",
+      "signature": "func nbtStorageRef<T>(storage: string, path: string): NBTRef<T>",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/reference.mcfpp",
+        "line": 5
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-8547b0ae3116bb11133c4575538e158841c908ab64caf5e08a540f0b199120aa",
+      "imports": [],
+      "kind": "native",
+      "markdown": "创建实体的 NBT 地址。target 指定实体，path 指定 NBT 路径，T 指定读写值的类型。",
+      "name": "nbtEntityRef",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "entity"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [
+        {
+          "name": "T",
+          "type": "type"
+        }
+      ],
+      "references": [],
+      "returnType": "NBTRef<T>",
+      "signature": "func nbtEntityRef<T>(target: entity, path: string): NBTRef<T>",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/reference.mcfpp",
+        "line": 7
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-40b85d43fd2a4a204e2ede724415aaea62c0d41bdcae7826f793edf1cf9cdf35",
+      "imports": [],
+      "kind": "native",
+      "markdown": "创建方块实体的 NBT 地址。dimension 和 x、y、z 指定位置，path 指定 NBT 路径，T 指定值类型。",
+      "name": "nbtBlockRef",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "dimension",
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [
+        {
+          "name": "T",
+          "type": "type"
+        }
+      ],
+      "references": [],
+      "returnType": "NBTRef<T>",
+      "signature": "func nbtBlockRef<T>(dimension: string, x: int, y: int, z: int, path: string): NBTRef<T>",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/reference.mcfpp",
+        "line": 9
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-0c6579682978019e49adbd6429ceff1a644e10dd8e52b5af55aa66f7f415d211",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: int)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 2
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-78f5f7dfba2cc2a5de82b55488dcc7b970d8ef77411417ddae4c479df2977fc5",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出布尔值。true 显示为 1，false 显示为 0。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "bool"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: bool)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 4
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-be4f50ebe1d76f3d113c5fb9adf7326241857fe81de95e9243ded62588f20ce7",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: string)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 6
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-8f64d7c4a72ef135efecf37a280a7f72091f8429d85d5c15fc03cb7ea914fabc",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "nbt"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: nbt)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 8
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-7dde377e9766a646efcb44fc178853491cb48e86c00fcbd2b6bb297bdf278f83",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: any)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 10
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-64533a2390715a0bf0420504b056c9f1097f2bb7d26e0731842c0044cd8b665a",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出 value 的运行期值。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "DataObject"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: DataObject)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 12
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-a088f090bd6641277b99259de58551537f1f422110d7731ee0d747ddce953932",
+      "imports": [],
+      "kind": "native",
+      "markdown": "向所有玩家的聊天栏输出格式化文本，保留文本组件的样式。",
+      "name": "print",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "text"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func print(value: text)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 14
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-2cf70ff01de626fef7b85ea8cf07f96221f64de508c7eced348450ca2ffc6f52",
+      "imports": [],
+      "kind": "native",
+      "markdown": "提供编译器调试断点位置。调试编译器时可在对应 JVM 实现中设置断点。",
+      "name": "debug",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func debug()",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 18
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-17a6c44a21bad30b98409bb7733a0d8ac05dd6b11d5fea9a7fb256ee3a755c00",
+      "imports": [],
+      "kind": "native",
+      "markdown": "在编译期间记录信息。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "name": "info",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func info(value: string)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 21
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-7900499cbb4835d1f088ed3e9ded341240ff5823f136a706f58781a3d739d227",
+      "imports": [],
+      "kind": "native",
+      "markdown": "在编译期间记录警告。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "name": "warn",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func warn(value: string)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 23
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-75189741cc287b22a283451a115b639f4c36f92576b769271f09668463b9f8bb",
+      "imports": [],
+      "kind": "native",
+      "markdown": "在编译期间记录错误。已知字符串显示其内容，运行期字符串显示编译器中的值描述。",
+      "name": "error",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "void",
+      "signature": "func error(value: string)",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/sys.mcfpp",
+        "line": 25
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-be06acd30b22cae2031659afbf62a6cc2feba6a128f76cd723dc0c726a48b295",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将目标实体传送到给定坐标。返回命令的数值结果和成功状态。",
+      "name": "tp",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "entity"
+        },
+        {
+          "name": "position",
+          "type": "pos3"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "mcfpp.minecraft.std:CommandResult",
+      "signature": "func tp(target: entity, position: pos3): mcfpp.minecraft.std:CommandResult",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/teleport.mcfpp",
+        "line": 5
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-b8ef9c719bc9c7c715642097221f352fc55289b3bbcaeab28eb1bb176f6e38ee",
+      "imports": [],
+      "kind": "native",
+      "markdown": "将目标实体传送到上下文位置，使用该位置保存的维度。返回命令的数值结果和成功状态。",
+      "name": "tp",
+      "namespace": "mcfpp.lang",
+      "packageId": "top.mcfpp:stdlib@0.1.0",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "entity"
+        },
+        {
+          "name": "position",
+          "type": "ContextPosition"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "mcfpp.minecraft.std:CommandResult",
+      "signature": "func tp(target: entity, position: ContextPosition): mcfpp.minecraft.std:CommandResult",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/lang/teleport.mcfpp",
+        "line": 7
+      },
+      "tags": []
+    }
+  ],
+  "title": "MCFPP core API",
+  "warnings": [],
+  "language": "mcfpp",
+  "default": true
+}

@@ -10,7 +10,7 @@ lastUpdated: true
 
 The BossBar `max` getter uses this form:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIAccessor

@@ -32,7 +32,7 @@ The CLI prepares Kotlin and Gradle dependencies automatically; the first prepara
 
 `src/main/kotlin/example/mni/Example.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIMacro
@@ -78,7 +78,7 @@ The expected output is `42`. Kotlin generates code during the build; Minecraft e
 
 `src/test/kotlin/example/mni/ExampleTest.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import org.junit.jupiter.api.Test

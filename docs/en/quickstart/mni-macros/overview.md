@@ -23,7 +23,7 @@ Write providers in `src/main/kotlin` and JUnit tests in `src/test/kotlin`. See [
 
 Create `src/main/kotlin/example/macros/ScoreMacros.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

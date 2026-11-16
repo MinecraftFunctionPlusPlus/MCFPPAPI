@@ -2,6 +2,9 @@ import { defineConfig } from 'vitepress'
 import { sidebar } from './sidebar'
 import { readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { loadCatalogs, transformerApiHover } from './components/api-hover/transformer.mjs'
+import { loadSnippetAnalysis } from './components/api-hover/analysis.mjs'
+import { loadLocalizations } from './components/api-hover/i18n.mjs'
 
 import mcfpp from '../assets/lang/mcfpp.json'
 
@@ -820,6 +823,10 @@ export default defineConfig({
 
   markdown: {
     languages: [mcfpp, mcf],
+    codeTransformers: [transformerApiHover(loadCatalogs(fileURLToPath(new URL('../assets/api/', import.meta.url))), {
+      translations: loadLocalizations(fileURLToPath(new URL('../assets/api-i18n/', import.meta.url))),
+      analysis: loadSnippetAnalysis(fileURLToPath(new URL('../assets/api-analysis/kotlin.json', import.meta.url))),
+    })],
 
     lineNumbers: true,
 

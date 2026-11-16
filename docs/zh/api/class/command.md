@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.command.Command` 保存命令片段。`Function.addCommand` 将完成的命令放入当前正在编译的函数。
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIFunction

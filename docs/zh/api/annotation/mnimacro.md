@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIMacro` 描述编译期生成代码的 Kotlin/JVM 宏入口。
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

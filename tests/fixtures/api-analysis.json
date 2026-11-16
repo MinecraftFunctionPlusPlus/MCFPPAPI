@@ -1,0 +1,18 @@
+[
+  "literal(0)",
+  "literal(0xff)",
+  "literal(1.0f)",
+  "literal(true)",
+  "literal(\"hello\")",
+  "@MNIMacro(normalParams = [\"int\"], returnType = \"int\")\nfun example() {}",
+  "@MNIFunction(`override` = true)\nfun example() {}",
+  "import top.mcfpp.annotations.MNIMacro as Macro\n@Macro(normalParams = [\"int\"])\nfun example() {}",
+  "fun example(context: MacroContext) { context.quote.expression(context.types().intType()) { yield(literal(0)) } }",
+  "fun example(literal: (Int) -> Int) { literal(0) }",
+  "fun example(local: Local<IntT>) { local.value }",
+  "fun <T> example(input: T) { input.value }",
+  "val text = \"literal\"\n// literal(0)",
+  "literal()",
+  "literal(unknown)",
+  "literal(\"unfinished"
+]

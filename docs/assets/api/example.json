@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "symbols": [
+    {
+      "access": "public",
+      "id": "s-ee9c34c3ff166beb1997cc954329b01598cfd03f601a0d9ac331b9fdefea4350",
+      "imports": [],
+      "kind": "data",
+      "markdown": "保存任意类型的值。",
+      "name": "Box",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [
+        {
+          "name": "T",
+          "type": "type"
+        }
+      ],
+      "references": [],
+      "signature": "data Box<T>",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 46
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-cc33c5dcb9c8a11aa90b73e72ddcc6b5bdaf70344619d8ed9ed1b48a9b6b4eb3",
+      "imports": [],
+      "kind": "typealias",
+      "markdown": "计数值的类型别名。",
+      "name": "Count",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "typealias int as Count",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 6
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-edac3cc2d6522895cff324b2f21d088cdc7623dbc7008aa81d2dce5359f4009e",
+      "imports": [],
+      "kind": "data",
+      "markdown": "保存当前累计值。",
+      "name": "Counter",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "data Counter",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 18
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-f238dac63f9669477a05a32998685ca11a549d5be46267a11305676642a325a2",
+      "imports": [],
+      "kind": "data",
+      "markdown": "带名称的计数器，继承 [Counter.read()] 的文档。",
+      "name": "NamedCounter",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [
+        "Counter"
+      ],
+      "readonlyParameters": [],
+      "references": [
+        {
+          "included": true,
+          "target": "s-7db2c5128237e6e4dcfc5ebdecfcbb2c90c1a3ecbac174cfbf97dd7a349badc1",
+          "text": "Counter.read()"
+        }
+      ],
+      "signature": "data NamedCounter: Counter",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 40
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-82ab5bd5e5e20b02f507e75c9d02cb3aaab8018aff27e7ad6c5685a5032e821c",
+      "imports": [],
+      "kind": "enum",
+      "markdown": "计数器状态。",
+      "name": "State",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "enum State",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 10
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-6340c8e20a036f9a42b2e0ced61a072762ab0d29ee1b75d0ca62608457b2f502",
+      "imports": [],
+      "kind": "namespace",
+      "markdown": "# Counter API\n\n用于记录和读取累计值。参见 [Counter]、[identity(int)] 和 [Box]。",
+      "name": "docs",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [
+        {
+          "included": true,
+          "target": "s-edac3cc2d6522895cff324b2f21d088cdc7623dbc7008aa81d2dce5359f4009e",
+          "text": "Counter"
+        },
+        {
+          "included": true,
+          "target": "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5",
+          "text": "identity(int)"
+        },
+        {
+          "included": true,
+          "target": "s-ee9c34c3ff166beb1997cc954329b01598cfd03f601a0d9ac331b9fdefea4350",
+          "text": "Box"
+        }
+      ],
+      "signature": "namespace docs",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 1
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-2031dd725b9ec75ca9ab8f91145f771947893cf01a4a47efde5877ac82c184d0",
+      "imports": [],
+      "kind": "function",
+      "markdown": "返回布尔输入。",
+      "name": "identity",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "bool"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [
+        {
+          "included": true,
+          "target": "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5",
+          "text": "identity(int)"
+        }
+      ],
+      "returnType": "bool",
+      "signature": "func identity(value: bool): bool",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 61
+      },
+      "tags": [
+        {
+          "content": "要返回的布尔值。",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "输入值。",
+          "name": "return"
+        },
+        {
+          "content": "identity(int)",
+          "name": "see"
+        }
+      ]
+    },
+    {
+      "access": "public",
+      "id": "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5",
+      "imports": [],
+      "kind": "function",
+      "markdown": "返回整数输入。",
+      "name": "identity",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [
+        {
+          "included": true,
+          "target": "s-2031dd725b9ec75ca9ab8f91145f771947893cf01a4a47efde5877ac82c184d0",
+          "text": "identity(bool)"
+        }
+      ],
+      "returnType": "int",
+      "signature": "func identity(value: int): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 55
+      },
+      "tags": [
+        {
+          "content": "要返回的整数。",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "输入值。",
+          "name": "return"
+        },
+        {
+          "content": "identity(bool)",
+          "name": "see"
+        }
+      ]
+    },
+    {
+      "access": "public",
+      "id": "s-7d8b1a278fb93884ed252525bfea6170eba9e685190c0f8bc4e611e59a9a4efb",
+      "imports": [],
+      "kind": "function",
+      "markdown": "早期的读取入口。",
+      "name": "oldRead",
+      "namespace": "docs",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [
+        {
+          "included": true,
+          "target": "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5",
+          "text": "identity(int)"
+        }
+      ],
+      "returnType": "int",
+      "signature": "func oldRead(value: int): int",
+      "source": {
+        "column": 1,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 65
+      },
+      "tags": [
+        {
+          "content": "使用 [identity(int)]。",
+          "name": "deprecated"
+        }
+      ]
+    },
+    {
+      "access": "public",
+      "id": "s-3dbb8ffd6d081899ea29280cdf7a737aadb01cb03fcf72dcc5d0eabf29205b4b",
+      "imports": [],
+      "kind": "field",
+      "markdown": "存储的值。",
+      "name": "value",
+      "namespace": "docs",
+      "owner": "Box",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "T",
+      "signature": "var value: T",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 48
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-53f0e13d63f31f2f2fe047745b7e26045c9192c705de155e668c0b38cfe510e9",
+      "imports": [],
+      "kind": "constructor",
+      "markdown": "创建从零开始的计数器。",
+      "name": "constructor",
+      "namespace": "docs",
+      "owner": "Counter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "constructor()",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 23
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-7db2c5128237e6e4dcfc5ebdecfcbb2c90c1a3ecbac174cfbf97dd7a349badc1",
+      "imports": [],
+      "kind": "function",
+      "markdown": "读取当前累计值。\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "name": "read",
+      "namespace": "docs",
+      "owner": "Counter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func read(): int",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 33
+      },
+      "tags": [
+        {
+          "content": "当前累计值。",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    {
+      "access": "public",
+      "id": "s-307f3cc1980c397215f23525cb43d23dfe8f66fa3e5dbe3f4b69e5645de8b25f",
+      "imports": [],
+      "kind": "field",
+      "markdown": "当前累计值。",
+      "name": "value",
+      "namespace": "docs",
+      "owner": "Counter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "var value: int",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 20
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-3703c404d97f0c1d41f79eac417c9b9e7e9f98b87bdc36b834f382b708fb6db2",
+      "imports": [],
+      "kind": "field",
+      "markdown": "显示名称。",
+      "name": "name",
+      "namespace": "docs",
+      "owner": "NamedCounter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "string",
+      "signature": "var name: string",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 42
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-862630d87742e7472ed2b94e058509e22dd38f08e3cb80f02ec5e1a45f7983c1",
+      "imports": [],
+      "inheritedFrom": "s-7db2c5128237e6e4dcfc5ebdecfcbb2c90c1a3ecbac174cfbf97dd7a349badc1",
+      "kind": "function",
+      "markdown": "读取当前累计值。\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "name": "read",
+      "namespace": "docs",
+      "owner": "NamedCounter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "func read(): int",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 33
+      },
+      "tags": [
+        {
+          "content": "当前累计值。",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    {
+      "access": "public",
+      "id": "s-f3c79e9e876b69e5f99442c4f2a31c759bfbd30fb3ff3d4a528db92d25e7fe9f",
+      "imports": [],
+      "inheritedFrom": "s-307f3cc1980c397215f23525cb43d23dfe8f66fa3e5dbe3f4b69e5645de8b25f",
+      "kind": "field",
+      "markdown": "当前累计值。",
+      "name": "value",
+      "namespace": "docs",
+      "owner": "NamedCounter",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "returnType": "int",
+      "signature": "var value: int",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 20
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-da6ff920e9eccb72f3e868dc56cf9d5b6b338fec7ae4936a3068eddabb831f07",
+      "imports": [],
+      "kind": "enum-member",
+      "markdown": "已完成。",
+      "name": "done",
+      "namespace": "docs",
+      "owner": "State",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "done",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 13
+      },
+      "tags": []
+    },
+    {
+      "access": "public",
+      "id": "s-c30059e9cbbaabe9a27efb5e61da523c4dad51dbadc0e2eefda60b6d82f8070c",
+      "imports": [],
+      "kind": "enum-member",
+      "markdown": "已就绪。",
+      "name": "ready",
+      "namespace": "docs",
+      "owner": "State",
+      "packageId": "docs:example@1.0.0/mcfpp",
+      "parameters": [],
+      "parents": [],
+      "readonlyParameters": [],
+      "references": [],
+      "signature": "ready",
+      "source": {
+        "column": 5,
+        "file": "src/main/mcfpp/main.mcfpp",
+        "line": 11
+      },
+      "tags": []
+    }
+  ],
+  "title": "documentation-example",
+  "warnings": []
+}

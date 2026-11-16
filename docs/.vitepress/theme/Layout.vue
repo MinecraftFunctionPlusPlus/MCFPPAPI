@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useData, withBase } from "vitepress";
 import DefaultTheme from "vitepress/theme";
+import ApiHover from "../components/api-hover/ApiHover.vue";
 
 const { lang, site } = useData();
 const playgroundLink = computed(() => {
@@ -18,6 +19,7 @@ const playgroundLink = computed(() => {
       <a class="playground-link" :href="playgroundLink"> Playground </a>
     </template>
   </DefaultTheme.Layout>
+  <ApiHover />
 </template>
 
 <style scoped>

@@ -6,7 +6,7 @@ lastUpdated: true
 
 `@InsertCommand` marks a Kotlin method or constructor that generates commands. The annotation remains available at runtime for compiler tools and diagnostics.
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.InsertCommand

@@ -6,7 +6,7 @@ lastUpdated: true
 
 `@InsertCommand` 标记会生成命令的 Kotlin 方法或构造函数。注解保留到运行时，供编译器开发工具和诊断使用。
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.InsertCommand

@@ -52,6 +52,8 @@ func main() {
 }
 ```
 
+将鼠标移到 `print` 上，可以查看 API 卡片；点击可固定卡片。站内 MCFPP 代码块已接入标准库文档，卡片随页面语言显示中文或英文。
+
 在先前执行的创建工程的命令 `mcfpp init hello` 会将工程默认命名空间设为 `hello`。构建后，数据包目录为 `build/hello/`。接下来，将构建得到的数据包部署到 Minecraft 存档中：
 
 1. 将 `build/hello/` 复制到存档的 `datapacks/` 目录。

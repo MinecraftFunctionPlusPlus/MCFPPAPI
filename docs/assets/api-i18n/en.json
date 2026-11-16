@@ -1,0 +1,3053 @@
+{
+  "schemaVersion": 1,
+  "locale": "en",
+  "symbols": {
+    "s-ee9c34c3ff166beb1997cc954329b01598cfd03f601a0d9ac331b9fdefea4350": {
+      "sourceHash": "60912c38164cc17e65a209433f6848affbd5f8d5b32a9e8fae8294d2eeb9e04a",
+      "markdown": "Stores a value of any type.",
+      "tags": []
+    },
+    "s-cc33c5dcb9c8a11aa90b73e72ddcc6b5bdaf70344619d8ed9ed1b48a9b6b4eb3": {
+      "sourceHash": "3bf5126bf773131bd15d9b90dd2d104a4812234a52cb8bb68437c592db7b1af0",
+      "markdown": "A type alias for the counter value.",
+      "tags": []
+    },
+    "s-edac3cc2d6522895cff324b2f21d088cdc7623dbc7008aa81d2dce5359f4009e": {
+      "sourceHash": "2b6c32cb67e239460b5f655d5174c0c2320ca7cd5195e14291a79cea4f973f71",
+      "markdown": "Stores the current accumulated value.",
+      "tags": []
+    },
+    "s-f238dac63f9669477a05a32998685ca11a549d5be46267a11305676642a325a2": {
+      "sourceHash": "dd9a4e8e40004aab15d26c6124544f013df877a02da4be25066b7cfefe00b7f7",
+      "markdown": "A named counter that inherits the documentation of [Counter.read()].",
+      "tags": []
+    },
+    "s-82ab5bd5e5e20b02f507e75c9d02cb3aaab8018aff27e7ad6c5685a5032e821c": {
+      "sourceHash": "4aeac3269b69182cece05ae20e3c52c544c4720059018d65a9114a764f92bad6",
+      "markdown": "Counter state.",
+      "tags": []
+    },
+    "s-6340c8e20a036f9a42b2e0ced61a072762ab0d29ee1b75d0ca62608457b2f502": {
+      "sourceHash": "7b6e4857243be11e496b34693494b6daff575de1e4d0ca1575d69f4f6e5f9db8",
+      "markdown": "# Counter API\n\nRecords and reads an accumulated value. See [Counter], [identity(int)], and [Box].",
+      "tags": []
+    },
+    "s-2031dd725b9ec75ca9ab8f91145f771947893cf01a4a47efde5877ac82c184d0": {
+      "sourceHash": "f7757ee3139b605c3c1882bc2ece0a643596624f07319c71aa1269a1d1374682",
+      "markdown": "Returns the Boolean input.",
+      "tags": [
+        {
+          "content": "The Boolean value to return.",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "The input value.",
+          "name": "return"
+        },
+        {
+          "content": "identity(int)",
+          "name": "see"
+        }
+      ]
+    },
+    "s-8c962dcccd2bc705aca5712733db5c817c43e91760a47dc13ab8ea7290e7bea5": {
+      "sourceHash": "d87a0852542696b70c5402c0b60105254c8de698f2b6bdbd85455c829e253024",
+      "markdown": "Returns the integer input.",
+      "tags": [
+        {
+          "content": "The integer to return.",
+          "name": "param",
+          "subject": "value"
+        },
+        {
+          "content": "The input value.",
+          "name": "return"
+        },
+        {
+          "content": "identity(bool)",
+          "name": "see"
+        }
+      ]
+    },
+    "s-7d8b1a278fb93884ed252525bfea6170eba9e685190c0f8bc4e611e59a9a4efb": {
+      "sourceHash": "5fd09d4be9ac9eacaac41e15d7e013936ee00b69646e02dfca09059f56a3e0f1",
+      "markdown": "An earlier entry point for reading the value.",
+      "tags": [
+        {
+          "content": "Use [identity(int)].",
+          "name": "deprecated"
+        }
+      ]
+    },
+    "s-3dbb8ffd6d081899ea29280cdf7a737aadb01cb03fcf72dcc5d0eabf29205b4b": {
+      "sourceHash": "eb4829154673aedb675dbbc4e6393eef4fa4a429523f21db63968dedd99f008b",
+      "markdown": "The stored value.",
+      "tags": []
+    },
+    "s-53f0e13d63f31f2f2fe047745b7e26045c9192c705de155e668c0b38cfe510e9": {
+      "sourceHash": "1db975f7abade2c39b8878fd4e53f181f53cdf93265e1be85cbde3be9f4ceac0",
+      "markdown": "Creates a counter starting at zero.",
+      "tags": []
+    },
+    "s-7db2c5128237e6e4dcfc5ebdecfcbb2c90c1a3ecbac174cfbf97dd7a349badc1": {
+      "sourceHash": "5c4b888609c8bc2ede8d0a7d26b4fc52b18ccf352f6ec5efc8f40846f929b917",
+      "markdown": "Reads the current accumulated value.\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "tags": [
+        {
+          "content": "The current accumulated value.",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    "s-307f3cc1980c397215f23525cb43d23dfe8f66fa3e5dbe3f4b69e5645de8b25f": {
+      "sourceHash": "099550c196dfea2c79eb69b8c46743cc4302104b57311991f7dcf9b8fa42d004",
+      "markdown": "The current accumulated value.",
+      "tags": []
+    },
+    "s-3703c404d97f0c1d41f79eac417c9b9e7e9f98b87bdc36b834f382b708fb6db2": {
+      "sourceHash": "d56db237f5ab34682d25391856443404f09c27239f8521559f7ee05cd012fabd",
+      "markdown": "The display name.",
+      "tags": []
+    },
+    "s-862630d87742e7472ed2b94e058509e22dd38f08e3cb80f02ec5e1a45f7983c1": {
+      "sourceHash": "5c4b888609c8bc2ede8d0a7d26b4fc52b18ccf352f6ec5efc8f40846f929b917",
+      "markdown": "Reads the current accumulated value.\n\n```mcfpp\nvar counter = Counter()\nvar current = counter.read()\n```",
+      "tags": [
+        {
+          "content": "The current accumulated value.",
+          "name": "return"
+        },
+        {
+          "content": "1.0.0",
+          "name": "since"
+        }
+      ]
+    },
+    "s-f3c79e9e876b69e5f99442c4f2a31c759bfbd30fb3ff3d4a528db92d25e7fe9f": {
+      "sourceHash": "099550c196dfea2c79eb69b8c46743cc4302104b57311991f7dcf9b8fa42d004",
+      "markdown": "The current accumulated value.",
+      "tags": []
+    },
+    "s-da6ff920e9eccb72f3e868dc56cf9d5b6b338fec7ae4936a3068eddabb831f07": {
+      "sourceHash": "3720e5857e64804ee7de2b84c501ff5d78bed2c503b526305d2dc43915d57b6d",
+      "markdown": "Completed.",
+      "tags": []
+    },
+    "s-c30059e9cbbaabe9a27efb5e61da523c4dad51dbadc0e2eefda60b6d82f8070c": {
+      "sourceHash": "65e49de640da2fece887c7bace409811e88c7dcd029896d876d560504584e21b",
+      "markdown": "Ready.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.InsertCommand": {
+      "sourceHash": "1bf75c1a047056a059e9a3d1ccf436aa76d1b15f79f76b868e544a50b6d0968f",
+      "markdown": "Marks a JVM function or constructor as an entry point that inserts generated commands.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MCFPPNative": {
+      "sourceHash": "38e73544477b47478c8ec01969408d954e7e3afa6a9f3c661ec4bdf4535dd643",
+      "markdown": "Marks a JVM function as an MCFPP native implementation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIAccessor": {
+      "sourceHash": "1a8f8fa69298c43d4c0a7a8b78d58e4e8bf8eef6b7c28125e75f3d88df3de5b1",
+      "markdown": "Registers a public static JVM method as the getter for an MCFPP property.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIAccessor.value": {
+      "sourceHash": "7c7289bad7c4c32222ce67744c8a26dbdf0891b6f58aa3e213bccfb58cb6e531",
+      "markdown": "Name of the MCFPP property to read.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction": {
+      "sourceHash": "237945e07977f0ac5d584216695f6a8b99e9b783f7d31e7e2a98b699109bb2bf",
+      "markdown": "Registers a public static JVM method as an MCFPP native function implementation.\nThe compiler executes it when processing a call to generate Minecraft commands or calculate a compile-time result.\nThe implementation can receive NativeCallContext for its arguments and result.\nLegacy wrapper signatures receive readonly parameters, normal parameters, caller, and return wrapper in that order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.readOnlyParams": {
+      "sourceHash": "270136a84e14a4899fe0fcf58f2dd0597d5c827456a21682f7890876c7a5f66d",
+      "markdown": "MCFPP readonly parameter types in call argument order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.normalParams": {
+      "sourceHash": "14df93a59e95894284213cc27c7852898a022f8ddcd7c1e95459a53065e99531",
+      "markdown": "MCFPP normal parameter types in call argument order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.caller": {
+      "sourceHash": "7f4dad2d47d17a1b52eaf8b3622d74e39233b7904048865c5577c4f6c074e800",
+      "markdown": "Caller type hint, defaulting to void. The member binding determines the actual caller type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.returnType": {
+      "sourceHash": "0c40ebfb7ff54e0a009356bd7d2f311f48a7228e31561270cbe665aa400df976",
+      "markdown": "Function return type, defaulting to void.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.override": {
+      "sourceHash": "69838bf7e63a24eefa8af2a2a8a0637235852e036c73ae8dc5e183dc1fe497fb",
+      "markdown": "Whether this overrides a function from the parent type. Defaults to false.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.genericType": {
+      "sourceHash": "7f09c3cdf068ba41cdf484d6c282bae43a7a79dcd9d0a5e9fb7ab664313f3455",
+      "markdown": "Names of generic parameters used in the signature.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.tag": {
+      "sourceHash": "2dd138eab71f925e883424272e5ddd785ec6208fde22e2786485dd26263120a9",
+      "markdown": "Additional tags attached when registering the function.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.identifier": {
+      "sourceHash": "44fe4d206a386bad484123d4a9975c18bfbf5febc9fd5255159f0cff0a26425c",
+      "markdown": "MCFPP function name. An empty string uses the JVM method name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIFunction.returnsConstWhenArgsConst": {
+      "sourceHash": "883d86db47af958e4a5ffa744bbeae82164d00719a60e4b71874b3602b351fef",
+      "markdown": "Whether constant arguments produce a constant result. Defaults to false.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro": {
+      "sourceHash": "037d10e0905c5518e851e7c21eb6f05a99484c7c12a18ceda56648b7c30e386d",
+      "markdown": "Describes a public static JVM method that expands an MCFPP macro during compilation.\nExpose each macro with an explicit MCFPP `func ... = Provider.method` declaration.\nThe method receives MacroContext first. Value, Ref, Const, and InlineFn wrappers determine parameter modes.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.identifier": {
+      "sourceHash": "fe7a5eaad620c97885f626e064f7398dc2597d95b94e790f580d6e1345695a3d",
+      "markdown": "Optional descriptor name; explicit MCFPP declarations supply the public name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.normalParams": {
+      "sourceHash": "e21c34f5ac28c610601e55e0f6cad0f4cee65dc711e4198718f8e357cafebdbb",
+      "markdown": "MCFPP parameter types in JVM parameter order, excluding MacroContext.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMacro.returnType": {
+      "sourceHash": "5f74bb91724f031a8ab1c6e93ea04ac9f192af89de84225c684bd693c8dd227c",
+      "markdown": "MCFPP result type. A void macro returns a Block, and a value macro returns an Expr.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMember": {
+      "sourceHash": "7c7207eba940595403a4d89ca6a5970360ad3a82a6abdf2364da73dbb8ddc61c",
+      "markdown": "Marks a JVM method for registration as an MCFPP member.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMutator": {
+      "sourceHash": "b7e418a625e23ddc86a8dad6a1852dffffcfe537bcd21d0f25ae500fe3e5690f",
+      "markdown": "Registers a public static JVM method as the setter for an MCFPP property.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIMutator.value": {
+      "sourceHash": "c3aca201b5e7016043ba81fd4a571fe26d93e27761b94c96470672aec1ea6790",
+      "markdown": "Name of the MCFPP property to write.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator": {
+      "sourceHash": "dd87ad93715f628b044338151dcb11321b19728aa8ab492983de1b550e8165df",
+      "markdown": "Registers a public static JVM method as an operator implementation for an MCFPP type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.operator": {
+      "sourceHash": "fdfec281176163a2262d7828c0278a776ca1849d6614571a2479f0d4ade5c72b",
+      "markdown": "Operator symbol used in source, such as `+`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.paramType": {
+      "sourceHash": "be74de30dd94e49cfab52d775d96d4b6e2473a01c6a77e48d6a1da2ee1ee3ad0",
+      "markdown": "Parameter type. An empty string indicates a unary operator.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.returnType": {
+      "sourceHash": "74c39c7b869b3f7ea85ef195c77cc77b4fbf5ed18817a0c719470046317cf9b0",
+      "markdown": "MCFPP type of the operator result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.tag": {
+      "sourceHash": "6e01070062a585718196b4cca871ad5e489c7307986b69ae8546dd2a274caf6f",
+      "markdown": "Additional tags.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.annotations.MNIOperator.returnsConstWhenArgsConst": {
+      "sourceHash": "883d86db47af958e4a5ffa744bbeae82164d00719a60e4b71874b3602b351fef",
+      "markdown": "Whether constant arguments produce a constant result. Defaults to false.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command": {
+      "sourceHash": "79d2ef431f9775ef27637f2dbeb7dcd7be5f05f9c0cbae1216e7c4166393d8ac",
+      "markdown": "A command. During MCFPP compilation, a command can consist of multiple fragments implementing `ICommandPart`. A `Command` object can contain multiple `CommandPart` objects. String labels identify fragments so that selected parts of the command can be replaced.\n\nStart a command with `Command.build` in the companion object or the `Command(String)` constructor. Chain the member methods `build(String)` or `build(Command)` to append fragments. Use `build(command: String, pointID: String)` to append a fragment and label its replacement point with `pointID`.\n\nFor a macro command, use `buildMacro(id: Var<*>)`, where `id` is the variable passed to the macro. Then use `buildMacroFunction` to convert the command into a macro function call for more efficient execution. It returns a new `Command` that calls that macro function.\n\nUse `replace(pointID: String, target: String)` or `replace(pointID: String, target: Command)` to replace fragments labeled with `pointID` with `target`.",
+      "tags": [
+        {
+          "name": "constructor",
+          "content": "Create empty Command"
+        },
+        {
+          "name": "constructor",
+          "content": "Create empty Command"
+        },
+        {
+          "name": "see",
+          "subject": "CommandPart",
+          "content": ""
+        },
+        {
+          "name": "see",
+          "subject": "MacroPart",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.debugPoint": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.debugPointCaptured": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.commandParts": {
+      "sourceHash": "02f6f61c60eea5f4967eda0696869c930f21d3f84da6f7afa0820e91fca44d9c",
+      "markdown": "The list of command fragments.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.isCompleted": {
+      "sourceHash": "4022ef1176ca7948bf2974e15c8504be331a7d96d2f02d1042cd9e52786bdad5",
+      "markdown": "Whether command construction is complete. Once complete, fragments cannot be appended or replaced.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.isMacro": {
+      "sourceHash": "8b604b346c2ea43a36a7cbfb0c6a74870d7077e321f190a5defc70e78088a29f",
+      "markdown": "Read-only. Whether this is a macro command.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.hasTag(String)": {
+      "sourceHash": "0487959605c5ad2d43cd4645fccb3d351511820bc63126b8c7cf7e486cb3d673",
+      "markdown": "Checks whether this command has the specified tag.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "tag",
+          "content": "The target tag."
+        },
+        {
+          "name": "return",
+          "content": "Whether the tag exists."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.analyze()": {
+      "sourceHash": "7fb89218984d9b50fcc3ad03f1773b4babd6ff7b5b21bd7106376cdb14308804",
+      "markdown": "Converts this command to a string, merging all fragments and clearing replacement points.",
+      "tags": [
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.replace(Pair<String,String>)": {
+      "sourceHash": "5bbdcfab36c0dba9edb9a8470ad05800b03db99f34e5dd4eb9520b47a644458c",
+      "markdown": "Replaces strings at multiple target points.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "pointIDtoTarget",
+          "content": "The target point IDs and replacement strings."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.get(String)": {
+      "sourceHash": "006cd3d7099c206cdd03032649cb4313682c6ccc1d87a2997d8dfac8a3ffc959",
+      "markdown": "Returns the command fragment string associated with the specified label.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.prepend(String,Boolean)": {
+      "sourceHash": "6fa85b55ae4e0e68438015fffea629c1cd2539663a492165fb65470319dfa339",
+      "markdown": "Prepends a command to this command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A fixed command string."
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "Whether to insert a space between the prepended command and the original command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.prepend(Command,Boolean)": {
+      "sourceHash": "6ff0d86573ac3041d60ffbfefd7ddd82dce8e73ef17587a4c64b25284775594d",
+      "markdown": "Prepends a command to this command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "The command to insert."
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "Whether to insert a space between the prepended command and the original command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,Boolean)": {
+      "sourceHash": "645c50235294b41840b0318242880792035b5e65e4db4e0cdeae38ec4bcd7c83",
+      "markdown": "Appends a command to this command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A fixed command string."
+        },
+        {
+          "name": "param",
+          "subject": "withBlank",
+          "content": "Whether to insert a space between the prepended command and the original command."
+        },
+        {
+          "name": "return",
+          "content": "The resulting command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.build(Command,Boolean)": {
+      "sourceHash": "5c6657593f070fa3b0736647157df3ac68f27888ec8a9d56c3be0b5dbf6f690e",
+      "markdown": "Appends a command to this command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A command string that can be replaced."
+        },
+        {
+          "name": "return",
+          "content": "The resulting command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(Command)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,String,Boolean)": {
+      "sourceHash": "f998172e5440ed5d384e2f1035497857b7bfad8c9f095db5833ba9f1ff45e834",
+      "markdown": "Appends a command to this command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A command string that can be replaced."
+        },
+        {
+          "name": "param",
+          "subject": "pointID",
+          "content": "The replacement point ID for the command string."
+        },
+        {
+          "name": "return",
+          "content": "The resulting command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.build(String,String)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacro(Var<*>,Boolean)": {
+      "sourceHash": "45f412e0beccbbdbf5a4f78a30ba3b36ad6e5dab53fad183a3b8e701db68d88a",
+      "markdown": "Appends a macro argument to this command. Convert the resulting command with [buildMacroFunction] before using it.\n\nThe inserted fragment is an empty string, and its replacement point ID is the macro argument.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacro(Var<*>)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.selectorStringGuard(Var<*>,Boolean)": {
+      "sourceHash": "8304d83e32d7d50d18bb6f4fc5beffdd74bdda9d528635295ace3c1bb37441a8",
+      "markdown": "Propagates only selector-string lexical validation to its real consumer.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.entityTargetStringGuard(Var<*>,top.mcfpp.lib.SelectorExpression.DirectKind)": {
+      "sourceHash": "5ec53cf372fa4afe423f79b05e50f1c71a3248c5c439a83dfe478842168c1232",
+      "markdown": "Direct-target validation travels with the operand through command composition and copies.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacroFunction()": {
+      "sourceHash": "696070a2b386089c166fd3693de22fa881e2910a3b58a1ec2fb2cd87b039abf3",
+      "markdown": "Calls this command as a macro command, automatically determining the macro argument path.",
+      "tags": [
+        {
+          "name": "return",
+          "content": "The function command that calls *the function executing the macro arguments*, together with the values passed as macro arguments."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.buildMacroFunction(NBTPath)": {
+      "sourceHash": "f3c9aaccb29088e8af3b34c015894b308f373d0778d0ec2a5d62f26233b71916",
+      "markdown": "Calls this command as a macro command with an explicitly specified macro argument path.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "nbtPath",
+          "content": "The NBT path used to substitute macro arguments."
+        },
+        {
+          "name": "return",
+          "content": "The function command that calls *the function executing the macro arguments*. The with argument is supplied automatically."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.buildAll(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.toString()": {
+      "sourceHash": "d27feee76d6e4b6c0595d1243a59e9778bc42b4918540f50de3c20a4bb4430fb",
+      "markdown": "Converts this command to a string.",
+      "tags": [
+        {
+          "name": "return",
+          "content": "The resulting string."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.clone()": {
+      "sourceHash": "69f13ed58617d082b25beb65a9875781233a34e817f40c4e7c1ea211699a1942",
+      "markdown": "Copies this command.",
+      "tags": [
+        {
+          "name": "return",
+          "content": "The copied command."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.removeLast()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.build(String)": {
+      "sourceHash": "c7e66940e0d7e68785bcc22e401cedb252b10e862020ca3f9e7e551351458848",
+      "markdown": "Builds a command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A fixed command string."
+        },
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.build(String,String)": {
+      "sourceHash": "caed55e0081ad77a6fc3414b06927460c8a9a10e1db641113b74617de3142a39",
+      "markdown": "Builds a command.",
+      "tags": [
+        {
+          "name": "param",
+          "subject": "command",
+          "content": "A command string that can be replaced."
+        },
+        {
+          "name": "param",
+          "subject": "pointID",
+          "content": "The replacement point ID for the command string."
+        },
+        {
+          "name": "return",
+          "content": ""
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.command.Command.Companion.buildAll(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.command.Command.ICommandPart": {
+      "sourceHash": "f29a79569f4acc63201b9eecac1c735548069e6f81b171ff2968d6944861663f",
+      "markdown": "A fragment forming part of a command. A command object contains multiple command fragments.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion": {
+      "sourceHash": "1092418fb45ab0fb2d85b7c89dcf1b03ab9b458d083e8581c9104c85ae46dcc8",
+      "markdown": "The version of the public MNI API, tracked separately from compiler releases.\n\nThis version covers `top.mcfpp.mni.api`, `@MNIMacro`, and explicit macro declarations in MCFPP source.\nDuring the experimental 0.x series, a minor version change may require provider changes.\n\nA Kotlin provider can check its required version during initialization:\n\n```kotlin\nrequire(ApiVersion.isCompatibleWith(\"0.2\")) { \"Provider requires MNI API 0.2\" }\n```\n\nSee `docs/mni/api-versioning.md` for the compatibility policy.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.MAJOR": {
+      "sourceHash": "61de13d80cfde74ea7c9ee9c3840f544e530fb9756a8ee5babec305eb7fd03a8",
+      "markdown": "Major API version. Zero identifies the experimental series.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.MINOR": {
+      "sourceHash": "c5b8795fdfd9d7017dd691984bc7b1eb1b9740751b9d9ada1fe7bb6c6afa419e",
+      "markdown": "Minor API version. In the 0.x series, providers require the same minor version.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.PATCH": {
+      "sourceHash": "2c6bdc4a590419f770f194e459531526691f0646c0f44c13d80610dc6668c481",
+      "markdown": "Patch API version for compatible corrections within this minor version.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.STABILITY": {
+      "sourceHash": "a2fa5fcda17fbad5f536ccb18b1770e92fb5edc03e6a40828ba6e5627e723158",
+      "markdown": "Release channel appended to [VERSION].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.VERSION": {
+      "sourceHash": "81ccc07135f062c87b22635596531c2ad8fb0b50fadf2bf903998ff565865baf",
+      "markdown": "Full identifier, for example `0.2.0-experimental`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.EXPERIMENTAL": {
+      "sourceHash": "ef7769c5b51cbbdd01bce419fcd7d9ce07216a6b6abe71ed17b3d1f82702bca8",
+      "markdown": "Convenience flag for providers that branch on the experimental contract.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.current()": {
+      "sourceHash": "94c7d3c344c8873b3cd8eee35fcc8c6ee0a30573cc8cc4977fbf156695f047bd",
+      "markdown": "The version implemented by this compiler build.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ApiVersion.isCompatibleWith(String)": {
+      "sourceHash": "5a73e4b5b1bdf31ad82737267e45943aa7dee1b9b4ec508d1ad1f4566a463aee",
+      "markdown": "True when a provider requiring [required] can run on this API.\n\n[required] accepts `major.minor` or `major.minor.patch`, with an optional suffix such as `-experimental`.\nAn omitted patch means zero. The comparison uses the numeric components.\nIn the 0.x series, major and minor must match, and the current patch must meet the required patch.\nFrom 1.0, a newer minor also satisfies an older required minor within the same major.\nReturns false for malformed versions or negative components.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Code": {
+      "sourceHash": "c3fd671dbe89e6fc26c99ef06a03dccce26aeff4919440e4a63db10c061235a8",
+      "markdown": "Generated MCFPP code with a source location for compiler messages.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Code.source()": {
+      "sourceHash": "d22a47054bac91c88dfd1c5b1f591206ae451f0755e538ba0950eda656b8b775",
+      "markdown": "Returns the source location associated with this code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Expr": {
+      "sourceHash": "cbf5e22c3a372c0031ce23b69a3ff20778afe22a168a183e70bdc07ceb894a93",
+      "markdown": "An expression that produces an MCFPP value of type [T] when the generated code runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Expr.type()": {
+      "sourceHash": "df718ed64be33883aecd14eac91c0b547aec18c1f06760542d9425a6c3049278",
+      "markdown": "Returns the MCFPP type of the expression result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Stmt": {
+      "sourceHash": "1be1fd0f08dd3fb32adf89e8097fd1fe206c581353e14e57d5a3443e3f1b3b9d",
+      "markdown": "A generated statement, such as an assignment or a loop.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Block": {
+      "sourceHash": "3fe0b0d1966106c69f1411ac6f0eaae63f0bb04ecbed35ff681dba15310d4396",
+      "markdown": "An ordered group of generated statements. Create one with [Quote.block].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Block.statements()": {
+      "sourceHash": "ee704ebd376496645e399e9a76b648694524e5711216e527fd0d44af82aa1f81",
+      "markdown": "Returns the statements in execution order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Local": {
+      "sourceHash": "986f26990f5cc30d389ae4525b2956794f078f217bea293b74dfd2600f92fbf3",
+      "markdown": "A writable local variable created by [CodeBuilder.local]. Each declaration receives its own generated name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Local.hint()": {
+      "sourceHash": "0479d3aeafcc5348fca5181bf8af5fb51b15a267c9ae4b77fb03dcfbcc8b602c",
+      "markdown": "Returns the suggested name used when the compiler names this variable.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder": {
+      "sourceHash": "736fc55a2dafa2a7c8aa1692c957d0dce396882e32765d288dc1a3c4034b4d07",
+      "markdown": "Builds MCFPP expressions and statements during a quote or generated body callback.\nUse code and type descriptors from the current expansion and variables visible in the current scope.\nBuilder methods check MCFPP types and report invalid code through [CodeModelException].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.local(TypeRef<T>,Expr<T>)": {
+      "sourceHash": "bf462de2cb890efdb9fab74a43f3fb23df9c8c307a24bf862617f463c6c0c445",
+      "markdown": "Declares a local variable and initializes it from [initialValue] when execution reaches the declaration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.local(String,TypeRef<T>,Expr<T>)": {
+      "sourceHash": "3f49433f0310f3d66bb85210cbf2536a93ff0282fb10c8e90554d6aba2670a71",
+      "markdown": "Declares an initialized local variable with [hint] as its suggested generated name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.assign(Ref<T>,Expr<T>)": {
+      "sourceHash": "0d140867a2c7e5c3de20f1b2df84ec55c821ea2b3bf3f223ff9f2e7c93e56992",
+      "markdown": "Adds a statement that writes [expression] to [destination] when the generated code runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.evaluate(Expr<*>)": {
+      "sourceHash": "d9c1b18a0aaa7846dd4a68b6874c99fdb8154f5b7f2773c8ec867ffe0340df5c",
+      "markdown": "Adds a statement that evaluates [expression] and discards its result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.append(Block)": {
+      "sourceHash": "5619f6f58424de1609448ec73a14eac3b8106a3d3d177ef76aa9a57ba02d8985",
+      "markdown": "Inserts [block], giving its local declarations new identities and updating their references.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ifThen(Expr<BoolT>,Consumer<CodeBuilder>)": {
+      "sourceHash": "79e0b36257dab9bfb285f1019f488b6c9dc041e9151d98731cc7d9c76b0a92eb",
+      "markdown": "Adds a conditional statement that executes [thenBody]'s generated statements when [condition] is true.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ifElse(Expr<BoolT>,Consumer<CodeBuilder>,Consumer<CodeBuilder>)": {
+      "sourceHash": "d3d3ad23c5c24fe7cec8f0a353c4f838168961e9771cf1da7a5c427e8d46fd5a",
+      "markdown": "Adds a conditional statement with a branch for each Boolean result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.whileLoop(Function<CodeBuilder,Expr<BoolT>>,Consumer<CodeBuilder>)": {
+      "sourceHash": "b6431485609f36e1a35189df62f77f69858b2f28756d6cf9883b7a78abed33e9",
+      "markdown": "Builds the condition and body once. The generated loop evaluates the condition before each iteration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.call(FunctionRef<R>,List<CallArgument>)": {
+      "sourceHash": "eb2dc79acfb8a1107d916c2f386c1fcd5f204c3fcdfc8c1c086d6fd9003a2822",
+      "markdown": "Builds a call expression. The call executes where the returned expression is used.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.callVoid(FunctionRef<VoidT>,List<CallArgument>)": {
+      "sourceHash": "cb6f6951788174f43e49177f2261ef3f38fd3248b519de20bd41ad6117ca062f",
+      "markdown": "Adds a call statement for a function with a void result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.inline(InlineFn<*>,List<InlineArgument>)": {
+      "sourceHash": "d8c625fb8f1cb5e0f939e4d284c31425ff56c6ee620f64bd2f6bf260afad530c",
+      "markdown": "Inserts a source callback as an expression. [R] must match the callback's result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.inlineVoid(InlineFn<*>,List<InlineArgument>)": {
+      "sourceHash": "61571673f67d9739cf3b479d6bcfdc336621cef52e385f3430fa9a1179144883",
+      "markdown": "Inserts a source callback with a void result as a statement.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.yield(Expr<T>)": {
+      "sourceHash": "adfad675c7abd1592ce1d51d44db577bbc17961efb94f4bbc7ebe5edd05d8f29",
+      "markdown": "Completes the current expression or value-returning helper body with [expression] as its result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.intLiteral(Int)": {
+      "sourceHash": "5a967f90111fbc3f61af6fc02ef60ba4ff954f72eda5ec9d6a475bba6e99a0a7",
+      "markdown": "Creates an MCFPP int literal from [value].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.boolLiteral(Boolean)": {
+      "sourceHash": "8b7bcd7098c5cac8f6e160ba4785c988f1e6d8c7a62e4c407df2f5489215a89a",
+      "markdown": "Creates an MCFPP bool literal from [value].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.floatLiteral(Float)": {
+      "sourceHash": "bd2818425fc149d94fe70960eab4b5b4a307934c438174cf557865d8a06f1788",
+      "markdown": "Creates an MCFPP float literal from [value].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.stringLiteral(String)": {
+      "sourceHash": "5e690aad5ef6e0ebe271d77246d07b68cfbb91825f33ea7555ce8f5f3a78aedb",
+      "markdown": "Creates an MCFPP string literal from [value], with escaping handled by the compiler.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.add(Expr<T>,Expr<T>)": {
+      "sourceHash": "aea8b86e9f0d2057c9fc443d3fe49b87f96eca644bf274bbdb3b2f04923467f6",
+      "markdown": "Adds two int operands or two float operands.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.sub(Expr<T>,Expr<T>)": {
+      "sourceHash": "b3e894feda8188b8faef09b196609a8bd12354194795c4243d75a08aa4bffb4e",
+      "markdown": "Subtracts [right] from [left]. Both operands use the same supported numeric type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.mul(Expr<T>,Expr<T>)": {
+      "sourceHash": "fc7158159af29a50ba6bb8ae60cb45dffc57533e2e1ba7e51b0dad664403901f",
+      "markdown": "Multiplies operands of the same supported numeric type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.div(Expr<T>,Expr<T>)": {
+      "sourceHash": "4958adaa4fcd12390414dac9923e9e71d182922f50ad28d5212413c96a6282d4",
+      "markdown": "Divides [left] by [right] using the operands' MCFPP numeric type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.mod(Expr<T>,Expr<T>)": {
+      "sourceHash": "9158717414fd997a0fb16430dbd1b29d0bf8911a68af07af02db410aca6c5d43",
+      "markdown": "Computes the remainder of [left] divided by [right] for a supported numeric type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.negate(Expr<T>)": {
+      "sourceHash": "b821cdf79d14d19559e99e000076ae9513dfad371f5686940041cd311d422d99",
+      "markdown": "Creates the arithmetic negative of [value].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.lt(Expr<T>,Expr<T>)": {
+      "sourceHash": "efa28323fd90615ee3d05b60c93138af4fcfb24649ebf37c605e00f9b012e9b0",
+      "markdown": "Tests whether [left] is less than [right].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.le(Expr<T>,Expr<T>)": {
+      "sourceHash": "c5945afd213258a25267a6ca3796cdc2d7c47cb1f62fa278932377777d2bcd1f",
+      "markdown": "Tests whether [left] is less than or equal to [right].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.gt(Expr<T>,Expr<T>)": {
+      "sourceHash": "0290092980c60edc212be315e127794a97ff39894185f6afb62832773f9d4eec",
+      "markdown": "Tests whether [left] is greater than [right].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ge(Expr<T>,Expr<T>)": {
+      "sourceHash": "2fae6a33e784ef2ccdcba7ea56ed340091bf96ef0123ba8499e12ab6b2dd4809",
+      "markdown": "Tests whether [left] is greater than or equal to [right].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.eq(Expr<T>,Expr<T>)": {
+      "sourceHash": "6dfcd075db9a4349f31eedc9bdda4b1cba65b651b47ee0d3f952cbc0e24dd71a",
+      "markdown": "Equality requires compatible actual types with a supported equality operation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.ne(Expr<T>,Expr<T>)": {
+      "sourceHash": "300073912fcdae59e6de90b7775c4084f8bf85e9b90759a1f3f5b49787202c50",
+      "markdown": "Tests whether compatible operands differ, using their MCFPP equality operation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.not(Expr<BoolT>)": {
+      "sourceHash": "36d1cd237fe56bd15359b1c8300b2016cd18edb58114fa4e196005b88e6d9bef",
+      "markdown": "Reverses the Boolean result of [value].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.and(Expr<BoolT>,Expr<BoolT>)": {
+      "sourceHash": "fbed0fbb9f2ab3019fa966873a0f881ff37e56634c19e87d72a9b92d0f2deb2c",
+      "markdown": "Creates a Boolean AND expression with MCFPP short-circuit evaluation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.or(Expr<BoolT>,Expr<BoolT>)": {
+      "sourceHash": "3f3e3a920ab3ded57646903f7d948f8e7540173e5884edc9c2ee6e5dc4a6d4cf",
+      "markdown": "Creates a Boolean OR expression with MCFPP short-circuit evaluation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.field(Expr<*>,FieldRef<T>)": {
+      "sourceHash": "11ba9f9cbdb3a1b62187117490d785f6f897878e45b9f4c80250fe44157d4ba3",
+      "markdown": "Creates an expression that reads [field] from [receiver].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.fieldRef(Ref<*>,FieldRef<T>)": {
+      "sourceHash": "1d538dcbed640104e417d01d9d3950b1caa13b784cb49daa5477001f57dad404",
+      "markdown": "Returns a writable field location within [receiver]. The field must support writes.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.minecraft()": {
+      "sourceHash": "7ffbd1c6ce672767733b9f4d26a3e32641afe98fdc231bb982844265509548c7",
+      "markdown": "Returns the Minecraft operations available in this construction scope.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateProcessor": {
+      "sourceHash": "96176565dfc22c46eb148ce2eba72cd7c09070057660dcd6a056c7267a51e0ca",
+      "markdown": "Adds generated members or metadata after the compiler completes a source declaration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateProcessor.expand(DeclarationContext,TemplateView)": {
+      "sourceHash": "4363c2a77206e1fce8db809e347584d3b42d63449de21f18da2c5d8fad8d07fd",
+      "markdown": "Inspects [template] and returns edits built with [context]. Generated metadata remains data during this pass.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView": {
+      "sourceHash": "66bfe072593c8527129290e8e4a6ecf372974d8cba183d2303996d4cac22df52",
+      "markdown": "A completed MCFPP template and its effective members, including inherited members.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.type()": {
+      "sourceHash": "7859b903934368f23965c20c3a5b08d62679fe4d01ddee0c0834d3119e7a63eb",
+      "markdown": "Returns the completed template type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.fields()": {
+      "sourceHash": "da4afa0f3cf86e69d57677890b7a4bed981c7cfd27d880a69e7a2d39db0ccdaf",
+      "markdown": "Returns field references for generated reads and writes.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.fieldDeclarations()": {
+      "sourceHash": "b8fe87ef63f5e20895cb46da4cca333a7c2f6fdeab1403569765a7883d325cc0",
+      "markdown": "Returns field declarations with visibility, ownership, and annotation information.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.methods()": {
+      "sourceHash": "fe5e087e6c3f35fd62218c34fdd0c3327f12fa94c4118d7cd8aa004ae1d732e7",
+      "markdown": "Returns the template's effective method declarations.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.annotations()": {
+      "sourceHash": "91f2326a5a1fbb98126a23d9f304302a72ed0e65730d9deac55a98f72dfb358e",
+      "markdown": "Returns annotations attached to the template.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TemplateView.source()": {
+      "sourceHash": "cdc7ab4acec528dd2cdfd634a351684314ff38b2bf6287c49a5ea2706b952f37",
+      "markdown": "Returns the template's source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess": {
+      "sourceHash": "cc89f987a3efbe96b2a52b7e21618b7ff0ee75d7e69b0e2f9f837b2119b6d261",
+      "markdown": "Visibility recorded on an MCFPP declaration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PUBLIC": {
+      "sourceHash": "2745edd77ddf6e6d637cf6b212b56d54fa94bbd4c57ad0d22e560516ce687b79",
+      "markdown": "Accessible wherever the declaring type is accessible.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PROTECTED": {
+      "sourceHash": "cd26862b57850f2eed74d76dc4bf5d0bd32715aca7cca4b4fcf0c900f56c84da",
+      "markdown": "Accessible within the declaring type and derived types.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.PRIVATE": {
+      "sourceHash": "35c11d743f8eb169495e60bf4436d9d4109e8cb523fac8143ae40617f71d3e38",
+      "markdown": "Accessible within the declaring type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationAccess.COMPILE_PRIVATE": {
+      "sourceHash": "b1a8144a81a8fe406a694e1234c46354fc3b42695a5c6c0ab049c68671acd30a",
+      "markdown": "Uses MCFPP's compile-private access rule.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView": {
+      "sourceHash": "4fea16f02353031e5ae7c6a149f55132a36621661565ad41d38012aceab821fc",
+      "markdown": "An annotation name, its constant arguments, and its source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.name()": {
+      "sourceHash": "8b7a8f72ae1360d238715d2ef3525bfebc40738661400dc262a701a77ff5a831",
+      "markdown": "Returns the annotation's resolved name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.arguments()": {
+      "sourceHash": "90f75c7598e43dab678dab4059949f1b9f238847f8f58a7d943bdbdcf89a7bab",
+      "markdown": "Returns immutable argument values indexed by parameter name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.AnnotationView.source()": {
+      "sourceHash": "e8a25e3b9cb8f8f0836db99ca527c6adc641871a96acda8bfaffbbaaf45dbb99",
+      "markdown": "Returns the annotation's source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView": {
+      "sourceHash": "98c846cb460d5b425544ee2e7d11202f867d5a0a123ea24f77d20cb9cf5de353",
+      "markdown": "Declaration information for a field in a completed template.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.field()": {
+      "sourceHash": "6eecd671c5738a13b4ad6bfebf65866b0a2c0be165fa6032875b1c1fb72d86e5",
+      "markdown": "Returns the field reference for generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.owner()": {
+      "sourceHash": "85d384357bd51aaecaffd47e4c794d56c13e2cb60567d36a75cce2900446f1a0",
+      "markdown": "Returns the type that declares this field.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.access()": {
+      "sourceHash": "b97498b46faa3b19a8ad444e0529c569b6f0c6f85c8523bf7c67f46c059eb5ad",
+      "markdown": "Returns the field's declared visibility.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.nullable()": {
+      "sourceHash": "48dac195c70235b5673ba84b02c84b8064fa2c62462599f64518c36a987d80e6",
+      "markdown": "Returns true when the field declaration permits null values.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.annotations()": {
+      "sourceHash": "0e08553fa494d69865e781378886cce15f7cb50e36390a1b7d5159ecaac47c8c",
+      "markdown": "Returns annotations attached to the field.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldDeclarationView.source()": {
+      "sourceHash": "53a25fa09e34543a26917cb865b1829cf7a9e033ba8543e26b438c8ddce88f23",
+      "markdown": "Returns the field's source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView": {
+      "sourceHash": "f05fed3eacd00849dc4c350f71ba2db60a4114e5e91ed663bfbfbb689a6863b6",
+      "markdown": "Declaration information for a method in a completed template.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.name()": {
+      "sourceHash": "ec0c939322e77f949c72656ad4699235a61ff6bd5a30cefc3a1af1e5efd031ed",
+      "markdown": "Returns the method name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.owner()": {
+      "sourceHash": "1937c000c72ff86f5a81b7044d1cc09221e4eea865e170051a629f89e3dabbe1",
+      "markdown": "Returns the type that declares this method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.signature()": {
+      "sourceHash": "acae760c7eec6515886ddd3013b3e9cf8dbc34a97a59e4f0a078a38f223966bc",
+      "markdown": "Returns ordinary parameters and the result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.readonlyParameters()": {
+      "sourceHash": "edf017f28a8e2f1d7595c0cc39657d372ef188123efe7429cb65e448bc726c2f",
+      "markdown": "Returns readonly parameters in declaration order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.access()": {
+      "sourceHash": "8416f50593b52983717bd16f76f85853a1ebb3f4b46f4b758315639db9a7448c",
+      "markdown": "Returns the method's declared visibility.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isStatic()": {
+      "sourceHash": "f09df5ce6573dacd094b3ec3f051b9b9af3917575ca6e1ced57d0f3ef9fa8871",
+      "markdown": "Returns true for a static method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isAbstract()": {
+      "sourceHash": "59d419493ef98b1c47e9466576170cae642c311d84ca5b933d214d5a49306967",
+      "markdown": "Returns true for an abstract method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.isFinal()": {
+      "sourceHash": "a1b017622071c58d415b3af822d080ed6e326f03c08842090c435171d2fc8939",
+      "markdown": "Returns true for a final method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.annotations()": {
+      "sourceHash": "93ea481631c3fddc277558f0557ffb12077f87f0274e7cbb4e9fce21ca46abbd",
+      "markdown": "Returns annotations attached to the method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodView.source()": {
+      "sourceHash": "effa4971f5af2a368646bef4eb6ddde3c8fb43d3b5d9a457232d9e154cdb46eb",
+      "markdown": "Returns the method's source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext": {
+      "sourceHash": "d13a003875d0ac0705e7122c8d7e23335963d7c799804d071e91145b8c0a44e6",
+      "markdown": "Services available while a [TemplateProcessor] builds edits for the current declaration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.quote()": {
+      "sourceHash": "aec7b56eb267763a86eb6aabf42e03d7a73f3830cca05ba33637dc1a43b72ba6",
+      "markdown": "Returns the entry point for building generated bodies.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.types()": {
+      "sourceHash": "11c0b0b054272184f28655c591bdcee3e33d8437aeb2cdfede390e045cf808b6",
+      "markdown": "Returns type and function lookup in the declaration's environment.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.diagnostics()": {
+      "sourceHash": "39fdd82983cd9b49581155db29e767ff3dbf95a2871dc7ba148ee3aad624e24f",
+      "markdown": "Returns the compiler message service.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.helpers()": {
+      "sourceHash": "4ddf8a39bbc76a9a8793882a1b6cba309fe2bb12147cb5dd7de288cdfc216a0d",
+      "markdown": "Returns the generated helper service.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.resources()": {
+      "sourceHash": "b03df6ee2646349ca5e73c70facdcd9781a1ae3fbfd8cf1029437f1875a04a59",
+      "markdown": "Returns the generated resource service.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.declarations()": {
+      "sourceHash": "66a9e7cf5d276f8907789871312c15dd79729c6b1bee216876df0899410d53ec",
+      "markdown": "Returns the builder for edits to the current declaration.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder": {
+      "sourceHash": "3b734ab4b92e7d5aa0e3fc2b61401da20ed507a5293fb476dc08d71c7faca5b3",
+      "markdown": "Builds additions to the declaration currently being processed.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.method(TypeRef<O>,String,FunctionSignature<R>,GeneratedMethodBody<O,R>)": {
+      "sourceHash": "96ed0e121b4a6bcbf0df98fe2b9e92385cfdbe0cf5c7c6eb74ce4210cb7f63fc",
+      "markdown": "Builds a new public instance method on the current template [owner].\nChoose a signature distinct from existing and inherited methods. Explicit parameters use VALUE mode.\n[body] runs immediately and receives the instance separately through [MethodBodyContext.self].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.internalFunction(String,FunctionSignature<R>,GeneratedBody<R>)": {
+      "sourceHash": "28b460d628e9cc1f10c59eac6b1203ee042a6e9e7a32130e8de75dbed602b43b",
+      "markdown": "Builds an internal helper with [hint] as its suggested name, using [HelperService.define]'s parameter rules.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.metadata(TypeRef<*>,String,Map<String,ConstantValue>)": {
+      "sourceHash": "cd768c8904e5d4d1f4d189a4f4fee01400d45f1825abc2ed11f01418b4d609e2",
+      "markdown": "Builds metadata for [owner]. The annotation name and argument types must match a compiler-supported annotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationBuilder.edits(List<DeclarationEdit>)": {
+      "sourceHash": "2124fc335de6891c1665a4ccef24ca01cbc7a8acc71d79045bdc22ced4d8fbbc",
+      "markdown": "Groups edits from this builder into the result returned by [TemplateProcessor.expand].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedMethodBody": {
+      "sourceHash": "679570dae89292aff39bd41b0b4387d8d36bf6be40f0ba291981b7d169c4a687",
+      "markdown": "A JVM callback that constructs a generated instance method body once, during declaration processing.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedMethodBody.build(MethodBodyContext<O>)": {
+      "sourceHash": "1df588762640272ffe4fa8bac0cecc452ab8192131c2c88751de62ef9648408b",
+      "markdown": "Builds the method body. Use [CodeBuilder.yield] when the signature requires a result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext": {
+      "sourceHash": "99323e1c81919680163061ce6a30a714da24e864e7192cb7a8b27d2963e038d2",
+      "markdown": "The builder, instance, and parameters available while constructing a generated method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.builder()": {
+      "sourceHash": "e2e377e92c97c232644b992cfc44cd66391d58f0843659ffa2c74f96e2f17e33",
+      "markdown": "Returns the builder for this method body.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.owner()": {
+      "sourceHash": "c6d320401290eb1e813359880f27abd40f7b116f058b0a7b8a2b13314f850536",
+      "markdown": "Returns the type that owns the generated method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.self()": {
+      "sourceHash": "9ab29a15e1c83d41f4089ed600a6cf1c4a6071b4dbc7e61a27488916436c67c9",
+      "markdown": "Returns a writable reference to this method's instance.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodBodyContext.parameters()": {
+      "sourceHash": "afc3d224575709674878ad4c3886fd2e7de4254118b3d33394645bc43cb621f5",
+      "markdown": "Returns explicit parameters in signature order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdit": {
+      "sourceHash": "446f6b1ab0f756f37616e60201a449b05539a111c1e8fd9b812e2c4b40e3c93b",
+      "markdown": "One proposed addition, applied after the compiler validates the processor result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdit.source()": {
+      "sourceHash": "a47e4549c0ffb19d4c5e7398ccbf941c4e512b80332ad6cbe99261e807b4ecce",
+      "markdown": "Returns the source location associated with this addition.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit": {
+      "sourceHash": "dd5ccc84bd73f83a69b4f2bdff82a4ab645b337e0a84b874974ab9167dd674ed",
+      "markdown": "A proposed public instance method and its generated body.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.owner()": {
+      "sourceHash": "85f8f8e98962841e087b8395188ebbf718290e5632809af26248d287084a8011",
+      "markdown": "Returns the type receiving the method.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.name()": {
+      "sourceHash": "71b1e58c126837a4efe0e92a44659e7ebf8b8f58c8baaa7094ed1430e7fe1bff",
+      "markdown": "Returns the proposed method name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.signature()": {
+      "sourceHash": "3a413f9924d2f9ff3e2c5a1400cfbd921d45019201972bcdc40eb03c9d82aa54",
+      "markdown": "Returns the proposed parameters and result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MethodEdit.body()": {
+      "sourceHash": "e3d85d3896e22a57692793ffddb0ffd04ea14bf89ce3d49231ff60dc307938c0",
+      "markdown": "Returns the generated method body.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InternalDeclarationEdit": {
+      "sourceHash": "15ba3c1d2e0edb55572684a69eccfd58212063a5ddf2f43d9739cbe65f302884",
+      "markdown": "A proposed internal helper function.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InternalDeclarationEdit.function()": {
+      "sourceHash": "7f0da84371978622cdb49f50ded68351d7e4e515870ed6ee6b5900a485607016",
+      "markdown": "Returns the reference that generated code can call.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit": {
+      "sourceHash": "73b29d2bf550f21074e482994e3c9ce5660aefa880ef14ff5db1ae3836c19b2e",
+      "markdown": "A proposed annotation addition to a template.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit.owner()": {
+      "sourceHash": "baba4fece6c21bbe6399e1986afd470c88405114b30bb2afd5a65547303361d7",
+      "markdown": "Returns the type receiving the annotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MetadataEdit.annotation()": {
+      "sourceHash": "597f934f70b45b3cb8ca61b78ef7dceb9a6db70eec5448f1ad232ec130e4405f",
+      "markdown": "Returns the proposed annotation and constant arguments.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdits": {
+      "sourceHash": "6aa823f6c63435c377f3a250b8883250fd42d7641ecc1aed3172511517fd1324",
+      "markdown": "The complete group of additions returned by a declaration processor.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationEdits.all()": {
+      "sourceHash": "66a3159e0aecaddf157294fd257721c255d9dd3d2707fb1f4f4534fc6f729b5b",
+      "markdown": "Returns proposed additions in their supplied order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroInput": {
+      "sourceHash": "08be9ea062d8e0c19301a542a3a6684d93ed673c7e75d9675714bb003037bbb9",
+      "markdown": "A macro argument bound by the compiler at the MCFPP call site.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value": {
+      "sourceHash": "9357296d6a2b221d6584a0d3ac64def608f385ebbc9505ece801f91e9f9ac3c4",
+      "markdown": "A VALUE argument. The compiler evaluates the caller's expression once and supplies its value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value.type()": {
+      "sourceHash": "d092aecaa36ef716548aa05c1a8c3e9ac7fef97a1d8ed870cfaa65b56c3cc013",
+      "markdown": "Returns the argument's MCFPP type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Value.expr()": {
+      "sourceHash": "cff6f863cbd46a4cb75818b620eeada14d30932fd969e6dea7cb19d54c826ffd",
+      "markdown": "Returns an expression for the bound value. Repeated calls reuse that value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref": {
+      "sourceHash": "8c9afca55435f94e48b45faef13a6278c93875dc27ec9454f8eb68c64aa50bed",
+      "markdown": "A REF argument that identifies a writable MCFPP location. Assign through [CodeBuilder.assign].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref.type()": {
+      "sourceHash": "64a2535893fe733be62036f168f9df988cfc794f7b981262e4d2053547142d80",
+      "markdown": "Returns the MCFPP type stored at this location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Ref.load()": {
+      "sourceHash": "6153a62452e2ed6bfa3a2d34d1317c744a70a544263ad7004a24492182a989fa",
+      "markdown": "Creates an expression that reads this location when the generated code runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const": {
+      "sourceHash": "129e679654568b5a7bd61d41c6d2622c733d22c1de44daebc93ac27a07eb0f4d",
+      "markdown": "A CONST argument whose value the compiler knows during macro expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.value()": {
+      "sourceHash": "72ad0b4c679d2c531f71bfc37560a0d9cae4f60f53f635e691b71a3aa620e002",
+      "markdown": "Returns the immutable value available to the provider during expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.intValue()": {
+      "sourceHash": "576c1712c534127eca78b5cfbf215769174621213c9d2f970c3e21b48ac3c2d8",
+      "markdown": "Returns an MCFPP int constant as a JVM Int. Other constant types raise [CodeModelException].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Const.boolValue()": {
+      "sourceHash": "40322d57f5729ad672ff9358f574f327a1765afab8140bda1a82a7a3e12f30e2",
+      "markdown": "Returns an MCFPP bool constant as a JVM Boolean. Other constant types raise [CodeModelException].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineFn": {
+      "sourceHash": "c17ff64a775d276349d440b18db235cebd25c97d3a428aa1a94dd7a718d5e977",
+      "markdown": "An INLINE argument containing a source callback to insert with [CodeBuilder.inline].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineFn.signature()": {
+      "sourceHash": "e531b61e020c7a684d1b2a3e69576a6ab5b2ed458d755b74c6ef789d117a73d6",
+      "markdown": "Returns the callback's parameter modes, parameter types, and result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument": {
+      "sourceHash": "4bbc9a016f7dd4dd3ec79654ffe00c6331f0ae1df168ee2a98f483ecfd233de5",
+      "markdown": "An argument for [CodeBuilder.call]. The factory selects how the generated call passes the argument.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.mode()": {
+      "sourceHash": "8f786264da99375206770460aa4a8081ddf3662b51f083082b76d42f1cea425e",
+      "markdown": "Returns the selected argument mode.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.source()": {
+      "sourceHash": "80f97f18e465dc5f01b0585568d3bcf936971d1b47a9ba854e5d4204eb5a0595",
+      "markdown": "Returns the source location of the supplied expression, reference, constant, or callback.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.value(Expr<T>)": {
+      "sourceHash": "c46cd737669dd5daf6a08a8e5933e6a5d008ff63469641e6f00d1d00e48e371b",
+      "markdown": "Passes the result of [expression] by value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.ref(Ref<T>)": {
+      "sourceHash": "924f4f55d3d1d9b05267640cecb7db90acaf6574e24167a79f7b64a7d0b406e3",
+      "markdown": "Passes [reference] as a writable location. Aliases retain their shared location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.constant(Const<T>)": {
+      "sourceHash": "4b9308c1568ab172aba8da1e2c08d8497d0d89616cf649bc876e77c7ac7b8879",
+      "markdown": "Passes a value known during expansion to a CONST parameter.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CallArgument.Companion.inline(InlineFn<*>)": {
+      "sourceHash": "e3b83f0e0c66d5015114577cc424718bea7e7dba0a2c75218f9d8a1e67126a74",
+      "markdown": "Passes a source callback to an INLINE parameter.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument": {
+      "sourceHash": "a20cb3bc0d41877b77f34d6c22016a0db6b12aa57f8549f12ec5c5352075c0c7",
+      "markdown": "An argument for an inserted source callback. Use the factory that matches the callback parameter mode.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.mode()": {
+      "sourceHash": "8f786264da99375206770460aa4a8081ddf3662b51f083082b76d42f1cea425e",
+      "markdown": "Returns the selected argument mode.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.source()": {
+      "sourceHash": "52552e083e47926b6135cc46ac49e9cf7f634cfa2051173fdd81dcc3d1db8f63",
+      "markdown": "Returns the source location of the supplied argument.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.value(Expr<T>)": {
+      "sourceHash": "c46cd737669dd5daf6a08a8e5933e6a5d008ff63469641e6f00d1d00e48e371b",
+      "markdown": "Passes the result of [expression] by value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.ref(Ref<T>)": {
+      "sourceHash": "9bb5f1adbf245f604655971e8e0fd67ed3131043cb3d05650cc80a526c78c3a2",
+      "markdown": "Passes the writable location identified by [reference].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineArgument.Companion.constant(Const<T>)": {
+      "sourceHash": "ffba71182307e3f1e59289e04c532ea630d4a460d3146505e85098640a673b36",
+      "markdown": "Supplies a constant for the compiler to use while inserting the callback.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MniCodeDsl": {
+      "sourceHash": "b29fe32513825533b866267a271207205af059b0aead52246b5beaee2d6d441e",
+      "markdown": "Keeps nested code callbacks focused on their current [CodeScope] receiver.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope": {
+      "sourceHash": "3ef81219271b3b6dc529a691a107c5ab373335c125df35e0d476fe6f491d7557",
+      "markdown": "Kotlin receiver for building code with [KotlinQuote]. Nested callbacks receive a scope for their generated body.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.ifThen(Expr<BoolT>,CodeScope.()->Unit)": {
+      "sourceHash": "52efd515ebd401cdc04f978d31f28df40ae36d9896c18373167197ae3d0db748",
+      "markdown": "Builds a branch that runs when [condition] is true.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.ifElse(Expr<BoolT>,CodeScope.()->Unit,CodeScope.()->Unit)": {
+      "sourceHash": "6a3b5521a846a000a1a7a53e97c97cc697f41b87ccf78d161debcdcf257726e8",
+      "markdown": "Builds a branch for each Boolean result of [condition].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.whileLoop(CodeScope.()->Expr<BoolT>,CodeScope.()->Unit)": {
+      "sourceHash": "35bf361798aa2761aa8533a08dccbe38f95e4ee93ea10c853a82e0ffcc9fc361",
+      "markdown": "Builds a loop whose generated condition runs before each iteration. Both Kotlin callbacks run during construction.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.minecraft()": {
+      "sourceHash": "adafac5ccb10c6b9ffe18f2b7298f375395fca8e498a4da4331092312775aa58",
+      "markdown": "Returns this scope with Minecraft operations available.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.executeAs(EntitySet,CodeScope.(EntityHandle)->Unit)": {
+      "sourceHash": "8b6748f0b5cb76f9cef68c4602e87a0f7ae9c17c6adc65d72f181fbcee213e1d",
+      "markdown": "Builds code that executes as each selected entity. [body] receives the current entity.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.at(PositionHandle,CodeScope.()->Unit)": {
+      "sourceHash": "6bf57527ae5461ad70c9bb804ee2aa8eacb93d0f07c38fddd9be29450b3fbd57",
+      "markdown": "Builds code at [position], using [MinecraftBuilder.at]'s position and dimension rules.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.rotated(RotationHandle,CodeScope.()->Unit)": {
+      "sourceHash": "19515b6d9a07ee5934a6704cdf87c1c08731372a82b63017f98000baa332663a",
+      "markdown": "Builds code with the supplied execution rotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Int)": {
+      "sourceHash": "1654bd52314e054ce266736dee204085a74ed02283253916adf2d14ee607019b",
+      "markdown": "Creates an MCFPP int literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Float)": {
+      "sourceHash": "a3b64fa242febcef2d5d52e32c278bae96d210a216237c85c7731841990e1277",
+      "markdown": "Creates an MCFPP float literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(Boolean)": {
+      "sourceHash": "02a833215db8bbbb6b6f3d4d52ca1fba7480809dc2d8ff4d74193970d04602ce",
+      "markdown": "Creates an MCFPP bool literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.literal(String)": {
+      "sourceHash": "315e77052c57b94f2f090807169e5fb206f1cf30bf12464910d53ef00b3b3132",
+      "markdown": "Creates an MCFPP string literal with compiler-managed escaping.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.local(Expr<T>)": {
+      "sourceHash": "7f4d54f3a74b16d5ad90a2ce1938f65e35af021d9ea22b3c91f7b666a925ca4e",
+      "markdown": "Declares a local variable with its type inferred from [initialValue].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.local(String,Expr<T>)": {
+      "sourceHash": "fda6fea9ab7f3558c7f98e4d6de2a95cb7474cf5e15ec3f38b23a843875724f5",
+      "markdown": "Declares an initialized local variable with a suggested generated name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Value<T>.value": {
+      "sourceHash": "ef90e42384f72635933d2e96664fd13952700f2f55eed4d8d69bd36e68ab2ef2",
+      "markdown": "Reads the macro argument's bound value. Repeated reads use the same value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.value": {
+      "sourceHash": "49e2066e6e666c3f1df63f25b879fd9c7ecbbe84b34dd3c96ef92923538fceaf",
+      "markdown": "Reads a reference or adds an assignment to it. The generated code performs the read or write.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.plus(Expr<T>)": {
+      "sourceHash": "0af6cc9b4d535f741498b24f60e7917510c28085857f674ce16951cd265a046e",
+      "markdown": "Adds two int expressions or two float expressions.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.minus(Expr<T>)": {
+      "sourceHash": "90b3c92db9d7425721a13b268f6ce146e88706555d44533b33cc4350945d1102",
+      "markdown": "Subtracts [other] using the expressions' MCFPP numeric type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.times(Expr<T>)": {
+      "sourceHash": "49fb68fc55f27336fb6fc278c405732fef3236c46ce501f1427a7e552f316141",
+      "markdown": "Multiplies matching numeric expressions.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.div(Expr<T>)": {
+      "sourceHash": "7393f1377aaeef9609a905e5ebdf61c37eb50bac422d798a4b95f78295f7d8f5",
+      "markdown": "Divides this expression by [other] using MCFPP numeric rules.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.rem(Expr<T>)": {
+      "sourceHash": "20309f0eebe5e08d5e9f28ceff6b34fa91fbcc219b5ee08acd85a931589c8e16",
+      "markdown": "Computes the numeric remainder after division by [other].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.unaryMinus()": {
+      "sourceHash": "f86dc4b73a1b65949f8186a8fa24129dac04bc50903f20cefb51b0058b9314a9",
+      "markdown": "Creates the arithmetic negative of this expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.not()": {
+      "sourceHash": "4ca8dcd7363d33d75920989c3a9219062c62918ff66146206b0073b3cf24decf",
+      "markdown": "Reverses this expression's Boolean result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.plus(Int)": {
+      "sourceHash": "dddd10970e8cd5d254eb1c1ffe0aeb117306adb4ae32e70f13d33b302ee6b064",
+      "markdown": "Adds an int literal to this expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.minus(Int)": {
+      "sourceHash": "c4088f53cba51f3cdfa575ba9c7ed98e837d54302dbf7c3482f7e83b7e8a5853",
+      "markdown": "Subtracts an int literal from this expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.times(Int)": {
+      "sourceHash": "098ef7c4041ecc424ca44a0c9ddac79e05e3ab0db7f9dc89f60d30665a8a12d7",
+      "markdown": "Multiplies this expression by an int literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.div(Int)": {
+      "sourceHash": "15fd0ad3903b78304aab3c4f4f51dc388c82816d7d5cc3e32830f65f0791e872",
+      "markdown": "Divides this expression by an int literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<IntT>.rem(Int)": {
+      "sourceHash": "73cfbc52ed2d7a0a8a85a441e975614b323ba4d0bf78d3510e0e2f09bbff76d6",
+      "markdown": "Computes the remainder after division by an int literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.plus(Float)": {
+      "sourceHash": "798328e4bbd1d3a51039e0f8df486191f8fb730da667fd35ed2b56c49fe23c6f",
+      "markdown": "Adds a float literal to this expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.minus(Float)": {
+      "sourceHash": "65c92bbeb94e368cf76b1b9ac1d56c04fabba91fba37d27ae560fa09e1048d7e",
+      "markdown": "Subtracts a float literal from this expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.times(Float)": {
+      "sourceHash": "2ee032ae042ddb52215d5f625e63f8802e906d166b9673a370cf397920d461bb",
+      "markdown": "Multiplies this expression by a float literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.div(Float)": {
+      "sourceHash": "73eb110cc8589506c24dc2c05aea9ebce922affde64fd2354cf4945782f6fe0d",
+      "markdown": "Divides this expression by a float literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<FloatT>.rem(Float)": {
+      "sourceHash": "f773cf32c51e512f31cc07f20d9e723a4fa1a2880cdb9bf02a916d3b9bedf0a2",
+      "markdown": "Computes the remainder after division by a float literal.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<StringT>.plus(String)": {
+      "sourceHash": "5c38281ce2336cba27003d901e7ca220ff4a53d24ca1a12bd5078f2e75576cdb",
+      "markdown": "Delegates string addition to [CodeBuilder.add], which currently reports [CodeModelException] for string operands.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.plusAssign(Expr<T>)": {
+      "sourceHash": "780daa3a3e30c92d10fde28fb3a5a45de9dcee0066431b2b437a3754d915e186",
+      "markdown": "Adds [other] to this location's value and writes the result to the location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<T>.minusAssign(Expr<T>)": {
+      "sourceHash": "a469b19abf7358132e3b1437bfe4e5e996f0faedb9b26bb77e5953802a732285",
+      "markdown": "Subtracts [other] from this location's value and writes the result to the location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<IntT>.plusAssign(Int)": {
+      "sourceHash": "721eea618973324aab3fba7930b658c6f6dd8deb3071080d00b29fe7e5cefcc0",
+      "markdown": "Increases an int location by a literal amount.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Ref<IntT>.minusAssign(Int)": {
+      "sourceHash": "1e87ec6b7d6945c65b5150d6d55b908a8eb1c327c29a5f3a564317681ee6e4e4",
+      "markdown": "Decreases an int location by a literal amount.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.lt(Expr<T>)": {
+      "sourceHash": "fec25f43eb843d7f73c411506e51f2cc830149ec2f4b9b150cc8764da4c6a734",
+      "markdown": "Tests whether this expression is less than [other].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.le(Expr<T>)": {
+      "sourceHash": "a0b05c11b565b9796efaee9b8e0727463800d5c4a3fa54143a7ef761ae874f60",
+      "markdown": "Tests whether this expression is less than or equal to [other].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.gt(Expr<T>)": {
+      "sourceHash": "b8ff5a82c443e6b7b7430990d1f46bd98c4da82f87448ba938af463802d6b6a3",
+      "markdown": "Tests whether this expression is greater than [other].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.ge(Expr<T>)": {
+      "sourceHash": "85346df8c18b3e7be50540d4fccd850b9f011930ce994bfa5f8113ec622de6d0",
+      "markdown": "Tests whether this expression is greater than or equal to [other].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.eq(Expr<T>)": {
+      "sourceHash": "4cef1309d8f350bf99effd6c337d80a3c2d6bdc5dbbfe7d1bf629fd838f45121",
+      "markdown": "Compares compatible expressions using their MCFPP equality operation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<T>.ne(Expr<T>)": {
+      "sourceHash": "cbb69c3cc60c5d0e3cd659503a902d66945113d660e9af57fd41b11bdd47d6fd",
+      "markdown": "Tests whether compatible expressions have different values.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.and(Expr<BoolT>)": {
+      "sourceHash": "566ab2604ff4c7ac51a902690f8f6babd1c2b7bfb804678756cc6cef1daa0582",
+      "markdown": "Creates a short-circuit Boolean AND expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.Expr<BoolT>.or(Expr<BoolT>)": {
+      "sourceHash": "a8ba319e61e77ce120a3fcdbb988293fe6d3869a80637dd77a52b9a2b5938823",
+      "markdown": "Creates a short-circuit Boolean OR expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.call(FunctionRef<R>,Expr<*>)": {
+      "sourceHash": "fec390f0c0d80d5496050546bf5c03e2a14b71cea9981591e014bf346fb39281",
+      "markdown": "Builds a function call with VALUE arguments. Use [CallArgument] lists for other modes.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.callVoid(FunctionRef<VoidT>,Expr<*>)": {
+      "sourceHash": "0d5852cf756cdcac7f8e5e51bdd51b26fb42fc4e70edf8d7d8e9f1eb424a974a",
+      "markdown": "Adds a void function call with VALUE arguments.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.inline(InlineFn<*>,Expr<*>)": {
+      "sourceHash": "34d7d2f3ebc376fde0f25f96987931fb55ec4782994063311b1eb5783b52ae3f",
+      "markdown": "Inserts a callback with VALUE arguments as a result expression.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeScope.inlineVoid(InlineFn<*>,Expr<*>)": {
+      "sourceHash": "b394d5d6eb7c2576df6c0eed57202a0c175205845c0c1e992b258011ab772e48",
+      "markdown": "Inserts a void callback with VALUE arguments as a statement.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote": {
+      "sourceHash": "292d6b6e96bbb639eabdabd6e6eb4a1bc0e3c5a9fd5772293834cef5eefc7933",
+      "markdown": "Creates generated code with Kotlin receiver callbacks. Each callback runs once during construction.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote.block(CodeScope.()->Unit)": {
+      "sourceHash": "9f02978868464c797e0e5586823171efd0b2d72f0d46c23a0e289d1c8a485e17",
+      "markdown": "Builds an ordered group of statements in a [CodeScope].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.KotlinQuote.expression(TypeRef<T>,CodeScope.()->Unit)": {
+      "sourceHash": "eb3f1a531d16c8fc5410f0a89fcbd4c917705a7a0f0779145b40113d72b5c5c3",
+      "markdown": "Builds a value expression. Complete each normal execution path with [CodeBuilder.yield].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.kotlin()": {
+      "sourceHash": "c9cbea0312e14d58857cfc1b1752ad661171276b8bb783c39769466e87ba19c4",
+      "markdown": "Adds Kotlin receiver callbacks to this quote service.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.quote": {
+      "sourceHash": "43328f8dbe11d76db64c936158806bf2cfd6f99a0c87b7d5526af5287d7dfcc0",
+      "markdown": "The current macro's quote service with Kotlin receiver callbacks.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DeclarationContext.quote": {
+      "sourceHash": "ec58e359aaf7b8b46fffdc7bc4e2928c6a8fa3383eccd90b015236c75bfabc0f",
+      "markdown": "The current declaration processor's quote service with Kotlin receiver callbacks.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeBuilder.kotlin(CodeScope.()->Unit)": {
+      "sourceHash": "70249771e861d7a0540561cd2ba7e2c2fa5a47305a47ce5ad22390649921b973",
+      "markdown": "Runs [body] immediately with a Kotlin receiver for the current generated method or helper scope.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext": {
+      "sourceHash": "a26b21139d2b52af2f89b8b44dc29eb4c1142da06dc3f4d94b319be8ac7bb984",
+      "markdown": "Services for building code during one macro expansion. Use them while the provider method runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.quote()": {
+      "sourceHash": "824d53f2158c4982b55a55a46d1ca6941855a697150d29c693ce169ca6cc0332",
+      "markdown": "Returns the code builder entry point for this expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.types()": {
+      "sourceHash": "7bfa80cca57d6cab89745981917f332b0861efa4bd18ce3bec3daac34d5e3778",
+      "markdown": "Returns type and function lookup in the macro's source environment.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.diagnostics()": {
+      "sourceHash": "33f4499e67576ec4bfff695b7801976828588d463e05b5ce50fba23f7188ac1b",
+      "markdown": "Returns the service for compiler warnings and errors.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.helpers()": {
+      "sourceHash": "216058931ddccfb610cc53807dbe9bdfd505559f5b934d3839482a451daf98a2",
+      "markdown": "Returns the service for defining generated helper functions.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.resources()": {
+      "sourceHash": "9f5b4348bdc15cd4df3d53fb927233917b22b9de88216a44fa4ddf8ea997013d",
+      "markdown": "Returns the service for reserving generated Minecraft resources.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MacroContext.callSite()": {
+      "sourceHash": "d32d54545b59d879e6c7792a70b403c9a25c04dba3b36fdad104b8cc9c95a46b",
+      "markdown": "Returns the source location of the MCFPP macro call.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService": {
+      "sourceHash": "4574058e4b8aec33fd1ca8e39c30346ba087da5c8863c35aa41a8859d9b944f9",
+      "markdown": "Finds MCFPP types and functions visible in the current source environment. Lookup runs during expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.intType()": {
+      "sourceHash": "de44dd3b52b33ed5630c4ddceaac9484b79c4aa64cd0478e48b5e216fd7745c1",
+      "markdown": "Returns the MCFPP int type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.boolType()": {
+      "sourceHash": "f6ecb589515b29c14de9b3aea3cf9d660708fa4709ff0442516abfbcbccf3042",
+      "markdown": "Returns the MCFPP bool type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.floatType()": {
+      "sourceHash": "087f13639cbb7dde04090ac79208d57b74434cba4d30727fd0b5b277261cac65",
+      "markdown": "Returns the MCFPP float type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.stringType()": {
+      "sourceHash": "308df9b6eb58dcf02054eff6e8d97b28efb85bebfcc98b560c06d7df61519ee5",
+      "markdown": "Returns the MCFPP string type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.voidType()": {
+      "sourceHash": "05f15011195f0523c50d0ceb02c035167622066841b334fcc3f8c5ea1bb7d796",
+      "markdown": "Returns the MCFPP void type for a body that produces statements.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.lookup(String)": {
+      "sourceHash": "9e91567fc7b00bda0431ce52ce722cf452e9f4b69b5f17d5dd113e50a7468a70",
+      "markdown": "An unknown or inaccessible name produces a diagnostic at the macro call site.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeService.function(String,List<TypeRef<*>>)": {
+      "sourceHash": "dcf696fddbb65db3e6f8c000f7d821806a7c33c12e27c1faf09d8c43042a154e",
+      "markdown": "Finds an accessible overload for [argumentTypes]. Reports an error if several overloads match equally.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService": {
+      "sourceHash": "702516ea5a0f78a9cb667466c3601e0984580008fde6b3a8c5b52a9dd93140f3",
+      "markdown": "Reports messages at source locations chosen by a macro or declaration processor.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService.warning(SourceSpan,String)": {
+      "sourceHash": "b00efe88b335ad41968cd8522544e38fb44bac949929eeeb7d03e8f6f933d8ca",
+      "markdown": "Adds a compiler warning at [site] and allows expansion to continue.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.DiagnosticService.error(SourceSpan,String)": {
+      "sourceHash": "921c2cef1bcc0a4bb088f418f0c695d51d328f9ef6cab92988320852f617f912",
+      "markdown": "Reports a compiler error at [site]. The compiler discards output from the failed expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.HelperService": {
+      "sourceHash": "f71f12461b5dfdcf01b22a5d3b17e32b13b9ddb402aa4ffe6a3faf2f49753b1a",
+      "markdown": "Defines generated functions that other generated code can call through [CodeBuilder.call].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.HelperService.define(String,FunctionSignature<R>,GeneratedBody<R>)": {
+      "sourceHash": "53ac2814e957da7722db2e94293192bdc04913ab1477feb52a894f0d0910f4c1",
+      "markdown": "Builds a helper immediately and returns its function reference.\n[hint] suggests its generated name. [signature] accepts VALUE and REF parameters in declaration order.\nREF parameters retain the caller's locations, including shared locations.\nBuild the helper body from its own parameters and locally declared values.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedBody": {
+      "sourceHash": "d44b71052731697c0fbd6a4829cc92185d617e7f80db00707a2021960d46a0e2",
+      "markdown": "A JVM callback that constructs a helper body once, during expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.GeneratedBody.build(CodeBuilder,List<MacroInput>)": {
+      "sourceHash": "7548eeb867b703756b8a6a6566a74bb73e33e5fa4f6e0b789753ee67352276c3",
+      "markdown": "Builds with Value or Ref parameters in signature order. Use [CodeBuilder.yield] for a result of type [R].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind": {
+      "sourceHash": "f31762c6b3df7d7e91866072ab69ec997c1e8ea3a7e29918103599d196c9ff9a",
+      "markdown": "The Minecraft resource to reserve through [ResourceService].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.OBJECTIVE": {
+      "sourceHash": "a186069a965876f5ee64d609c9b2182628aed991ffa8f22c85521269a20e5c8e",
+      "markdown": "A scoreboard objective.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.STORAGE": {
+      "sourceHash": "4f5ccd9b618b3fd4a8cd6c7b9694a79bc3c0814730ba8e41f0aabf730712e83c",
+      "markdown": "A command storage resource.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceKind.INTERNAL_FUNCTION": {
+      "sourceHash": "2afd078c3c4f36edbcecbe20fbcc83c56c24346fd93a258487eea6e318758538",
+      "markdown": "A compiler-generated function. Create these through [HelperService.define].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData": {
+      "sourceHash": "0e6e028580377d66ea37c57a7f84d7cbe8456d8fa4280094f5b98a7f9bb3f9ab",
+      "markdown": "Immutable data describing a resource. [ResourceService.reserve] checks the data against the resource kind.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.value()": {
+      "sourceHash": "5959797b92d5ea660d9fa94da94750527d2fda55f4aa8725d264e4215b2a6a1e",
+      "markdown": "Returns the resource description supplied to [of].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceData.Companion.of(ConstantValue)": {
+      "sourceHash": "f076d4fd05a7bd1ecb12f1048e4d69bb387487c1e128de1ed5e2649649fb47e3",
+      "markdown": "Wraps [descriptor] for a resource reservation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef": {
+      "sourceHash": "7325fb7103000a95aa712142d104f063d1f2a9c1b17941bb203d292be22fe941",
+      "markdown": "Identifies a resource reserved during the current expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.kind()": {
+      "sourceHash": "e61fe4261e739f7348a3ba109766f512c4ca59554b80b7a600c543af2041e09b",
+      "markdown": "Returns the reserved resource's kind.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.name()": {
+      "sourceHash": "37b539422e0ab42c8b19cf2e575b6bf704d505faeef61cea7591d77ef2db62e4",
+      "markdown": "Returns the name selected by the compiler.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceRef.source()": {
+      "sourceHash": "c2e784bafe91166d7197a477ef55a22d6ec349ab7404a04386b64d869dccb556",
+      "markdown": "Returns the source location associated with the reservation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceService": {
+      "sourceHash": "3230dcfa3d622f36812255e6d089ebf8862caba5560f9f90b80936992bbf95b9",
+      "markdown": "Reserves resources for publication when the expansion succeeds.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ResourceService.reserve(ResourceKind,String,ResourceData)": {
+      "sourceHash": "b5460e4a5b13a536859e1fe14755e14af87371db541b3a37f874abc15e2096c5",
+      "markdown": "Reserves a resource of [kind] using [hint] as a suggested name and [immutableData] as its description.\nThe compiler assigns a reproducible name and checks the description before publishing the resource.\n\nSupported descriptions are records with these fields:\n- OBJECTIVE: `criteria` contains the text `dummy`.\n- STORAGE: `initial` contains numbers, Booleans, text, or nested records and sequences of these values.\n\nUse [HelperService.define] to construct an INTERNAL_FUNCTION.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder": {
+      "sourceHash": "2312b034b0ca7cd780364e80453660d84aa711c406635a5f4e1ec8d768a10267",
+      "markdown": "Builds Minecraft operations as generated MCFPP code. JVM callbacks run once while the compiler constructs the code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.entities(EntityQuery)": {
+      "sourceHash": "ee7aa452e8f58e84d2d05a909b2f42f6f89c952a1cf36e6b9b1bd168d705e97b",
+      "markdown": "Describes the entities that [query] selects when the generated code runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.executeAs(EntitySet,BiConsumer<MinecraftBuilder,EntityHandle>)": {
+      "sourceHash": "0786fd750a943817e64c6ddd26a1fbd33a9691441be96650687470d7d4cbf963",
+      "markdown": "Builds code that runs as each selected entity. [body] receives that entity within its child scope.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.at(PositionHandle,Consumer<MinecraftBuilder>)": {
+      "sourceHash": "be8c077098829a7694959f1a539b3806ce6cf728931fed8142f04a3c0699489e",
+      "markdown": "Builds code with the supplied execution position.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotated(RotationHandle,Consumer<MinecraftBuilder>)": {
+      "sourceHash": "62e3a57c22e2af4d7818be3750f6d8bdc7cea4dc4a338fdbd1a58b03e3239260",
+      "markdown": "Builds code with the supplied rotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.score(EntityHandle,String)": {
+      "sourceHash": "5a2d1c7905100af9270eb8c4b149c14b4f44a796327493b89a9a69c07a8ab6bc",
+      "markdown": "Returns a writable score for [entity] in an existing scoreboard [objective].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.score(ScoreHolder,String)": {
+      "sourceHash": "39efb10a98d1c916c2a23b8e08e87304ab90b91db5788bacc5087d9b6851a842",
+      "markdown": "Returns a writable score for a fixed [holder] in an existing scoreboard [objective].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.position(Double,Double,Double)": {
+      "sourceHash": "f4ac5a7045dff1883765a932b90e0af2547bbdcc69d6e823e4c1a88c9458ff86",
+      "markdown": "Describes absolute world coordinates. Coordinates must be finite.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.position(EntityHandle)": {
+      "sourceHash": "13ea4d41da28e44fbb7f2f45576f28ed58730ed36c50c0c248cbfd01188f6943",
+      "markdown": "Describes an entity's position for use when the generated code runs.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.currentPosition()": {
+      "sourceHash": "ef6881201b685be3a9df41c76b408527de68e76600c3e28cf16729da666825dd",
+      "markdown": "Describes the execution position at this point in the generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.offset(PositionHandle,Double,Double,Double)": {
+      "sourceHash": "a3501f13bc2e8d9cece3396b93a1bdc721dab1ed6c444108c9f88bcea208ed31",
+      "markdown": "Adds world-axis offsets, independently of the current rotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.localOffset(PositionHandle,RotationHandle,Double,Double,Double)": {
+      "sourceHash": "8a6f2bde7de5eb14b964f3374d5699da1752a5c277a8f3df0333f97d37932f08",
+      "markdown": "Adds explicit left/up/forward offsets using the supplied rotation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotation(Double,Double)": {
+      "sourceHash": "33a0bb924231e5c976f259d5e471f4dae921763c12cf3f2d53d1ac2d93b23e61",
+      "markdown": "Describes absolute yaw and pitch in degrees. Angles must be finite.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.rotation(EntityHandle)": {
+      "sourceHash": "a6cbd000deb4b4ef5ce113deb67a536a8ccd66f260150c3375e13dd8835c3973",
+      "markdown": "Describes the rotation of [entity].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.currentRotation()": {
+      "sourceHash": "4a89983b79d83a29dc7def4ec3423777b0966a8067233710203b7b101f04d31e",
+      "markdown": "Describes the execution rotation at this point in the generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.blockAt(PositionHandle)": {
+      "sourceHash": "7eace687d5b73e9193a2754719f3460302df19e8b9cd6e7911e238800729e1be",
+      "markdown": "Describes the block at [position].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.MinecraftBuilder.blockMatches(BlockHandle,BlockPredicate)": {
+      "sourceHash": "a53600027e2c3f7fc236c3dabe7a22606c2a333f34b5e881a623dcea676f0aec",
+      "markdown": "Creates a runtime test of a block's identifier or tag and its selected states.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySet": {
+      "sourceHash": "6d11f6ffe0cfdb93f893b766e6b2e872a481c90c2d82e422b7691d1c4684a052",
+      "markdown": "A set of entities selected when generated code runs. Use [MinecraftBuilder.executeAs] to visit each entity.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityHandle": {
+      "sourceHash": "da0dd8bc3a3f6b0821e12042206e36e8bb1d6a2dcfc16a10c1eda822d92366d6",
+      "markdown": "One entity supplied inside an [MinecraftBuilder.executeAs] callback. Use it in that callback's scope.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.PositionHandle": {
+      "sourceHash": "59207290f74dc55752a8049584092d8977b5dcc5527fe91a2c5a2b5e5a7b68e4",
+      "markdown": "A position description used by [MinecraftBuilder.at] and [MinecraftBuilder.blockAt].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.RotationHandle": {
+      "sourceHash": "94607ba4330dad434e1b04aa58f59d6483f11edd83bd53286dfd46bed7c309a8",
+      "markdown": "A rotation description used by [MinecraftBuilder.rotated] and [MinecraftBuilder.localOffset].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockHandle": {
+      "sourceHash": "2a47c3672aed7506afe570b798f118d2781d995750cfe4324356ffb2732af8eb",
+      "markdown": "A block location used by [MinecraftBuilder.blockMatches].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection": {
+      "sourceHash": "000b1252de8c2e33913ce62874b967eb4ff93a517e6a284a72ef6a3dd720e058",
+      "markdown": "The starting set for an entity query.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection.ALL_ENTITIES": {
+      "sourceHash": "a7e18d1884647be7c7bc425657269420204be54266cda7adc16485fdaee1b279",
+      "markdown": "All entities, corresponding to `@e`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySelection.ALL_PLAYERS": {
+      "sourceHash": "1a8698cba0048f8b338dfbfd82c7d8aa53e7acc84382b3f55f93122d8480919e",
+      "markdown": "All players, corresponding to `@a`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort": {
+      "sourceHash": "0c3ffc7309704f47a041ea41c95fa2d3fb2d87276c64b588d9dc5fdb221fd6c0",
+      "markdown": "The order used before applying an entity query's limit.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.NEAREST": {
+      "sourceHash": "ea30cf865ce4ace5105920b1b9332a4e3cf88b6aeffd9186fbb803334927385c",
+      "markdown": "Closest entities first.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.FURTHEST": {
+      "sourceHash": "3e3f2c4e12da138897b5ec534c4718ded11f5f423deef746bcb304e9dc222c75",
+      "markdown": "Most distant entities first.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.RANDOM": {
+      "sourceHash": "bc860b89ecd98d6ee8192ad4453226555e92088eccb5a9d6247892dce3d4f797",
+      "markdown": "Random entity order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntitySort.ARBITRARY": {
+      "sourceHash": "eaa4581f98626c3a8df0494fcc4e54510b61da332aaea8f99a5e545453369665",
+      "markdown": "The game's available entity order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery": {
+      "sourceHash": "0201a45b6cdcfee26c8b382bea01f0f10517504d2f7ef66f530a14a6b877fc24",
+      "markdown": "An immutable description of an entity selector. Each filter method returns a new query.",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "selection",
+          "content": "Starting set of entities."
+        },
+        {
+          "name": "property",
+          "subject": "selection",
+          "content": "Starting set of entities."
+        },
+        {
+          "name": "property",
+          "subject": "entityType",
+          "content": "Required namespaced entity type, or null for any type."
+        },
+        {
+          "name": "property",
+          "subject": "entityType",
+          "content": "Required namespaced entity type, or null for any type."
+        },
+        {
+          "name": "property",
+          "subject": "limit",
+          "content": "Maximum result count, or null for the selector's default."
+        },
+        {
+          "name": "property",
+          "subject": "limit",
+          "content": "Maximum result count, or null for the selector's default."
+        },
+        {
+          "name": "property",
+          "subject": "sort",
+          "content": "Result order, or null for the selector's default."
+        },
+        {
+          "name": "property",
+          "subject": "sort",
+          "content": "Result order, or null for the selector's default."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.selection": {
+      "sourceHash": "d50f3d1c7ce11d2994bde65044b6185acd277fcb55c5957c851476c9a01dfa3a",
+      "markdown": "Starting set of entities.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.entityType": {
+      "sourceHash": "49b9f6d99f07982b1374f03b0e39489ecbecaa1d6dbf45023f951f6b9917d120",
+      "markdown": "Required namespaced entity type, or null for any type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.limit": {
+      "sourceHash": "2c0bb9ebcf44dc8b1715a8b11d41baaed3f6a6a9ee9aa96f60032affd6d62fe4",
+      "markdown": "Maximum result count, or null for the selector's default.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.sort": {
+      "sourceHash": "19ff96a39b643b511123a9861a45ea5b6ffb432b6a98cf303d404545522fbe44",
+      "markdown": "Result order, or null for the selector's default.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.tags": {
+      "sourceHash": "699c8f0374fc80c62861bac928ad6b13e99bdda5cd3f23a85369353fcc4ae2b3",
+      "markdown": "Tags that every selected entity must carry.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withType(String)": {
+      "sourceHash": "adb7506822d8ed2fe35c8e8a6743b5af389bcc2045b060dd2faaa18f9203d6af",
+      "markdown": "Returns a query restricted to a namespaced entity type, such as `minecraft:pig`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withTag(String)": {
+      "sourceHash": "03cd12cec5d14accc28be2ffa6ae755b6ee993b0e575ba3f8f00cce6d1c4cb18",
+      "markdown": "Returns a query with one more required entity tag.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.withLimit(Int)": {
+      "sourceHash": "5127526989a4177a5469c10598abf1885a10d82f932c3fc3b3cb27900b7f4084",
+      "markdown": "Returns a query limited to the positive [count].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.sorted(EntitySort)": {
+      "sourceHash": "4c6a782746d3aaff4b6f99caa965a5fca08321b3d4d0d59a94194adcb70f81c3",
+      "markdown": "Returns a query with the selected result order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion.allEntities()": {
+      "sourceHash": "93dcabd5caffa3ddfde7ab41bec9000fe396abf7c01dfd012b73effaee5aa6f9",
+      "markdown": "Creates an unfiltered query starting from `@e`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityQuery.Companion.allPlayers()": {
+      "sourceHash": "34ff42dabcff17d74cc116a19ac8f5817f54a5a301a00cb370813c59fa2c571f",
+      "markdown": "Creates an unfiltered query starting from `@a`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder": {
+      "sourceHash": "1a7b387e346eda372570b5e58130aa41b580c8fcb998e7d3d32af40fe142d542",
+      "markdown": "A fixed scoreboard name, such as a fake player. [name] stays the same when the executor changes.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.name": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreHolder.Companion.named(String)": {
+      "sourceHash": "178d09d8540345252389fbd7af8bde4274cc7e7a2a1733a82a1e758d598628d8",
+      "markdown": "Creates a holder with 1–40 characters from letters, digits, `#`, `_`, `.`, `+`, and `-`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate": {
+      "sourceHash": "20a90259dee8917140ed6067f6dc5d4c23c4478b3dd1a0bd5bd9749ab25c3b06",
+      "markdown": "A block test with optional block states. Each filter method returns a new predicate.",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "resource",
+          "content": "Namespaced block or block tag identifier."
+        },
+        {
+          "name": "property",
+          "subject": "resource",
+          "content": "Namespaced block or block tag identifier."
+        },
+        {
+          "name": "property",
+          "subject": "isTag",
+          "content": "True for a block tag test."
+        },
+        {
+          "name": "property",
+          "subject": "isTag",
+          "content": "True for a block tag test."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.resource": {
+      "sourceHash": "000739b11bf2abb21af261cb44f735b8c70c775088cf492297a0df4b0f141e51",
+      "markdown": "Namespaced block or block tag identifier.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.isTag": {
+      "sourceHash": "e17c3df5f14a7b04563c4104a695532663062c46b2a77b4d74c5f3f284fa764b",
+      "markdown": "True for a block tag test.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.states": {
+      "sourceHash": "5ea9f686dbc360a29eef33a14f228028e263863cde3b9c75bfab6017395e2910",
+      "markdown": "Required state values, indexed by state name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.withState(String,String)": {
+      "sourceHash": "057e5e1093dd45dda00b00e671e8bb82c004806b4f1eaa5b07dca36e356b3221",
+      "markdown": "Returns a predicate with the selected state value. State names and values use lowercase letters, digits, or underscores.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion.block(String)": {
+      "sourceHash": "2d09ea236a5b16a3d45ecf95fb5b6bcb2aa5926c8a3f0afb805c64380392a650",
+      "markdown": "Creates a test for a namespaced block identifier, such as `minecraft:stone`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockPredicate.Companion.tag(String)": {
+      "sourceHash": "fe6046e4d7f162f3b7b9aafe3a41b866af635ce2e0b3a2fd5a65aa9d41ce7a59",
+      "markdown": "Creates a test for a namespaced block tag identifier, supplied as `minecraft:logs`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote": {
+      "sourceHash": "c2d7518178d58826cd29b8b1284e68b5d354df545880004e64b8012a96bd184a",
+      "markdown": "Builds immutable MCFPP code for the current expansion. Each JVM callback runs once, during construction.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.block(Consumer<CodeBuilder>)": {
+      "sourceHash": "ada3c61527ba5c4f2e2e70ad60667f0f6e34cd1ea9027d547075a6abb0dc6b5a",
+      "markdown": "Builds a group of statements. Use [expression] when the generated code must produce a value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.Quote.expression(TypeRef<T>,Consumer<CodeBuilder>)": {
+      "sourceHash": "54f22ade1eb89a22a9fae563cbdbb7b41b5e105047dc1c1355dee2e195c31867",
+      "markdown": "Builds an expression with result type [type].\nEach execution path that completes normally must produce a compatible value through [CodeBuilder.yield].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.IntT": {
+      "sourceHash": "501b11e3d11d9f63de4ae43b4c5e90bf2d48378fe4c512819dac7842102e84b5",
+      "markdown": "Marks an MCFPP int in generated code. Obtain its type descriptor from [TypeService.intType].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BoolT": {
+      "sourceHash": "54d0819c61fbd675de4309354e0fa2ecfd01f9e2cc23f1bfb4c0c9c023d3d83e",
+      "markdown": "Marks an MCFPP bool in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FloatT": {
+      "sourceHash": "ffd69d1b63544a4719c246bd296edcf0f837c2e42f6faadb581b5ae9428a91c7",
+      "markdown": "Marks an MCFPP float in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.StringT": {
+      "sourceHash": "ae6cefe7a40df2de32c566c821119e9e066690ea5bae8c07e9836d12915b3d05",
+      "markdown": "Marks an MCFPP string in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.VoidT": {
+      "sourceHash": "322c64f09cf68751c68a8f195f6ef439ad90fbb2ab3d639af91d21290d3727df",
+      "markdown": "Marks an MCFPP void result.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.EntityT": {
+      "sourceHash": "be285065b81886fedbddfb86b8436793c860cc181425bfaa739cde1afb25c555",
+      "markdown": "Marks an MCFPP entity value in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.PositionT": {
+      "sourceHash": "aaab037e7f64abd912c6912eec57636d077d7a4805bdee929dd5f9ad6d5c9d68",
+      "markdown": "Marks an MCFPP position value in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.BlockT": {
+      "sourceHash": "a9f64320d2d20db932569f0940bfcde8d25c4c79d8d1007cee2f2be29b5e5ec9",
+      "markdown": "Marks an MCFPP block value in generated code.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ScoreRefT": {
+      "sourceHash": "6e2f40a28454471fbfa502d694ccf90a927601bc9ddb0480845905a00971b7f1",
+      "markdown": "Marks an MCFPP ScoreRef value, which stores a Minecraft scoreboard address.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.NBTRefT": {
+      "sourceHash": "ac47d4278fa1346de34dfa7079a1eb672c6cc758f71e3a3a11a208f0ba7ced18",
+      "markdown": "Marks an MCFPP NBTRef value, which stores a Minecraft NBT address for values of type [T].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan": {
+      "sourceHash": "9ab00cbe44b16baceb5ef2b9c2cb1b3c16245767558632127dd4bc7b1481a3a1",
+      "markdown": "A source range for compiler messages.",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "file",
+          "content": "Logical source file name."
+        },
+        {
+          "name": "property",
+          "subject": "file",
+          "content": "Logical source file name."
+        },
+        {
+          "name": "property",
+          "subject": "startOffset",
+          "content": "Zero-based offset of the first character."
+        },
+        {
+          "name": "property",
+          "subject": "startOffset",
+          "content": "Zero-based offset of the first character."
+        },
+        {
+          "name": "property",
+          "subject": "endOffset",
+          "content": "Zero-based offset immediately after the range."
+        },
+        {
+          "name": "property",
+          "subject": "endOffset",
+          "content": "Zero-based offset immediately after the range."
+        },
+        {
+          "name": "property",
+          "subject": "startLine",
+          "content": "One-based line number at the start."
+        },
+        {
+          "name": "property",
+          "subject": "startLine",
+          "content": "One-based line number at the start."
+        },
+        {
+          "name": "property",
+          "subject": "startColumn",
+          "content": "One-based column number at the start."
+        },
+        {
+          "name": "property",
+          "subject": "startColumn",
+          "content": "One-based column number at the start."
+        },
+        {
+          "name": "property",
+          "subject": "endLine",
+          "content": "One-based line number at the end."
+        },
+        {
+          "name": "property",
+          "subject": "endLine",
+          "content": "One-based line number at the end."
+        },
+        {
+          "name": "property",
+          "subject": "endColumn",
+          "content": "One-based column number immediately after the range."
+        },
+        {
+          "name": "property",
+          "subject": "endColumn",
+          "content": "One-based column number immediately after the range."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.file": {
+      "sourceHash": "80756994f02a5f6980c0673aa166644cf2bfbc20ccb020189f341efdd4412455",
+      "markdown": "Logical source file name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startOffset": {
+      "sourceHash": "0c49afd42a526b1cebf895ffc70cb02bb54a0743225f15d40ae870fa8a500fcf",
+      "markdown": "Zero-based offset of the first character.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endOffset": {
+      "sourceHash": "a85af2147ae24b240384c047d3a75b2f6f7ac1546031c56af8955f1800b0b29f",
+      "markdown": "Zero-based offset immediately after the range.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startLine": {
+      "sourceHash": "0569f8bc006e90b1cfb22666650c2ede5532e01849fe5d49708b0c55e8c81c34",
+      "markdown": "One-based line number at the start.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.startColumn": {
+      "sourceHash": "a18865daf60e8257e7acc4edafdf2e0914a018391ffe70990e90a1c70dc1f945",
+      "markdown": "One-based column number at the start.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endLine": {
+      "sourceHash": "d3d274e19368e301150deebb9879342844f2d3523a2139716dc2c43dad45ca41",
+      "markdown": "One-based line number at the end.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.endColumn": {
+      "sourceHash": "b6e6c59191aec662686e7d97d07897caf819c24fcdebe2dbf8f939732c1ffa98",
+      "markdown": "One-based column number immediately after the range.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.SourceSpan.Companion.unknown()": {
+      "sourceHash": "fc4b0c85c50e7454d6d87a1c8f0b0d4f2cfad67fee9ee136522d195132f4a3e6",
+      "markdown": "Returns an empty range in the logical file `<generated>`.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef": {
+      "sourceHash": "c04e4a17c51064d91279a89062751ab9128b0985c59e542197290abeb6b9d2e2",
+      "markdown": "A compiler-provided MCFPP type. Obtain descriptors through [TypeService] or declaration views.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.name()": {
+      "sourceHash": "47cd4e9d3b3664477d2764b03b0b3071740fbe6ce6a6ac4125bfd2442fa88f52",
+      "markdown": "Returns the type's display name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.sameType(TypeRef<*>)": {
+      "sourceHash": "0c1ffe7917682bf430f18180ff05f0be93b881c68ae230d3547af35036dfd61a",
+      "markdown": "Tests whether [other] identifies the same MCFPP type in the same compilation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.isAssignableFrom(TypeRef<*>)": {
+      "sourceHash": "80231406b0d80e2f1e9ece0bc5e48dd6b5d9054fe69c150dd9ad3c2ce2697dcd",
+      "markdown": "Tests whether a value of [other] can be assigned to this type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.fields()": {
+      "sourceHash": "728f8f412eab735d3720f095383e80199e787bea125d9fff1e61bfe7c6f97930",
+      "markdown": "Returns the fields visible on this type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.TypeRef.inlineSignature()": {
+      "sourceHash": "ae3c5250f5e016436f6595f6a9724845e83d39912bf3695dc58e6ffe4994e3e0",
+      "markdown": "Returns the callback signature for a function type, or null for other types.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef": {
+      "sourceHash": "7d7d916cdfaff14d87266d83a4a0150eff42c69cfbb1cf9c023805acc14767ca",
+      "markdown": "Identifies an MCFPP field for [CodeBuilder.field] or [CodeBuilder.fieldRef].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.name()": {
+      "sourceHash": "139bb16c03cbd5c7936a23092e7ebd4d9b72bb1d0f41adce20ceb413c1d05220",
+      "markdown": "Returns the field name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.type()": {
+      "sourceHash": "944ef7a4fdaf12b667a023d50e6f17d80b381219f9fd108b792e50ace535d161",
+      "markdown": "Returns the type of the field value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.writable()": {
+      "sourceHash": "93f6abb9fe5b2486ce478d972169f5da8a2a5f3b06efebb47a7cfc53865bcf15",
+      "markdown": "Returns true when the field supports assignment.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FieldRef.source()": {
+      "sourceHash": "53a25fa09e34543a26917cb865b1829cf7a9e033ba8543e26b438c8ddce88f23",
+      "markdown": "Returns the field's source location.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode": {
+      "sourceHash": "4e8d273853d5e9408e72413f3549801940c45e57512653bc40dcc021df430f90",
+      "markdown": "How a generated function or macro receives an argument.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.VALUE": {
+      "sourceHash": "72a8e2c89b44b4b287a58f24a692991a921cec17b51cb2cdf8a70a03ed1ee544",
+      "markdown": "Evaluates the argument once and passes its value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.REF": {
+      "sourceHash": "9eff6b8fd939df2bcf8702bdde55f091428f8e3f488c7119bd7cb7e4737fd594",
+      "markdown": "Passes a writable location shared with the caller.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.CONST": {
+      "sourceHash": "d9461052707f1919993081c8f729fa60851ff70015c5b1432a92b743e1302320",
+      "markdown": "Supplies a value known during compilation.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParamMode.INLINE": {
+      "sourceHash": "66392ce5873555c20baaa9326addc41f2372eb0f82622245b63d6a29c850bd11",
+      "markdown": "Supplies a source callback for insertion during expansion.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView": {
+      "sourceHash": "e6c58e7e22c4ecfde334cb84de5e1fee992298766eba1a611349bde499f79387",
+      "markdown": "A parameter's name, MCFPP type, and argument mode.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.name()": {
+      "sourceHash": "87fd6e4012b53f42e89ed523a149a8a89c9ceff12db193ce7fa1a934e36f0c58",
+      "markdown": "Returns the name used in the function signature.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.type()": {
+      "sourceHash": "893b617e46f45c606ee78832f862bed7dc2394d5f615a749277f8bc74e568bab",
+      "markdown": "Returns the parameter's MCFPP type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.mode()": {
+      "sourceHash": "c45caa6350d7e8b4c41346842e712fa9eafa9c02a0b40ce3972fa88d03c11181",
+      "markdown": "Returns how callers pass the argument.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.inlineSignature()": {
+      "sourceHash": "4e1cdcee62bf93b257c92e2bc361825483bcf35de1689617791d78f7633226a3",
+      "markdown": "Returns the callback signature when this parameter describes a callback, or null otherwise.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion.of(String,TypeRef<*>,ParamMode)": {
+      "sourceHash": "223a5b26762c0f9f5b0e9f4265b52052d8f4d0ccc030cc42c7bd12f6294a14b8",
+      "markdown": "Creates a parameter description, deriving a callback signature from [type] when available.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ParameterView.Companion.of(String,TypeRef<*>,ParamMode,InlineSignature<*>)": {
+      "sourceHash": "34263b9cda42258e577eceb7fa93f73fb0da3727c049c63fac78bef03007f992",
+      "markdown": "Creates a parameter description with an explicit callback signature.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature": {
+      "sourceHash": "3c5c866a4fa38b1b5812c4d6bdcffb7302b1b5a7b706b05f31400369d3193006",
+      "markdown": "The ordered parameters and result type of an MCFPP callback.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature.parameters()": {
+      "sourceHash": "26ecfbc26cac690241301ade61b7af61f34c66fed2aca7b948529579209e210a",
+      "markdown": "Returns parameters in call order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.InlineSignature.returnType()": {
+      "sourceHash": "37838e9fb41d7cc6e29907cfcda61fb1175b3c59e33021c6381964ea290a9df5",
+      "markdown": "Returns the MCFPP result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature": {
+      "sourceHash": "d393502b37193e4b51fa6e709c53510c6d665cd8c409be961c5fab3b4e238081",
+      "markdown": "A function signature used when constructing generated declarations.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionSignature.Companion.of(List<ParameterView>,TypeRef<R>)": {
+      "sourceHash": "565367df99d7596d9ed9176aa0c89877f9a29dc26b262a861a3923bf96175865",
+      "markdown": "Creates a signature from a parameter list with unique names and a result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef": {
+      "sourceHash": "329c7845c8c6396fc21d8855fdf51630c0e949910d48d31b1b4a8ce513dced11",
+      "markdown": "Identifies an MCFPP function that generated code can call.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.name()": {
+      "sourceHash": "ed634e8c37fb83773686ae0dcce77c3ad5261333768139385d91509e0e7d8e1d",
+      "markdown": "Returns the function name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.parameters()": {
+      "sourceHash": "3c8ba68945fafb4329be5e48c6f38acee44c51df3044914cebb2f74a55f45a35",
+      "markdown": "Returns ordinary parameters in call order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.returnType()": {
+      "sourceHash": "37838e9fb41d7cc6e29907cfcda61fb1175b3c59e33021c6381964ea290a9df5",
+      "markdown": "Returns the MCFPP result type.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.FunctionRef.readonlyParameters()": {
+      "sourceHash": "7b37bf11f7e267d078a35a8c9e231c76c69358defec363eb772708eabc17cece",
+      "markdown": "Returns parameters from the function's readonly parameter list, in declaration order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue": {
+      "sourceHash": "0598bc167028b27edabf4b3f61709abba668837ff54ca4b40b08e0028c1b2868",
+      "markdown": "An immutable value available during compilation, such as an annotation argument or CONST input.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Integral": {
+      "sourceHash": "4313d6e664f51ee06933f6f90bb5612342e821c2ac0d64a4bda37a12dd4b0f8b",
+      "markdown": "An integer stored as a signed 64-bit JVM value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Integral.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.FloatBits": {
+      "sourceHash": "c5a302f11252140b84c0099eb6e01e434f26f0d37f296b3bc1e9a41448d6305d",
+      "markdown": "A 32-bit floating-point value stored by its IEEE 754 bits.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.FloatBits.bits": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.DoubleBits": {
+      "sourceHash": "fb9a57fd435061e4ca91a4afd1296e782c739fda45837dc58edfeea558057b46",
+      "markdown": "A 64-bit floating-point value stored by its IEEE 754 bits.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.DoubleBits.bits": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Bool": {
+      "sourceHash": "65bb59005a69a988b1e3984ff0ded36bd7af8ae755750ab73f86eae413c07922",
+      "markdown": "A Boolean value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Bool.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Text": {
+      "sourceHash": "7ff9a8c84c2880590f126a84f51b7e9a946ed7fbe96d2b1358792845ac744284",
+      "markdown": "A string value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Text.value": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Nbt": {
+      "sourceHash": "f06883f95e71358c59994dbcd7bfa1831a0059e8056fbaf87df05504248b09e7",
+      "markdown": "NBT data represented as SNBT text.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Nbt.snbt": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.TypeValue": {
+      "sourceHash": "b5c9034c5db32c0820cc4d298663230eb8594ffeec20ecd969e104852a1a3ce0",
+      "markdown": "An MCFPP type used as a constant value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.TypeValue.type": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.NullValue": {
+      "sourceHash": "380954bf731b782d9bf7eff66b806bf1169f0427037d15d4d33ad1993df51f36",
+      "markdown": "The MCFPP null value.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence": {
+      "sourceHash": "5620b3787f4e0ecd15105183562de162b7c5e52302ba24e2360a8ae5ee80db63",
+      "markdown": "An ordered immutable copy of [elements].",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.elements": {
+      "sourceHash": "213c06b42ab9790a75256fbb4fbb9c83b904b71a5e72f3d3210d0b6bb1497bf5",
+      "markdown": "Constant elements in their original order.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.equals(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.hashCode()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Sequence.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record": {
+      "sourceHash": "1fbe9e9eb0d48ea3db2d0ad241bf33e8c46302b220b63a3b85fef31b587b8363",
+      "markdown": "An immutable copy of named [fields], sorted by field name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.fields": {
+      "sourceHash": "9feefe2cddf7f9e04192376f8b9f8783d37d37158177aebbc59725e94dbf1cd1",
+      "markdown": "Constant values indexed by field name.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.equals(Any?)": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.hashCode()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Record.toString()": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion": {
+      "sourceHash": "e4109d9d9a90cc34438d85492098d3ab7a3d979269bfe18edfd224d788c8ef85",
+      "markdown": "",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.integral(Long)": {
+      "sourceHash": "10c4011172275098eb4889b0e01ee13707355aac118ed162ce80b2f51cff9ce2",
+      "markdown": "Creates an integer constant.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.bool(Boolean)": {
+      "sourceHash": "98c9f24f39623bd300a42d0fcbf5e383d4e9ce514e873aec0c1f439c5aa190c0",
+      "markdown": "Creates a Boolean constant.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.text(String)": {
+      "sourceHash": "ab9494f40fe26b7cf56344fcf7c1beffe90b33ca14c1834ddda63b3db5296380",
+      "markdown": "Creates a string constant.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.sequence(List<ConstantValue>)": {
+      "sourceHash": "5930facb29ab502bad5f3a7736914ac2793a3a98c1894c97c367d2bc66a8d447",
+      "markdown": "Copies [elements] into an immutable sequence constant.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.ConstantValue.Companion.record(Map<String,ConstantValue>)": {
+      "sourceHash": "ca1c0ea85210d2de76deaaec3970fde2c9d1739c54dc8511c40f26d7d342dfc9",
+      "markdown": "Copies [fields] into an immutable record constant.",
+      "tags": []
+    },
+    "kotlin:top.mcfpp.mni.api.CodeModelException": {
+      "sourceHash": "5cdc6c9417789944b7549ec3ccf00c2faa73e4d6e8685f132e09fde64ce258d1",
+      "markdown": "Reports invalid generated code or an invalid use of a code builder.",
+      "tags": [
+        {
+          "name": "property",
+          "subject": "source",
+          "content": "Source location included in the error message."
+        },
+        {
+          "name": "property",
+          "subject": "source",
+          "content": "Source location included in the error message."
+        },
+        {
+          "name": "param",
+          "subject": "message",
+          "content": "Explanation of the invalid operation."
+        }
+      ]
+    },
+    "kotlin:top.mcfpp.mni.api.CodeModelException.source": {
+      "sourceHash": "642771fe5f11b2389327c0770507b7befc971c4750a6a3e37ab7f8f183d9e8b8",
+      "markdown": "Source location included in the error message.",
+      "tags": []
+    },
+    "s-79223cddd156de742212567b23371bab9ea85309743cdf901081b29ec89dd28b": {
+      "sourceHash": "da2fea6e2c31464935062ee3fbef55ca7d9f9748e74cdcd0349f95929093cae2",
+      "markdown": "Returns the int value of value.",
+      "tags": []
+    },
+    "s-ec613e7b2130846305eb8c10da1ca6c296328c32407381e182030cd0e0dcc080": {
+      "sourceHash": "68e17ba5e71e0c315b4ff57d64e7f0ea6080dd0bf1be07776e5c83c0955a12c2",
+      "markdown": "Converts value from float to int and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-c4860b61b1e6434700d30ea82e00d0dfaaacb92e50cffb5ca2e382d550c2d7cc": {
+      "sourceHash": "6522f4aedb78b95ce9b243dd8164b09fe3f7dbbcb1e029d271db56d8576e7980",
+      "markdown": "Converts value from byte to int and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-6b72ee8237e89e1d938f02270d27e6b2cef78e7b774c939ce1024f18c06a6e2a": {
+      "sourceHash": "f7bca1b2503f76d16fe42cef8e6a879c63c0ca537bdf0bf072116bf16eaffb97",
+      "markdown": "Converts value from short to int and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-470fbedcfc1872e237c807d7efdf66987f218e1e97eef01a1d58defaaa4a31bd": {
+      "sourceHash": "19bcd369c4c1eac596ec18053b358ba903283b08d5c35d2a740b5221f4132c28",
+      "markdown": "Converts value from long to int and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-607611b39bc2c26468b9dfdfe451c2aa6d6ed5c28749046e104bacdff671da0d": {
+      "sourceHash": "00cfd901e2e9bbf0f4d055eb105b45bf145f0edc99535810bdb2dbba471b4ab8",
+      "markdown": "Converts value from double to int and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-3e2816cd1cb25ef1dd4bc01ddd896101d92da82b2fee2ac4d72de683d3c006af": {
+      "sourceHash": "f3b3eafff55299b23691b0576868876e460c2f876a17d35fadfbf5703893d726",
+      "markdown": "Converts value from int to float and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-86e34a070ceb88663960286d044308a47c1b22d07c0e4274d143763ecaeb3a36": {
+      "sourceHash": "4d4765f28e49ef690c6398763e06fde5fe27c933aa9a9f0ce7bbbf2e89edf125",
+      "markdown": "Returns the float value of value.",
+      "tags": []
+    },
+    "s-6b1ec86bf4e191051c043bde82efab92240a16efadcc26292b44503ffec3c22d": {
+      "sourceHash": "1ef1e480eb55830b8fe1b0fc27da84fde9ffeec83447fc859417997aecdff4f9",
+      "markdown": "Converts value from byte to float and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-0bb96b89df3676fc9ee864a102e38857c35127414a2e5a0166d887bda66b7a2b": {
+      "sourceHash": "1042ebf0cacfd9fb0bf6c206d5912f2289c6b42e718438d328b6fa058aa3c496",
+      "markdown": "Converts value from short to float and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-b0ae0ef4c56d0fd6fdcf1007f767bc3175e4cdfc394c603aabe9f4a96ee78f2a": {
+      "sourceHash": "94e4f425fcc49774aa58e91a7d2a8c458723fa50755d1c80825ce03c54366add",
+      "markdown": "Converts value from long to float and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-0a8a4e8a257171c6946c48f398c92b80ddb37207e13510275135b0fdde3d9b27": {
+      "sourceHash": "e273098043051de045541c4c71b97baab001677e360f85ebca1227b2acf1f0f6",
+      "markdown": "Converts value from double to float and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-08a9a1d10a41d2212e5240941d92a25aecbe51fb6ad9cbb42e3844b2c15028da": {
+      "sourceHash": "0f8678a5b29cd2011e9ca0a75716bda295dcabcfbd8904e6569c38fb293133ae",
+      "markdown": "Converts value from int to byte and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-00d835f49f25e63486f732f3dc095e3766fb6417360854573810bc650a695e1e": {
+      "sourceHash": "d0e454d9c47c67c801f043bb97a0ac486b8121cbec46e85c0efd852736208c0e",
+      "markdown": "Converts value from float to byte and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-dea2d0b5a825a367164874e7ad3ebe3cc4ca6125e4b34996743c22d857872a1a": {
+      "sourceHash": "b0dd160a15c6a67f4c099d26b62586c1c3c5b4252c5a1cefd395555446b6a0c1",
+      "markdown": "Returns the byte value of value.",
+      "tags": []
+    },
+    "s-0fafb164383023950378ab7c81e1b0b430e5440c3da7d30a885b6b8d132cc834": {
+      "sourceHash": "9e47f8cfb402ec9a2a0594c3f26e42d1cddb293fed3823c030aa9a2f5a1f1cdf",
+      "markdown": "Converts value from short to byte and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-2a4bb0d5c02749483e883dcc1bd3c0a349d23c3e7c7e1214877903371ac42fab": {
+      "sourceHash": "451f7cacf969a79592a69035e1b78d913f75888501247d655140754e84331ee1",
+      "markdown": "Converts value from long to byte and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-949e08c957bf70fa03705802dacbd885936038974efade183cbe649979e27e15": {
+      "sourceHash": "921b1724c37efee69291b2250aaa70338dcaa6d042c57c543d32df7bfec9fb11",
+      "markdown": "Converts value from double to byte and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-75357914f1940960b5e5e311993e885aa4ecace9e2cfc00ca4de3d5135ba3869": {
+      "sourceHash": "c5244816e43024827788f7954e1a82e95dceba1e4461e697e9278c5334bce065",
+      "markdown": "Converts value from int to short and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-c0044254ac94161706c80d70d42ce6f9c1e263cd58a1e0a98b3b7332010e5020": {
+      "sourceHash": "2d0c5290e80e100546af1ede296bc08eeebf5dd355bdd4855c86fac5b21c9948",
+      "markdown": "Converts value from float to short and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-47bbd320631ad38c97e868432b8929d5c2567c5084135ad2e35f64698a07fe5a": {
+      "sourceHash": "4770000222c4b304eb8cf049b28a07d590e9e0448e1be39032278d274d7d95ea",
+      "markdown": "Converts value from byte to short and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-1cca560812d879f3237ed936a3fe60d8be4c575646ee98bcd8bdace42e662750": {
+      "sourceHash": "90338c4be7da7ae514777cf2e4d421fbc241f252ff0a8c0cde021930abfcf28d",
+      "markdown": "Returns the short value of value.",
+      "tags": []
+    },
+    "s-a86d5afacdcb6088dbe1445699646fa5143d3be5d5faef71748c7ea8bada8341": {
+      "sourceHash": "e2efa92151fe8d13e53f232219397decf490c1d9d90c4a05a077471f0eccea6d",
+      "markdown": "Converts value from long to short and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-b0732e91684ff1eddc2109c755120f944f458bde5fbd808a207bef25f6b2ae01": {
+      "sourceHash": "4dd4199a826805657d49dea19d56cb3af09d6cea4b337222d4d0c771ece79387",
+      "markdown": "Converts value from double to short and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-fa2bcabce01980592b420920d83a67a518f58105a9dadc2670b825b75e4ed867": {
+      "sourceHash": "23912efe3975730d964a147c31d3793ef0bb8c8f787048c2ae859b420dc0ae28",
+      "markdown": "Converts value from int to long and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-a233152d11dc533bc8c8e9f31745063f98fdc767ea07ccd1252d4de17348a4b8": {
+      "sourceHash": "7393dc2353968928c87fb2cad2b33c26ccb3d85b311fd7177278e0ff7cbd35aa",
+      "markdown": "Converts value from float to long and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-741908b467c2c57e5714dce907e5fb5f1f12ee185620e95735ebfb379bc4a638": {
+      "sourceHash": "a26703771b9b80313e2b57bf0af4d78ece9ba6f1ede01eb21135755a114ea345",
+      "markdown": "Converts value from byte to long and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-8066b03888ad865089a9b4b51d638e8708318b02cef2c5bf75d157e22a101601": {
+      "sourceHash": "31ed57b1310301c5e05ec0aed3eaf31e06612184ed05233f7f150b4d87e7457d",
+      "markdown": "Converts value from short to long and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-4c41f92493d3f619c847826bb4df075c36508d97230950ce8d8b2cf84d5df718": {
+      "sourceHash": "bf5a88acd76ddbe3d7a7255a4da518ffef7064402ffa98cf2e7477f203d1dca3",
+      "markdown": "Returns the long value of value.",
+      "tags": []
+    },
+    "s-a4f4501ae3e7ffd65a8e894c3dac2f2825ec2e0b61fdbb87e8f8556d71c6ee7d": {
+      "sourceHash": "d0b8b7b57d8aaad4206d9c28359175b0554dbccb9156263539b44af00efbf1fd",
+      "markdown": "Converts value from double to long and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-b23750bd81bccf47ed396fb3e5496ae2dabc5690f44536bfbdbe360ef8148a39": {
+      "sourceHash": "8dcf0043243e974b25100f6e76bf125f9ffa28ef6f10dcb9e28f4b0daf731134",
+      "markdown": "Converts value from int to double and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-a99c43fbadf99f3ccaeaa265ce9e912ba3f08343e49797e3c5bcf9661328e97a": {
+      "sourceHash": "c42892b28308cc293c7fb5c28094a52784acdb9baa5532e104353ecc34a902ee",
+      "markdown": "Converts value from float to double and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-ff9531653c9854ff2403b291cae5a6bc3f175fc9ed4e31ac7c8f381a6a4edf53": {
+      "sourceHash": "f934f77bfd1401a39e0848fc98ca2778e52a1eb17db358db0263bb34e799a95a",
+      "markdown": "Converts value from byte to double and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-2d2e383382c4d713949a512f89d779c62acc4250d97625a335462cc9e02e169d": {
+      "sourceHash": "d14549fd3081b9f788a6a2cec461929b040c25f9a8aa4d754769a562c77e337d",
+      "markdown": "Converts value from short to double and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-d1d50ab24bd022396ea86e8143a6f82a635c50dcaa2c497bb6950a8e3793f372": {
+      "sourceHash": "21a6a6168166ff5a8b3660bfd2596d3e23664cbad2d86dd1f4762849e60dec97",
+      "markdown": "Converts value from long to double and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-8991a6e6016a70eb486d53d9f453127713c534f80fc67a7374f6d10ea6607446": {
+      "sourceHash": "d85d893d68b64e5a5e4be9c305ec989cecb3c21e5f6f56f073e2b2d68c052d55",
+      "markdown": "Returns the double value of value.",
+      "tags": []
+    },
+    "s-a3d2966449c909c696fe639ce39582607df8369c9c5e11ce1672b7287a5db312": {
+      "sourceHash": "593b19941564362c34f5f18c379f025591e0744f17521db3307d42be7f54b536",
+      "markdown": "Converts value from int to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-dc29bd87b0eb193aecb46098d1f22c7158d29f24904a07d81544774c0ce8d47f": {
+      "sourceHash": "9ca543c88c3cc25895851a848bca032790f968c6bc7cc689b4e9387675c0f338",
+      "markdown": "Converts value from float to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-6735540f2366330e2e8ec3aaf313490a1d12c999e02de97c25ba1b7157e2ca1b": {
+      "sourceHash": "d7ce71f8c338eabcbc333c367d8b023d47e00980f4caed4eec61f3a00b78800e",
+      "markdown": "Converts value from byte to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-a5949b4b00a9d894689b3df1bd23325fe32e35cdd23d9992943f70b6fbb11178": {
+      "sourceHash": "aae88cbfe7cf7d672ca7c92d9925d90dc281555b06d7afcefa8c0ba4a270283f",
+      "markdown": "Converts value from short to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-9c6fdcaf2e87dee5ab039e3c1a5c5883e566bf19de06a3918ec40e82e6d89e2a": {
+      "sourceHash": "04235c4b315efcea3095f61fc67343234afd97cc7552b7840248096b5f09a859",
+      "markdown": "Converts value from long to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-c2ad61f72f6a7486bfba4aeef44455b08d9dc17866d8db45025011b6a8c5c26f": {
+      "sourceHash": "a5f680aa03b6f2628a79ee30f6b13c56f226a5afb1a24e8078000f0036da698f",
+      "markdown": "Converts value from double to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-77cd05c0caba698f7021e998a82996db5d85fe36328771b6caa143c6414910bd": {
+      "sourceHash": "e10991303acad48ff955729ef63b0c4d567822a775cf5629b9b8d7bc9a2da657",
+      "markdown": "Converts value from bool to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-070dac5bab496449a01c77157175e88d995b00422951444a0d8929d62bc0f626": {
+      "sourceHash": "7909d257dd90f44582d2cd8244da716727bee90594c508c364173999c6c935d4",
+      "markdown": "Converts value from string to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-b3a38755f891b96f050d128addfc06f7361a709bd2129d3b1f5035ba32b5f04f": {
+      "sourceHash": "1817022f1d6d4cfdbebc4000201935400c7ff5891e98bc7886ca839b4d925a4b",
+      "markdown": "Returns the NBT value of value.",
+      "tags": []
+    },
+    "s-97bb3c18cfae96a402d90f692fc6a038132a43899bda1b136c3fe385c309f8b0": {
+      "sourceHash": "ce0906f10b3f4845fc7504ea99ca11cac16dd0011e9a8a74d0bc8177284b7923",
+      "markdown": "Converts value from DataObject to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-93a29083dadcd25547fce16d7f461e30ce01523e1be8afe7e9d11d132869f0a8": {
+      "sourceHash": "f20b35dff4711566d2d838f9c0e11ab18ab29faba103e6e40aabb51e3cb8bcf7",
+      "markdown": "Converts value from ByteArray to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-f047c9424f6b9157236910077f2deb14f91bf582c212d9313449927941bb4d09": {
+      "sourceHash": "01c3916a7d35b1e76f05ce8d4c60409bcf69f23b527b8547d1ae1b4ef461a3dd",
+      "markdown": "Converts value from IntArray to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-fdd49207ace9c5966da9f8d0167c937fc190dccd5e47ddcd48aa5c4cf42d303d": {
+      "sourceHash": "d78783d01568a7c087dbb60fa97f869a719ca9de5b64b314527dba3b52334ca1",
+      "markdown": "Converts value from LongArray to nbt and returns the result, using MCFPP type conversion rules.",
+      "tags": []
+    },
+    "s-9223eadf5b2dea8ff30cd0b7f3ca030eb33d34a57589b7c907e43dd461198325": {
+      "sourceHash": "7fc4d7f480e6fd0b659c4b3e6511df986e7957e2c92183291c839cabda2ef6e3",
+      "markdown": "Creates an entity target by player name. Names contain 1–16 ASCII letters, digits, or underscores. The entity is looked up when the target is used.",
+      "tags": []
+    },
+    "s-9182f62061276b94a63d2f32def738cb0d0b892ada2c895ab6672adc7caa2f51": {
+      "sourceHash": "ea2aee4e1b538ae9b9aa185312a5c0fbebea094f5425965028c0b7e9f1db760d",
+      "markdown": "Creates an entity target by UUID text. The text contains five hexadecimal groups with maximum widths of 8-4-4-4-12. The entity is looked up when the target is used.",
+      "tags": []
+    },
+    "s-5738b8d70d3c845ab2464ee5669ecc187b51dc8cc371c49948d2083cdb4b4b34": {
+      "sourceHash": "b4ce487f3f7de9048423a60104e475e6f5ad063d934bb0dfea41a61da4311487",
+      "markdown": "Creates a scoreboard address. holder is a fixed score holder name, and objective is the objective name. Both arguments are captured at creation.",
+      "tags": []
+    },
+    "s-b88b6a515ee244e5cd264905ed28d1775f7c25fa940efccd9f6ee7a0d2659bd2": {
+      "sourceHash": "e86477584ec4511da3379bdfea02acb69eb4a4e601ccfdf527ddc74659d15e0a",
+      "markdown": "Creates an NBT address in command storage. storage specifies the storage identifier, path specifies the NBT path, and T specifies the type of values read and written.",
+      "tags": []
+    },
+    "s-8547b0ae3116bb11133c4575538e158841c908ab64caf5e08a540f0b199120aa": {
+      "sourceHash": "967853d3f5b941d92829b2824e6245dadf84f6cbfb69f625d19b0adff641fb0e",
+      "markdown": "Creates an entity NBT address. target specifies the entity, path specifies the NBT path, and T specifies the type of values read and written.",
+      "tags": []
+    },
+    "s-40b85d43fd2a4a204e2ede724415aaea62c0d41bdcae7826f793edf1cf9cdf35": {
+      "sourceHash": "9b18ec8eaec904ef85eb09c57e2838bdb12fd676708e2f74f35802b54add86af",
+      "markdown": "Creates a block entity NBT address. dimension and x, y, z specify the location, path specifies the NBT path, and T specifies the value type.",
+      "tags": []
+    },
+    "s-0c6579682978019e49adbd6429ceff1a644e10dd8e52b5af55aa66f7f415d211": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "Prints the runtime value of value to every player’s chat.",
+      "tags": []
+    },
+    "s-78f5f7dfba2cc2a5de82b55488dcc7b970d8ef77411417ddae4c479df2977fc5": {
+      "sourceHash": "47d2f6497e8f1c2ec64c81f806e58b5c7233113a324f58c9d1270e1e12f03421",
+      "markdown": "Prints a Boolean value to every player’s chat. true is displayed as 1, and false as 0.",
+      "tags": []
+    },
+    "s-be4f50ebe1d76f3d113c5fb9adf7326241857fe81de95e9243ded62588f20ce7": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "Prints the runtime value of value to every player’s chat.",
+      "tags": []
+    },
+    "s-8f64d7c4a72ef135efecf37a280a7f72091f8429d85d5c15fc03cb7ea914fabc": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "Prints the runtime value of value to every player’s chat.",
+      "tags": []
+    },
+    "s-7dde377e9766a646efcb44fc178853491cb48e86c00fcbd2b6bb297bdf278f83": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "Prints the runtime value of value to every player’s chat.",
+      "tags": []
+    },
+    "s-64533a2390715a0bf0420504b056c9f1097f2bb7d26e0731842c0044cd8b665a": {
+      "sourceHash": "9e4738afda6f04d143cf7994bd2cd3809b342631880056de1d39dc87b3aa92a1",
+      "markdown": "Prints the runtime value of value to every player’s chat.",
+      "tags": []
+    },
+    "s-a088f090bd6641277b99259de58551537f1f422110d7731ee0d747ddce953932": {
+      "sourceHash": "2067f1dc5f5889a37f428694abc92954d3864c224f2f83810da99bd486507659",
+      "markdown": "Prints formatted text to every player’s chat, preserving text component styles.",
+      "tags": []
+    },
+    "s-2cf70ff01de626fef7b85ea8cf07f96221f64de508c7eced348450ca2ffc6f52": {
+      "sourceHash": "29d4b7fb7c12736f3cf566935258369d5879fa3c6ef206d49bb2824b68ed7227",
+      "markdown": "Provides a compiler debugging breakpoint location. Set a breakpoint in the corresponding JVM implementation when debugging the compiler.",
+      "tags": []
+    },
+    "s-17a6c44a21bad30b98409bb7733a0d8ac05dd6b11d5fea9a7fb256ee3a755c00": {
+      "sourceHash": "365f1ed184c82921bf0ff29807975f145af0a6fd7a6a9fd492cc903772e49615",
+      "markdown": "Logs information during compilation. Known strings display their content; runtime strings display the compiler’s value description.",
+      "tags": []
+    },
+    "s-7900499cbb4835d1f088ed3e9ded341240ff5823f136a706f58781a3d739d227": {
+      "sourceHash": "10e5ed07812252c81e25634ddee241567dc1bf9d8d4a6536dfb4e093e719110f",
+      "markdown": "Logs a warning during compilation. Known strings display their content; runtime strings display the compiler’s value description.",
+      "tags": []
+    },
+    "s-75189741cc287b22a283451a115b639f4c36f92576b769271f09668463b9f8bb": {
+      "sourceHash": "2a7ecdea5a8d532d938b541cbf657c15b77864def7a7f69ecd902ae1dee17fb8",
+      "markdown": "Logs an error during compilation. Known strings display their content; runtime strings display the compiler’s value description.",
+      "tags": []
+    },
+    "s-be06acd30b22cae2031659afbf62a6cc2feba6a128f76cd723dc0c726a48b295": {
+      "sourceHash": "7a01ee037a9de4841eb3318b6760e88d07d5d580dbcd4c7ec25d6ac1e5d44114",
+      "markdown": "Teleports the target entities to the given coordinates. Returns the command’s numeric result and success status.",
+      "tags": []
+    },
+    "s-b8ef9c719bc9c7c715642097221f352fc55289b3bbcaeab28eb1bb176f6e38ee": {
+      "sourceHash": "1da85476ba237539193523078fce704c54e6116c962ea0bcf400d7f731642f91",
+      "markdown": "Teleports the target entities to a context position using its captured dimension. Returns the command’s numeric result and success status.",
+      "tags": []
+    }
+  }
+}

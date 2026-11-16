@@ -6,7 +6,7 @@ lastUpdated: true
 
 `MacroContext` 为一次展开提供类型查询、诊断、helper 和资源服务。完整例子创建返回 `10` 的 helper，再加上传入奖励并保存到自动分配的计分板：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -45,7 +45,7 @@ func recordReward(bonus: int): int = example.macros.RewardMacros.recordReward
 
 ## 诊断
 
-```kotlin
+```kotlin api=kotlin-mni
 if (step < 0) {
     context.diagnostics().error(context.callSite(), "Amount must be zero or greater.")
 }

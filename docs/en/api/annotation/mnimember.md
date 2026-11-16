@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIMember` is a method marker retained at runtime. It has no configuration elements.
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIMember

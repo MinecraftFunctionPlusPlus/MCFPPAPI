@@ -6,7 +6,7 @@ lastUpdated: true
 
 `TemplateProcessor` 在声明完成后读取 `TemplateView`，返回新增方法、内部函数和白名单元数据。下面生成一个返回 `42` 的公开实例方法：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.mni.api.*

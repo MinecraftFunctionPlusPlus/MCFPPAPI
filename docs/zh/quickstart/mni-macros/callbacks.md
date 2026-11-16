@@ -6,7 +6,7 @@ lastUpdated: true
 
 本节用 Kotlin 接收者 DSL 将源码 Lambda 插入运行时循环。创建 `src/main/kotlin/example/macros/RepeatMacros.kt`：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro

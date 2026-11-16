@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:highlight": "node tests/highlighting.mjs",
+    "test:api-hover": "node tests/api-hover.mjs",
+    "docs:api": "node scripts/prepare-api-docs.mjs",
+    "docs:i18n": "node scripts/prepare-api-i18n.mjs",
+    "docs:i18n:check": "node scripts/prepare-api-i18n.mjs --check",
+    "docs:analyze": "node scripts/prepare-api-analysis.mjs",
     "playground:prepare": "node scripts/prepare-teavm.mjs",
     "playground:verify": "node scripts/verify-playground.mjs",
     "playground:typecheck": "vue-tsc --noEmit -p tsconfig.playground.json",
     "docs:dev": "pnpm playground:verify && vitepress dev docs",
-    "docs:build": "pnpm playground:verify && vitepress build docs",
+    "docs:build": "pnpm playground:verify && pnpm docs:i18n:check && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
@@ -18,6 +23,7 @@
   "license": "ISC",
   "devDependencies": {
     "@datapack-sandbox/vitepress-playground": "0.2.2",
+    "markdown-it": "14.3.3",
     "typescript": "5.7.3",
     "vitepress": "1.0.0-rc.41",
     "vue-tsc": "2.2.12"

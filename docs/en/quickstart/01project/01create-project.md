@@ -59,6 +59,8 @@ func main() {
 }
 ```
 
+Hover over `print` to read its API card, or click to keep it open. MCFPP code blocks include standard-library documentation in the page's language.
+
 `mcfpp init hello` sets the default namespace to `hello`. The generated datapack directory is `build/hello/`.
 
 1. Copy `build/hello/` into the world's `datapacks/` directory.

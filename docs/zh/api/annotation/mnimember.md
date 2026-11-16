@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIMember` 是运行时保留的方法标记，定义中没有配置元素。
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIMember

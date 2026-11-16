@@ -10,7 +10,7 @@ lastUpdated: true
 
 创建 `src/main/kotlin/example/macros/ConstantMacros.kt`：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -63,7 +63,7 @@ Kotlin 的 `step + 1` 立即计算宿主整数；DSL 的 `value.value + 1` 构�
 
 下面的 Kotlin 入口沿用本页 imports，放入同包的 `DamageMacros.kt`：
 
-```kotlin
+```kotlin api=kotlin-mni
 object DamageMacros {
     @JvmStatic
     @MNIMacro(normalParams = [

@@ -10,7 +10,7 @@ lastUpdated: true
 
 BossBar 的 `max` 读取入口采用以下形式：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIAccessor

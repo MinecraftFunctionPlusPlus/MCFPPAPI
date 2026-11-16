@@ -6,7 +6,7 @@ lastUpdated: true
 
 `CodeScope` 直接提供 `MinecraftBuilder` 操作。创建 `src/main/kotlin/example/macros/PlayerMacros.kt`：
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -42,7 +42,7 @@ scoreboard players set @a points 0
 
 `executeAs` 改变执行者，`at` 改变位置，`rotated` 改变旋转。每个 Kotlin 回调使用对应的子 `CodeScope`。例如，把上例的加分语句换为：
 
-```kotlin
+```kotlin api=kotlin-mni
 at(position(player)) {
     val below = offset(currentPosition(), 0.0, -1.0, 0.0)
     ifThen(blockMatches(blockAt(below), BlockPredicate.block("minecraft:stone"))) {

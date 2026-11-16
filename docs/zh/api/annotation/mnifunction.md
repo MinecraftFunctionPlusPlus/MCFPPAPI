@@ -6,7 +6,7 @@ lastUpdated: true
 
 `top.mcfpp.annotations.MNIFunction` 描述原生 Kotlin/JVM MNI 入口。编译器在构建时调用它。
 
-```kotlin
+```kotlin api=kotlin-mni
 import top.mcfpp.annotations.MNIFunction
 import top.mcfpp.core.lang.MCInt
 import top.mcfpp.util.ValueWrapper

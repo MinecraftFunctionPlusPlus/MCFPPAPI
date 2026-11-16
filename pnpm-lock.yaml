@@ -19,6 +19,9 @@ devDependencies:
   '@datapack-sandbox/vitepress-playground':
     specifier: 0.2.2
     version: 0.2.2(vue@3.5.44)
+  markdown-it:
+    specifier: 14.3.3
+    version: 14.3.3
   typescript:
     specifier: 5.7.3
     version: 5.7.3

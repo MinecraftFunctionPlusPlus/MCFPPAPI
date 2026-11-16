@@ -10,7 +10,7 @@ lastUpdated: true
 
 `src/main/kotlin/example/mni/Arithmetic.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIFunction

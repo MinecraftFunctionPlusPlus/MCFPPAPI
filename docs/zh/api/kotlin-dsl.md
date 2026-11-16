@@ -6,9 +6,11 @@ lastUpdated: true
 
 公开包为 `top.mcfpp.mni.api`，注解位于 `top.mcfpp.annotations`。使用 `import top.mcfpp.mni.api.*` 导入扩展。当前 API 为 `0.2.0-experimental`。
 
+将鼠标移到代码中带点状下划线的 API 名称上，可以查看声明签名和当前页面语言的文档。点击可固定卡片；键盘使用 Tab、Enter 和 Esc。构建前的 Kotlin 语法分析会根据注解归属、参数和已知接收者缩小候选，未知类型保留候选；缺少译文时显示源码 KDoc。站点作者可以给 `kotlin` 或 `kt` 围栏添加 `api=kotlin-mni` 启用此功能。
+
 ## Quote / CodeScope
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 context.quote.block {
     val total = local("total", literal(0))
     total += 1
@@ -50,7 +52,7 @@ Kotlin 的 `==`、`<`、`&&`、`||` 具有宿主语言语义。构造代码时�
 
 ## 控制流与调用
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 ifThen(condition) { /* generated statements */ }
 ifElse(condition, { /* then */ }, { /* else */ })
 whileLoop({ count.value lt limit.value }) {
@@ -71,7 +73,7 @@ Kotlin 的 if/for 在生成期执行；这些 DSL 方法建立运行时控制流
 
 ## Minecraft 上下文
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 context.quote.block {
     executeAs(entities(EntityQuery.allPlayers())) { self ->
         at(position(self)) {

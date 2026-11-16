@@ -10,7 +10,7 @@ Continue with the [macro project](./overview). Use `Value<T>` for ordinary input
 
 Create `src/main/kotlin/example/macros/ConstantMacros.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.annotations.MNIMacro
@@ -63,7 +63,7 @@ Construct references from explicit Minecraft addresses. The removed `ref local` 
 
 Use this page's imports and place this entry in `DamageMacros.kt` in the same package:
 
-```kotlin
+```kotlin api=kotlin-mni
 object DamageMacros {
     @JvmStatic
     @MNIMacro(normalParams = [

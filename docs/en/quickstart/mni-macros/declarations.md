@@ -6,7 +6,7 @@ lastUpdated: true
 
 After declaration completion, `TemplateProcessor` reads a `TemplateView` and returns new methods, internal functions, and permitted metadata. This processor generates a public instance method returning `42`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.macros
 
 import top.mcfpp.mni.api.*

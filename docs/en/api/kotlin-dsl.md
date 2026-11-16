@@ -4,11 +4,13 @@ lastUpdated: true
 
 # Kotlin DSL API
 
+Hover over dotted API names to read signatures and documentation in the page's language. Click to keep the card open, or use Tab, Enter, and Escape. Kotlin syntax analysis filters annotation owners, arguments, and known receiver types before the site is built. Unknown types retain candidates, and missing translations fall back to source KDoc. Site authors can enable this with `api=kotlin-mni` on a `kotlin` or `kt` fence.
+
 The public package is `top.mcfpp.mni.api`; annotations are in `top.mcfpp.annotations`. Import extensions with `import top.mcfpp.mni.api.*`. The current API is `0.2.0-experimental`.
 
 ## Quote / CodeScope
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 context.quote.block {
     val total = local("total", literal(0))
     total += 1
@@ -50,7 +52,7 @@ Kotlin `==`, `<`, `&&`, and `||` have host-language semantics. Use `eq`, `lt`, `
 
 ## Control flow and calls
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 ifThen(condition) { /* generated statements */ }
 ifElse(condition, { /* then */ }, { /* else */ })
 whileLoop({ count.value lt limit.value }) {
@@ -71,7 +73,7 @@ Varargs pass every expression by VALUE. Explicit lists use `CallArgument.value/r
 
 ## Minecraft contexts
 
-```kotlin
+```kotlin api=kotlin-mni context=MacroContext
 context.quote.block {
     executeAs(entities(EntityQuery.allPlayers())) { self ->
         at(position(self)) {

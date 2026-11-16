@@ -8,7 +8,7 @@ lastUpdated: true
 
 `src/main/kotlin/example/mni/Messages.kt`:
 
-```kotlin
+```kotlin api=kotlin-mni
 package example.mni
 
 import top.mcfpp.annotations.MNIFunction
