@@ -63,3 +63,5 @@ IDEA 插件 0.6.0 对已识别的命令和 JSON 资源字段提供类型相关�
 构建在临时目录完成资源组装和检查，再发布两份输出。冲突、JSON 语法错误或已识别的本工程引用缺失时，上一份成功的包保留。可选标签成员、动态资源 ID、Minecraft 和其他外部命名空间不会被当作本地缺失。插件的基础 schema 与静态检查覆盖常用引用，游戏仍负责完整的版本相关格式验证。
 
 编译器仓库的 `examples/vanilla-integration` 提供完整示例。可以先用 `/advancement grant @s only demo:use_wand` 验证回调链，再测试物品使用。
+
+[跟随示例 08 检查望远镜进度、公开函数入口和客户端翻译](../../examples/08-vanilla-resources)。

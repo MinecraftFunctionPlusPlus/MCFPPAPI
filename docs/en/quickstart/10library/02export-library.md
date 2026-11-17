@@ -76,3 +76,7 @@ mcfpp build
 Import `example.utils:*` and call `addBonus(10)`. Package coordinates select an installed package. Namespaces select names in source code.
 
 Publish bodies, resources, and dependency metadata together. The final datapack retains library resources according to [references](../01project/04build-and-ir).
+
+## Re-export after a compiler update
+
+The current compiler writes version 5 of `bin.mclib`. This number is independent of the Minecraft target and your package’s release version. When a consumer reports a newer library format, upgrade its CLI. For an old development cache or an unsupported older format, rebuild from the library source with the current compiler and package the result.

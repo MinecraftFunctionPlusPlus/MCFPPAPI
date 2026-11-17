@@ -18,6 +18,8 @@ Follow this development path to create a project and produce a datapack. The sid
 4. [Manage dependencies](./10library/01import-and-use): add libraries and use lock files.
 5. [Build and inspect IR](./01project/04build-and-ir): find the datapack and trace compilation.
 
+To follow a working project from source to output and tests, open the [Examples section](/en/examples/).
+
 ## Find a language feature
 
 | Task | Guide |
@@ -31,11 +33,11 @@ Follow this development path to create a project and produce a datapack. The sid
 | Read and write game scores and NBT | [ScoreRef and NBTRef](./02base/06references) |
 | Select entities, change identity and position, and access passengers | [Entities and contexts](./minecraft/entities) |
 | Distinguish absent data from zero and read command results | [Reading results](./minecraft/read-results) |
-| Define structured data and constructors | [Data templates](./09template/01define-and-instantiate) |
+| Define structured data and factories | [Data templates](./09template/01define-and-instantiate) |
 | Control property access | [Properties and operators](./advanced/members) |
 | Name a fixed set of choices | [Enumerations](./advanced/enums) |
 | Share singleton state and type-related behavior | [Singletons and companion objects](./09template/05object) |
-| Use inheritance, abstract methods, and multiple parents | [Inheritance](./09template/06inheritance) |
+| Combine fields from multiple parent templates | [Inheritance](./09template/06inheritance) |
 | Write functions for several types | [Generic functions and type parameters](./07generic/02generic_function) |
 | Select object field types | [Generic data templates](./07generic/03generic_class) |
 | Supply fixed numeric configuration | [Compilation parameters and known values](./07generic/01concrete_var) |

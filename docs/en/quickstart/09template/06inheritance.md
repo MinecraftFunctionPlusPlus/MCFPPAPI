@@ -2,29 +2,32 @@
 lastUpdated: true
 ---
 
-# Inheritance and abstract templates
+# Field inheritance and structural types
 
-List parent templates after `:`. A child inherits fields and methods. Use `override` to replace an inherited implementation.
+`Marker: Position, Named` combines the fields of both parents. A `Marker` stores `x`, `y`, `name` and its local `active` field together. Access a field directly on the marker.
 
 ```mcfpp
-abstract data Readable {
-    abstract func read(): int
-}
-
-data Counter: Readable {
-    var value: int = 5
-
-    override func read(): int {
-        return this.value
+data Position { var x: int; var y: int }
+data Named { var name: string }
+data Marker: Position, Named {
+    var active: bool
+    new(x: int, y: int, name: string) {
+        return { x, y, name, active: true }
     }
 }
 
+func label(value: { name: string }): string { return value.name }
+
 func main() {
-    var counter = Counter()
-    print(counter.read())
+    var marker = Marker.new(3, 4, "spawn")
+    print(label(marker))
 }
 ```
 
-`abstract data` defines a shared interface for children. `abstract func` declares a method signature. A concrete child supplies all inherited abstract methods before you create its instances.
+`label` reads only `name`. Any value with a `string` field of that name satisfies the parameter. This example prints `spawn`. The same field checks apply to assignments and return values.
 
-Separate multiple parents with commas, such as `data Combined: First, Second`. Resolve shared member names through explicit implementations and compatible field types.
+## Combining parents
+
+In a type position, `(Position & Named)` requires the fields of both templates. If two parents declare the same field, its value must satisfy both types. A required field constrained to both `int` and `string` has type `never`, so no object can satisfy the intersection.
+
+Return a complete value, including the parent fields, from a child factory. To reuse a parent factory, call `Parent.new(...)` and copy the resulting fields into the child value. Ordinary `data` inheritance combines fields. Migrate code that depended on virtual dispatch via `override` or `super` to functions taking the shared structure, such as `label` above. For entity template construction and summoning, see [example 06](/en/examples/06-entities-context).

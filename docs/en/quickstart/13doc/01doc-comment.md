@@ -59,3 +59,12 @@ Code blocks look up exported API names and list matching declarations. They do n
 Use `symbols=namespace:Type,namespace:Type.member` to restrict the candidates. A declaration `id` from the exported JSON selects a single overload. Restart or rebuild the site after updating JSON. Once imported, site builds require only Node.js and readers do not load a compiler.
 
 The example source lives in `examples/documentation` in the MCFPP repository. See `scripts/API-HOVERS.md` in this repository for maintenance and regeneration instructions.
+
+## Generate documentation for your project
+
+```sh
+mcfpp doc
+mcfpp doc --format json --include-private --output api
+```
+
+The first command writes `build/docs/index.html` and `build/docs/docs.json` by default. Open the HTML to browse and search offline. `--include-private` includes private declarations and a relative `--output` path starts at the project root. Document your contract with `/// @param` and `/// @return`. Both IDE hovers and exported docs use these comments. Practise cross-file navigation in [example 11](../../examples/11-editor-tour).

@@ -55,3 +55,7 @@ func main() {
 ```
 
 函数值适合计分转换、列表处理和可复用回调。直接读写外部数据时，可以配合 [`tryRead`](../02base/06references)。
+
+## 花括号的目标类型
+
+`var identity: (int) -> int = { it }` 的目标是函数，`it` 因此是回调参数。`var x = 3` 之后的 `var point = { x }` 则建立含 `x` 字段的对象，相当于 `{ x: x }`。遇到空花括号也可以先写出期望类型，例如 `var action: () -> void = {}`，再把 `action` 传给调用方。

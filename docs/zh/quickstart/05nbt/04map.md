@@ -40,3 +40,7 @@ func main() {
 常用方法包括 `containsKey(key)`、`remove(key)`、`merge(other)`、`size()`、`isEmpty()` 和 `clear()`。
 
 按固定键快速访问时，使用[字典](./03dict)。需要列出全部键时，使用 Map。
+
+## 缺失的键与条目快照
+
+`map<T>.getOrElse(key) { ... }` 在键缺失时计算默认值。需要同时把默认值写入映射时用 `getOrPut(key) { ... }`，键存在时两者均跳过回调。`keys()`、`values()` 和 `entries()` 保留条目顺序，返回独立的快照；`entries()` 的元素可通过 `key` 和 `value` 读取。

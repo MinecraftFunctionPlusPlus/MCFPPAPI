@@ -13,27 +13,13 @@ mcfpp --version
 mcfpp --project ./hello build
 ```
 
-Kotlin MNI uses JDK 21. Select it through `MCFPP_JAVA_HOME` or IDEA settings. Source links in the console open the affected line.
+Kotlin MNI uses JDK 25. Select it through `MCFPP_JAVA_HOME` or IDEA settings. Source links in the console open the affected line.
 
-## Kotlin reflection in a single JAR
+## An older CLI reports a Kotlin reflection error
 
-The current minimized development JAR reports `KotlinReflectionNotSupportedError` for some generic NBT calls. A complete CLI runtime needs a matching `kotlin-reflect` library in `lib`.
+The bundled CLI includes the reflection runtime used by generic NBT calls. If an older installation reports `KotlinReflectionNotSupportedError`, update the plugin together with its CLI, then check **Settings → Tools → MCFPP** for an external CLI path pointing at an older JAR.
 
-Use the full distribution's launcher. For a manual launch, include the CLI JAR and matching reflection library in the classpath. The current build uses Kotlin `1.9.20`.
-
-This Windows example assumes `mcfpp-cli.jar` and `lib/kotlin-reflect-1.9.20.jar` in the current directory:
-
-```powershell
-java -cp "mcfpp-cli.jar;lib/kotlin-reflect-1.9.20.jar" top.mcfpp.MCFPPKt build
-```
-
-Linux and macOS use a colon between classpath entries:
-
-```sh
-java -cp "mcfpp-cli.jar:lib/kotlin-reflect-1.9.20.jar" top.mcfpp.MCFPPKt build
-```
-
-This is a distribution dependency issue. Keep source declarations in the form shown under [NBT address references](../02base/06references).
+The plugin also ships sources for the compiler API and standard library. After synchronizing an MNI project, use **Go to Declaration** or **External Libraries** to view the implementation.
 
 ## Lockfiles and cached dependencies
 

@@ -64,3 +64,17 @@ func main() {
 该示例依次输出 `1`、`3` 和 `Finished`。回调中的 `return` 结束当前这次回调，之后继续处理其他元素。
 
 `fold` 按列表顺序处理元素。空列表的结果就是传入的初始值。回调可以读取外部变量，读取的是创建回调时捕获的值。函数类型和尾随 Lambda 的写法见 [Lambda](../04function/05lambda)。
+
+## 取出匹配元素并汇总
+
+```mcfpp
+func main() {
+    var values = [1, 2, 3, 4]
+    var rewards = values.filter { it % 2 == 0 }.sumOf { it * 5 }
+    var next = values.firstOrElse({ it > 10 }, { 0 })
+    print(rewards)
+    print(next)
+}
+```
+
+`sumOf` 把回调的数值结果相加，这里得到 `30`。`firstOrElse` 找到首个满足条件的值便停止，全部不匹配时才执行后备回调，得到 `0`。需要索引时用 `mapIndexed { index, value -> ... }`；将每个元素映射到子列表后再拼接用 `flatMap`。

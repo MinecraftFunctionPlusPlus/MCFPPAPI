@@ -64,3 +64,17 @@ func main() {
 This example prints `1`, `3`, and `Finished`. A `return` inside the callback ends that invocation. Processing then continues with the remaining elements.
 
 `fold` processes elements in list order. For an empty list, it returns the initial value. A callback can read outer variables. It captures their values when the callback is created. Read [Lambdas](../04function/05lambda) for function types and trailing lambda syntax.
+
+## Find matches and aggregate values
+
+```mcfpp
+func main() {
+    var values = [1, 2, 3, 4]
+    var rewards = values.filter { it % 2 == 0 }.sumOf { it * 5 }
+    var next = values.firstOrElse({ it > 10 }, { 0 })
+    print(rewards)
+    print(next)
+}
+```
+
+`sumOf` adds the numeric results of its callback, giving `30` here. `firstOrElse` stops at the first match. Only when none matches does it call the fallback, giving `0`. Use `mapIndexed { index, value -> ... }` for indexed transforms, or `flatMap` to concatenate the lists produced for each element.

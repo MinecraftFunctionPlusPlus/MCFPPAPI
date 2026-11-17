@@ -10,6 +10,6 @@ head:
       href: /en/quickstart/09template/06inheritance.html
 ---
 
-# Inheritance and abstract templates
+# Field inheritance and structural types
 
 [Continue to the documentation](/en/quickstart/09template/06inheritance)

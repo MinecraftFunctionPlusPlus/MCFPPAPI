@@ -11,9 +11,8 @@ data Position {
     var x: int
     var z: int
 
-    constructor(x: int, z: int) {
-        this.x = x
-        this.z = z
+    new(x: int, z: int) {
+        return { x, z }
     }
 }
 
@@ -21,9 +20,8 @@ data Checkpoint {
     var name: string
     var position: Position
 
-    constructor(name: string, position: Position) {
-        this.name = name
-        this.position = position
+    new(name: string, position: Position) {
+        return { name, position }
     }
 }
 
@@ -35,6 +33,6 @@ func main() {
 
 `Checkpoint` combines a name and position. `checkpoint.position.x` accesses `position` and then `x`.
 
-Constructors receive typed field values. Declare fields with `var name: Type`. Create nested objects through ordinary constructor calls.
+The inner `Position(10, 20)` produces a complete position value. The outer factory returns it alongside the checkpoint name.
 
-Name structures that you reuse. Anonymous structures use `data { ... }` as a type with the same field declaration rules.
+A function that reads only the horizontal coordinate can take `p: { x: int }`. A `Position` has both `x` and `z`, so it satisfies that parameter.

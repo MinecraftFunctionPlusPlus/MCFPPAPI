@@ -6,8 +6,10 @@ lastUpdated: true
 
 `version` in `mcfpp.toml` selects the Minecraft Java Edition target. Each build produces a datapack for one target.
 
+New projects in the current local CLI and IDEA plugin default to `26.3`. Existing projects use their configured `version`. The site’s [Playground](/en/playground) uses a fixed browser target of `1.21.8`. Run the [26.3 examples](/en/examples/) with the local toolchain.
+
 ```toml
-version = "1.21.8"
+version = "26.3"
 ```
 
 Build again after changing the version. Use separate `targetPath` directories to keep multiple outputs, such as `build-1.21.8` and `build-26.3`.

@@ -11,9 +11,8 @@ data Position {
     var x: int
     var z: int
 
-    constructor(x: int, z: int) {
-        this.x = x
-        this.z = z
+    new(x: int, z: int) {
+        return { x, z }
     }
 }
 
@@ -21,9 +20,8 @@ data Checkpoint {
     var name: string
     var position: Position
 
-    constructor(name: string, position: Position) {
-        this.name = name
-        this.position = position
+    new(name: string, position: Position) {
+        return { name, position }
     }
 }
 
@@ -35,6 +33,6 @@ func main() {
 
 `Checkpoint` 将名称与位置组成一个值。`checkpoint.position.x` 先访问 `position`，再访问 `x`。
 
-构造函数接收明确类型的字段值。字段声明使用 `var name: Type`。嵌套对象通过普通构造调用创建。
+内层 `Position(10, 20)` 先产生完整的位置值，外层工厂将它与名称一起返回。
 
-需要多处复用结构时，给它声明一个名字。匿名结构也使用 `data { ... }` 类型语法和相同的字段声明规则。
+如果函数只读取横坐标，参数可以写作 `p: { x: int }`。`Position` 同时有 `x` 和 `z`，因此可以直接传入。

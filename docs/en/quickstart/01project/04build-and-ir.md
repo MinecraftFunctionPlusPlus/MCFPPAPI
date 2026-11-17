@@ -73,3 +73,12 @@ func main() {
 5. Open `main.mcfunction` in the datapack to inspect the final commands.
 
 The compiler selects internal function names. Use source locations and call relationships to follow the result.
+
+## Debugging, rendering and repeat builds
+
+| Command | Files under the default output directory |
+| --- | --- |
+| `mcfpp build --debug-info` | A debug pack and `mcfpp.debug.json` in `build/debug/`, with source positions for stepping |
+| `mcfpp build --render-info` | An optimized pack and `mcfpp.render.json` in `build/preview/`, with entry points for the renderer |
+
+Opt into local compilation reuse with `--reuse-build` when the inputs and output are unchanged. `mcfpp test --reuse-build` can reuse the test compilation too. Each test still executes in a fresh world. See [source tests](./07source-tests).

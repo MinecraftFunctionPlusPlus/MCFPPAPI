@@ -74,4 +74,4 @@ A function body can use its parameters, return them, or call interfaces availabl
 
 Function types can also contain generics, such as `callback: (T) -> T`. First learn the type relationships above. Then read [Lambdas and function types](../04function/05lambda).
 
-Continue with [Generic data templates](./03generic_class) to use type parameters in fields and constructors.
+Continue with [Generic data templates](./03generic_class) to use type parameters in fields and factories.

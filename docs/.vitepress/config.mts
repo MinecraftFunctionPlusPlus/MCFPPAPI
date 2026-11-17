@@ -780,6 +780,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'QuickStart', link: '/en/quickstart/index' },
+      { text: 'Examples', link: '/en/examples/' },
       playgroundLink('en')
     ],
 
@@ -805,6 +806,7 @@ export default defineConfig({
         nav: [
           { text: '主页', link: '/zh/' },
           { text: '快速开始', link: '/zh/quickstart/index' },
+          { text: '示例', link: '/zh/examples/' },
           playgroundLink('zh')
         ]
       }
@@ -817,6 +819,7 @@ export default defineConfig({
         nav: [
           { text: 'Home', link: '/en/' },
           { text: 'QuickStart', link: '/en/quickstart/index' },
+          { text: 'Examples', link: '/en/examples/' },
           playgroundLink('en')
         ]
       }

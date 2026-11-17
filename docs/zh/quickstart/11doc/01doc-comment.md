@@ -59,3 +59,12 @@ var legacy = oldRead(score)
 如需限定候选，可添加 `symbols=命名空间:类型,命名空间:类型.成员`；使用导出 JSON 中的声明 `id` 可以限定到一个具体重载。更新 JSON 后重新启动或构建网站。导入后，网站构建只需要 Node.js，浏览器无需加载编译器。
 
 本文示例的源码位于 MCFPP 仓库的 `examples/documentation`。站点维护与重新生成步骤见仓库内的 `scripts/API-HOVERS.md`。
+
+## 为自己的工程生成文档
+
+```sh
+mcfpp doc
+mcfpp doc --format json --include-private --output api
+```
+
+第一条命令默认生成 `build/docs/index.html` 和 `build/docs/docs.json`。打开 HTML 即可离线浏览和搜索。`--include-private` 加入私有声明，相对 `--output` 路径从工程根目录计算。用 `/// @param` 和 `/// @return` 记录接口约定，IDE 悬停与导出文档会读取同一份注释。[工程 11](../../examples/11-editor-tour) 提供跨文件导航练习。

@@ -10,6 +10,6 @@ head:
       href: /zh/quickstart/06template/07inheritance.html
 ---
 
-# 继承与抽象模板
+# 字段继承与结构类型
 
 [继续阅读文档](/zh/quickstart/06template/07inheritance)

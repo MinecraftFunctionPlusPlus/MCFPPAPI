@@ -35,31 +35,9 @@ func main() {
 
 该示例输出 `0` 和 `8`。调用者仍使用普通属性读写语法。校验逻辑集中在 `set` 中。
 
-## 定义加法
+## 在实例方法中实现加法
 
-以下为运算符声明语法。当前 CLI 的数据模板运算符调用仍待完善；本节后半提供普通方法实现。
-
-```text
-data Points {
-    var value: int = 0
-
-    constructor(value: int) {
-        this.value = value
-    }
-
-    operator +(other: int): int {
-        return this.value + other
-    }
-}
-
-func main() {
-    var points = Points(10)
-    print(points + 5)
-    print(points.value)
-}
-```
-
-这里展示运算符声明语法。当前 CLI 对 `points + 5` 会报告不支持该运算。实际工程可先用普通实例方法完成计算：
+当前开发版 CLI 接受 `operator +` 的声明，但对普通 `data Points` 调用 `points + 5` 会报告不支持该运算。下面的 `plus` 方法可以直接运行。
 
 ```mcfpp
 data Points {
@@ -75,4 +53,4 @@ func main() {
 }
 ```
 
-该实现输出 `15`。运算符调用的运行时生成仍需编译器继续完善。
+`points.plus(5)` 读取实例的 `value` 并返回 `15`。

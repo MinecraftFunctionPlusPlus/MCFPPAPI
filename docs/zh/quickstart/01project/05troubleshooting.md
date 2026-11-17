@@ -13,7 +13,7 @@ mcfpp --version
 mcfpp --project ./hello build
 ```
 
-Kotlin MNI 使用 JDK 21。通过 `MCFPP_JAVA_HOME` 或 IDEA 设置选择它。源码错误可以从控制台链接跳转到对应行。
+Kotlin MNI 使用 JDK 25。通过 `MCFPP_JAVA_HOME` 或 IDEA 设置选择它。源码错误可以从控制台链接跳转到对应行。
 
 ## 旧发行包缺少 Kotlin 反射库
 

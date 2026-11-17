@@ -10,14 +10,14 @@ lastUpdated: true
 
 1. 安装 [MCFPP 插件](https://github.com/Alumopper/mcfpp-language-support/releases)。
 2. 选择 **File → New → Project → MCFPP**。
-3. 输入名称和目录，选择 JDK 21。
+3. 输入名称和目录，选择 JDK 25。
 4. 等待工程同步，打开 `src/main/mcfpp/main.mcfpp`。
 5. 点击右侧 **MCFPP → Build**。
 
 >[!NOTE]
 > 需要编写 Kotlin 扩展时，选择 **MCFPP MNI**。创建后的 Kotlin 示例见 [MNI 入门](../09mni/01mni-framework)。
 
-MCFPP插件内置匹配的 MCFPP CLI、标准库、语言服务和格式化工具。建议使用 JDK 21 及其以上版本运行编译器和 MNI 构建。需要 Node.js 20 或更新版本运行代码格式化服务。若要 MCFPP CLI 等自定义工具路径，可以在 **Settings → Tools → MCFPP** 中设置。
+MCFPP插件内置匹配的 MCFPP CLI、标准库、语言服务和格式化工具。建议使用 JDK 25 及其以上版本运行编译器和 MNI 构建。需要 Node.js 20 或更新版本运行代码格式化服务。若要 MCFPP CLI 等自定义工具路径，可以在 **Settings → Tools → MCFPP** 中设置。
 
 ## 使用 CLI 创建
 

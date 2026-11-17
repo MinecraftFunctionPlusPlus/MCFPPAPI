@@ -8,7 +8,7 @@ MNI 在编译期执行宿主 Kotlin，生成供 Minecraft 执行的数据包。�
 
 ## 创建与构建
 
-准备 JDK 21，在 IDEA 中选择 **MCFPP MNI**，或运行：
+准备 JDK 25，在 IDEA 中选择 **MCFPP MNI**，或运行：
 
 ```sh
 mcfpp init hello-mni --mni

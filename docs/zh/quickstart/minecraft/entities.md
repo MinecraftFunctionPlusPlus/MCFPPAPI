@@ -19,7 +19,7 @@ func main() {
 
 ## 在每个目标的位置执行
 
-`withPosCtx` 为每个目标调用一次回调。它设置执行位置、朝向和维度。回调中的 `ctx.executor` 表示进入回调时绑定的执行者。
+`withPosCtx` 为每个目标调用一次回调。它设置执行位置、朝向和维度。回调提供空间信息。需要确定的执行者时使用实体上下文。
 
 ```mcfpp
 func main() {
@@ -43,7 +43,7 @@ func main() {
 }
 ```
 
-需要同时使用目标的身份和位置时，在目标的实体上下文中读取 `ctx.executor`，再进入它的位置上下文。
+需要同时使用目标的身份和位置时，用 `targets.forEachAt { ctx -> ... }`。回调里的 `@s` 就是当前遍历的实体。[工程 06](../../examples/06-entities-context) 会给两个实体各加一次访问标签。
 
 ## 遍历实体关系
 
@@ -72,3 +72,20 @@ execute as @a at @s run function demo:main
 ```
 
 它让每位玩家成为执行者，并在各自位置调用 `main`。更多原生上下文写法见[原生命令](../02base/05original-command)。
+
+## 声明函数需要的位置上下文
+
+```mcfpp
+import mcfpp.lang:*
+
+context(ctx: PosContext)
+func atCheckpoint() {
+    /say checkpoint
+}
+
+func main() {
+    withPosCtx(~ ~1 ~) { space -> atCheckpoint() }
+}
+```
+
+`context(ctx: PosContext)` 是调用要求。`withPosCtx` 的同步回调提供 `space`，在其中调用 `atCheckpoint()` 时，编译器会匹配最近作用域内兼容的位置上下文。若有多个候选，可写 `atCheckpoint(ctx = space)` 指定。只要求 `PosContext` 的函数可以读取 `ctx.pos` 和 `ctx.dimension`。要读取 `ctx.executor`，在签名中要求 `EntityContext` 或 `EntityExecutionContext`。

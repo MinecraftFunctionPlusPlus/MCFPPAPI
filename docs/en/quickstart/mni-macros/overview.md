@@ -8,7 +8,7 @@ An MNI macro runs Kotlin during compilation and constructs typed code for the MC
 
 ## Create a project
 
-Use JDK 21:
+Use JDK 25:
 
 ```sh
 mcfpp init hello-mni --mni

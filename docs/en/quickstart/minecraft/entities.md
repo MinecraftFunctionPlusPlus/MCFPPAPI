@@ -19,7 +19,7 @@ func main() {
 
 ## Execute at each target
 
-`withPosCtx` invokes its callback once per target. It sets position, rotation, and dimension. Inside the callback, `ctx.executor` identifies the executor bound at callback entry.
+`withPosCtx` invokes its callback once per target. It sets position, rotation, and dimension. The callback supplies a spatial context. Use an entity context when the operation requires a bound executor.
 
 ```mcfpp
 func main() {
@@ -43,7 +43,7 @@ func main() {
 }
 ```
 
-To use both the target's identity and position, first enter its entity context. Then enter a position context through `ctx.executor`.
+Use `targets.forEachAt { ctx -> ... }` to execute as and at each target. In the callback, `@s` is the entity being visited. [Example 06](../../examples/06-entities-context) uses it to tag each of two entities.
 
 ## Follow entity relations
 
@@ -72,3 +72,20 @@ execute as @a at @s run function demo:main
 ```
 
 This command calls `main` as each player at that player's position. Read [Native commands](../02base/05original-command) for more execution syntax.
+
+## Declare a position requirement
+
+```mcfpp
+import mcfpp.lang:*
+
+context(ctx: PosContext)
+func atCheckpoint() {
+    /say checkpoint
+}
+
+func main() {
+    withPosCtx(~ ~1 ~) { space -> atCheckpoint() }
+}
+```
+
+`context(ctx: PosContext)` is a call requirement. The synchronous callback of `withPosCtx` supplies `space`. A call to `atCheckpoint()` there resolves a compatible position context in the nearest scope. With multiple candidates, select one using `atCheckpoint(ctx = space)`. A function requiring `PosContext` can read `ctx.pos` and `ctx.dimension`. To read `ctx.executor`, require `EntityContext` or `EntityExecutionContext`.

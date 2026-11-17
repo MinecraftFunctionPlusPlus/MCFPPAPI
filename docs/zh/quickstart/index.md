@@ -18,6 +18,8 @@ next:
 4. [管理依赖](./08library/01import-and-use)：添加库并使用锁文件。
 5. [构建与检查 IR](./01project/04build-and-ir)：找到数据包，追踪代码如何编译。
 
+从完整工程入手，可以打开独立的[示例栏目](/zh/examples/)，按源码、运行结果和测试学习。
+
 ## 查找语言功能
 
 | 想做的事 | 阅读 |
@@ -31,11 +33,11 @@ next:
 | 读写游戏中的计分板和 NBT | [ScoreRef 与 NBTRef](./02base/06references) |
 | 选择实体、切换身份和位置、访问乘客 | [实体与上下文](./minecraft/entities) |
 | 区分缺失数据和零，读取命令结果 | [读取结果](./minecraft/read-results) |
-| 定义结构化数据和构造函数 | [数据模板](./06template/01define) |
+| 定义结构化数据和工厂 | [数据模板](./06template/01define) |
 | 设置属性读写逻辑 | [属性与运算符](./advanced/members) |
 | 为固定选项命名 | [枚举](./advanced/enums) |
 | 复用单例状态和类型相关功能 | [单例与伴随对象](./06template/06object) |
-| 继承、抽象方法和多个父模板 | [继承与抽象](./06template/07inheritance) |
+| 合并多个父模板的字段 | [字段继承与结构类型](./06template/07inheritance) |
 | 编写能处理多种类型的函数 | [泛型函数与类型参数](./07generic/02generic_function) |
 | 为对象选择字段类型 | [泛型数据模板](./07generic/03generic_class) |
 | 为函数与模板提供固定数值配置 | [编译时参数与已知值](./07generic/01concrete_var) |

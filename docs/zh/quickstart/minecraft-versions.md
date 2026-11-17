@@ -6,8 +6,10 @@ lastUpdated: true
 
 `mcfpp.toml` 中的 `version` 选择本次构建的 Minecraft Java 版目标。每次构建生成一个目标版本的数据包。
 
+当前本地 CLI 和 IDEA 的新工程默认目标为 `26.3`。已有工程按自己的 `version` 构建。 本站 [Playground](/zh/playground) 使用固定的浏览器目标 `1.21.8`。运行 [26.3 示例](/zh/examples/)时，请使用本地工具链。
+
 ```toml
-version = "1.21.8"
+version = "26.3"
 ```
 
 切换版本后重新构建。需要保留多个版本的产物时，分别设置 `targetPath`，例如 `build-1.21.8` 和 `build-26.3`。

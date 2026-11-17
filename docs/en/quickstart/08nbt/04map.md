@@ -40,3 +40,7 @@ func main() {
 Common methods include `containsKey(key)`, `remove(key)`, `merge(other)`, `size()`, `isEmpty()`, and `clear()`.
 
 Use a [dictionary](./03dict) for direct key access. Use Map when you need to list all keys.
+
+## Missing keys and entry snapshots
+
+`map<T>.getOrElse(key) { ... }` computes a fallback for a missing key. Use `getOrPut(key) { ... }` to store the fallback in the map as well. Both skip the callback for an existing key. `keys()`, `values()` and `entries()` return independent snapshots in entry order. Each element of `entries()` has a `key` and a `value`.

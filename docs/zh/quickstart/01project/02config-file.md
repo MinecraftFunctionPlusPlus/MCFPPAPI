@@ -12,7 +12,7 @@ MCFPP 在工程根目录中使用 `mcfpp.toml` 作为配置文件。CLI 从当�
 schema = 1
 name = "hello"
 namespace = "hello"
-version = "1.21.8"
+version = "26.3"
 description = "My first MCFPP datapack"
 sourcePath = "src/main/mcfpp"
 dataPath = "src/main/resources/data"
@@ -20,7 +20,7 @@ assetsPath = "src/main/resources/assets"
 targetPath = "build"
 
 [toolchain]
-version = "java21-v1"
+version = "java25-v1"
 
 [mni]
 enabled = false
@@ -31,7 +31,7 @@ enabled = false
 | `schema`            | 配置格式版本，当前为 `1`                             |
 | `name`              | 工程名称，也是输出数据包目录名                       |
 | `namespace`         | 默认命名空间                                         |
-| `version`           | 本次构建的 Minecraft 目标版本                        |
+| `version`           | 本次构建的 Minecraft 目标版本，默认为 `26.3`                        |
 | `description`       | 数据包描述                                           |
 | `sourcePath`        | MCFPP 源码目录，递归读取 `.mcfpp` 文件               |
 | `dataPath`          | 附加数据资源目录，其内容复制到数据包的 `data/` 下    |

@@ -4,16 +4,15 @@ lastUpdated: true
 
 # Data templates
 
-`data` defines named fields, constructors, and methods. It tells the compiler which members an NBT value contains.
+`data` defines named fields, factories, and instance methods. It tells the compiler which members an NBT value contains.
 
 ```mcfpp
 data Reward {
     var amount: int
     var label: string
 
-    constructor(amount: int, label: string) {
-        this.amount = amount
-        this.label = label
+    new(amount: int, label: string) {
+        return { amount, label }
     }
 
     func show() {
@@ -23,13 +22,13 @@ data Reward {
 }
 
 func main() {
-    var reward = Reward(10, "Daily reward")
+    var reward = Reward.new(10, "Daily reward")
     reward.amount += 5
     reward.show()
 }
 ```
 
-`constructor` initializes a new object. `this` means the current object. Use `this.amount` inside a method and `reward.amount` outside it.
+`Reward.new(10, "Daily reward")` and `Reward(10, "Daily reward")` call the same factory. Every successful path through `new` explicitly returns a value with all required fields. `{ amount, label }` reads the two parameters of the same names. To migrate an ordinary data constructor that assigned to `this`, return those fields from `new`. An instance method such as `show` still reads its receiver through `this`.
 
 ## Copy an object value
 
@@ -49,6 +48,6 @@ func main() {
 }
 ```
 
-This prints `10` followed by `20`. Constructors initialize fields through explicit, typed parameters.
+The field defaults form a complete `Reward`, so the compiler supplies a zero-argument factory, `Reward()`. This example prints `10` and `20`.
 
 Continue with [nested templates](./02template-nest), [singleton objects](./05object), and [inheritance](./06inheritance). Use [generic templates](../07generic/03generic_class) for configurable field types.

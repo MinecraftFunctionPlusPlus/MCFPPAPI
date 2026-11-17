@@ -8,7 +8,7 @@ MNI executes host Kotlin during compilation and generates a datapack for Minecra
 
 ## Create and build
 
-Use JDK 21. Choose **MCFPP MNI** in IDEA, or run:
+Use JDK 25. Choose **MCFPP MNI** in IDEA, or run:
 
 ```sh
 mcfpp init hello-mni --mni

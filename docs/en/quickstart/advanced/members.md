@@ -35,31 +35,9 @@ func main() {
 
 This example prints `0` and `8`. Callers use ordinary property access. The setter keeps validation in one place.
 
-## Define addition
+## Add to a value inside an instance method
 
-This example shows operator declaration syntax. Data template operator calls still need CLI support. A working method-based implementation follows.
-
-```text
-data Points {
-    var value: int = 0
-
-    constructor(value: int) {
-        this.value = value
-    }
-
-    operator +(other: int): int {
-        return this.value + other
-    }
-}
-
-func main() {
-    var points = Points(10)
-    print(points + 5)
-    print(points.value)
-}
-```
-
-This shows the operator declaration syntax. The current CLI reports an unsupported operation for `points + 5`. Use an ordinary instance method for this calculation:
+The current development CLI accepts an `operator +` declaration but reports an unsupported operation for `points + 5` on an ordinary `data Points`. Use this instance method to run the calculation.
 
 ```mcfpp
 data Points {
@@ -75,4 +53,4 @@ func main() {
 }
 ```
 
-This implementation prints `15`. Runtime generation for operator calls still needs compiler work.
+`points.plus(5)` reads the instance field `value` and returns `15`.

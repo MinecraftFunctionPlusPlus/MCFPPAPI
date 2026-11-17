@@ -8,7 +8,7 @@ MNI 宏在编译期运行 Kotlin，通过类型化代码树生成 MCFPP/Minecraf
 
 ## 创建工程
 
-使用 JDK 21：
+使用 JDK 25：
 
 ```sh
 mcfpp init hello-mni --mni

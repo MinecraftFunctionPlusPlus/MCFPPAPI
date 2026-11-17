@@ -55,3 +55,20 @@ func main() {
     print(count)
 }
 ```
+
+## Write several commands in a block
+
+Between `/{` and a closing `}` on its own line, write one Minecraft command per line without the leading slash. Use `${points}` to read the surrounding MCFPP variable.
+
+```mcfpp
+func main() {
+    var points = 25
+    /{
+        scoreboard objectives add showcase_text dummy
+        scoreboard players set #points showcase_text ${points}
+        execute if score #points showcase_text matches 25 run say text-command-demo
+    }
+}
+```
+
+The `#points` score on `showcase_text` becomes `25` and `text-command-demo` appears in chat. [See example 04](/en/examples/04-text-commands)

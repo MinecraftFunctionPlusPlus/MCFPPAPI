@@ -43,17 +43,23 @@ func main() {
 | **Lint** | 检查代码 |
 | **Format Check** | 检查格式 |
 | **Dump IR** | 构建并导出可读的编译记录 |
-| **Test** | 在 MNI 工程中运行 Kotlin/Java 测试 |
+| **Test** | 运行 MCFPP 源码测试；启用 MNI 时也运行 JVM 测试 |
 
 首次打开工程会创建这些运行配置。默认配置是 **MCFPP Build**。配置可设置工作目录、环境变量、附加参数、`offline` 和 `locked` 选项。
 
 点击顶部运行按钮或工具窗口中的任务按钮。Run 窗口支持停止、重新执行和错误跳转。构建完成后，点击 **Open Build Output** 打开数据包目录。
 
+## 从函数启动调试与渲染
+
+点击 `main` 旁的运行图标，选 **Debug**，用断点、调用栈和 Watches 检查源码。程序输出显示 `print` 的结果，编译日志显示依赖准备、诊断和数据包路径。[示例 09](../../examples/09-tests-debugger) 提供可观察的递归调用。
+
+选择 **Run (Render)** 会打开暂停的预览。点击 **Play** 开始推进 tick。要观察展示实体的位置、变换和播放效果，可直接打开[示例 07](../../examples/07-display-animation)。
+
 ## 配置工具
 
 打开 **Settings → Tools → MCFPP**，设置：
 
-- **JDK 21**：运行 CLI 和 Kotlin MNI 构建。
+- **JDK 25**：运行 CLI 和 Kotlin MNI 构建。
 - **Node.js**：运行 Prettier 与 Linter。
 - **命令服务 Java**：运行 Minecraft 命令服务，使用 Java 25。
 - **外部工具路径**：需要时选择外部 CLI 或格式化包。

@@ -45,17 +45,23 @@ Formatting removes trailing spaces and adjusts indentation. Editor diagnostics f
 | **Lint** | Check source code |
 | **Format Check** | Check formatting |
 | **Dump IR** | Build and export readable compiler records |
-| **Test** | Run Kotlin/Java tests in an MNI project |
+| **Test** | Run MCFPP source tests and, for MNI projects, JVM tests |
 
 The plugin creates run configurations when it first opens the project. **MCFPP Build** is the default. Configurations support a working directory, environment variables, extra arguments, and `offline` or `locked` options.
 
 Use the top run button or a task button. The Run window supports cancellation, another execution, and source links. After a build, select **Open Build Output** to open the datapack directory.
 
+## Debug or render a function
+
+Choose **Debug** from the gutter beside `main`. Inspect the source with breakpoints, stack frames and Watches. Program output shows what `print` writes. The compilation log shows dependency preparation, diagnostics and the pack path. Follow a recursive call in [example 09](../../examples/09-tests-debugger).
+
+Choose **Run (Render)** to open a paused preview. Press **Play** to advance the world. Open [example 07](../../examples/07-display-animation) to see how the display entity’s transform changes as the animation runs.
+
 ## Configure tools
 
 Open **Settings → Tools → MCFPP**:
 
-- **JDK 21** runs the CLI and Kotlin MNI builds.
+- **JDK 25** runs the CLI and Kotlin MNI builds.
 - **Node.js** runs Prettier and Linter.
 - **Command service Java** runs the Minecraft command service. Use Java 25.
 - **External tool paths** select another CLI or formatting package when required.

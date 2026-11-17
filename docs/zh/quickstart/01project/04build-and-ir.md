@@ -75,3 +75,12 @@ func main() {
 5. 打开数据包中的 `main.mcfunction`，检查最后生成的命令。
 
 生成的内部函数名称由编译器决定。按源码位置和调用关系查找，可以更稳定地跟踪结果。
+
+## 调试、渲染与重复构建
+
+| 命令 | 在默认输出目录下生成的内容 |
+| --- | --- |
+| `mcfpp build --debug-info` | `build/debug/` 中的调试数据包和 `mcfpp.debug.json`，保留源码单步所需的位置 |
+| `mcfpp build --render-info` | `build/preview/` 中的优化数据包和 `mcfpp.render.json`，供渲染器定位入口 |
+
+重复构建时可显式加 `--reuse-build`，复用输入和产物都未改变的本地编译结果。`mcfpp test --reuse-build` 同样可以复用测试编译结果，每条测试仍在新世界执行。详见[源码测试](./07source-tests)。

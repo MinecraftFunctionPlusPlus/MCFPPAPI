@@ -55,3 +55,7 @@ func main() {
 ```
 
 Use function values for score transformations, collection processing, and reusable callbacks. Use [`tryRead`](../02base/06references) when reading external data.
+
+## How braces get their type
+
+In `var identity: (int) -> int = { it }`, the declared function type makes `it` a callback parameter. After `var x = 3`, the expression `var point = { x }` creates an object equivalent to `{ x: x }`. For an empty callback, give it a function type first, for example `var action: () -> void = {}`, then pass `action` to its caller.

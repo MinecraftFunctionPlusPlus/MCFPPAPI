@@ -55,3 +55,20 @@ func main() {
     print(count)
 }
 ```
+
+## 连续写多条命令
+
+在 `/{` 和独占一行的 `}` 之间，每行直接写一条 Minecraft 命令，省略行首 `/`。`${points}` 在命令中读取外层 MCFPP 变量。
+
+```mcfpp
+func main() {
+    var points = 25
+    /{
+        scoreboard objectives add showcase_text dummy
+        scoreboard players set #points showcase_text ${points}
+        execute if score #points showcase_text matches 25 run say text-command-demo
+    }
+}
+```
+
+运行后，`#points` 在 `showcase_text` 计分板上取值 `25`，聊天中出现 `text-command-demo`。[查看示例 04](/zh/examples/04-text-commands)

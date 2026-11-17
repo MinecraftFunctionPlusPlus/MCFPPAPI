@@ -12,14 +12,15 @@ Use `mcfpp.toml` in the project root. The CLI searches parent directories for th
 schema = 1
 name = "hello"
 namespace = "hello"
-version = "1.21.8"
+version = "26.3"
 description = "My first MCFPP datapack"
 sourcePath = "src/main/mcfpp"
 dataPath = "src/main/resources/data"
+assetsPath = "src/main/resources/assets"
 targetPath = "build"
 
 [toolchain]
-version = "java21-v1"
+version = "java25-v1"
 
 [mni]
 enabled = false
@@ -30,10 +31,13 @@ enabled = false
 | `schema` | Configuration format version, currently `1` |
 | `name` | Project name and output datapack directory name |
 | `namespace` | Default namespace |
-| `version` | Minecraft target version for this build |
+| `version` | Minecraft target for this build, default `26.3` |
 | `description` | Datapack description |
 | `sourcePath` | Directory that contains MCFPP source files |
 | `dataPath` | Extra resources copied into the datapack's `data/` directory |
+| `assetsPath` | Client assets for the companion `<name>-resources` pack |
+| `entrypoints` | Public Minecraft function IDs mapped to MCFPP top-level functions |
+| `resourceOverrides` | Resource paths explicitly allowed to replace generated output |
 | `targetPath` | Build output directory inside the project |
 | `toolchain.version` | Toolchain identifier used by the CLI |
 | `mni.enabled` | Enables Kotlin MNI sources and dependencies |
@@ -65,3 +69,5 @@ Declare MCFPP libraries and JVM dependencies in `mcfpp-packages.json`. The CLI u
 The `[mni]` table supports JVM repositories, plugins, and Gradle extensions. See [Gradle and Kotlin builds](../12gradle/01gradle-configuration).
 
 See [Minecraft target versions](../minecraft-versions) for version conditions.
+
+For advancement rewards, function tags and client assets, see [Vanilla resources and entry points](./06vanilla-resources).

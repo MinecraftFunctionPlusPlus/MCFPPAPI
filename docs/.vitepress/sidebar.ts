@@ -11,6 +11,8 @@ const sections: Section[] = [
         ["IDEA 开发", "Develop in IDEA", "quickstart/01project/03idea"],
         ["工程配置", "Project configuration", "quickstart/01project/02config-file"],
         ["构建、产物与 IR", "Build, output, and IR", "quickstart/01project/04build-and-ir"],
+        ["原版资源与入口", "Vanilla resources and entry points", "quickstart/01project/06vanilla-resources"],
+        ["源码测试", "Source tests", "quickstart/01project/07source-tests"],
         ["Minecraft 版本", "Minecraft versions", "quickstart/minecraft-versions"],
         ["常见问题", "Troubleshooting", "quickstart/01project/05troubleshooting"],
     ] },
@@ -46,18 +48,20 @@ const sections: Section[] = [
         ["只读列表、数组与范围", "Read-only lists, arrays, and ranges", "quickstart/advanced/containers"],
     ] },
     { text: ["数据模板", "Data templates"], collapsed: true, items: [
-        ["定义与构造", "Definitions and constructors", ["quickstart/06template/01define","quickstart/09template/01define-and-instantiate"]],
+        ["定义与工厂", "Definitions and factories", ["quickstart/06template/01define","quickstart/09template/01define-and-instantiate"]],
         ["嵌套模板", "Nested templates", ["quickstart/06template/02template-nest","quickstart/09template/02template-nest"]],
         ["属性与运算符", "Properties and operators", "quickstart/advanced/members"],
         ["枚举", "Enumerations", "quickstart/advanced/enums"],
-        ["可空类型与联合类型", "Nullable and union types", ["quickstart/06template/04sp-type","quickstart/09template/03sp-type"]],
+        ["可选访问与联合类型", "Optional access and union types", ["quickstart/06template/04sp-type","quickstart/09template/03sp-type"]],
         ["基础类型视图", "Views of base types", ["quickstart/06template/05type-as","quickstart/09template/04type-as"]],
         ["单例与伴随对象", "Singletons and companion objects", ["quickstart/06template/06object","quickstart/09template/05object"]],
-        ["继承与抽象", "Inheritance and abstract templates", ["quickstart/06template/07inheritance","quickstart/09template/06inheritance"]],
+        ["组合继承与结构类型", "Field inheritance and structural types", ["quickstart/06template/07inheritance","quickstart/09template/06inheritance"]],
     ] },
     { text: ["实体与 Minecraft", "Entities and Minecraft"], collapsed: true, items: [
         ["实体与执行上下文", "Entities and execution contexts", "quickstart/minecraft/entities"],
+        ["标量数学", "Scalar math", "quickstart/minecraft/math"],
         ["读取分数、NBT 与命令结果", "Read scores, NBT, and command results", "quickstart/minecraft/read-results"],
+        ["展示实体与调度", "Displays and scheduling", "quickstart/minecraft/displays"],
     ] },
     { text: ["依赖与库", "Dependencies and libraries"], collapsed: true, items: [
         ["添加与管理依赖", "Add and manage dependencies", ["quickstart/08library/01import-and-use","quickstart/10library/01import-and-use"]],
@@ -91,9 +95,26 @@ const sections: Section[] = [
     ] },
 ];
 
-function navigation(locale: 'zh' | 'en'): DefaultTheme.SidebarItem[] {
+const examples: Section[] = [
+    { text: ["MCFPP 示例", "MCFPP Examples"], collapsed: false, items: [
+        ["运行示例", "Run the examples", "examples/"],
+        ["01 · 范围、递归与浮点数", "01 · Ranges, recursion and floats", "examples/01-language-basics"],
+        ["02 · 给坐标加上名字", "02 · Give a position a name", "examples/02-data-models"],
+        ["03 · 用集合回调结算奖励", "03 · Calculate rewards with collection callbacks", "examples/03-functions-collections"],
+        ["04 · 从聊天组件到计分板命令", "04 · From chat components to scoreboard commands", "examples/04-text-commands"],
+        ["05 · 复制 NBT 地址", "05 · Copy an NBT address", "examples/05-score-nbt"],
+        ["06 · 分别修改两个展示实体", "06 · Change one of two display entities", "examples/06-entities-context"],
+        ["07 · 逐 tick 播放弹跳动画", "07 · Animate a bouncing display", "examples/07-display-animation"],
+        ["08 · 让进度奖励调用 MCFPP", "08 · Call MCFPP from an advancement reward", "examples/08-vanilla-resources"],
+        ["09 · 在递归调用中观察局部变量", "09 · Inspect locals during a recursive call", "examples/09-tests-debugger"],
+        ["10 · 用 Kotlin 展开带回调的宏", "10 · Expand a callback macro with Kotlin", "examples/10-kotlin-mni"],
+        ["11 · 沿着符号跨文件导航", "11 · Follow a symbol across files", "examples/11-editor-tour"],
+    ] },
+];
+
+function navigation(locale: 'zh' | 'en', groups = sections): DefaultTheme.SidebarItem[] {
     const index = locale === 'zh' ? 0 : 1;
-    return sections.map(section => ({
+    return groups.map(section => ({
         text: section.text[index],
         collapsed: section.collapsed,
         items: section.items.map(([zh, en, path]) => ({
@@ -109,6 +130,8 @@ const en = navigation('en');
 export const sidebar: DefaultTheme.Sidebar = {
     '/zh/quickstart/': zh,
     '/zh/api/': zh,
+    '/zh/examples/': navigation('zh', examples),
     '/en/quickstart/': en,
     '/en/api/': en,
+    '/en/examples/': navigation('en', examples),
 };

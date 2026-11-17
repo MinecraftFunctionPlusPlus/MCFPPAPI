@@ -11,14 +11,14 @@ An MCFPP project contains configuration, source code, and resources. The IDEA wi
 1. Install the MCFPP plugin.
 2. Select **File → New → Project → MCFPP**.
 3. Enter the name and directory.
-4. Select JDK 21.
+4. Select JDK 25.
 5. Wait for synchronization.
 6. Open `src/main/mcfpp/main.mcfpp`.
 7. Select **MCFPP → Build** in the right tool window.
 
 Select **MCFPP MNI** for a project with Kotlin extensions. See [MNI introduction](../11mni/01mni-framework) for the generated example.
 
-The plugin includes matching CLI, standard library, language server, and formatting tools. JDK 21 runs the compiler and MNI build. Node.js 20 or later runs the formatting service. Configure paths in **Settings → Tools → MCFPP**.
+The plugin includes matching CLI, standard library, language server, and formatting tools. JDK 25 runs the compiler and MNI build. Node.js 20 or later runs the formatting service. Configure paths in **Settings → Tools → MCFPP**.
 
 ## Create a project with the CLI
 
